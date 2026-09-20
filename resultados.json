@@ -1,0 +1,50 @@
+[
+  {
+    "loteria": "Lotto Activo",
+    "hora": "07:00 PM",
+    "numero": "19",
+    "animal": "Chivo"
+  },
+  {
+    "loteria": "La Granjita",
+    "hora": "07:00 PM",
+    "numero": "29",
+    "animal": "Elefante"
+  },
+  {
+    "loteria": "Ruleta Activa",
+    "hora": "07:00 PM",
+    "numero": "06",
+    "animal": "Animal"
+  },
+  {
+    "loteria": "Lotto Rey",
+    "hora": "07:00 PM",
+    "numero": "15",
+    "animal": "Zorro"
+  },
+  {
+    "loteria": "Lotto Activo RD",
+    "hora": "07:00 PM",
+    "numero": "14",
+    "animal": "Paloma"
+  },
+  {
+    "loteria": "Granjita Plus",
+    "hora": "07:00 PM",
+    "numero": "12",
+    "animal": "Caballo"
+  },
+  {
+    "loteria": "Ruleta Royal",
+    "hora": "07:00 PM",
+    "numero": "04",
+    "animal": "Animal"
+  },
+  {
+    "loteria": "Guácharo Activo",
+    "hora": "07:00 PM",
+    "numero": "23",
+    "animal": "Cebra"
+  }
+]
