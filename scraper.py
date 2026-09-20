@@ -2,17 +2,27 @@ import json
 from datetime import datetime
 
 nombres_animales = {
-    "00": "Delfín", "0": "Delfín", "1": "Carnero", "2": "Toro", "3": "Ciempiés", "4": "Escorpión",
-    "5": "León", "6": "Rana", "7": "Perico", "8": "Ratón", "9": "Águila", "10": "Tigre",
-    "11": "Gato", "12": "Caballo", "13": "Mono", "14": "Paloma", "15": "Zorro", "16": "Oso",
-    "17": "Pavo", "18": "Burro", "19": "Chivo", "20": "Cochino", "21": "Gallo", "22": "Camello",
-    "23": "Cebra", "24": "Iguana", "25": "Gallina", "26": "Vaca", "27": "Perro", "28": "Zamuro",
-    "29": "Elefante", "30": "Caimán", "31": "Lapa", "32": "Ardilla", "33": "Pescado", "34": "Venado",
-    "35": "Jirafa", "36": "Culebra", "37": "Abeja", "38": "Erizo", "39": "Flamenco", "40": "Foca",
-    "41": "Canguro", "42": "Perezoso", "43": "Zorrillo", "44": "Nutria", "45": "Tejón", "46": "Mamut",
-    "47": "Dodo", "48": "Pavo Real", "49": "Búho", "50": "Murciélago", "51": "Medusa", "52": "Pulpo",
-    "53": "Langosta", "54": "Cangrejo", "55": "Ostra", "56": "Mariposa", "57": "Hormiga", "58": "Mariquita",
-    "59": "Grillo", "60": "Araña"
+    "00": "Delfín", "0": "Delfín",
+    "1": "Carnero", "01": "Carnero",
+    "2": "Toro", "02": "Toro",
+    "3": "Ciempiés", "03": "Ciempiés",
+    "4": "Escorpión", "04": "Escorpión",
+    "5": "León", "05": "León",
+    "6": "Rana", "06": "Rana",
+    "7": "Perico", "07": "Perico",
+    "8": "Ratón", "08": "Ratón",
+    "9": "Águila", "09": "Águila",
+    "10": "Tigre", "11": "Gato", "12": "Caballo", "13": "Mono", "14": "Paloma",
+    "15": "Zorro", "16": "Oso", "17": "Pavo", "18": "Burro", "19": "Chivo",
+    "20": "Cochino", "21": "Gallo", "22": "Camello", "23": "Cebra", "24": "Iguana",
+    "25": "Gallina", "26": "Vaca", "27": "Perro", "28": "Zamuro", "29": "Elefante",
+    "30": "Caimán", "31": "Lapa", "32": "Ardilla", "33": "Pescado", "34": "Venado",
+    "35": "Jirafa", "36": "Culebra", "37": "Abeja", "38": "Erizo", "39": "Flamenco",
+    "40": "Foca", "41": "Canguro", "42": "Perezoso", "43": "Zorrillo", "44": "Nutria",
+    "45": "Tejón", "46": "Mamut", "47": "Dodo", "48": "Pavo Real", "49": "Búho",
+    "50": "Murciélago", "51": "Medusa", "52": "Pulpo", "53": "Langosta", "54": "Cangrejo",
+    "55": "Ostra", "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo",
+    "60": "Araña"
 }
 
 def generar_resultados():
