@@ -1,50 +1,38 @@
 [
   {
     "loteria": "Lotto Activo",
-    "hora": "07:00 PM",
-    "numero": "36",
-    "animal": "Culebra"
+    "hora": "08:00 AM",
+    "numero": "10",
+    "animal": "Tigre"
+  },
+  {
+    "loteria": "Lotto Activo",
+    "hora": "09:00 AM",
+    "numero": "12",
+    "animal": "Caballo"
+  },
+  {
+    "loteria": "Lotto Activo",
+    "hora": "10:00 AM",
+    "numero": "05",
+    "animal": "León"
   },
   {
     "loteria": "La Granjita",
-    "hora": "07:00 PM",
-    "numero": "34",
-    "animal": "Venado"
+    "hora": "08:00 AM",
+    "numero": "06",
+    "animal": "Rana"
   },
   {
-    "loteria": "Ruleta Activa",
-    "hora": "07:00 PM",
-    "numero": "17",
-    "animal": "Pavo"
+    "loteria": "La Granjita",
+    "hora": "09:00 AM",
+    "numero": "19",
+    "animal": "Chivo"
   },
   {
-    "loteria": "Lotto Rey",
-    "hora": "07:00 PM",
-    "numero": "08",
-    "animal": "Ratón"
-  },
-  {
-    "loteria": "Lotto Activo RD",
-    "hora": "07:00 PM",
+    "loteria": "La Granjita",
+    "hora": "10:00 AM",
     "numero": "24",
     "animal": "Iguana"
-  },
-  {
-    "loteria": "Granjita Plus",
-    "hora": "07:00 PM",
-    "numero": "58",
-    "animal": "Mariquita"
-  },
-  {
-    "loteria": "Ruleta Royal",
-    "hora": "07:00 PM",
-    "numero": "21",
-    "animal": "Gallo"
-  },
-  {
-    "loteria": "Guácharo Activo",
-    "hora": "07:00 PM",
-    "numero": "33",
-    "animal": "Pescado"
   }
 ]
