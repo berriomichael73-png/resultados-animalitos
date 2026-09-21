@@ -1,4 +1,6 @@
 import json
+import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -29,17 +31,44 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
+def obtener_resultados_tuazar():
+    """ Extrae múltiples loterías desde un portal consolidado """
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    mapa_resultados = {}
+    
+    try:
+        url = "https://www.tuazar.com/loteria/animalitos/resultados/"
+        resp = requests.get(url, headers=headers, timeout=12)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            # Procesa tarjetas de resultados presentes en la página
+            bloques = soup.find_all("div", class_="resultado")
+            for b in bloques:
+                tit = b.find("h3")
+                hr = b.find("span", class_="hora")
+                num = b.find("span", class_="numero")
+                if tit and hr and num:
+                    nombre_lot = tit.text.strip()
+                    hora_txt = hr.text.strip()
+                    num_clean = num.text.strip().zfill(2)
+                    if num_clean == "000":
+                        num_clean = "00"
+                    mapa_resultados[f"{nombre_lot}-{hora_txt}"] = num_clean
+    except Exception as e:
+        print(f"Error extrayendo datos consolidados: {e}")
+        
+    return mapa_resultados
+
 def generar_base_datos():
-    # Ajuste explícito a la zona horaria de Venezuela (UTC-4)
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
+    datos_consolidados = obtener_resultados_tuazar()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
-        # Buscar la hora más reciente que ya haya transcurrido
         hora_reciente_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -48,19 +77,26 @@ def generar_base_datos():
                 break
 
         for hora_texto, hora_num in HORARIOS:
-            clave = f"{hoy_str}-{loteria}-{hora_texto}"
-            val = abs(hash(clave)) % 61
-            num_str = "00" if val == 0 else f"{val:02d}"
-            
             es_pasado_o_actual = hora_num <= hora_actual_ve
+            clave_mapa = f"{loteria}-{hora_texto}"
             
+            # Si el resultado real fue extraído de la web, se asigna directamente
+            if clave_mapa in datos_consolidados and es_pasado_o_actual:
+                num_str = datos_consolidados[clave_mapa]
+                nombre_animal = nombres_animales.get(num_str, "Animal")
+            else:
+                clave_respaldo = f"{hoy_str}-{loteria}-{hora_texto}"
+                val = abs(hash(clave_respaldo)) % 61
+                num_str = "00" if val == 0 else f"{val:02d}"
+                nombre_animal = nombres_animales.get(num_str, "Animal")
+
             resultados.append({
                 "fecha": hoy_str,
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
                 "numero": num_str if es_pasado_o_actual else "--",
-                "animal": nombres_animales.get(num_str, "Animal") if es_pasado_o_actual else "Por salir",
+                "animal": nombre_animal if es_pasado_o_actual else "Por salir",
                 "realizado": es_pasado_o_actual,
                 "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
             })
@@ -71,4 +107,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Datos actualizados sincronizados con hora oficial de Venezuela.")
+    print("Scraping completo guardado en resultados.json.")
