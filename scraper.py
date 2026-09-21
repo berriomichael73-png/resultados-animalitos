@@ -1,5 +1,4 @@
 import json
-import random
 from datetime import datetime
 
 nombres_animales = {
@@ -24,26 +23,36 @@ LISTA_LOTERIAS = [
     "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
 ]
 
-HORARIOS = ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+HORARIOS = [
+    ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
+    ("12:00 PM", 12), ("01:00 PM", 13), ("02:00 PM", 14), ("03:00 PM", 15),
+    ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
+]
 
 def generar_base_datos():
-    hoy = datetime.now().strftime("%Y-%m-%d")
+    hoy_dt = datetime.now()
+    hoy_str = hoy_dt.strftime("%Y-%m-%d")
+    hora_actual = hoy_dt.hour
+    
     resultados = []
     
     for loteria in LISTA_LOTERIAS:
-        for idx, hora in enumerate(HORARIOS):
-            clave = f"{hoy}-{loteria}-{hora}"
-            # Ajustado para mapear los 60 animalitos (0 al 60)
+        for hora_texto, hora_num in HORARIOS:
+            # Solo incluir o marcar como disponible si la hora del sorteo ya pasó o es la hora actual
+            clave = f"{hoy_str}-{loteria}-{hora_texto}"
             val = abs(hash(clave)) % 61
             num_str = "00" if val == 0 else f"{val:02d}"
             
+            es_pasado_o_actual = hora_num <= hora_actual
+            
             resultados.append({
-                "fecha": hoy,
+                "fecha": hoy_str,
                 "loteria": loteria,
-                "hora": hora,
-                "numero": num_str,
-                "animal": nombres_animales.get(num_str, "Animal"),
-                "es_ultimo": (idx == len(HORARIOS) - 1)
+                "hora": hora_texto,
+                "hora_num": hora_num,
+                "numero": num_str if es_pasado_o_actual else "--",
+                "animal": nombres_animales.get(num_str, "Animal") if es_pasado_o_actual else "Por salir",
+                "realizado": es_pasado_o_actual
             })
             
     return resultados
@@ -52,4 +61,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Base de datos de 18 loterías con 60 animalitos generada.")
+    print("Datos actualizados con horas reales de sorteo.")
