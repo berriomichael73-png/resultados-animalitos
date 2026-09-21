@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
     "00": "Delfín", "0": "Delfín", "1": "Carnero", "01": "Carnero", "2": "Toro", "02": "Toro",
@@ -30,20 +30,29 @@ HORARIOS = [
 ]
 
 def generar_base_datos():
-    hoy_dt = datetime.now()
+    # Ajuste explícito a la zona horaria de Venezuela (UTC-4)
+    tz_ve = timezone(timedelta(hours=-4))
+    hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
-    hora_actual = hoy_dt.hour
-    
+    hora_actual_ve = hoy_dt.hour
+
     resultados = []
-    
+
     for loteria in LISTA_LOTERIAS:
+        # Buscar la hora más reciente que ya haya transcurrido
+        hora_reciente_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
-            # Solo incluir o marcar como disponible si la hora del sorteo ya pasó o es la hora actual
+            if hora_num <= hora_actual_ve:
+                hora_reciente_str = hora_texto
+            else:
+                break
+
+        for hora_texto, hora_num in HORARIOS:
             clave = f"{hoy_str}-{loteria}-{hora_texto}"
             val = abs(hash(clave)) % 61
             num_str = "00" if val == 0 else f"{val:02d}"
             
-            es_pasado_o_actual = hora_num <= hora_actual
+            es_pasado_o_actual = hora_num <= hora_actual_ve
             
             resultados.append({
                 "fecha": hoy_str,
@@ -52,13 +61,14 @@ def generar_base_datos():
                 "hora_num": hora_num,
                 "numero": num_str if es_pasado_o_actual else "--",
                 "animal": nombres_animales.get(num_str, "Animal") if es_pasado_o_actual else "Por salir",
-                "realizado": es_pasado_o_actual
+                "realizado": es_pasado_o_actual,
+                "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
             })
-            
+
     return resultados
 
 if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Datos actualizados con horas reales de sorteo.")
+    print("Datos actualizados sincronizados con hora oficial de Venezuela.")
