@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -24,9 +24,9 @@
     "loteria": "Lotto Activo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -34,9 +34,9 @@
     "loteria": "Lotto Activo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -44,9 +44,9 @@
     "loteria": "Lotto Activo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -54,9 +54,9 @@
     "loteria": "Lotto Activo",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -64,9 +64,9 @@
     "loteria": "Lotto Activo",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -124,9 +124,9 @@
     "loteria": "La Granjita",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -134,9 +134,9 @@
     "loteria": "La Granjita",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -144,9 +144,9 @@
     "loteria": "La Granjita",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -154,9 +154,9 @@
     "loteria": "La Granjita",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -164,9 +164,9 @@
     "loteria": "La Granjita",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -174,9 +174,9 @@
     "loteria": "La Granjita",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -184,9 +184,9 @@
     "loteria": "La Granjita",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -244,9 +244,9 @@
     "loteria": "Ruleta Activa",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -254,9 +254,9 @@
     "loteria": "Ruleta Activa",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -264,9 +264,9 @@
     "loteria": "Ruleta Activa",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -274,9 +274,9 @@
     "loteria": "Ruleta Activa",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -284,9 +284,9 @@
     "loteria": "Ruleta Activa",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -294,9 +294,9 @@
     "loteria": "Ruleta Activa",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -304,9 +304,9 @@
     "loteria": "Ruleta Activa",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -974,9 +974,9 @@
     "loteria": "Selva Plus",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -984,9 +984,9 @@
     "loteria": "Selva Plus",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -994,9 +994,9 @@
     "loteria": "Selva Plus",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1004,9 +1004,9 @@
     "loteria": "Selva Plus",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1014,9 +1014,9 @@
     "loteria": "Selva Plus",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1024,9 +1024,9 @@
     "loteria": "Selva Plus",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
