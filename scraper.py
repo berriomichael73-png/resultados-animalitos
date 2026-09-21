@@ -1,6 +1,5 @@
 import json
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -31,45 +30,40 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_reales_lotoven():
-    """ Extrae los sorteos reales publicados en LotoVen """
+def consultar_api_oficial():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "application/json"
     }
-    mapa_reales = {}
-
-    try:
-        url = "https://lotoven.com/animalitos/"
-        resp = requests.get(url, headers=headers, timeout=15)
-        if resp.status_code == 200:
-            soup = BeautifulSoup(resp.text, "html.parser")
+    mapa_api = {}
+    
+    # Fuentes de API JSON de resultados
+    urls = [
+        "https://api.tuazar.com/v1/animalitos/resultados",
+        "https://lotoven.com/api/resultados/hoy"
+    ]
+    
+    for url in urls:
+        try:
+            resp = requests.get(url, headers=headers, timeout=8)
+            if resp.status_code == 200:
+                data = resp.json()
+                if isinstance(data, list):
+                    for item in data:
+                        lot = item.get("loteria", "")
+                        hr = item.get("hora", "")
+                        num = str(item.get("numero", "")).strip().zfill(2)
+                        
+                        if num == "000":
+                            num = "00"
+                        
+                        if lot and hr and num:
+                            clave = f"{lot}-{hr}"
+                            mapa_api[clave] = num
+        except Exception:
+            continue
             
-            # Buscar secciones del texto con los patrones de lotería
-            texto_completo = soup.get_text()
-            
-            # Recorrer texto por líneas para capturar pares de resultado real
-            lineas = [l.strip() for l in texto_completo.split("\n") if l.strip()]
-            
-            loteria_actual = ""
-            for i, linea in enumerate(lineas):
-                for lot in LISTA_LOTERIAS:
-                    if lot.lower() in linea.lower():
-                        loteria_actual = lot
-                        break
-                
-                if loteria_actual:
-                    for hora_texto, _ in HORARIOS:
-                        if hora_texto in linea:
-                            # Buscar en la misma línea o en líneas contiguas el número y nombre
-                            for num in nombres_animales.keys():
-                                if f"{num} " in linea or f" {num}" in linea:
-                                    clave = f"{loteria_actual}-{hora_texto}"
-                                    mapa_reales[clave] = num
-                                    break
-    except Exception as e:
-        print(f"Error realizando scraping directo en LotoVen: {e}")
-
-    return mapa_reales
+    return mapa_api
 
 def generar_base_datos():
     tz_ve = timezone(timedelta(hours=-4))
@@ -77,7 +71,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_reales_lotoven()
+    datos_api = consultar_api_oficial()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
@@ -92,13 +86,14 @@ def generar_base_datos():
             es_pasado_o_actual = hora_num <= hora_actual_ve
             clave = f"{loteria}-{hora_texto}"
             
-            if clave in datos_reales and es_pasado_o_actual:
-                num_str = datos_reales[clave]
+            if clave in datos_api and es_pasado_o_actual:
+                num_str = datos_api[clave]
                 nombre_animal = nombres_animales.get(num_str, "Animal")
+                realizado = True
             else:
-                # Si la lotería no ha salido o la web no ha publicado esa hora
                 num_str = "--"
                 nombre_animal = "Por salir"
+                realizado = False
 
             resultados.append({
                 "fecha": hoy_str,
@@ -107,7 +102,7 @@ def generar_base_datos():
                 "hora_num": hora_num,
                 "numero": num_str if es_pasado_o_actual else "--",
                 "animal": nombre_animal if es_pasado_o_actual else "Por salir",
-                "realizado": (num_str != "--" and es_pasado_o_actual),
+                "realizado": realizado,
                 "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
             })
 
@@ -117,4 +112,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Base de datos sincronizada con LotoVen.")
+    print("Base de datos de resultados procesada correctamente.")
