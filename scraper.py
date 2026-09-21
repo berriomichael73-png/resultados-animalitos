@@ -10,7 +10,11 @@ nombres_animales = {
     "14": "Paloma", "15": "Zorro", "16": "Oso", "17": "Pavo", "18": "Burro", "19": "Chivo",
     "20": "Cochino", "21": "Gallo", "22": "Camello", "23": "Cebra", "24": "Iguana", "25": "Gallina",
     "26": "Vaca", "27": "Perro", "28": "Zamuro", "29": "Elefante", "30": "Caimán", "31": "Lapa",
-    "32": "Ardilla", "33": "Pescado", "34": "Venado", "35": "Jirafa", "36": "Culebra"
+    "32": "Ardilla", "33": "Pescado", "34": "Venado", "35": "Jirafa", "36": "Culebra", "37": "Abeja",
+    "38": "Erizo", "39": "Flamenco", "40": "Foca", "41": "Canguro", "42": "Perezoso", "43": "Zorrillo",
+    "44": "Nutria", "45": "Tejón", "46": "Mamut", "47": "Dodo", "48": "Pavo Real", "49": "Búho",
+    "50": "Murciélago", "51": "Medusa", "52": "Pulpo", "53": "Langosta", "54": "Cangrejo", "55": "Ostra",
+    "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
 LISTA_LOTERIAS = [
@@ -29,7 +33,8 @@ def generar_base_datos():
     for loteria in LISTA_LOTERIAS:
         for idx, hora in enumerate(HORARIOS):
             clave = f"{hoy}-{loteria}-{hora}"
-            val = abs(hash(clave)) % 37
+            # Ajustado para mapear los 60 animalitos (0 al 60)
+            val = abs(hash(clave)) % 61
             num_str = "00" if val == 0 else f"{val:02d}"
             
             resultados.append({
@@ -47,4 +52,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Base de datos de 18 loterías con historial por hora generada.")
+    print("Base de datos de 18 loterías con 60 animalitos generada.")
