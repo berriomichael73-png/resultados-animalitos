@@ -47,53 +47,45 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_datos_descongelados():
+def extraer_resultados_unicos():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-        "Cache-Control": "no-cache",
-        "Pragma": "no-cache"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     }
-    
     mapa_resultados = {}
     session = requests.Session()
 
     for loteria_nombre, url in LOTERIAS_URLS.items():
         try:
-            timestamp = int(time.time() * 1000)
-            url_fuerza = f"{url}?_t={timestamp}"
-            resp = session.get(url_fuerza, headers=headers, timeout=12)
-            
+            resp = session.get(f"{url}?t={int(time.time())}", headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
                 
-                # Extraer bloques contenedores de cada sorteo
-                elementos = soup.find_all(["div", "tr", "li", "article"])
-                
-                for el in elementos:
-                    txt = el.get_text(" ", strip=True)
-                    
+                # Iterar individualmente por cada fila o tarjeta HTML
+                filas = soup.find_all(["tr", "div", "li"], class_=re.compile(r'result|sorteo|row|card|item', re.I))
+                if not filas:
+                    filas = soup.find_all(["tr", "div"])
+
+                for f in filas:
+                    txt = f.get_text(" ", strip=True)
                     for hora_std, _ in HORARIOS:
                         clave = f"{loteria_nombre}-{hora_std}"
                         if clave in mapa_resultados:
                             continue
                             
-                        hora_base = hora_std[:2]
-                        periodo = hora_std[-2:].lower()
+                        hora_num = hora_std[:2]
+                        hora_alt = str(int(hora_num))
                         
-                        # Detectar hora exacta en el contenedor
-                        if f"{hora_base}:00" in txt or f"{int(hora_base)}:00" in txt:
-                            # Buscar el número asociado en el texto del mismo bloque
-                            num_match = re.search(r'\b(\d{1,2})\b', txt.replace(f"{hora_base}:00", "").replace(f"{int(hora_base)}:00", ""))
-                            if num_match:
-                                num = num_match.group(1).zfill(2)
-                                if num in nombres_animales:
-                                    mapa_resultados[clave] = num
-            
-            time.sleep(0.4)
-            
+                        # Evaluar coincidencia de hora en la fila actual
+                        if f"{hora_num}:00" in txt or f"{hora_alt}:00" in txt:
+                            # Extraer número exacto asociado al nombre de animalito en esa fila
+                            for num_str, anim_nombre in nombres_animales.items():
+                                if anim_nombre.lower() in txt.lower():
+                                    mapa_resultados[clave] = num_str.zfill(2)
+                                    break
+
+            time.sleep(0.3)
         except Exception as e:
-            print(f"Error forzando lectura de {loteria_nombre}: {e}")
+            print(f"Error procesando {loteria_nombre}: {e}")
 
     return mapa_resultados
 
@@ -103,7 +95,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_datos_descongelados()
+    datos_reales = extraer_resultados_unicos()
     resultados = []
 
     for loteria in LOTERIAS_URLS.keys():
@@ -144,4 +136,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización sin congelamiento completada.")
+    print("Corrección de repetición completada.")
