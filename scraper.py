@@ -19,27 +19,12 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Mapeo de loterías a las URLs directas de Parley.la
-LOTERIAS_PARLEY = {
-    "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
-    "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
-    "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://m.parley.la/resultados/resultados-lotto-rey",
-    "Lotto Activo RD": "https://m.parley.la/resultados/resultados-lotto-activo-rd",
-    "Granjita Plus": "https://m.parley.la/resultados/resultados-la-granjita-plus",
-    "Ruleta Royal": "https://m.parley.la/resultados/resultados-ruleta-royal",
-    "Guácharo Activo": "https://m.parley.la/resultados/resultados-el-guacharo-activo",
-    "Selva Plus": "https://m.parley.la/resultados/resultados-selva-plus",
-    "Chance Animal": "https://m.parley.la/resultados/resultados-chance-animal",
-    "Tropi Gana": "https://m.parley.la/resultados/resultados-tropigana",
-    "Lotto Zoo": "https://m.parley.la/resultados/resultados-lotto-zoo",
-    "Tropicana Animal": "https://m.parley.la/resultados/resultados-tropicana-animal",
-    "Gana Animalito": "https://m.parley.la/resultados/resultados-gana-animalito",
-    "Súper Gana": "https://m.parley.la/resultados/resultados-super-gana",
-    "Sorteo VIP": "https://m.parley.la/resultados/resultados-sorteo-vip",
-    "Animalitos Millonarios": "https://m.parley.la/resultados/resultados-animalitos-millonarios",
-    "Lotto Venezuela": "https://m.parley.la/resultados/resultados-lotto-venezuela"
-}
+LISTA_LOTERIAS = [
+    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
+    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
+    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
+    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
+]
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -47,32 +32,36 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_resultados_parley():
+def extraer_todas_las_loterias_tuazar():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
 
-    for loteria_nombre, url in LOTERIAS_PARLEY.items():
-        try:
-            resp = requests.get(url, headers=headers, timeout=8)
-            if resp.status_code == 200:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                texto_pagina = soup.get_text()
-
-                # Busca patrones de texto oficiales como "08:00 am. Fecha: ... 18 BURRO" o "09:00 am ... 10 TIGRE"
-                for hora_texto, _ in HORARIOS:
-                    hora_clean = hora_texto.lower()
-                    # Expresión para capturar el número que sigue a la hora
-                    patron = re.compile(rf'{hora_clean}.*?(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', re.IGNORECASE | re.DOTALL)
-                    match = patron.search(texto_pagina)
-                    
-                    if match:
-                        num_found = match.group(1).zfill(2)
-                        clave = f"{loteria_nombre}-{hora_texto}"
-                        mapa_resultados[clave] = num_found
-        except Exception as e:
-            print(f"Error procesando {loteria_nombre} en Parley: {e}")
+    try:
+        url = "https://tuazar.com/loteria/animalitos/"
+        resp = requests.get(url, headers=headers, timeout=12)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            
+            # Buscar cada sección o contenedor por lotería
+            bloques = soup.find_all(["div", "article", "table", "section"])
+            for b in bloques:
+                texto_block = b.get_text(" ", strip=True)
+                
+                for loteria in LISTA_LOTERIAS:
+                    if loteria.lower() in texto_block[:80].lower():
+                        for hora_texto, _ in HORARIOS:
+                            # Patrón para identificar número y hora dentro del bloque de cada lotería
+                            patron = re.compile(rf'(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+).*?({re.escape(hora_texto)})', re.IGNORECASE)
+                            match = patron.search(texto_block)
+                            if match:
+                                num_found = match.group(1).zfill(2)
+                                clave = f"{loteria}-{hora_texto}"
+                                if clave not in mapa_resultados:
+                                    mapa_resultados[clave] = num_found
+    except Exception as e:
+        print(f"Error procesando TuAzar: {e}")
 
     return mapa_resultados
 
@@ -82,10 +71,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_parley()
+    datos_reales = extraer_todas_las_loterias_tuazar()
     resultados = []
 
-    for loteria in LOTERIAS_PARLEY.keys():
+    for loteria in LISTA_LOTERIAS:
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -123,4 +112,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización con Parley.la finalizada correctamente.")
+    print("Sincronización total de las 18 loterías completada.")
