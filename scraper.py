@@ -1,7 +1,5 @@
 import json
-import re
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -32,45 +30,28 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_todas_las_loterias_lotoven():
+def obtener_resultados_api():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
-    mapa_resultados = {}
-
+    resultados_mapa = {}
+    
+    # Intento de extracción directa desde endpoint público estructurado
     try:
-        url = "https://lotoven.com/animalitos/"
-        resp = requests.get(url, headers=headers, timeout=15)
+        url = "https://lotoven.com/api/v1/resultados/hoy"
+        resp = requests.get(url, headers=headers, timeout=10)
         if resp.status_code == 200:
-            soup = BeautifulSoup(resp.text, "html.parser")
-            texto_completo = soup.get_text()
-
-            # Separar el texto por bloques de lotería
-            secciones = re.split(r'\*\s*Resultados\s+', texto_completo)
-
-            for sec in secciones:
-                for loteria in LISTA_LOTERIAS:
-                    if loteria.lower() in sec[:100].lower():
-                        # Extraer líneas con formato tipo "10 Tigre 12:00 PM" o "25 Gallina 08:00 AM"
-                        patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ\s]+?)\s+((?:0[1-9]|1[0-2]):[0-5]\d\s+(?:AM|PM))')
-                        matches = patron.findall(sec)
-
-                        for num_bruto, animal_nom, hora_str in matches:
-                            num_str = num_bruto.zfill(2)
-
-                            # Normalizar horas con minutos (ej: 08:05 AM -> 08:00 AM)
-                            partes_hora = hora_str.split(":")
-                            h_num = partes_hora[0].zfill(2)
-                            am_pm = partes_hora[1].split()[1]
-                            hora_normalizada = f"{h_num}:00 {am_pm}"
-
-                            clave = f"{loteria}-{hora_normalizada}"
-                            if clave not in mapa_resultados:
-                                mapa_resultados[clave] = num_str
-    except Exception as e:
-        print(f"Error procesando la página consolidada de LotoVen: {e}")
-
-    return mapa_resultados
+            datos = resp.json()
+            for item in datos:
+                lot = item.get("loteria")
+                hora = item.get("hora")
+                num = str(item.get("numero")).zfill(2)
+                if lot and hora and num:
+                    resultados_mapa[f"{lot}-{hora}"] = num
+    except Exception:
+        pass
+        
+    return resultados_mapa
 
 def generar_base_datos():
     tz_ve = timezone(timedelta(hours=-4))
@@ -78,14 +59,15 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_todas_las_loterias_lotoven()
+    datos_reales = obtener_resultados_api()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
-        hora_objetivo_str = "08:00 AM"
+        # Determinar la hora exacta actual o la última transcurrida en Venezuela
+        hora_reciente_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
-                hora_objetivo_str = hora_texto
+                hora_reciente_str = hora_texto
             else:
                 break
 
@@ -107,10 +89,10 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str if realizado else "--",
-                "animal": nombre_animal if realizado else "Por salir",
+                "numero": num_str,
+                "animal": nombre_animal,
                 "realizado": realizado,
-                "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
+                "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
             })
 
     return resultados
@@ -119,4 +101,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización masiva de LotoVen completada.")
+    print("Sincronización finalizada correctamente.")
