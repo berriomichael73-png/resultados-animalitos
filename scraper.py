@@ -19,13 +19,13 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Mapa de URLs directas para cada lotería oficial en LotoVen
+# Mapa de URLs directas corregidas para LotoVen
 LOTERIAS_URLS = {
     "Lotto Activo": "https://lotoven.com/animalito/lottoactivo/resultados/",
     "La Granjita": "https://lotoven.com/animalito/lagranjita/resultados/",
     "Ruleta Activa": "https://lotoven.com/animalito/ruletaactiva/resultados/",
     "Lotto Rey": "https://lotoven.com/animalito/lottorey/resultados/",
-    "Lotto Activo RD": "https://lotoven.com/animalito/lottoactivord/resultados/",
+    "Lotto Activo RD": "https://lotoven.com/animalito/lottoactivordint/resultados/",
     "Granjita Plus": "https://lotoven.com/animalito/granjitaplus/resultados/",
     "Ruleta Royal": "https://lotoven.com/animalito/ruletaroyal/resultados/",
     "Guácharo Activo": "https://lotoven.com/animalito/guacharoactivo/resultados/",
@@ -47,7 +47,7 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_especificos():
+def obtener_resultados_flexibles():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
@@ -55,21 +55,23 @@ def obtener_resultados_especificos():
 
     for nombre_loteria, url in LOTERIAS_URLS.items():
         try:
-            resp = requests.get(url, headers=headers, timeout=8)
+            resp = requests.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                texto_pagina = soup.get_text()
+                texto_limpio = soup.get_text()
 
-                # Busca patrones de texto tipo "32 Ardilla 08:00 AM" o "10 Tigre 12:00 PM"
-                for hora_texto, _ in HORARIOS:
-                    patron = re.compile(rf'(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)\s+{re.escape(hora_texto)}')
-                    match = patron.search(texto_pagina)
-                    if match:
-                        num_str = match.group(1).zfill(2)
-                        clave = f"{nombre_loteria}-{hora_texto}"
+                # Busca patrones del tipo "30 Caiman ... 08:00 AM" o "12 Caballo ... 10:00 AM"
+                patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+).*?((?:0[1-9]|1[0-2]):00\s+(?:AM|PM))', re.DOTALL)
+                coincidencias = patron.findall(texto_limpio)
+
+                for match in coincidencias:
+                    num_bruto, animal_nom, hora_str = match
+                    num_str = num_bruto.zfill(2)
+                    clave = f"{nombre_loteria}-{hora_str}"
+                    if clave not in mapa_resultados:
                         mapa_resultados[clave] = num_str
         except Exception as e:
-            print(f"Error procesando {nombre_loteria}: {e}")
+            print(f"Error parseando {nombre_loteria}: {e}")
 
     return mapa_resultados
 
@@ -79,10 +81,11 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_especificos()
+    datos_reales = obtener_resultados_flexibles()
     resultados = []
 
     for loteria in LOTERIAS_URLS.keys():
+        # Calcular la hora más reciente según la hora venezolana
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -120,4 +123,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización multi-página completada.")
+    print("Base de datos procesada exitosamente.")
