@@ -1,5 +1,6 @@
 import json
 import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -30,40 +31,35 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def consultar_api_oficial():
+def obtener_resultados_lotoven():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept": "application/json"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
-    mapa_api = {}
+    mapa_resultados = {}
     
-    # Fuentes de API JSON de resultados
-    urls = [
-        "https://api.tuazar.com/v1/animalitos/resultados",
-        "https://lotoven.com/api/resultados/hoy"
-    ]
-    
-    for url in urls:
-        try:
-            resp = requests.get(url, headers=headers, timeout=8)
-            if resp.status_code == 200:
-                data = resp.json()
-                if isinstance(data, list):
-                    for item in data:
-                        lot = item.get("loteria", "")
-                        hr = item.get("hora", "")
-                        num = str(item.get("numero", "")).strip().zfill(2)
-                        
-                        if num == "000":
-                            num = "00"
-                        
-                        if lot and hr and num:
-                            clave = f"{lot}-{hr}"
-                            mapa_api[clave] = num
-        except Exception:
-            continue
+    try:
+        url = "https://lotoven.com/"
+        resp = requests.get(url, headers=headers, timeout=12)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
             
-    return mapa_api
+            # Buscar contenedores de resultados por lotería y hora
+            elementos = soup.find_all(["div", "tr", "td"], class_=lambda c: c and ("resultado" in c or "item" in c or "sorteo" in c))
+            for elem in elementos:
+                texto = elem.get_text(separator=" ").strip()
+                for lot in LISTA_LOTERIAS:
+                    if lot.lower() in texto.lower():
+                        for hora_texto, _ in HORARIOS:
+                            if hora_texto in texto:
+                                for num in nombres_animales.keys():
+                                    if f" {num} " in f" {texto} " or f"-{num}-" in texto:
+                                        clave = f"{lot}-{hora_texto}"
+                                        mapa_resultados[clave] = num
+                                        break
+    except Exception as e:
+        print(f"Error parseando lotoven.com: {e}")
+        
+    return mapa_resultados
 
 def generar_base_datos():
     tz_ve = timezone(timedelta(hours=-4))
@@ -71,14 +67,15 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_api = consultar_api_oficial()
+    datos_reales = obtener_resultados_lotoven()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
-        hora_reciente_str = "08:00 AM"
+        # Determinar la hora correspondiente según la hora actual venezolana
+        hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
-                hora_reciente_str = hora_texto
+                hora_objetivo_str = hora_texto
             else:
                 break
 
@@ -86,8 +83,8 @@ def generar_base_datos():
             es_pasado_o_actual = hora_num <= hora_actual_ve
             clave = f"{loteria}-{hora_texto}"
             
-            if clave in datos_api and es_pasado_o_actual:
-                num_str = datos_api[clave]
+            if clave in datos_reales and es_pasado_o_actual:
+                num_str = datos_reales[clave]
                 nombre_animal = nombres_animales.get(num_str, "Animal")
                 realizado = True
             else:
@@ -100,10 +97,10 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str if es_pasado_o_actual else "--",
-                "animal": nombre_animal if es_pasado_o_actual else "Por salir",
+                "numero": num_str,
+                "animal": nombre_animal,
                 "realizado": realizado,
-                "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
+                "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
             })
 
     return resultados
@@ -112,4 +109,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Base de datos de resultados procesada correctamente.")
+    print("Sincronización completada con éxito.")
