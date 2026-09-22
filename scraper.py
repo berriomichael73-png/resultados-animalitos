@@ -19,12 +19,27 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LISTA_LOTERIAS = [
-    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
-    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
-    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
-    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
-]
+# Mapa de URLs directas para cada lotería oficial en LotoVen
+LOTERIAS_URLS = {
+    "Lotto Activo": "https://lotoven.com/animalito/lottoactivo/resultados/",
+    "La Granjita": "https://lotoven.com/animalito/lagranjita/resultados/",
+    "Ruleta Activa": "https://lotoven.com/animalito/ruletaactiva/resultados/",
+    "Lotto Rey": "https://lotoven.com/animalito/lottorey/resultados/",
+    "Lotto Activo RD": "https://lotoven.com/animalito/lottoactivord/resultados/",
+    "Granjita Plus": "https://lotoven.com/animalito/granjitaplus/resultados/",
+    "Ruleta Royal": "https://lotoven.com/animalito/ruletaroyal/resultados/",
+    "Guácharo Activo": "https://lotoven.com/animalito/guacharoactivo/resultados/",
+    "Selva Plus": "https://lotoven.com/animalito/selvaplus/resultados/",
+    "Chance Animal": "https://lotoven.com/animalito/chanceanimal/resultados/",
+    "Tropi Gana": "https://lotoven.com/animalito/tropigana/resultados/",
+    "Lotto Zoo": "https://lotoven.com/animalito/lottozoo/resultados/",
+    "Tropicana Animal": "https://lotoven.com/animalito/tropicanaanimal/resultados/",
+    "Gana Animalito": "https://lotoven.com/animalito/ganaanimalito/resultados/",
+    "Súper Gana": "https://lotoven.com/animalito/supergana/resultados/",
+    "Sorteo VIP": "https://lotoven.com/animalito/sorteovip/resultados/",
+    "Animalitos Millonarios": "https://lotoven.com/animalito/animalitosmillonarios/resultados/",
+    "Lotto Venezuela": "https://lotoven.com/animalito/lottovenezuela/resultados/"
+}
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -32,38 +47,31 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_datos_oficiales_lotoven():
+def obtener_resultados_especificos():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
-    mapa_extraido = {}
+    mapa_resultados = {}
 
-    try:
-        url = "https://lotoven.com/animalitos/"
-        resp = requests.get(url, headers=headers, timeout=15)
-        if resp.status_code == 200:
-            soup = BeautifulSoup(resp.text, "html.parser")
-            texto_bruto = soup.get_text()
+    for nombre_loteria, url in LOTERIAS_URLS.items():
+        try:
+            resp = requests.get(url, headers=headers, timeout=8)
+            if resp.status_code == 200:
+                soup = BeautifulSoup(resp.text, "html.parser")
+                texto_pagina = soup.get_text()
 
-            # Patrón para identificar patrones como "10 Tigre 12:00 PM" o "30 Caiman Lotto Activo 08:00 AM"
-            patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)(?:\s+[A-Za-z\s]+)?\s+(0\d|1[0-2]):00\s+(AM|PM)')
-            coincidencias = patron.findall(texto_bruto)
+                # Busca patrones de texto tipo "32 Ardilla 08:00 AM" o "10 Tigre 12:00 PM"
+                for hora_texto, _ in HORARIOS:
+                    patron = re.compile(rf'(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)\s+{re.escape(hora_texto)}')
+                    match = patron.search(texto_pagina)
+                    if match:
+                        num_str = match.group(1).zfill(2)
+                        clave = f"{nombre_loteria}-{hora_texto}"
+                        mapa_resultados[clave] = num_str
+        except Exception as e:
+            print(f"Error procesando {nombre_loteria}: {e}")
 
-            for match in coincidencias:
-                num_bruto, animal_nom, hora_num, am_pm = match
-                num_str = num_bruto.zfill(2)
-                hora_str = f"{hora_num}:00 {am_pm}"
-
-                # Asociar el resultado a las loterías que aparezcan en la misma sección de texto
-                for loteria in LISTA_LOTERIAS:
-                    if loteria.lower() in texto_bruto.lower():
-                        clave = f"{loteria}-{hora_str}"
-                        if clave not in mapa_extraido:
-                            mapa_extraido[clave] = num_str
-    except Exception as e:
-        print(f"Error procesando LotoVen: {e}")
-
-    return mapa_extraido
+    return mapa_resultados
 
 def generar_base_datos():
     tz_ve = timezone(timedelta(hours=-4))
@@ -71,11 +79,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_datos_oficiales_lotoven()
+    datos_reales = obtener_resultados_especificos()
     resultados = []
 
-    for loteria in LISTA_LOTERIAS:
-        # Calcular la hora más reciente según la hora local de Venezuela
+    for loteria in LOTERIAS_URLS.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -113,4 +120,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Scraping ejecutado y guardado en resultados.json.")
+    print("Sincronización multi-página completada.")
