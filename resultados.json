@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -124,9 +124,9 @@
     "loteria": "La Granjita",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -134,9 +134,9 @@
     "loteria": "La Granjita",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -244,9 +244,9 @@
     "loteria": "Ruleta Activa",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -254,9 +254,9 @@
     "loteria": "Ruleta Activa",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -364,9 +364,9 @@
     "loteria": "Lotto Rey",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -374,9 +374,9 @@
     "loteria": "Lotto Rey",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -484,9 +484,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -494,9 +494,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -964,9 +964,9 @@
     "loteria": "Selva Plus",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -974,9 +974,9 @@
     "loteria": "Selva Plus",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
