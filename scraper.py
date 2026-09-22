@@ -20,26 +20,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Las 3 principales quedan fijas en parley.la; el resto utiliza su enlace dedicado individual
+# 3 principales en parley.la; resto con URLs dedicadas en agendadeportiva.com.ve
 LOTERIAS_URLS = {
     "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
     "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
     "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://tuazar.com/loteria/animalitos/lotto-rey/resultados/",
-    "Lotto Activo RD": "https://tuazar.com/loteria/animalitos/lotto-activo-rd/resultados/",
-    "Granjita Plus": "https://tuazar.com/loteria/animalitos/la-granjita-plus/resultados/",
-    "Ruleta Royal": "https://tuazar.com/loteria/animalitos/ruleta-royal/resultados/",
-    "Guácharo Activo": "https://tuazar.com/loteria/animalitos/el-guacharo-activo/resultados/",
-    "Selva Plus": "https://tuazar.com/loteria/animalitos/selva-plus/resultados/",
-    "Chance Animal": "https://tuazar.com/loteria/animalitos/chance-animal/resultados/",
-    "Tropi Gana": "https://tuazar.com/loteria/animalitos/tropigana/resultados/",
-    "Lotto Zoo": "https://tuazar.com/loteria/animalitos/lotto-zoo/resultados/",
-    "Tropicana Animal": "https://tuazar.com/loteria/animalitos/tropicana-animal/resultados/",
-    "Gana Animalito": "https://tuazar.com/loteria/animalitos/gana-animalito/resultados/",
-    "Súper Gana": "https://tuazar.com/loteria/animalitos/super-gana/resultados/",
-    "Sorteo VIP": "https://tuazar.com/loteria/animalitos/sorteo-vip/resultados/",
-    "Animalitos Millonarios": "https://tuazar.com/loteria/animalitos/animalitos-millonarios/resultados/",
-    "Lotto Venezuela": "https://tuazar.com/loteria/animalitos/lotto-venezuela/resultados/"
+    "Lotto Rey": "https://agendadeportiva.com.ve/resultados-lotto-rey/",
+    "Lotto Activo RD": "https://agendadeportiva.com.ve/resultados-lotto-activo-rd/",
+    "Granjita Plus": "https://agendadeportiva.com.ve/resultados-la-granjita-plus/",
+    "Ruleta Royal": "https://agendadeportiva.com.ve/resultados-ruleta-royal/",
+    "Guácharo Activo": "https://agendadeportiva.com.ve/resultados-el-guacharo-activo/",
+    "Selva Plus": "https://agendadeportiva.com.ve/resultados-selva-plus/",
+    "Chance Animal": "https://agendadeportiva.com.ve/resultados-chance-animal/",
+    "Tropi Gana": "https://agendadeportiva.com.ve/resultados-tropigana/",
+    "Lotto Zoo": "https://agendadeportiva.com.ve/resultados-lotto-zoo/",
+    "Tropicana Animal": "https://agendadeportiva.com.ve/resultados-tropicana-animal/",
+    "Gana Animalito": "https://agendadeportiva.com.ve/resultados-gana-animalito/",
+    "Súper Gana": "https://agendadeportiva.com.ve/resultados-super-gana/",
+    "Sorteo VIP": "https://agendadeportiva.com.ve/resultados-sorteo-vip/",
+    "Animalitos Millonarios": "https://agendadeportiva.com.ve/resultados-animalitos-millonarios/",
+    "Lotto Venezuela": "https://agendadeportiva.com.ve/resultados-lotto-venezuela/"
 }
 
 HORARIOS = [
@@ -72,7 +72,7 @@ def extraer_resultados_por_loteria():
                 texto_pagina = soup.get_text(" ", strip=True)
 
                 for hora_texto, hora_num, patron_hora in HORARIOS:
-                    patron = re.compile(rf'({patron_hora}).*?(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', re.IGNORECASE)
+                    patron = re.compile(rf'({patron_hora}).*?\b(\d{{1,2}})\b', re.IGNORECASE)
                     match = patron.search(texto_pagina)
                     
                     if match:
@@ -135,4 +135,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización por URL dedicada completada.")
+    print("Sincronización por URLs dedicadas completada.")
