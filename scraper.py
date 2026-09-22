@@ -20,25 +20,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_URLS = {
-    "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
-    "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
-    "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://agendadeportiva.com.ve/resultados-lotto-rey/",
-    "Lotto Activo RD": "https://agendadeportiva.com.ve/resultados-lotto-activo-rd/",
-    "Granjita Plus": "https://agendadeportiva.com.ve/resultados-la-granjita-plus/",
-    "Ruleta Royal": "https://agendadeportiva.com.ve/resultados-ruleta-royal/",
-    "Guácharo Activo": "https://agendadeportiva.com.ve/resultados-el-guacharo-activo/",
-    "Selva Plus": "https://agendadeportiva.com.ve/resultados-selva-plus/",
-    "Chance Animal": "https://agendadeportiva.com.ve/resultados-chance-animal/",
-    "Tropi Gana": "https://agendadeportiva.com.ve/resultados-tropigana/",
-    "Lotto Zoo": "https://agendadeportiva.com.ve/resultados-lotto-zoo/",
-    "Tropicana Animal": "https://agendadeportiva.com.ve/resultados-tropicana-animal/",
-    "Gana Animalito": "https://agendadeportiva.com.ve/resultados-gana-animalito/",
-    "Súper Gana": "https://agendadeportiva.com.ve/resultados-super-gana/",
-    "Sorteo VIP": "https://agendadeportiva.com.ve/resultados-sorteo-vip/",
-    "Animalitos Millonarios": "https://agendadeportiva.com.ve/resultados-animalitos-millonarios/",
-    "Lotto Venezuela": "https://agendadeportiva.com.ve/resultados-lotto-venezuela/"
+# Slugs asignados para mapeo multicanal
+LOTERIAS_CONFIG = {
+    "Lotto Activo": ["lotto-activo", "lottoactivo"],
+    "La Granjita": ["la-granjita", "lagranjita"],
+    "Ruleta Activa": ["ruleta-activa", "ruletaactiva"],
+    "Lotto Rey": ["lotto-rey", "lottorey"],
+    "Lotto Activo RD": ["lotto-activo-rd", "lottoactivord"],
+    "Granjita Plus": ["la-granjita-plus", "granjitaplus"],
+    "Ruleta Royal": ["ruleta-royal", "ruletaroyal"],
+    "Guácharo Activo": ["el-guacharo-activo", "guacharo-activo"],
+    "Selva Plus": ["selva-plus", "selvaplus"],
+    "Chance Animal": ["chance-animal", "chanceanimal"],
+    "Tropi Gana": ["tropigana", "tropi-gana"],
+    "Lotto Zoo": ["lotto-zoo", "lottozoo"],
+    "Tropicana Animal": ["tropicana-animal", "tropicana"],
+    "Gana Animalito": ["gana-animalito", "ganaanimalito"],
+    "Súper Gana": ["super-gana", "supergana"],
+    "Sorteo VIP": ["sorteo-vip", "sorteovip"],
+    "Animalitos Millonarios": ["animalitos-millonarios", "millonarios"],
+    "Lotto Venezuela": ["lotto-venezuela", "lottovenezuela"]
 }
 
 HORARIOS = [
@@ -47,45 +48,77 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_resultados_unicos():
+def obtener_urls_loteria(loteria_nombre):
+    slugs = LOTERIAS_CONFIG[loteria_nombre]
+    
+    # Generar lista de fuentes secundarias y principales por lotería
+    urls = [
+        f"https://m.parley.la/resultados/resultados-{slugs[0]}",
+        f"https://agendadeportiva.com.ve/resultados-{slugs[0]}/",
+        f"https://tuazar.com/loteria/animalitos/{slugs[0]}/resultados/"
+    ]
+    return urls
+
+def buscar_estricto_en_html(soup, hora_std):
+    hora_base = hora_std[:2]
+    hora_alt = str(int(hora_base))
+    periodo = hora_std[-2:].lower()
+
+    # Buscar contenedores específicos (filas de tabla, tarjetas o elementos li)
+    elementos = soup.find_all(["tr", "div", "li", "p"])
+
+    for el in elementos:
+        texto_bloque = el.get_text(" ", strip=True).lower()
+
+        # Verificar si este bloque específico contiene la hora
+        if (f"{hora_base}:00" in texto_bloque or f"{hora_alt}:00" in texto_bloque) and (periodo in texto_bloque or "am" in texto_bloque or "pm" in texto_bloque):
+            # Buscar coincidencia estricta de Animal + Número en el mismo contenedor
+            for num_code, nombre_anim in nombres_animales.items():
+                nombre_clean = nombre_anim.lower()
+                num_clean = num_code.zfill(2)
+
+                if nombre_clean in texto_bloque:
+                    # Validar que el número también aparezca en el bloque o corresponda exactamente al animal
+                    if num_clean in texto_bloque or str(int(num_clean)) in texto_bloque:
+                        return num_clean
+
+    return None
+
+def busqueda_masiva_estricta():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Cache-Control": "no-cache"
     }
+
     mapa_resultados = {}
     session = requests.Session()
 
-    for loteria_nombre, url in LOTERIAS_URLS.items():
-        try:
-            resp = session.get(f"{url}?t={int(time.time())}", headers=headers, timeout=10)
-            if resp.status_code == 200:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                
-                # Iterar individualmente por cada fila o tarjeta HTML
-                filas = soup.find_all(["tr", "div", "li"], class_=re.compile(r'result|sorteo|row|card|item', re.I))
-                if not filas:
-                    filas = soup.find_all(["tr", "div"])
+    for loteria_nombre in LOTERIAS_CONFIG.keys():
+        urls = obtener_urls_loteria(loteria_nombre)
 
-                for f in filas:
-                    txt = f.get_text(" ", strip=True)
-                    for hora_std, _ in HORARIOS:
-                        clave = f"{loteria_nombre}-{hora_std}"
-                        if clave in mapa_resultados:
-                            continue
-                            
-                        hora_num = hora_std[:2]
-                        hora_alt = str(int(hora_num))
-                        
-                        # Evaluar coincidencia de hora en la fila actual
-                        if f"{hora_num}:00" in txt or f"{hora_alt}:00" in txt:
-                            # Extraer número exacto asociado al nombre de animalito en esa fila
-                            for num_str, anim_nombre in nombres_animales.items():
-                                if anim_nombre.lower() in txt.lower():
-                                    mapa_resultados[clave] = num_str.zfill(2)
-                                    break
+        for hora_std, _ in HORARIOS:
+            clave = f"{loteria_nombre}-{hora_std}"
+            
+            # Recorrer fuentes masivas hasta encontrar la coincidencia estricta de esa hora
+            for url in urls:
+                if clave in mapa_resultados:
+                    break
 
-            time.sleep(0.3)
-        except Exception as e:
-            print(f"Error procesando {loteria_nombre}: {e}")
+                try:
+                    url_time = f"{url}?t={int(time.time())}"
+                    resp = session.get(url_time, headers=headers, timeout=6)
+
+                    if resp.status_code == 200:
+                        soup = BeautifulSoup(resp.text, "html.parser")
+                        num_encontrado = buscar_estricto_en_html(soup, hora_std)
+
+                        if num_encontrado:
+                            mapa_resultados[clave] = num_encontrado
+
+                except Exception:
+                    continue
+
+            time.sleep(0.1)
 
     return mapa_resultados
 
@@ -95,10 +128,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_unicos()
+    datos_reales = busqueda_masiva_estricta()
     resultados = []
 
-    for loteria in LOTERIAS_URLS.keys():
+    for loteria in LOTERIAS_CONFIG.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -136,4 +169,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Corrección de repetición completada.")
+    print("Sincronización masiva y estricta completada con éxito.")
