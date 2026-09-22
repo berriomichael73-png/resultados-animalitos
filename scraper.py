@@ -20,25 +20,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_URLS = {
-    "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
-    "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
+# URLs directas de sitios oficiales y canales autorizados
+LOTERIAS_OFICIALES = {
+    "Lotto Activo": "https://www.lottoactivo.com/",
+    "La Granjita": "https://www.lagranjitaonline.com/",
     "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://agendadeportiva.com.ve/resultados-lotto-rey/",
-    "Lotto Activo RD": "https://agendadeportiva.com.ve/resultados-lotto-activo-rd/",
-    "Granjita Plus": "https://agendadeportiva.com.ve/resultados-la-granjita-plus/",
-    "Ruleta Royal": "https://agendadeportiva.com.ve/resultados-ruleta-royal/",
-    "Guácharo Activo": "https://agendadeportiva.com.ve/resultados-el-guacharo-activo/",
-    "Selva Plus": "https://agendadeportiva.com.ve/resultados-selva-plus/",
-    "Chance Animal": "https://agendadeportiva.com.ve/resultados-chance-animal/",
-    "Tropi Gana": "https://agendadeportiva.com.ve/resultados-tropigana/",
-    "Lotto Zoo": "https://agendadeportiva.com.ve/resultados-lotto-zoo/",
-    "Tropicana Animal": "https://agendadeportiva.com.ve/resultados-tropicana-animal/",
-    "Gana Animalito": "https://agendadeportiva.com.ve/resultados-gana-animalito/",
-    "Súper Gana": "https://agendadeportiva.com.ve/resultados-super-gana/",
-    "Sorteo VIP": "https://agendadeportiva.com.ve/resultados-sorteo-vip/",
-    "Animalitos Millonarios": "https://agendadeportiva.com.ve/resultados-animalitos-millonarios/",
-    "Lotto Venezuela": "https://agendadeportiva.com.ve/resultados-lotto-venezuela/"
+    "Lotto Rey": "https://lottorey.com/",
+    "Lotto Activo RD": "https://lottoactivord.com/",
+    "Granjita Plus": "https://lagranjitaplus.com/",
+    "Ruleta Royal": "https://ruletaroyal.com/",
+    "Guácharo Activo": "https://elguacharoactivo.com/",
+    "Selva Plus": "https://selvaplus.com/",
+    "Chance Animal": "https://chanceanimal.com/",
+    "Tropi Gana": "https://tropigana.com/",
+    "Lotto Zoo": "https://lottozoo.com.ve/",
+    "Tropicana Animal": "https://tropicanaanimal.com/",
+    "Gana Animalito": "https://ganaanimalito.com/",
+    "Súper Gana": "https://supergana.com.ve/",
+    "Sorteo VIP": "https://sorteovip.com/",
+    "Animalitos Millonarios": "https://animalitosmillonarios.com/",
+    "Lotto Venezuela": "https://lottovenezuela.com.ve/"
 }
 
 HORARIOS = [
@@ -47,16 +48,16 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_resultados_por_loteria():
+def extraer_resultados_oficiales():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
     session = requests.Session()
 
-    for loteria_nombre, url in LOTERIAS_URLS.items():
+    for loteria_nombre, url in LOTERIAS_OFICIALES.items():
         try:
-            resp = session.get(url, headers=headers, timeout=10)
+            resp = session.get(url, headers=headers, timeout=8)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
                 texto_pagina = soup.get_text(" ", strip=True)
@@ -64,11 +65,10 @@ def extraer_resultados_por_loteria():
                 for hora_std, _ in HORARIOS:
                     hora_simple = hora_std.replace(":00", "").lower()
                     hora_full = hora_std.lower()
-                    
-                    # Expresión regular que busca la hora seguida de un número de animalito
+
                     patron = re.compile(rf'(?:{re.escape(hora_full)}|{re.escape(hora_simple)}).*?\b(\d{{1,2}})\b', re.IGNORECASE)
                     match = patron.search(texto_pagina)
-                    
+
                     if match:
                         num_found = match.group(1).zfill(2)
                         clave = f"{loteria_nombre}-{hora_std}"
@@ -77,7 +77,7 @@ def extraer_resultados_por_loteria():
             time.sleep(0.5)
 
         except Exception as e:
-            print(f"Error omitido en {loteria_nombre}: {e}")
+            print(f"Error al consultar portal oficial de {loteria_nombre}: {e}")
 
     return mapa_resultados
 
@@ -87,10 +87,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_por_loteria()
+    datos_reales = extraer_resultados_oficiales()
     resultados = []
 
-    for loteria in LOTERIAS_URLS.keys():
+    for loteria in LOTERIAS_OFICIALES.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -128,4 +128,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización completada sin errores.")
+    print("Sincronización mediante fuentes oficiales completada.")
