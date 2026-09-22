@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -24,9 +24,9 @@
     "loteria": "Lotto Activo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -34,9 +34,9 @@
     "loteria": "Lotto Activo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -44,9 +44,9 @@
     "loteria": "Lotto Activo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -124,9 +124,9 @@
     "loteria": "La Granjita",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "04",
-    "animal": "Escorpión",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -134,9 +134,9 @@
     "loteria": "La Granjita",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "32",
-    "animal": "Ardilla",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -144,9 +144,9 @@
     "loteria": "La Granjita",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "16",
-    "animal": "Oso",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -154,9 +154,9 @@
     "loteria": "La Granjita",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "15",
-    "animal": "Zorro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -164,9 +164,9 @@
     "loteria": "La Granjita",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "26",
-    "animal": "Vaca",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -254,9 +254,9 @@
     "loteria": "Ruleta Activa",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "21",
-    "animal": "Gallo",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -264,9 +264,9 @@
     "loteria": "Ruleta Activa",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "36",
-    "animal": "Culebra",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -274,9 +274,9 @@
     "loteria": "Ruleta Activa",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -284,9 +284,9 @@
     "loteria": "Ruleta Activa",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "26",
-    "animal": "Vaca",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -364,9 +364,9 @@
     "loteria": "Lotto Rey",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -374,9 +374,9 @@
     "loteria": "Lotto Rey",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -384,9 +384,9 @@
     "loteria": "Lotto Rey",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -394,9 +394,9 @@
     "loteria": "Lotto Rey",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -404,9 +404,9 @@
     "loteria": "Lotto Rey",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -484,9 +484,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -494,9 +494,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -504,9 +504,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -514,9 +514,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -524,9 +524,9 @@
     "loteria": "Lotto Activo RD",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -604,9 +604,9 @@
     "loteria": "Granjita Plus",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -614,9 +614,9 @@
     "loteria": "Granjita Plus",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -624,9 +624,9 @@
     "loteria": "Granjita Plus",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -634,9 +634,9 @@
     "loteria": "Granjita Plus",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -644,9 +644,9 @@
     "loteria": "Granjita Plus",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -724,9 +724,9 @@
     "loteria": "Ruleta Royal",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -734,9 +734,9 @@
     "loteria": "Ruleta Royal",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -744,9 +744,9 @@
     "loteria": "Ruleta Royal",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -754,9 +754,9 @@
     "loteria": "Ruleta Royal",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -764,9 +764,9 @@
     "loteria": "Ruleta Royal",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -844,9 +844,9 @@
     "loteria": "Guácharo Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "58",
-    "animal": "Mariquita",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -854,9 +854,9 @@
     "loteria": "Guácharo Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "67",
-    "animal": "Animal",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -864,9 +864,9 @@
     "loteria": "Guácharo Activo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -874,9 +874,9 @@
     "loteria": "Guácharo Activo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "15",
-    "animal": "Zorro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -884,9 +884,9 @@
     "loteria": "Guácharo Activo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "26",
-    "animal": "Vaca",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -964,9 +964,9 @@
     "loteria": "Selva Plus",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -974,9 +974,9 @@
     "loteria": "Selva Plus",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -984,9 +984,9 @@
     "loteria": "Selva Plus",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -994,9 +994,9 @@
     "loteria": "Selva Plus",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1004,9 +1004,9 @@
     "loteria": "Selva Plus",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1084,9 +1084,9 @@
     "loteria": "Chance Animal",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1094,9 +1094,9 @@
     "loteria": "Chance Animal",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1104,9 +1104,9 @@
     "loteria": "Chance Animal",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1114,9 +1114,9 @@
     "loteria": "Chance Animal",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1124,9 +1124,9 @@
     "loteria": "Chance Animal",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1204,9 +1204,9 @@
     "loteria": "Tropi Gana",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1214,9 +1214,9 @@
     "loteria": "Tropi Gana",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1224,9 +1224,9 @@
     "loteria": "Tropi Gana",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1234,9 +1234,9 @@
     "loteria": "Tropi Gana",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1244,9 +1244,9 @@
     "loteria": "Tropi Gana",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1324,9 +1324,9 @@
     "loteria": "Lotto Zoo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1334,9 +1334,9 @@
     "loteria": "Lotto Zoo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1344,9 +1344,9 @@
     "loteria": "Lotto Zoo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1354,9 +1354,9 @@
     "loteria": "Lotto Zoo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1364,9 +1364,9 @@
     "loteria": "Lotto Zoo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1444,9 +1444,9 @@
     "loteria": "Tropicana Animal",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1454,9 +1454,9 @@
     "loteria": "Tropicana Animal",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1464,9 +1464,9 @@
     "loteria": "Tropicana Animal",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1474,9 +1474,9 @@
     "loteria": "Tropicana Animal",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1484,9 +1484,9 @@
     "loteria": "Tropicana Animal",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1564,9 +1564,9 @@
     "loteria": "Gana Animalito",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1574,9 +1574,9 @@
     "loteria": "Gana Animalito",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1584,9 +1584,9 @@
     "loteria": "Gana Animalito",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1594,9 +1594,9 @@
     "loteria": "Gana Animalito",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1604,9 +1604,9 @@
     "loteria": "Gana Animalito",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1684,9 +1684,9 @@
     "loteria": "Súper Gana",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1694,9 +1694,9 @@
     "loteria": "Súper Gana",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1704,9 +1704,9 @@
     "loteria": "Súper Gana",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1714,9 +1714,9 @@
     "loteria": "Súper Gana",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1724,9 +1724,9 @@
     "loteria": "Súper Gana",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1804,9 +1804,9 @@
     "loteria": "Sorteo VIP",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1814,9 +1814,9 @@
     "loteria": "Sorteo VIP",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1824,9 +1824,9 @@
     "loteria": "Sorteo VIP",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1834,9 +1834,9 @@
     "loteria": "Sorteo VIP",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1844,9 +1844,9 @@
     "loteria": "Sorteo VIP",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -1924,9 +1924,9 @@
     "loteria": "Animalitos Millonarios",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1934,9 +1934,9 @@
     "loteria": "Animalitos Millonarios",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1944,9 +1944,9 @@
     "loteria": "Animalitos Millonarios",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1954,9 +1954,9 @@
     "loteria": "Animalitos Millonarios",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1964,9 +1964,9 @@
     "loteria": "Animalitos Millonarios",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -2044,9 +2044,9 @@
     "loteria": "Lotto Venezuela",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "18",
-    "animal": "Burro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -2054,9 +2054,9 @@
     "loteria": "Lotto Venezuela",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "10",
-    "animal": "Tigre",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -2064,9 +2064,9 @@
     "loteria": "Lotto Venezuela",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "29",
-    "animal": "Elefante",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -2074,9 +2074,9 @@
     "loteria": "Lotto Venezuela",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "09",
-    "animal": "Águila",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -2084,9 +2084,9 @@
     "loteria": "Lotto Venezuela",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "02",
-    "animal": "Toro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
