@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -24,9 +24,9 @@
     "loteria": "Lotto Activo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -34,9 +34,9 @@
     "loteria": "Lotto Activo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -44,9 +44,9 @@
     "loteria": "Lotto Activo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -54,9 +54,9 @@
     "loteria": "Lotto Activo",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -64,9 +64,9 @@
     "loteria": "Lotto Activo",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -74,19 +74,19 @@
     "loteria": "Lotto Activo",
     "hora": "03:00 PM",
     "hora_num": 15,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Activo",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -94,10 +94,10 @@
     "loteria": "Lotto Activo",
     "hora": "05:00 PM",
     "hora_num": 17,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -124,9 +124,9 @@
     "loteria": "La Granjita",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -134,9 +134,9 @@
     "loteria": "La Granjita",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -144,9 +144,9 @@
     "loteria": "La Granjita",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -154,9 +154,9 @@
     "loteria": "La Granjita",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -164,9 +164,9 @@
     "loteria": "La Granjita",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -174,9 +174,9 @@
     "loteria": "La Granjita",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -184,9 +184,9 @@
     "loteria": "La Granjita",
     "hora": "02:00 PM",
     "hora_num": 14,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -194,19 +194,19 @@
     "loteria": "La Granjita",
     "hora": "03:00 PM",
     "hora_num": 15,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "La Granjita",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -214,10 +214,10 @@
     "loteria": "La Granjita",
     "hora": "05:00 PM",
     "hora_num": 17,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -317,27 +317,27 @@
     "numero": "22",
     "animal": "Camello",
     "realizado": true,
-    "es_ultimo_en_vivo": true
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Ruleta Activa",
-    "hora": "04:00 PM",
-    "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Ruleta Activa",
+    "hora": "04:00 PM",
+    "hora_num": 16,
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Ruleta Activa",
     "hora": "05:00 PM",
     "hora_num": 17,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
+    "numero": "22",
+    "animal": "Camello",
+    "realizado": true,
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -437,23 +437,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Rey",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Lotto Rey",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -462,6 +452,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Rey",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Lotto Rey",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -557,23 +557,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Activo RD",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Lotto Activo RD",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -582,6 +572,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Activo RD",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Lotto Activo RD",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -677,23 +677,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Granjita Plus",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Granjita Plus",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -702,6 +692,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Granjita Plus",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Granjita Plus",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -797,23 +797,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Ruleta Royal",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Ruleta Royal",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -822,6 +812,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Ruleta Royal",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Ruleta Royal",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -917,23 +917,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Guácharo Activo",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Guácharo Activo",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -942,6 +932,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Guácharo Activo",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Guácharo Activo",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1037,23 +1037,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Selva Plus",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Selva Plus",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -1062,6 +1052,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Selva Plus",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Selva Plus",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1157,23 +1157,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Chance Animal",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Chance Animal",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -1182,6 +1172,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Chance Animal",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Chance Animal",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1277,23 +1277,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Tropi Gana",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Tropi Gana",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -1302,6 +1292,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Tropi Gana",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Tropi Gana",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1397,23 +1397,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Zoo",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Lotto Zoo",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -1422,6 +1412,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Lotto Zoo",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Lotto Zoo",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1517,23 +1517,13 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
     "loteria": "Tropicana Animal",
     "hora": "04:00 PM",
     "hora_num": 16,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
-  },
-  {
-    "fecha": "2026-09-22",
-    "loteria": "Tropicana Animal",
-    "hora": "05:00 PM",
-    "hora_num": 17,
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
@@ -1542,6 +1532,16 @@
   {
     "fecha": "2026-09-22",
     "loteria": "Tropicana Animal",
+    "hora": "05:00 PM",
+    "hora_num": 17,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
+    "es_ultimo_en_vivo": true
+  },
+  {
+    "fecha": "2026-09-22",
+    "loteria": "Tropicana Animal",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -1637,7 +1637,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
@@ -1657,7 +1657,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -1757,7 +1757,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
@@ -1777,7 +1777,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -1877,7 +1877,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
@@ -1897,7 +1897,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -1997,7 +1997,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
@@ -2017,7 +2017,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
@@ -2117,7 +2117,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-22",
@@ -2137,7 +2137,7 @@
     "numero": "--",
     "animal": "Por salir",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-22",
