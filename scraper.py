@@ -1,5 +1,6 @@
 import json
 import re
+import time
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
@@ -19,12 +20,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LISTA_LOTERIAS = [
-    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
-    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
-    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
-    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
-]
+LOTERIAS_PARLEY = {
+    "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
+    "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
+    "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
+    "Lotto Rey": "https://m.parley.la/resultados/resultados-lotto-rey",
+    "Lotto Activo RD": "https://m.parley.la/resultados/resultados-lotto-activo-rd",
+    "Granjita Plus": "https://m.parley.la/resultados/resultados-la-granjita-plus",
+    "Ruleta Royal": "https://m.parley.la/resultados/resultados-ruleta-royal",
+    "Guácharo Activo": "https://m.parley.la/resultados/resultados-el-guacharo-activo",
+    "Selva Plus": "https://m.parley.la/resultados/resultados-selva-plus",
+    "Chance Animal": "https://m.parley.la/resultados/resultados-chance-animal",
+    "Tropi Gana": "https://m.parley.la/resultados/resultados-tropigana",
+    "Lotto Zoo": "https://m.parley.la/resultados/resultados-lotto-zoo",
+    "Tropicana Animal": "https://m.parley.la/resultados/resultados-tropicana-animal",
+    "Gana Animalito": "https://m.parley.la/resultados/resultados-gana-animalito",
+    "Súper Gana": "https://m.parley.la/resultados/resultados-super-gana",
+    "Sorteo VIP": "https://m.parley.la/resultados/resultados-sorteo-vip",
+    "Animalitos Millonarios": "https://m.parley.la/resultados/resultados-animalitos-millonarios",
+    "Lotto Venezuela": "https://m.parley.la/resultados/resultados-lotto-venezuela"
+}
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -32,41 +47,48 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_exactos():
+def extraer_resultados_una_por_una():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
+    session = requests.Session()
 
-    url = "https://tuazar.com/loteria/animalitos/"
-    try:
-        resp = requests.get(url, headers=headers, timeout=15)
-        if resp.status_code == 200:
-            soup = BeautifulSoup(resp.text, "html.parser")
+    for loteria_nombre, url in LOTERIAS_PARLEY.items():
+        try:
+            resp = session.get(url, headers=headers, timeout=10)
+            if resp.status_code == 200:
+                soup = BeautifulSoup(resp.text, "html.parser")
+                
+                # Buscar elementos de sorteos en la página
+                bloques = soup.find_all(["div", "li", "tr"], class_=re.compile(r'result|item|sorteo|card', re.I))
+                
+                # Si no encuentra bloques específicos, analiza el texto general
+                if not bloques:
+                    bloques = [soup]
 
-            # Mapear tablas o contenedores individuales de resultados
-            tablas = soup.find_all(["table", "div"], class_=re.compile(r'resultado|tabla|block|loteria', re.I))
+                for b in bloques:
+                    txt = b.get_text(" ", strip=True)
+                    for hora_texto, _ in HORARIOS:
+                        hora_clean = hora_texto.lower()
+                        if hora_clean in txt.lower():
+                            # Expresión precisa: busca el número que acompaña al nombre del animalito en esa hora
+                            for num_code, anim_nombre in nombres_animales.items():
+                                if anim_nombre.lower() in txt.lower():
+                                    # Verificar si el número corresponde al animalito en esa sección
+                                    patron = re.compile(rf'{num_code.zfill(2)}\s+{anim_nombre}', re.IGNORECASE)
+                                    if patron.search(txt) or re.search(rf'{anim_nombre}.*?{num_code.zfill(2)}', txt, re.IGNORECASE):
+                                        clave = f"{loteria_nombre}-{hora_texto}"
+                                        if clave not in mapa_resultados:
+                                            mapa_resultados[clave] = num_code.zfill(2)
+                                        break
 
-            for t in tablas:
-                texto_tabla = t.get_text(" ", strip=True)
+            # Pausa táctica entre peticiones para no saturar el servidor ni ser bloqueado
+            time.sleep(1.5)
 
-                for loteria in LISTA_LOTERIAS:
-                    # Verificar si este bloque pertenece a la lotería en cuestión
-                    if loteria.lower() in texto_tabla[:100].lower():
-                        filas = t.find_all(["tr", "div", "li"])
-                        for fila in filas:
-                            txt_fila = fila.get_text(" ", strip=True)
-                            for hora_texto, _ in HORARIOS:
-                                if hora_texto.lower() in txt_fila.lower():
-                                    # Extraer el número exacto asociado al nombre del animalito
-                                    for num_code, nombre in nombres_animales.items():
-                                        if nombre.lower() in txt_fila.lower():
-                                            clave = f"{loteria}-{hora_texto}"
-                                            if clave not in mapa_resultados:
-                                                mapa_resultados[clave] = num_code.zfill(2)
-                                            break
-    except Exception as e:
-        print(f"Error procesando resultados exactos: {e}")
+        except Exception as e:
+            print(f"Error extrayendo {loteria_nombre}: {e}")
+            time.sleep(1.5)
 
     return mapa_resultados
 
@@ -76,10 +98,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_exactos()
+    datos_reales = extraer_resultados_una_por_una()
     resultados = []
 
-    for loteria in LISTA_LOTERIAS:
+    for loteria in LOTERIAS_PARLEY.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -117,4 +139,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización exacta completada.")
+    print("Sincronización uno por uno finalizada.")
