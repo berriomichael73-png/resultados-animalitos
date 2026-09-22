@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "40",
+    "animal": "Foca",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "10",
+    "animal": "Tigre",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
@@ -124,9 +124,9 @@
     "loteria": "La Granjita",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "40",
+    "animal": "Foca",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -134,9 +134,9 @@
     "loteria": "La Granjita",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "32",
+    "animal": "Ardilla",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
@@ -254,9 +254,9 @@
     "loteria": "Ruleta Activa",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "40",
+    "animal": "Foca",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
@@ -844,9 +844,9 @@
     "loteria": "Guácharo Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "40",
+    "animal": "Foca",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -854,9 +854,9 @@
     "loteria": "Guácharo Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "67",
+    "animal": "Animal",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
