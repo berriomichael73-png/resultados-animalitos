@@ -33,39 +33,82 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_con_navegador():
+def extraer_numero_de_elemento(elemento):
+    # 1. Búsqueda por imagen (Atributos src, alt, title)
+    imagenes = elemento.find_all("img")
+    for img in imagenes:
+        src = img.get("src", "")
+        alt = img.get("alt", "")
+        title = img.get("title", "")
+        
+        texto_img = f"{src} {alt} {title}".lower()
+        
+        # Buscar coincidencia de nombre de animalito en la ruta o atributo de la imagen
+        for num_code, anim_nombre in nombres_animales.items():
+            if anim_nombre.lower() in texto_img:
+                return num_code.zfill(2)
+        
+        # Buscar coincidencia numérica directa en el nombre del archivo de imagen (ej: /09.png o /9.png)
+        match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src, re.IGNORECASE)
+        if match_img:
+            num_cand = match_img.group(1).zfill(2)
+            if num_cand in nombres_animales:
+                return num_cand
+
+    # 2. Búsqueda por Texto Plano dentro del mismo contenedor
+    txt = elemento.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
+
+    return None
+
+def extraer_hibrido_con_navegador():
     mapa_resultados = {}
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        )
+        page = context.new_page()
         
         try:
-            page.goto("https://loteriadehoy.com/animalitos/resultados/", timeout=30000)
-            page.wait_for_timeout(4000)  # Espera activa para renderizado de JS
+            page.goto("https://loteriadehoy.com/animalitos/resultados/", timeout=35000)
+            page.wait_for_timeout(5000)
+            
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            elementos = soup.find_all(["tr", "div", "li"])
-            for el in elementos:
-                txt = el.get_text(" ", strip=True)
+            # Analizar contenedores principales
+            bloques = soup.find_all(["div", "section", "article", "tr", "li"])
+            
+            for el in bloques:
+                txt_bloque = el.get_text(" ", strip=True)
+                
                 for loteria in LISTA_LOTERIAS:
-                    if loteria.lower() in txt[:80].lower():
-                        for hora_std, _ in HORARIOS:
-                            clave = f"{loteria}-{hora_std}"
-                            if clave in mapa_resultados:
-                                continue
-                            
-                            hora_num = hora_std[:2]
-                            hora_alt = str(int(hora_num))
-                            if f"{hora_num}:00" in txt or f"{hora_alt}:00" in txt:
-                                match = re.search(r'\b(\d{1,2})\b', txt.replace(f"{hora_num}:00", "").replace(f"{hora_alt}:00", ""))
-                                if match:
-                                    num = match.group(1).zfill(2)
-                                    if num in nombres_animales:
-                                        mapa_resultados[clave] = num
+                    if loteria.lower() in txt_bloque[:100].lower():
+                        filas = el.find_all(["tr", "div", "li", "p"])
+                        if not filas:
+                            filas = [el]
+
+                        for f in filas:
+                            txt_fila = f.get_text(" ", strip=True)
+                            for hora_std, _ in HORARIOS:
+                                clave = f"{loteria}-{hora_std}"
+                                if clave in mapa_resultados:
+                                    continue
+                                
+                                hora_num = hora_std[:2]
+                                hora_alt = str(int(hora_num))
+                                
+                                if f"{hora_num}:00" in txt_fila or f"{hora_alt}:00" in txt_fila:
+                                    num_encontrado = extraer_numero_de_elemento(f)
+                                    if num_encontrado:
+                                        mapa_resultados[clave] = num_encontrado
+
         except Exception as e:
-            print(f"Error procesando navegador: {e}")
+            print(f"Error procesando navegador híbrido: {e}")
         finally:
             browser.close()
             
@@ -77,7 +120,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_con_navegador()
+    datos_reales = extraer_hibrido_con_navegador()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
@@ -118,4 +161,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización mediante navegador Chromium completada.")
+    print("Sincronización híbrida (Texto + Imágenes) completada.")
