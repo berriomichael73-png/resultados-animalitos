@@ -974,9 +974,9 @@
     "loteria": "Selva Plus",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "00",
-    "animal": "Delfín",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
