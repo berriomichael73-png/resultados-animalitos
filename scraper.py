@@ -47,65 +47,53 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-URL_RESPALDO_GENERAL = "https://triples.bet/products-results/resultados-animalitos-loteria"
-
-def procesar_texto_y_extraer(texto, loteria_nombre, mapa_resultados):
-    for hora_std, _ in HORARIOS:
-        clave = f"{loteria_nombre}-{hora_std}"
-        if clave in mapa_resultados:
-            continue
-            
-        hora_num_str = hora_std[:2]
-        hora_sin_cero = str(int(hora_num_str))
-        periodo = hora_std[-2:].lower()
-        
-        # Patrones flexibles para capturar 04:00 PM, 4:00 PM, 04:00, etc.
-        patrones = [
-            rf'{re.escape(hora_std.lower())}.*?\b(\d{{1,2}})\b',
-            rf'{hora_num_str}:00\s*{periodo}.*?\b(\d{{1,2}})\b',
-            rf'{hora_sin_cero}:00\s*{periodo}.*?\b(\d{{1,2}})\b'
-        ]
-        
-        for pat in patrones:
-            match = re.search(pat, texto, re.IGNORECASE | re.DOTALL)
-            if match:
-                num_found = match.group(1).zfill(2)
-                mapa_resultados[clave] = num_found
-                break
-
-def extraer_fuerza_bruta():
+def extraer_datos_descongelados():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
         "Cache-Control": "no-cache",
         "Pragma": "no-cache"
     }
+    
     mapa_resultados = {}
     session = requests.Session()
 
-    # 1. Extracción primaria desde fuentes específicas con forzado de caché
-    for loteria_nombre, url_base in LOTERIAS_URLS.items():
+    for loteria_nombre, url in LOTERIAS_URLS.items():
         try:
-            url_forzada = f"{url_base}?nocache={int(time.time())}"
-            resp = session.get(url_forzada, headers=headers, timeout=8)
+            timestamp = int(time.time() * 1000)
+            url_fuerza = f"{url}?_t={timestamp}"
+            resp = session.get(url_fuerza, headers=headers, timeout=12)
+            
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                texto_pagina = soup.get_text(" ", strip=True)
-                procesar_texto_y_extraer(texto_pagina, loteria_nombre, mapa_resultados)
-            time.sleep(0.3)
+                
+                # Extraer bloques contenedores de cada sorteo
+                elementos = soup.find_all(["div", "tr", "li", "article"])
+                
+                for el in elementos:
+                    txt = el.get_text(" ", strip=True)
+                    
+                    for hora_std, _ in HORARIOS:
+                        clave = f"{loteria_nombre}-{hora_std}"
+                        if clave in mapa_resultados:
+                            continue
+                            
+                        hora_base = hora_std[:2]
+                        periodo = hora_std[-2:].lower()
+                        
+                        # Detectar hora exacta en el contenedor
+                        if f"{hora_base}:00" in txt or f"{int(hora_base)}:00" in txt:
+                            # Buscar el número asociado en el texto del mismo bloque
+                            num_match = re.search(r'\b(\d{1,2})\b', txt.replace(f"{hora_base}:00", "").replace(f"{int(hora_base)}:00", ""))
+                            if num_match:
+                                num = num_match.group(1).zfill(2)
+                                if num in nombres_animales:
+                                    mapa_resultados[clave] = num
+            
+            time.sleep(0.4)
+            
         except Exception as e:
-            print(f"Error forzando {loteria_nombre}: {e}")
-
-    # 2. Respaldo general para completar horas atascadas (4:00 PM, 5:00 PM, etc.)
-    try:
-        url_respaldo = f"{URL_RESPALDO_GENERAL}?nocache={int(time.time())}"
-        resp_resp = session.get(url_respaldo, headers=headers, timeout=10)
-        if resp_resp.status_code == 200:
-            soup_resp = BeautifulSoup(resp_resp.text, "html.parser")
-            texto_respaldo = soup_resp.get_text(" ", strip=True)
-            for loteria_nombre in LOTERIAS_URLS.keys():
-                procesar_texto_y_extraer(texto_respaldo, loteria_nombre, mapa_resultados)
-    except Exception as e:
-        print(f"Error en respaldo general: {e}")
+            print(f"Error forzando lectura de {loteria_nombre}: {e}")
 
     return mapa_resultados
 
@@ -115,7 +103,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_fuerza_bruta()
+    datos_reales = extraer_datos_descongelados()
     resultados = []
 
     for loteria in LOTERIAS_URLS.keys():
@@ -156,4 +144,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización forzada en tiempo real completada.")
+    print("Sincronización sin congelamiento completada.")
