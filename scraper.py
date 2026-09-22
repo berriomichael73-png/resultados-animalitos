@@ -1,9 +1,9 @@
 import json
 import re
 import time
-import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
+from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright
 
 nombres_animales = {
     "00": "Delfín", "0": "Delfín", "1": "Carnero", "01": "Carnero", "2": "Toro", "02": "Toro",
@@ -20,26 +20,12 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LISTA_LOTERIAS = {
-    "Lotto Activo": "lotto-activo",
-    "La Granjita": "la-granjita",
-    "Ruleta Activa": "ruleta-activa",
-    "Lotto Rey": "lotto-rey",
-    "Lotto Activo RD": "lotto-activo-rd",
-    "Granjita Plus": "la-granjita-plus",
-    "Ruleta Royal": "ruleta-royal",
-    "Guácharo Activo": "el-guacharo-activo",
-    "Selva Plus": "selva-plus",
-    "Chance Animal": "chance-animal",
-    "Tropi Gana": "tropigana",
-    "Lotto Zoo": "lotto-zoo",
-    "Tropicana Animal": "tropicana-animal",
-    "Gana Animalito": "gana-animalito",
-    "Súper Gana": "super-gana",
-    "Sorteo VIP": "sorteo-vip",
-    "Animalitos Millonarios": "animalitos-millonarios",
-    "Lotto Venezuela": "lotto-venezuela"
-}
+LISTA_LOTERIAS = [
+    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
+    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
+    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
+    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
+]
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -47,58 +33,42 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_datos_garantizados():
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Cache-Control": "no-cache"
-    }
+def extraer_con_navegador():
     mapa_resultados = {}
-    session = requests.Session()
+    
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        
+        try:
+            page.goto("https://loteriadehoy.com/animalitos/resultados/", timeout=30000)
+            page.wait_for_timeout(4000)  # Espera activa para renderizado de JS
+            html = page.content()
+            soup = BeautifulSoup(html, "html.parser")
 
-    for loteria_nombre, slug in LISTA_LOTERIAS.items():
-        urls = [
-            f"https://m.parley.la/resultados/resultados-{slug}",
-            f"https://agendadeportiva.com.ve/resultados-{slug}/",
-            f"https://tuazar.com/loteria/animalitos/{slug}/resultados/"
-        ]
-
-        for url in urls:
-            try:
-                resp = session.get(f"{url}?t={int(time.time())}", headers=headers, timeout=6)
-                if resp.status_code == 200:
-                    soup = BeautifulSoup(resp.text, "html.parser")
-                    
-                    # Analizar filas o bloques de texto
-                    elementos = soup.find_all(["tr", "div", "li", "p"])
-                    if not elementos:
-                        elementos = [soup]
-
-                    for el in elementos:
-                        txt_bloque = el.get_text(" ", strip=True)
-
+            elementos = soup.find_all(["tr", "div", "li"])
+            for el in elementos:
+                txt = el.get_text(" ", strip=True)
+                for loteria in LISTA_LOTERIAS:
+                    if loteria.lower() in txt[:80].lower():
                         for hora_std, _ in HORARIOS:
-                            clave = f"{loteria_nombre}-{hora_std}"
+                            clave = f"{loteria}-{hora_std}"
                             if clave in mapa_resultados:
                                 continue
-
+                            
                             hora_num = hora_std[:2]
                             hora_alt = str(int(hora_num))
-                            periodo = hora_std[-2:].lower()
-
-                            # Detectar si la hora está en el bloque de texto
-                            if f"{hora_num}:00" in txt_bloque or f"{hora_alt}:00" in txt_bloque:
-                                # Capturar el número del animalito
-                                match = re.search(r'\b(\d{1,2})\b', txt_bloque.replace(f"{hora_num}:00", "").replace(f"{hora_alt}:00", ""))
+                            if f"{hora_num}:00" in txt or f"{hora_alt}:00" in txt:
+                                match = re.search(r'\b(\d{1,2})\b', txt.replace(f"{hora_num}:00", "").replace(f"{hora_alt}:00", ""))
                                 if match:
-                                    num_found = match.group(1).zfill(2)
-                                    if num_found in nombres_animales:
-                                        mapa_resultados[clave] = num_found
-
-            except Exception:
-                continue
-
-            time.sleep(0.1)
-
+                                    num = match.group(1).zfill(2)
+                                    if num in nombres_animales:
+                                        mapa_resultados[clave] = num
+        except Exception as e:
+            print(f"Error procesando navegador: {e}")
+        finally:
+            browser.close()
+            
     return mapa_resultados
 
 def generar_base_datos():
@@ -107,10 +77,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_datos_garantizados()
+    datos_reales = extraer_con_navegador()
     resultados = []
 
-    for loteria in LISTA_LOTERIAS.keys():
+    for loteria in LISTA_LOTERIAS:
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -148,4 +118,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización directa completada con éxito.")
+    print("Sincronización mediante navegador Chromium completada.")
