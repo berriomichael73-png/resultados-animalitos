@@ -38,50 +38,63 @@ URL_LOTERIA_DE_HOY = "https://loteriadehoy.com/animalitos/resultados/"
 def extraer_desde_loteriadehoy():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Cache-Control": "no-cache"
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache"
     }
     mapa_resultados = {}
     
     try:
-        url_time = f"{URL_LOTERIA_DE_HOY}?t={int(time.time())}"
+        url_time = f"{URL_LOTERIA_DE_HOY}?nocache={int(time.time())}"
         resp = requests.get(url_time, headers=headers, timeout=12)
+        
         if resp.status_code == 200:
             soup = BeautifulSoup(resp.text, "html.parser")
             
-            # Buscar cada sección o tabla por lotería
-            bloques = soup.find_all(["div", "section", "article", "table"], class_=re.compile(r'loteria|resultado|card|block|tabla', re.I))
-            if not bloques:
-                bloques = [soup]
+            # Buscar tarjetas o secciones individuales por lotería
+            secciones = soup.find_all(["div", "section", "article", "tr"], class_=re.compile(r'resultado|loteria|card|block|tabla|item', re.I))
+            if not secciones:
+                secciones = [soup]
 
-            for b in bloques:
-                txt_bloque = b.get_text(" ", strip=True)
+            for sec in secciones:
+                txt_sec = sec.get_text(" ", strip=True)
                 
-                for loteria in LISTA_LOTERIAS:
-                    # Si el bloque contiene el nombre de la lotería
-                    if loteria.lower() in txt_bloque[:120].lower():
-                        # Parsear las filas del bloque
-                        filas = b.find_all(["tr", "div", "li", "p"])
-                        for f in filas:
-                            txt_fila = f.get_text(" ", strip=True)
-                            
-                            for hora_std, _ in HORARIOS:
-                                clave = f"{loteria}-{hora_std}"
-                                if clave in mapa_resultados:
-                                    continue
-                                    
-                                hora_num = hora_std[:2]
-                                hora_alt = str(int(hora_num))
+                # Identificar a qué lotería pertenece esta sección
+                loteria_encontrada = None
+                for lot in LISTA_LOTERIAS:
+                    if lot.lower() in txt_sec[:100].lower():
+                        loteria_encontrada = lot
+                        break
+                
+                if loteria_encontrada:
+                    # Extraer filas de horas dentro de la sección de esta lotería
+                    filas = sec.find_all(["tr", "div", "li", "p"])
+                    for f in filas:
+                        txt_fila = f.get_text(" ", strip=True)
+                        
+                        for hora_std, _ in HORARIOS:
+                            clave = f"{loteria_encontrada}-{hora_std}"
+                            if clave in mapa_resultados:
+                                continue
                                 
-                                if f"{hora_num}:00" in txt_fila or f"{hora_alt}:00" in txt_fila:
-                                    # Captura estricta del número del animalito
-                                    match = re.search(r'\b(\d{1,2})\b', txt_fila.replace(f"{hora_num}:00", "").replace(f"{hora_alt}:00", ""))
-                                    if match:
-                                        num_found = match.group(1).zfill(2)
-                                        if num_found in nombres_animales:
-                                            mapa_resultados[clave] = num_found
+                            hora_num = hora_std[:2]
+                            hora_alt = str(int(hora_num))
+                            
+                            # Verificar que la fila corresponda a esta hora
+                            if f"{hora_num}:00" in txt_fila or f"{hora_alt}:00" in txt_fila:
+                                # Buscar si en esta misma fila se menciona a un animalito específico
+                                for num_code, anim_nombre in nombres_animales.items():
+                                    anim_lower = anim_nombre.lower()
+                                    num_clean = num_code.zfill(2)
+                                    
+                                    # Verificación estricta: debe aparecer el nombre del animal en la fila
+                                    if anim_lower in txt_fila.lower():
+                                        # Y el número del animalito también debe estar presente
+                                        if re.search(rf'\b0?{int(num_clean)}\b|\b{num_clean}\b', txt_fila):
+                                            mapa_resultados[clave] = num_clean
+                                            break
 
     except Exception as e:
-        print(f"Error extrayendo de loteriadehoy.com: {e}")
+        print(f"Error procesando loteriadehoy.com: {e}")
 
     return mapa_resultados
 
@@ -132,4 +145,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización desde loteriadehoy.com completada.")
+    print("Sincronización estricta completada sin repeticiones ficticias.")
