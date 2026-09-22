@@ -59,36 +59,24 @@ def extraer_resultados_una_por_una():
             resp = session.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                
-                # Buscar elementos de sorteos en la página
-                bloques = soup.find_all(["div", "li", "tr"], class_=re.compile(r'result|item|sorteo|card', re.I))
-                
-                # Si no encuentra bloques específicos, analiza el texto general
-                if not bloques:
-                    bloques = [soup]
+                texto_pagina = soup.get_text(" ", strip=True)
 
-                for b in bloques:
-                    txt = b.get_text(" ", strip=True)
-                    for hora_texto, _ in HORARIOS:
-                        hora_clean = hora_texto.lower()
-                        if hora_clean in txt.lower():
-                            # Expresión precisa: busca el número que acompaña al nombre del animalito en esa hora
-                            for num_code, anim_nombre in nombres_animales.items():
-                                if anim_nombre.lower() in txt.lower():
-                                    # Verificar si el número corresponde al animalito en esa sección
-                                    patron = re.compile(rf'{num_code.zfill(2)}\s+{anim_nombre}', re.IGNORECASE)
-                                    if patron.search(txt) or re.search(rf'{anim_nombre}.*?{num_code.zfill(2)}', txt, re.IGNORECASE):
-                                        clave = f"{loteria_nombre}-{hora_texto}"
-                                        if clave not in mapa_resultados:
-                                            mapa_resultados[clave] = num_code.zfill(2)
-                                        break
+                for hora_texto, _ in HORARIOS:
+                    # Captura directa del número de 1 o 2 dígitos inmediatamente después de la hora
+                    patron = re.compile(rf'{re.escape(hora_texto)}.*?\b(\d{{1,2}})\b', re.IGNORECASE)
+                    match = patron.search(texto_pagina)
+                    
+                    if match:
+                        num_found = match.group(1).zfill(2)
+                        clave = f"{loteria_nombre}-{hora_texto}"
+                        mapa_resultados[clave] = num_found
 
-            # Pausa táctica entre peticiones para no saturar el servidor ni ser bloqueado
-            time.sleep(1.5)
+            # Pausa secuencial para evitar bloqueos por peticiones rápidas
+            time.sleep(1)
 
         except Exception as e:
-            print(f"Error extrayendo {loteria_nombre}: {e}")
-            time.sleep(1.5)
+            print(f"Error procesando {loteria_nombre}: {e}")
+            time.sleep(1)
 
     return mapa_resultados
 
@@ -139,4 +127,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización uno por uno finalizada.")
+    print("Sincronización uno por uno corregida.")
