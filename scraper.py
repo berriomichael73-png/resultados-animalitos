@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
@@ -18,26 +19,12 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_URLS = {
-    "Lotto Activo": "https://lotoven.com/animalito/lottoactivo/resultados/",
-    "La Granjita": "https://lotoven.com/animalito/lagranjita/resultados/",
-    "Ruleta Activa": "https://lotoven.com/animalito/ruletaactiva/resultados/",
-    "Lotto Rey": "https://lotoven.com/animalito/lottorey/resultados/",
-    "Lotto Activo RD": "https://lotoven.com/animalito/lottoactivordint/resultados/",
-    "Granjita Plus": "https://lotoven.com/animalito/granjitaplus/resultados/",
-    "Ruleta Royal": "https://lotoven.com/animalito/ruletaroyal/resultados/",
-    "Guácharo Activo": "https://lotoven.com/animalito/guacharoactivo/resultados/",
-    "Selva Plus": "https://lotoven.com/animalito/selvaplus/resultados/",
-    "Chance Animal": "https://lotoven.com/animalito/chanceanimal/resultados/",
-    "Tropi Gana": "https://lotoven.com/animalito/tropigana/resultados/",
-    "Lotto Zoo": "https://lotoven.com/animalito/lottozoo/resultados/",
-    "Tropicana Animal": "https://lotoven.com/animalito/tropicanaanimal/resultados/",
-    "Gana Animalito": "https://lotoven.com/animalito/ganaanimalito/resultados/",
-    "Súper Gana": "https://lotoven.com/animalito/supergana/resultados/",
-    "Sorteo VIP": "https://lotoven.com/animalito/sorteovip/resultados/",
-    "Animalitos Millonarios": "https://lotoven.com/animalito/animalitosmillonarios/resultados/",
-    "Lotto Venezuela": "https://lotoven.com/animalito/lottovenezuela/resultados/"
-}
+LISTA_LOTERIAS = [
+    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
+    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
+    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
+    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
+]
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -45,42 +32,43 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_dom_exactos():
+def extraer_todas_las_loterias_lotoven():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
 
-    for nombre_loteria, url in LOTERIAS_URLS.items():
-        try:
-            resp = requests.get(url, headers=headers, timeout=10)
-            if resp.status_code == 200:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                
-                # Buscar todas las tarjetas o divs de resultado
-                tarjetas = soup.find_all(class_=lambda c: c and any(k in c.lower() for k in ["card", "resultado", "sorteo", "item", "box"]))
-                
-                for t in tarjetas:
-                    texto_tarjeta = t.get_text(separator=" ", strip=True)
-                    
-                    # Identificar la hora dentro de la tarjeta
-                    hora_encontrada = None
-                    for hora_texto, _ in HORARIOS:
-                        if hora_texto in texto_tarjeta:
-                            hora_encontrada = hora_texto
-                            break
-                    
-                    if hora_encontrada:
-                        # Buscar números del 0 al 60 presentes en la tarjeta
-                        for num in nombres_animales.keys():
-                            # Verificar sintaxis como "10", "10 - Tigre", "10 Tigre"
-                            if f" {num} " in f" {texto_tarjeta} " or f"0{num}" in texto_tarjeta or f"{num}-" in texto_tarjeta:
-                                clave = f"{nombre_loteria}-{hora_encontrada}"
-                                if clave not in mapa_resultados:
-                                    mapa_resultados[clave] = num
-                                break
-        except Exception as e:
-            print(f"Error procesando {nombre_loteria}: {e}")
+    try:
+        url = "https://lotoven.com/animalitos/"
+        resp = requests.get(url, headers=headers, timeout=15)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            texto_completo = soup.get_text()
+
+            # Separar el texto por bloques de lotería
+            secciones = re.split(r'\*\s*Resultados\s+', texto_completo)
+
+            for sec in secciones:
+                for loteria in LISTA_LOTERIAS:
+                    if loteria.lower() in sec[:100].lower():
+                        # Extraer líneas con formato tipo "10 Tigre 12:00 PM" o "25 Gallina 08:00 AM"
+                        patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ\s]+?)\s+((?:0[1-9]|1[0-2]):[0-5]\d\s+(?:AM|PM))')
+                        matches = patron.findall(sec)
+
+                        for num_bruto, animal_nom, hora_str in matches:
+                            num_str = num_bruto.zfill(2)
+
+                            # Normalizar horas con minutos (ej: 08:05 AM -> 08:00 AM)
+                            partes_hora = hora_str.split(":")
+                            h_num = partes_hora[0].zfill(2)
+                            am_pm = partes_hora[1].split()[1]
+                            hora_normalizada = f"{h_num}:00 {am_pm}"
+
+                            clave = f"{loteria}-{hora_normalizada}"
+                            if clave not in mapa_resultados:
+                                mapa_resultados[clave] = num_str
+    except Exception as e:
+        print(f"Error procesando la página consolidada de LotoVen: {e}")
 
     return mapa_resultados
 
@@ -90,10 +78,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_dom_exactos()
+    datos_reales = extraer_todas_las_loterias_lotoven()
     resultados = []
 
-    for loteria in LOTERIAS_URLS.keys():
+    for loteria in LISTA_LOTERIAS:
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -119,8 +107,8 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str,
-                "animal": nombre_animal,
+                "numero": num_str if realizado else "--",
+                "animal": nombre_animal if realizado else "Por salir",
                 "realizado": realizado,
                 "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
             })
@@ -131,4 +119,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Mapeo DOM ejecutado y guardado en resultados.json.")
+    print("Sincronización masiva de LotoVen completada.")
