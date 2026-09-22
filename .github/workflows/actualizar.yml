@@ -2,34 +2,35 @@ name: Actualizar Resultados de Animalitos
 
 on:
   schedule:
-    - cron: '*/15 12-23 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-runs-on: ubuntu-latest
+
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v4
+    - name: Checkout del repositorio
+      uses: actions/checkout@v3
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
-      - name: Instalar librerías
-        run: pip install requests beautifulsoup4
+    - name: Instalar dependencias y Playwright
+      run: |
+        python -m pip install --upgrade pip
+        pip install playwright beautifulsoup4
+        playwright install chromium
 
-      - name: Ejecutar Scraper
-        run: python scraper.py
+    - name: Ejecutar Extractor con Navegador Real
+      run: python scraper.py
 
-      - name: Guardar cambios en el repositorio
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add resultados.json
-          git commit -m "Actualización automática de resultados" || exit 0
-          git push
+    - name: Guardar y Publicar Resultados
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add resultados.json
+        git commit -m "Actualización automática de resultados" || exit 0
+        git push
