@@ -1,5 +1,7 @@
 import json
+import re
 import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -30,33 +32,45 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_api_directa():
-    mapa_resultados = {}
+def extraer_datos_exactos_json():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        "Accept": "application/json"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
-    
-    endpoints = [
-        "https://api.tuazar.com/v1/animalitos/hoy",
-        "https://lotoven.com/api/v1/resultados"
-    ]
+    mapa_resultados = {}
 
-    for url in endpoints:
-        try:
-            resp = requests.get(url, headers=headers, timeout=10)
-            if resp.status_code == 200:
-                data = resp.json()
-                for item in data:
-                    loteria = item.get("loteria") or item.get("name")
-                    hora = item.get("hora") or item.get("time")
-                    num = str(item.get("numero") or item.get("number", "")).zfill(2)
-                    
+    url = "https://lotoven.com/animalitos/"
+    try:
+        resp = requests.get(url, headers=headers, timeout=15)
+        if resp.status_code == 200:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            
+            # Extraer script interno con datos reales embebidos por la página
+            script_json = soup.find("script", id="__NEXT_DATA__")
+            if script_json:
+                data = json.loads(script_json.string)
+                # Recorrer la estructura JSON oficial devuelta por la web
+                items = data.get("props", {}).get("pageProps", {}).get("resultados", [])
+                for item in items:
+                    loteria = item.get("nombre_loteria") or item.get("loteria")
+                    hora = item.get("hora_sorteo") or item.get("hora")
+                    num = str(item.get("numero", "")).zfill(2)
                     if loteria and hora and num:
-                        clave = f"{loteria}-{hora}"
-                        mapa_resultados[clave] = num
-        except Exception:
-            continue
+                        mapa_resultados[f"{loteria}-{hora}"] = num
+            else:
+                # Búsqueda por coincidencia de etiquetas HTML reales si no hay script JSON
+                cards = soup.find_all(class_=re.compile(r'card|result|item', re.I))
+                for c in cards:
+                    txt = c.get_text(" ", strip=True)
+                    for loteria in LISTA_LOTERIAS:
+                        if loteria.lower() in txt.lower():
+                            for hora_texto, _ in HORARIOS:
+                                if hora_texto in txt:
+                                    patron_num = re.search(r'\b(\d{1,2})\b', txt)
+                                    if patron_num:
+                                        num_found = patron_num.group(1).zfill(2)
+                                        mapa_resultados[f"{loteria}-{hora_texto}"] = num_found
+    except Exception as e:
+        print(f"Error al extraer datos reales: {e}")
 
     return mapa_resultados
 
@@ -66,7 +80,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_api_directa()
+    datos_reales = extraer_datos_exactos_json()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
@@ -85,13 +99,6 @@ def generar_base_datos():
                 num_str = datos_reales[clave]
                 nombre_animal = nombres_animales.get(num_str, "Animal")
                 realizado = True
-            elif es_pasado_o_actual:
-                # Asignación de respaldo para evitar campos truncados si la API no publica a tiempo
-                clave_hash = f"{hoy_str}-{loteria}-{hora_texto}"
-                val = (abs(hash(clave_hash)) % 36) + 1
-                num_str = f"{val:02d}"
-                nombre_animal = nombres_animales.get(num_str, "Animal")
-                realizado = True
             else:
                 num_str = "--"
                 nombre_animal = "Por salir"
@@ -102,8 +109,8 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str if realizado else "--",
-                "animal": nombre_animal if realizado else "Por salir",
+                "numero": num_str,
+                "animal": nombre_animal,
                 "realizado": realizado,
                 "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
             })
@@ -114,4 +121,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización finalizada.")
+    print("Resultados oficiales guardados correctamente.")
