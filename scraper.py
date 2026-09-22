@@ -20,7 +20,6 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# 3 principales en parley.la; resto con URLs dedicadas en agendadeportiva.com.ve
 LOTERIAS_URLS = {
     "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
     "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
@@ -43,18 +42,9 @@ LOTERIAS_URLS = {
 }
 
 HORARIOS = [
-    ("08:00 AM", 8, r'08:00|\b8:00'),
-    ("09:00 AM", 9, r'09:00|\b9:00'),
-    ("10:00 AM", 10, r'10:00'),
-    ("11:00 AM", 11, r'11:00'),
-    ("12:00 PM", 12, r'12:00'),
-    ("01:00 PM", 13, r'01:00|\b1:00'),
-    ("02:00 PM", 14, r'02:00|\b2:00'),
-    ("03:00 PM", 15, r'03:00|\b3:00'),
-    ("04:00 PM", 16, r'04:00|\b4:00'),
-    ("05:00 PM", 17, r'05:00|\b5:00'),
-    ("06:00 PM", 18, r'06:00|\b6:00'),
-    ("07:00 PM", 19, r'07:00|\b7:00')
+    ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
+    ("12:00 PM", 12), ("01:00 PM", 13), ("02:00 PM", 14), ("03:00 PM", 15),
+    ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
 def extraer_resultados_por_loteria():
@@ -69,16 +59,29 @@ def extraer_resultados_por_loteria():
             resp = session.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                texto_pagina = soup.get_text(" ", strip=True)
+                
+                # Extraer texto preservando saltos de línea para delimitar tablas/filas
+                texto_pagina = "\n".join([elem.get_text(" ", strip=True) for elem.find_all(["tr", "div", "p", "li"])])
+                if not texto_pagina.strip():
+                    texto_pagina = soup.get_text("\n", strip=True)
 
-                for hora_texto, hora_num, patron_hora in HORARIOS:
-                    patron = re.compile(rf'({patron_hora}).*?\b(\d{{1,2}})\b', re.IGNORECASE)
-                    match = patron.search(texto_pagina)
+                # Buscar todas las apariciones de horas con números
+                coincidencias = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)\s*.*?(\d{1,2})\s*[-–]?\s*([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', texto_pagina)
+
+                for hora_raw, num_raw, animal_raw in coincidencias:
+                    hora_clean = re.sub(r'\s+', ' ', hora_raw.strip().upper())
                     
-                    if match:
-                        num_found = match.group(2).zfill(2)
-                        clave = f"{loteria_nombre}-{hora_texto}"
-                        mapa_resultados[clave] = num_found
+                    # Normalizar formato de hora (ej: 8:00 AM -> 08:00 AM)
+                    if len(hora_clean.split(":")[0]) == 1:
+                        hora_clean = "0" + hora_clean
+
+                    for hora_std, _ in HORARIOS:
+                        # Si la hora coincide parcialmente (ej "08:00" o "08:00 AM")
+                        if hora_std[:5] in hora_clean:
+                            num_str = num_raw.zfill(2)
+                            clave = f"{loteria_nombre}-{hora_std}"
+                            if clave not in mapa_resultados:
+                                mapa_resultados[clave] = num_str
 
             time.sleep(1)
 
@@ -99,13 +102,13 @@ def generar_base_datos():
 
     for loteria in LOTERIAS_URLS.keys():
         hora_objetivo_str = "08:00 AM"
-        for hora_texto, hora_num, _ in HORARIOS:
+        for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
                 hora_objetivo_str = hora_texto
             else:
                 break
 
-        for hora_texto, hora_num, _ in HORARIOS:
+        for hora_texto, hora_num in HORARIOS:
             es_pasado_o_actual = hora_num <= hora_actual_ve
             clave = f"{loteria}-{hora_texto}"
 
@@ -135,4 +138,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización por URLs dedicadas completada.")
+    print("Extracción corregida con re.findall.")
