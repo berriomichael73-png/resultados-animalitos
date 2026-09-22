@@ -20,26 +20,25 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# URLs directas de sitios oficiales y canales autorizados
-LOTERIAS_OFICIALES = {
-    "Lotto Activo": "https://www.lottoactivo.com/",
-    "La Granjita": "https://www.lagranjitaonline.com/",
+LOTERIAS_URLS = {
+    "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
+    "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
     "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://lottorey.com/",
-    "Lotto Activo RD": "https://lottoactivord.com/",
-    "Granjita Plus": "https://lagranjitaplus.com/",
-    "Ruleta Royal": "https://ruletaroyal.com/",
-    "Guácharo Activo": "https://elguacharoactivo.com/",
-    "Selva Plus": "https://selvaplus.com/",
-    "Chance Animal": "https://chanceanimal.com/",
-    "Tropi Gana": "https://tropigana.com/",
-    "Lotto Zoo": "https://lottozoo.com.ve/",
-    "Tropicana Animal": "https://tropicanaanimal.com/",
-    "Gana Animalito": "https://ganaanimalito.com/",
-    "Súper Gana": "https://supergana.com.ve/",
-    "Sorteo VIP": "https://sorteovip.com/",
-    "Animalitos Millonarios": "https://animalitosmillonarios.com/",
-    "Lotto Venezuela": "https://lottovenezuela.com.ve/"
+    "Lotto Rey": "https://agendadeportiva.com.ve/resultados-lotto-rey/",
+    "Lotto Activo RD": "https://agendadeportiva.com.ve/resultados-lotto-activo-rd/",
+    "Granjita Plus": "https://agendadeportiva.com.ve/resultados-la-granjita-plus/",
+    "Ruleta Royal": "https://agendadeportiva.com.ve/resultados-ruleta-royal/",
+    "Guácharo Activo": "https://agendadeportiva.com.ve/resultados-el-guacharo-activo/",
+    "Selva Plus": "https://agendadeportiva.com.ve/resultados-selva-plus/",
+    "Chance Animal": "https://agendadeportiva.com.ve/resultados-chance-animal/",
+    "Tropi Gana": "https://agendadeportiva.com.ve/resultados-tropigana/",
+    "Lotto Zoo": "https://agendadeportiva.com.ve/resultados-lotto-zoo/",
+    "Tropicana Animal": "https://agendadeportiva.com.ve/resultados-tropicana-animal/",
+    "Gana Animalito": "https://agendadeportiva.com.ve/resultados-gana-animalito/",
+    "Súper Gana": "https://agendadeportiva.com.ve/resultados-super-gana/",
+    "Sorteo VIP": "https://agendadeportiva.com.ve/resultados-sorteo-vip/",
+    "Animalitos Millonarios": "https://agendadeportiva.com.ve/resultados-animalitos-millonarios/",
+    "Lotto Venezuela": "https://agendadeportiva.com.ve/resultados-lotto-venezuela/"
 }
 
 HORARIOS = [
@@ -48,36 +47,65 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_resultados_oficiales():
+URL_RESPALDO_GENERAL = "https://triples.bet/products-results/resultados-animalitos-loteria"
+
+def procesar_texto_y_extraer(texto, loteria_nombre, mapa_resultados):
+    for hora_std, _ in HORARIOS:
+        clave = f"{loteria_nombre}-{hora_std}"
+        if clave in mapa_resultados:
+            continue
+            
+        hora_num_str = hora_std[:2]
+        hora_sin_cero = str(int(hora_num_str))
+        periodo = hora_std[-2:].lower()
+        
+        # Patrones flexibles para capturar 04:00 PM, 4:00 PM, 04:00, etc.
+        patrones = [
+            rf'{re.escape(hora_std.lower())}.*?\b(\d{{1,2}})\b',
+            rf'{hora_num_str}:00\s*{periodo}.*?\b(\d{{1,2}})\b',
+            rf'{hora_sin_cero}:00\s*{periodo}.*?\b(\d{{1,2}})\b'
+        ]
+        
+        for pat in patrones:
+            match = re.search(pat, texto, re.IGNORECASE | re.DOTALL)
+            if match:
+                num_found = match.group(1).zfill(2)
+                mapa_resultados[clave] = num_found
+                break
+
+def extraer_fuerza_bruta():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache"
     }
     mapa_resultados = {}
     session = requests.Session()
 
-    for loteria_nombre, url in LOTERIAS_OFICIALES.items():
+    # 1. Extracción primaria desde fuentes específicas con forzado de caché
+    for loteria_nombre, url_base in LOTERIAS_URLS.items():
         try:
-            resp = session.get(url, headers=headers, timeout=8)
+            url_forzada = f"{url_base}?nocache={int(time.time())}"
+            resp = session.get(url_forzada, headers=headers, timeout=8)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
                 texto_pagina = soup.get_text(" ", strip=True)
-
-                for hora_std, _ in HORARIOS:
-                    hora_simple = hora_std.replace(":00", "").lower()
-                    hora_full = hora_std.lower()
-
-                    patron = re.compile(rf'(?:{re.escape(hora_full)}|{re.escape(hora_simple)}).*?\b(\d{{1,2}})\b', re.IGNORECASE)
-                    match = patron.search(texto_pagina)
-
-                    if match:
-                        num_found = match.group(1).zfill(2)
-                        clave = f"{loteria_nombre}-{hora_std}"
-                        mapa_resultados[clave] = num_found
-
-            time.sleep(0.5)
-
+                procesar_texto_y_extraer(texto_pagina, loteria_nombre, mapa_resultados)
+            time.sleep(0.3)
         except Exception as e:
-            print(f"Error al consultar portal oficial de {loteria_nombre}: {e}")
+            print(f"Error forzando {loteria_nombre}: {e}")
+
+    # 2. Respaldo general para completar horas atascadas (4:00 PM, 5:00 PM, etc.)
+    try:
+        url_respaldo = f"{URL_RESPALDO_GENERAL}?nocache={int(time.time())}"
+        resp_resp = session.get(url_respaldo, headers=headers, timeout=10)
+        if resp_resp.status_code == 200:
+            soup_resp = BeautifulSoup(resp_resp.text, "html.parser")
+            texto_respaldo = soup_resp.get_text(" ", strip=True)
+            for loteria_nombre in LOTERIAS_URLS.keys():
+                procesar_texto_y_extraer(texto_respaldo, loteria_nombre, mapa_resultados)
+    except Exception as e:
+        print(f"Error en respaldo general: {e}")
 
     return mapa_resultados
 
@@ -87,10 +115,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_oficiales()
+    datos_reales = extraer_fuerza_bruta()
     resultados = []
 
-    for loteria in LOTERIAS_OFICIALES.keys():
+    for loteria in LOTERIAS_URLS.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -128,4 +156,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización mediante fuentes oficiales completada.")
+    print("Sincronización forzada en tiempo real completada.")
