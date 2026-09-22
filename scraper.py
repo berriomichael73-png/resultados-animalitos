@@ -42,9 +42,18 @@ LOTERIAS_PARLEY = {
 }
 
 HORARIOS = [
-    ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
-    ("12:00 PM", 12), ("01:00 PM", 13), ("02:00 PM", 14), ("03:00 PM", 15),
-    ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
+    ("08:00 AM", 8, r'08:00|\b8:00'),
+    ("09:00 AM", 9, r'09:00|\b9:00'),
+    ("10:00 AM", 10, r'10:00'),
+    ("11:00 AM", 11, r'11:00'),
+    ("12:00 PM", 12, r'12:00'),
+    ("01:00 PM", 13, r'01:00|\b1:00'),
+    ("02:00 PM", 14, r'02:00|\b2:00'),
+    ("03:00 PM", 15, r'03:00|\b3:00'),
+    ("04:00 PM", 16, r'04:00|\b4:00'),
+    ("05:00 PM", 17, r'05:00|\b5:00'),
+    ("06:00 PM", 18, r'06:00|\b6:00'),
+    ("07:00 PM", 19, r'07:00|\b7:00')
 ]
 
 def extraer_resultados_una_por_una():
@@ -61,17 +70,17 @@ def extraer_resultados_una_por_una():
                 soup = BeautifulSoup(resp.text, "html.parser")
                 texto_pagina = soup.get_text(" ", strip=True)
 
-                for hora_texto, _ in HORARIOS:
-                    # Captura directa del número de 1 o 2 dígitos inmediatamente después de la hora
-                    patron = re.compile(rf'{re.escape(hora_texto)}.*?\b(\d{{1,2}})\b', re.IGNORECASE)
+                for hora_texto, hora_num, patron_hora in HORARIOS:
+                    # Búsqueda independiente para cada hora dentro del documento
+                    patron = re.compile(rf'({patron_hora}).*?(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', re.IGNORECASE)
                     match = patron.search(texto_pagina)
                     
                     if match:
-                        num_found = match.group(1).zfill(2)
+                        num_found = match.group(2).zfill(2)
                         clave = f"{loteria_nombre}-{hora_texto}"
                         mapa_resultados[clave] = num_found
 
-            # Pausa secuencial para evitar bloqueos por peticiones rápidas
+            # Pausa de 1 segundo para evitar bloqueos del servidor
             time.sleep(1)
 
         except Exception as e:
@@ -91,13 +100,13 @@ def generar_base_datos():
 
     for loteria in LOTERIAS_PARLEY.keys():
         hora_objetivo_str = "08:00 AM"
-        for hora_texto, hora_num in HORARIOS:
+        for hora_texto, hora_num, _ in HORARIOS:
             if hora_num <= hora_actual_ve:
                 hora_objetivo_str = hora_texto
             else:
                 break
 
-        for hora_texto, hora_num in HORARIOS:
+        for hora_texto, hora_num, _ in HORARIOS:
             es_pasado_o_actual = hora_num <= hora_actual_ve
             clave = f"{loteria}-{hora_texto}"
 
@@ -127,4 +136,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización uno por uno corregida.")
+    print("Sincronización multi-horario completada con éxito.")
