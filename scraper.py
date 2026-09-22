@@ -1,5 +1,4 @@
 import json
-import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
@@ -19,7 +18,6 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Mapa de URLs directas corregidas para LotoVen
 LOTERIAS_URLS = {
     "Lotto Activo": "https://lotoven.com/animalito/lottoactivo/resultados/",
     "La Granjita": "https://lotoven.com/animalito/lagranjita/resultados/",
@@ -47,9 +45,9 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_flexibles():
+def obtener_resultados_dom_exactos():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
 
@@ -58,20 +56,31 @@ def obtener_resultados_flexibles():
             resp = requests.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                texto_limpio = soup.get_text()
-
-                # Busca patrones del tipo "30 Caiman ... 08:00 AM" o "12 Caballo ... 10:00 AM"
-                patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+).*?((?:0[1-9]|1[0-2]):00\s+(?:AM|PM))', re.DOTALL)
-                coincidencias = patron.findall(texto_limpio)
-
-                for match in coincidencias:
-                    num_bruto, animal_nom, hora_str = match
-                    num_str = num_bruto.zfill(2)
-                    clave = f"{nombre_loteria}-{hora_str}"
-                    if clave not in mapa_resultados:
-                        mapa_resultados[clave] = num_str
+                
+                # Buscar todas las tarjetas o divs de resultado
+                tarjetas = soup.find_all(class_=lambda c: c and any(k in c.lower() for k in ["card", "resultado", "sorteo", "item", "box"]))
+                
+                for t in tarjetas:
+                    texto_tarjeta = t.get_text(separator=" ", strip=True)
+                    
+                    # Identificar la hora dentro de la tarjeta
+                    hora_encontrada = None
+                    for hora_texto, _ in HORARIOS:
+                        if hora_texto in texto_tarjeta:
+                            hora_encontrada = hora_texto
+                            break
+                    
+                    if hora_encontrada:
+                        # Buscar números del 0 al 60 presentes en la tarjeta
+                        for num in nombres_animales.keys():
+                            # Verificar sintaxis como "10", "10 - Tigre", "10 Tigre"
+                            if f" {num} " in f" {texto_tarjeta} " or f"0{num}" in texto_tarjeta or f"{num}-" in texto_tarjeta:
+                                clave = f"{nombre_loteria}-{hora_encontrada}"
+                                if clave not in mapa_resultados:
+                                    mapa_resultados[clave] = num
+                                break
         except Exception as e:
-            print(f"Error parseando {nombre_loteria}: {e}")
+            print(f"Error procesando {nombre_loteria}: {e}")
 
     return mapa_resultados
 
@@ -81,11 +90,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_flexibles()
+    datos_reales = obtener_resultados_dom_exactos()
     resultados = []
 
     for loteria in LOTERIAS_URLS.keys():
-        # Calcular la hora más reciente según la hora venezolana
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -111,8 +119,8 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str if es_pasado_o_actual else "--",
-                "animal": nombre_animal if es_pasado_o_actual else "Por salir",
+                "numero": num_str,
+                "animal": nombre_animal,
                 "realizado": realizado,
                 "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
             })
@@ -123,4 +131,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Base de datos procesada exitosamente.")
+    print("Mapeo DOM ejecutado y guardado en resultados.json.")
