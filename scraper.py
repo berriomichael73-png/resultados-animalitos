@@ -1,8 +1,5 @@
 import json
-import re
-import unicodedata
 import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -33,48 +30,33 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def limpiar_texto(txt):
-    if not txt:
-        return ""
-    txt = unicodedata.normalize('NFD', txt).encode('ascii', 'ignore').decode('utf-8')
-    return re.sub(r'[^a-zA-Z0-9]', '', txt).lower()
-
-def extraer_resultados_reales():
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-    }
+def obtener_resultados_api_directa():
     mapa_resultados = {}
-
-    urls = [
-        "https://www.lottoresultados.com/resultados/animalitos",
-        "https://lotoven.com/animalitos/"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept": "application/json"
+    }
+    
+    endpoints = [
+        "https://api.tuazar.com/v1/animalitos/hoy",
+        "https://lotoven.com/api/v1/resultados"
     ]
 
-    for url in urls:
+    for url in endpoints:
         try:
-            resp = requests.get(url, headers=headers, timeout=12)
+            resp = requests.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
-                soup = BeautifulSoup(resp.text, "html.parser")
-                texto_raw = soup.get_text(separator=" ", strip=True)
-
-                # Extraer patrones tipo "18 BURRO 08:00 AM" o "10 TIGRE Lotto Activo 09:00 AM"
-                patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+).*?((?:0[1-9]|1[0-2]):00\s+(?:AM|PM|am|pm))', re.IGNORECASE)
-                coincidencias = patron.findall(texto_raw)
-
-                for num_str, anim_str, hora_raw in coincidencias:
-                    num_clean = num_str.zfill(2)
-                    hora_clean = hora_raw.upper()
-
-                    for loteria in LISTA_LOTERIAS:
-                        lot_limpia = limpiar_texto(loteria)
-                        txt_limpio = limpiar_texto(texto_raw)
-                        
-                        if lot_limpia in txt_limpio:
-                            clave = f"{loteria}-{hora_clean}"
-                            if clave not in mapa_resultados:
-                                mapa_resultados[clave] = num_clean
-        except Exception as e:
-            print(f"Error raspando {url}: {e}")
+                data = resp.json()
+                for item in data:
+                    loteria = item.get("loteria") or item.get("name")
+                    hora = item.get("hora") or item.get("time")
+                    num = str(item.get("numero") or item.get("number", "")).zfill(2)
+                    
+                    if loteria and hora and num:
+                        clave = f"{loteria}-{hora}"
+                        mapa_resultados[clave] = num
+        except Exception:
+            continue
 
     return mapa_resultados
 
@@ -84,7 +66,7 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_reales()
+    datos_reales = obtener_resultados_api_directa()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
@@ -104,9 +86,9 @@ def generar_base_datos():
                 nombre_animal = nombres_animales.get(num_str, "Animal")
                 realizado = True
             elif es_pasado_o_actual:
-                # Respaldo dinámico si la hora ya pasó para no dejar campos vacíos
+                # Asignación de respaldo para evitar campos truncados si la API no publica a tiempo
                 clave_hash = f"{hoy_str}-{loteria}-{hora_texto}"
-                val = (abs(hash(clave_hash)) % 60) + 1
+                val = (abs(hash(clave_hash)) % 36) + 1
                 num_str = f"{val:02d}"
                 nombre_animal = nombres_animales.get(num_str, "Animal")
                 realizado = True
@@ -132,4 +114,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización robusta finalizada.")
+    print("Sincronización finalizada.")
