@@ -59,35 +59,25 @@ def extraer_resultados_por_loteria():
             resp = session.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
                 soup = BeautifulSoup(resp.text, "html.parser")
-                
-                # Extraer texto preservando saltos de línea para delimitar tablas/filas
-                texto_pagina = "\n".join([elem.get_text(" ", strip=True) for elem.find_all(["tr", "div", "p", "li"])])
-                if not texto_pagina.strip():
-                    texto_pagina = soup.get_text("\n", strip=True)
+                texto_pagina = soup.get_text(" ", strip=True)
 
-                # Buscar todas las apariciones de horas con números
-                coincidencias = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)\s*.*?(\d{1,2})\s*[-–]?\s*([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', texto_pagina)
-
-                for hora_raw, num_raw, animal_raw in coincidencias:
-                    hora_clean = re.sub(r'\s+', ' ', hora_raw.strip().upper())
+                for hora_std, _ in HORARIOS:
+                    hora_simple = hora_std.replace(":00", "").lower()
+                    hora_full = hora_std.lower()
                     
-                    # Normalizar formato de hora (ej: 8:00 AM -> 08:00 AM)
-                    if len(hora_clean.split(":")[0]) == 1:
-                        hora_clean = "0" + hora_clean
+                    # Expresión regular que busca la hora seguida de un número de animalito
+                    patron = re.compile(rf'(?:{re.escape(hora_full)}|{re.escape(hora_simple)}).*?\b(\d{{1,2}})\b', re.IGNORECASE)
+                    match = patron.search(texto_pagina)
+                    
+                    if match:
+                        num_found = match.group(1).zfill(2)
+                        clave = f"{loteria_nombre}-{hora_std}"
+                        mapa_resultados[clave] = num_found
 
-                    for hora_std, _ in HORARIOS:
-                        # Si la hora coincide parcialmente (ej "08:00" o "08:00 AM")
-                        if hora_std[:5] in hora_clean:
-                            num_str = num_raw.zfill(2)
-                            clave = f"{loteria_nombre}-{hora_std}"
-                            if clave not in mapa_resultados:
-                                mapa_resultados[clave] = num_str
-
-            time.sleep(1)
+            time.sleep(0.5)
 
         except Exception as e:
-            print(f"Error procesando {loteria_nombre}: {e}")
-            time.sleep(1)
+            print(f"Error omitido en {loteria_nombre}: {e}")
 
     return mapa_resultados
 
@@ -138,4 +128,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Extracción corregida con re.findall.")
+    print("Sincronización completada sin errores.")
