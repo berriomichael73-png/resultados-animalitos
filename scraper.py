@@ -20,25 +20,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_PARLEY = {
+# Las 3 principales quedan fijas en parley.la; el resto utiliza su enlace dedicado individual
+LOTERIAS_URLS = {
     "Lotto Activo": "https://m.parley.la/resultados/resultados-lotto-activo",
     "La Granjita": "https://m.parley.la/resultados/resultados-la-granjita",
     "Ruleta Activa": "https://m.parley.la/resultados/resultados-ruleta-activa",
-    "Lotto Rey": "https://m.parley.la/resultados/resultados-lotto-rey",
-    "Lotto Activo RD": "https://m.parley.la/resultados/resultados-lotto-activo-rd",
-    "Granjita Plus": "https://m.parley.la/resultados/resultados-la-granjita-plus",
-    "Ruleta Royal": "https://m.parley.la/resultados/resultados-ruleta-royal",
-    "Guácharo Activo": "https://m.parley.la/resultados/resultados-el-guacharo-activo",
-    "Selva Plus": "https://m.parley.la/resultados/resultados-selva-plus",
-    "Chance Animal": "https://m.parley.la/resultados/resultados-chance-animal",
-    "Tropi Gana": "https://m.parley.la/resultados/resultados-tropigana",
-    "Lotto Zoo": "https://m.parley.la/resultados/resultados-lotto-zoo",
-    "Tropicana Animal": "https://m.parley.la/resultados/resultados-tropicana-animal",
-    "Gana Animalito": "https://m.parley.la/resultados/resultados-gana-animalito",
-    "Súper Gana": "https://m.parley.la/resultados/resultados-super-gana",
-    "Sorteo VIP": "https://m.parley.la/resultados/resultados-sorteo-vip",
-    "Animalitos Millonarios": "https://m.parley.la/resultados/resultados-animalitos-millonarios",
-    "Lotto Venezuela": "https://m.parley.la/resultados/resultados-lotto-venezuela"
+    "Lotto Rey": "https://tuazar.com/loteria/animalitos/lotto-rey/resultados/",
+    "Lotto Activo RD": "https://tuazar.com/loteria/animalitos/lotto-activo-rd/resultados/",
+    "Granjita Plus": "https://tuazar.com/loteria/animalitos/la-granjita-plus/resultados/",
+    "Ruleta Royal": "https://tuazar.com/loteria/animalitos/ruleta-royal/resultados/",
+    "Guácharo Activo": "https://tuazar.com/loteria/animalitos/el-guacharo-activo/resultados/",
+    "Selva Plus": "https://tuazar.com/loteria/animalitos/selva-plus/resultados/",
+    "Chance Animal": "https://tuazar.com/loteria/animalitos/chance-animal/resultados/",
+    "Tropi Gana": "https://tuazar.com/loteria/animalitos/tropigana/resultados/",
+    "Lotto Zoo": "https://tuazar.com/loteria/animalitos/lotto-zoo/resultados/",
+    "Tropicana Animal": "https://tuazar.com/loteria/animalitos/tropicana-animal/resultados/",
+    "Gana Animalito": "https://tuazar.com/loteria/animalitos/gana-animalito/resultados/",
+    "Súper Gana": "https://tuazar.com/loteria/animalitos/super-gana/resultados/",
+    "Sorteo VIP": "https://tuazar.com/loteria/animalitos/sorteo-vip/resultados/",
+    "Animalitos Millonarios": "https://tuazar.com/loteria/animalitos/animalitos-millonarios/resultados/",
+    "Lotto Venezuela": "https://tuazar.com/loteria/animalitos/lotto-venezuela/resultados/"
 }
 
 HORARIOS = [
@@ -56,14 +57,14 @@ HORARIOS = [
     ("07:00 PM", 19, r'07:00|\b7:00')
 ]
 
-def extraer_resultados_una_por_una():
+def extraer_resultados_por_loteria():
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
     mapa_resultados = {}
     session = requests.Session()
 
-    for loteria_nombre, url in LOTERIAS_PARLEY.items():
+    for loteria_nombre, url in LOTERIAS_URLS.items():
         try:
             resp = session.get(url, headers=headers, timeout=10)
             if resp.status_code == 200:
@@ -71,7 +72,6 @@ def extraer_resultados_una_por_una():
                 texto_pagina = soup.get_text(" ", strip=True)
 
                 for hora_texto, hora_num, patron_hora in HORARIOS:
-                    # Búsqueda independiente para cada hora dentro del documento
                     patron = re.compile(rf'({patron_hora}).*?(\d{{1,2}})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)', re.IGNORECASE)
                     match = patron.search(texto_pagina)
                     
@@ -80,7 +80,6 @@ def extraer_resultados_una_por_una():
                         clave = f"{loteria_nombre}-{hora_texto}"
                         mapa_resultados[clave] = num_found
 
-            # Pausa de 1 segundo para evitar bloqueos del servidor
             time.sleep(1)
 
         except Exception as e:
@@ -95,10 +94,10 @@ def generar_base_datos():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = extraer_resultados_una_por_una()
+    datos_reales = extraer_resultados_por_loteria()
     resultados = []
 
-    for loteria in LOTERIAS_PARLEY.keys():
+    for loteria in LOTERIAS_URLS.keys():
         hora_objetivo_str = "08:00 AM"
         for hora_texto, hora_num, _ in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -136,4 +135,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización multi-horario completada con éxito.")
+    print("Sincronización por URL dedicada completada.")
