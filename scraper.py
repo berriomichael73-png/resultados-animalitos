@@ -1,5 +1,7 @@
 import json
+import re
 import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 nombres_animales = {
@@ -30,40 +32,49 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_resultados_api():
+def obtener_todos_los_resultados_lottoresultados():
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
     }
-    resultados_mapa = {}
-    
-    # Intento de extracción directa desde endpoint público estructurado
+    mapa_resultados = {}
+
     try:
-        url = "https://lotoven.com/api/v1/resultados/hoy"
-        resp = requests.get(url, headers=headers, timeout=10)
+        url = "https://www.lottoresultados.com/resultados/animalitos"
+        resp = requests.get(url, headers=headers, timeout=15)
         if resp.status_code == 200:
-            datos = resp.json()
-            for item in datos:
-                lot = item.get("loteria")
-                hora = item.get("hora")
-                num = str(item.get("numero")).zfill(2)
-                if lot and hora and num:
-                    resultados_mapa[f"{lot}-{hora}"] = num
-    except Exception:
-        pass
-        
-    return resultados_mapa
+            soup = BeautifulSoup(resp.text, "html.parser")
+            
+            # Recorrer bloques de resultados
+            bloques = soup.find_all(["div", "section", "article"])
+            for b in bloques:
+                texto = b.get_text(separator=" ", strip=True)
+                for loteria in LISTA_LOTERIAS:
+                    if loteria.lower() in texto.lower():
+                        # Expresión regular que busca números y horas
+                        patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁéíóúñÁÉÍÓÚÑ]+)\s+((?:0[1-9]|1[0-2]):00\s+(?:AM|PM))')
+                        coincidencias = patron.findall(texto)
+                        for num_bruto, anim, hora_str in coincidencias:
+                            num_clean = num_bruto.zfill(2)
+                            clave = f"{loteria}-{hora_str}"
+                            if clave not in mapa_resultados:
+                                mapa_resultados[clave] = num_clean
+    except Exception as e:
+        print(f"Error raspando lottoresultados.com: {e}")
+
+    return mapa_resultados
 
 def generar_base_datos():
+    # Zona horaria estricta de Venezuela (UTC-4)
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
 
-    datos_reales = obtener_resultados_api()
+    datos_reales = obtener_todos_los_resultados_lottoresultados()
     resultados = []
 
     for loteria in LISTA_LOTERIAS:
-        # Determinar la hora exacta actual o la última transcurrida en Venezuela
+        # Calcular la hora exacta actual o la última transcurrida en Venezuela
         hora_reciente_str = "08:00 AM"
         for hora_texto, hora_num in HORARIOS:
             if hora_num <= hora_actual_ve:
@@ -89,8 +100,8 @@ def generar_base_datos():
                 "loteria": loteria,
                 "hora": hora_texto,
                 "hora_num": hora_num,
-                "numero": num_str,
-                "animal": nombre_animal,
+                "numero": num_str if realizado else "--",
+                "animal": nombre_animal if realizado else "Por salir",
                 "realizado": realizado,
                 "es_ultimo_en_vivo": (hora_texto == hora_reciente_str)
             })
@@ -101,4 +112,4 @@ if __name__ == "__main__":
     datos = generar_base_datos()
     with open("resultados.json", "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
-    print("Sincronización finalizada correctamente.")
+    print("Sincronización sin bloqueos finalizada.")
