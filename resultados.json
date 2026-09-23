@@ -5,8 +5,9 @@
     "hora": "08:00 AM",
     "hora_num": 8.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "16 OSO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/16-oso.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -16,6 +17,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -25,8 +27,9 @@
     "hora": "09:00 AM",
     "hora_num": 9.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "03 CIEMPIES",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/3-ciempies.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -36,6 +39,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -45,8 +49,9 @@
     "hora": "10:00 AM",
     "hora_num": 10.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "36 CULEBRA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/36-culebra.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -56,6 +61,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -65,8 +71,9 @@
     "hora": "11:00 AM",
     "hora_num": 11.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "28 ZAMURO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/28-zamuro.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -76,6 +83,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -85,8 +93,9 @@
     "hora": "12:00 PM",
     "hora_num": 12.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "34 VENADO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/34-venado.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -96,6 +105,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -105,8 +115,9 @@
     "hora": "01:00 PM",
     "hora_num": 13.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "02 TORO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/2-toro.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -116,6 +127,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -125,8 +137,9 @@
     "hora": "02:00 PM",
     "hora_num": 14.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "29 ELEFANTE",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/29-elefante.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -136,6 +149,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -145,8 +159,9 @@
     "hora": "03:00 PM",
     "hora_num": 15.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "04 ALACRAN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/4-alacran.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -156,6 +171,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -165,8 +181,9 @@
     "hora": "04:00 PM",
     "hora_num": 16.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "17 PAVO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/17-pavo.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -176,6 +193,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -185,8 +203,9 @@
     "hora": "05:00 PM",
     "hora_num": 17.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "05 LEON",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/5-leon.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -196,6 +215,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -205,8 +225,9 @@
     "hora": "06:00 PM",
     "hora_num": 18.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "04 ALACRAN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/4-alacran.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -216,6 +237,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -225,9 +247,10 @@
     "hora": "07:00 PM",
     "hora_num": 19.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "animal": "27 PERRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/27-perro.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -236,8 +259,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -246,6 +270,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -256,6 +281,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -264,9 +290,10 @@
     "loteria": "Ruleta Activa",
     "hora": "09:00 AM",
     "hora_num": 9.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "19",
+    "animal": "19 CHIVO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/19.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -276,6 +303,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -284,9 +312,10 @@
     "loteria": "Ruleta Activa",
     "hora": "10:00 AM",
     "hora_num": 10.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "00",
+    "animal": "0 DELFIN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/0.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -296,6 +325,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -304,9 +334,10 @@
     "loteria": "Ruleta Activa",
     "hora": "11:00 AM",
     "hora_num": 11.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "28",
+    "animal": "28 ZAMURO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/28.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -316,6 +347,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -324,9 +356,10 @@
     "loteria": "Ruleta Activa",
     "hora": "12:00 PM",
     "hora_num": 12.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "17",
+    "animal": "17 PAVO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/17.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -336,6 +369,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -344,9 +378,10 @@
     "loteria": "Ruleta Activa",
     "hora": "01:00 PM",
     "hora_num": 13.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "07",
+    "animal": "07 PERICO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/07.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -356,6 +391,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -364,9 +400,10 @@
     "loteria": "Ruleta Activa",
     "hora": "02:00 PM",
     "hora_num": 14.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "09",
+    "animal": "09 AGUILA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/09.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -376,6 +413,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -384,9 +422,10 @@
     "loteria": "Ruleta Activa",
     "hora": "03:00 PM",
     "hora_num": 15.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "24",
+    "animal": "24 IGUANA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/24.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -396,6 +435,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -404,9 +444,10 @@
     "loteria": "Ruleta Activa",
     "hora": "04:00 PM",
     "hora_num": 16.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "00",
+    "animal": "0 DELFIN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/0.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -416,6 +457,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -424,9 +466,10 @@
     "loteria": "Ruleta Activa",
     "hora": "05:00 PM",
     "hora_num": 17.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "31",
+    "animal": "31 LAPA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/31.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -436,6 +479,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -444,9 +488,10 @@
     "loteria": "Ruleta Activa",
     "hora": "06:00 PM",
     "hora_num": 18.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "32",
+    "animal": "32 ARDILLA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/32.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -456,6 +501,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -464,10 +510,11 @@
     "loteria": "Ruleta Activa",
     "hora": "07:00 PM",
     "hora_num": 19.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "numero": "22",
+    "animal": "22 CAMELLO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/22.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -476,8 +523,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -486,6 +534,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -496,6 +545,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -506,6 +556,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -516,6 +567,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -526,6 +578,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -536,6 +589,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -546,6 +600,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -556,6 +611,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -566,6 +622,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -576,6 +633,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -586,6 +644,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -596,6 +655,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -606,6 +666,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -616,6 +677,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -626,6 +688,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -636,6 +699,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -646,6 +710,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -656,6 +721,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -666,6 +732,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -676,6 +743,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -686,6 +754,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -696,6 +765,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -706,8 +776,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -716,8 +787,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -726,6 +798,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -735,8 +808,9 @@
     "hora": "08:30 AM",
     "hora_num": 8.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "17 PAVO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/17-pavo.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -746,6 +820,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -755,8 +830,9 @@
     "hora": "09:30 AM",
     "hora_num": 9.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "33 PESCADO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/33-pescado.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -766,6 +842,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -775,8 +852,9 @@
     "hora": "10:30 AM",
     "hora_num": 10.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "14 PALOMA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/14-paloma.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -786,6 +864,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -795,8 +874,9 @@
     "hora": "11:30 AM",
     "hora_num": 11.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "31 LAPA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/31-lapa.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -806,6 +886,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -815,8 +896,9 @@
     "hora": "12:30 PM",
     "hora_num": 12.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "30 CAIMAN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/30-caiman.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -826,6 +908,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -835,8 +918,9 @@
     "hora": "01:30 PM",
     "hora_num": 13.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "10 TIGRE",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/10-tigre.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -846,6 +930,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -855,8 +940,9 @@
     "hora": "02:30 PM",
     "hora_num": 14.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "28 ZAMURO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/28-zamuro.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -866,6 +952,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -875,8 +962,9 @@
     "hora": "03:30 PM",
     "hora_num": 15.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "23 CEBRA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/23-cebra.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -886,6 +974,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -895,8 +984,9 @@
     "hora": "04:30 PM",
     "hora_num": 16.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "13 MONO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/13-mono.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -906,6 +996,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -915,8 +1006,9 @@
     "hora": "05:30 PM",
     "hora_num": 17.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "0 DELFIN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/0-delfin.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -926,6 +1018,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -935,8 +1028,9 @@
     "hora": "06:30 PM",
     "hora_num": 18.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "22 CAMELLO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/22-camello.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -946,8 +1040,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -955,9 +1050,10 @@
     "hora": "07:30 PM",
     "hora_num": 19.5,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": false
+    "animal": "06 RANA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/6-rana.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -966,6 +1062,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -976,6 +1073,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -986,6 +1084,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -996,6 +1095,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1006,6 +1106,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1016,6 +1117,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1026,6 +1128,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1036,6 +1139,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1046,6 +1150,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1056,6 +1161,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1066,6 +1172,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1076,6 +1183,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1086,6 +1194,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1096,6 +1205,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1106,6 +1216,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1116,6 +1227,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1126,6 +1238,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1136,6 +1249,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1146,6 +1260,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1156,6 +1271,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1166,6 +1282,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1176,6 +1293,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1186,8 +1304,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -1196,8 +1315,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -1206,6 +1326,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1216,6 +1337,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1226,6 +1348,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1236,6 +1359,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1246,6 +1370,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1256,6 +1381,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1266,6 +1392,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1276,6 +1403,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1286,6 +1414,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1296,6 +1425,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1306,6 +1436,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1316,6 +1447,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1326,6 +1458,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1336,6 +1469,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1346,6 +1480,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1356,6 +1491,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1366,6 +1502,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1376,6 +1513,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1386,6 +1524,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1396,6 +1535,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1406,6 +1546,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1416,6 +1557,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1426,8 +1568,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -1436,8 +1579,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -1446,6 +1590,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1456,6 +1601,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1466,6 +1612,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1476,6 +1623,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1486,6 +1634,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1496,6 +1645,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1506,6 +1656,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1516,6 +1667,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1526,6 +1678,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1536,6 +1689,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1546,6 +1700,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1556,6 +1711,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1566,6 +1722,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1576,6 +1733,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1586,6 +1744,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1596,6 +1755,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1606,6 +1766,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1616,6 +1777,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1626,6 +1788,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1636,6 +1799,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1646,6 +1810,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1656,6 +1821,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1666,8 +1832,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -1676,17 +1843,19 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
     "loteria": "El Ruco",
     "hora": "08:00 AM",
     "hora_num": 8.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "34",
+    "animal": "34 TREINTA Y CUATRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/34.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1696,6 +1865,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1704,9 +1874,10 @@
     "loteria": "El Ruco",
     "hora": "09:00 AM",
     "hora_num": 9.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "66",
+    "animal": "66 SESENTA Y SEIS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/66.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1716,6 +1887,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1724,9 +1896,10 @@
     "loteria": "El Ruco",
     "hora": "10:00 AM",
     "hora_num": 10.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "58",
+    "animal": "58 CINCUENTA Y OCHO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/58.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1736,6 +1909,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1744,9 +1918,10 @@
     "loteria": "El Ruco",
     "hora": "11:00 AM",
     "hora_num": 11.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "10",
+    "animal": "10 DIEZ",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/10.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1756,6 +1931,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1764,9 +1940,10 @@
     "loteria": "El Ruco",
     "hora": "12:00 PM",
     "hora_num": 12.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "02",
+    "animal": "02 DOS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/2.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1776,6 +1953,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1784,9 +1962,10 @@
     "loteria": "El Ruco",
     "hora": "01:00 PM",
     "hora_num": 13.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "80",
+    "animal": "80 OCHENTA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/80.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1796,6 +1975,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1804,9 +1984,10 @@
     "loteria": "El Ruco",
     "hora": "02:00 PM",
     "hora_num": 14.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "21",
+    "animal": "21 VEINTIUNO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/21.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1816,6 +1997,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1824,9 +2006,10 @@
     "loteria": "El Ruco",
     "hora": "03:00 PM",
     "hora_num": 15.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "48",
+    "animal": "48 CUARENTA Y OCHO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/48.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1836,6 +2019,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1844,9 +2028,10 @@
     "loteria": "El Ruco",
     "hora": "04:00 PM",
     "hora_num": 16.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "77",
+    "animal": "77 SETENTA Y SIETE",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/77.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1856,6 +2041,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1864,9 +2050,10 @@
     "loteria": "El Ruco",
     "hora": "05:00 PM",
     "hora_num": 17.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "26",
+    "animal": "26 VEINTISéIS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/26.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1876,6 +2063,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1884,9 +2072,10 @@
     "loteria": "El Ruco",
     "hora": "06:00 PM",
     "hora_num": 18.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "16",
+    "animal": "16 DIECISéIS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/16.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -1896,6 +2085,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1904,10 +2094,11 @@
     "loteria": "El Ruco",
     "hora": "07:00 PM",
     "hora_num": 19.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "numero": "07",
+    "animal": "07 SIETE",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/el-ruco/animals_png_180/7.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -1916,8 +2107,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -1926,6 +2118,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1936,6 +2129,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1946,6 +2140,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1956,6 +2151,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1966,6 +2162,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1976,6 +2173,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1986,6 +2184,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -1996,6 +2195,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2006,6 +2206,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2016,6 +2217,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2026,6 +2228,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2036,6 +2239,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2046,6 +2250,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2056,6 +2261,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2066,6 +2272,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2076,6 +2283,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2086,6 +2294,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2096,6 +2305,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2106,6 +2316,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2116,6 +2327,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2126,6 +2338,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2136,6 +2349,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2146,8 +2360,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -2156,8 +2371,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -2166,6 +2382,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2176,6 +2393,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2186,6 +2404,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2196,6 +2415,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2206,6 +2426,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2216,6 +2437,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2226,6 +2448,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2236,6 +2459,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2246,6 +2470,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2256,6 +2481,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2266,6 +2492,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2276,6 +2503,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2286,6 +2514,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2296,6 +2525,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2306,6 +2536,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2316,6 +2547,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2326,6 +2558,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2336,6 +2569,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2346,6 +2580,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2356,6 +2591,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2366,6 +2602,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2376,6 +2613,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2386,8 +2624,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -2396,8 +2635,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -2406,6 +2646,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2416,6 +2657,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2426,6 +2668,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2436,6 +2679,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2446,6 +2690,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2456,6 +2701,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2466,6 +2712,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2476,6 +2723,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2486,6 +2734,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2496,6 +2745,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2506,6 +2756,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2516,6 +2767,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2526,6 +2778,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2536,6 +2789,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2546,6 +2800,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2556,6 +2811,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2566,6 +2822,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2576,6 +2833,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2586,6 +2844,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2596,6 +2855,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2606,6 +2866,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2616,6 +2877,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2626,8 +2888,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -2636,8 +2899,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -2646,6 +2910,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2656,6 +2921,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2666,6 +2932,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2676,6 +2943,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2686,6 +2954,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2696,6 +2965,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2706,6 +2976,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2716,6 +2987,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2726,6 +2998,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2736,6 +3009,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2746,6 +3020,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2756,6 +3031,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2766,6 +3042,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2776,6 +3053,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2786,6 +3064,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2796,6 +3075,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2806,6 +3086,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2816,6 +3097,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2826,6 +3108,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2836,6 +3119,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2846,6 +3130,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2856,6 +3141,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2866,8 +3152,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -2876,8 +3163,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -2886,6 +3174,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2896,6 +3185,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2906,6 +3196,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2916,6 +3207,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2926,6 +3218,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2936,6 +3229,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2946,6 +3240,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2956,6 +3251,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2966,6 +3262,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2976,6 +3273,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2986,6 +3284,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -2996,6 +3295,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3006,6 +3306,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3016,6 +3317,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3026,6 +3328,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3036,6 +3339,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3046,6 +3350,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3056,6 +3361,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3066,6 +3372,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3076,6 +3383,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3086,6 +3394,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3096,6 +3405,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3106,8 +3416,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -3116,8 +3427,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -3126,6 +3438,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3136,6 +3449,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3146,6 +3460,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3156,6 +3471,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3166,6 +3482,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3176,6 +3493,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3186,6 +3504,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3196,6 +3515,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3206,6 +3526,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3216,6 +3537,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3226,6 +3548,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3236,6 +3559,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3246,6 +3570,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3256,6 +3581,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3266,6 +3592,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3276,6 +3603,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3286,6 +3614,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3296,6 +3625,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3306,6 +3636,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3316,6 +3647,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3326,6 +3658,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3336,6 +3669,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3346,8 +3680,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -3356,8 +3691,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -3366,6 +3702,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3376,6 +3713,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3386,6 +3724,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3396,6 +3735,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3406,6 +3746,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3416,6 +3757,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3426,6 +3768,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3436,6 +3779,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3446,6 +3790,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3456,6 +3801,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3466,6 +3812,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3476,6 +3823,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3486,6 +3834,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3496,6 +3845,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3506,6 +3856,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3516,6 +3867,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3526,6 +3878,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3536,6 +3889,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3546,6 +3900,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3556,6 +3911,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3566,6 +3922,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3576,6 +3933,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3586,8 +3944,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -3596,8 +3955,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -3606,6 +3966,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3616,6 +3977,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3626,6 +3988,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3636,6 +3999,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3646,6 +4010,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3656,6 +4021,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3666,6 +4032,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3676,6 +4043,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3686,6 +4054,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3696,6 +4065,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3706,6 +4076,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3716,6 +4087,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3726,6 +4098,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3736,6 +4109,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3746,6 +4120,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3756,6 +4131,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3766,6 +4142,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3776,6 +4153,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3786,6 +4164,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3796,6 +4175,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3806,6 +4186,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3816,6 +4197,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3826,8 +4208,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -3836,8 +4219,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -3846,6 +4230,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3856,6 +4241,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3866,6 +4252,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3876,6 +4263,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3886,6 +4274,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3896,6 +4285,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3906,6 +4296,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3916,6 +4307,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3926,6 +4318,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3936,6 +4329,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3946,6 +4340,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3956,6 +4351,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3966,6 +4362,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3976,6 +4373,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3986,6 +4384,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -3996,6 +4395,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4006,6 +4406,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4016,6 +4417,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4026,6 +4428,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4036,6 +4439,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4046,6 +4450,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4056,6 +4461,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4066,8 +4472,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -4076,8 +4483,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -4086,6 +4494,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4096,6 +4505,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4106,6 +4516,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4116,6 +4527,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4126,6 +4538,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4136,6 +4549,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4146,6 +4560,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4156,6 +4571,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4166,6 +4582,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4176,6 +4593,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4186,6 +4604,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4196,6 +4615,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4206,6 +4626,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4216,6 +4637,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4226,6 +4648,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4236,6 +4659,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4246,6 +4670,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4256,6 +4681,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4266,6 +4692,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4276,6 +4703,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4286,6 +4714,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4296,6 +4725,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4306,8 +4736,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -4316,8 +4747,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -4326,6 +4758,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4336,6 +4769,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4346,6 +4780,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4356,6 +4791,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4366,6 +4802,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4376,6 +4813,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4386,6 +4824,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4396,6 +4835,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4406,6 +4846,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4416,6 +4857,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4426,6 +4868,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4436,6 +4879,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4446,6 +4890,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4456,6 +4901,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4466,6 +4912,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4476,6 +4923,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4486,6 +4934,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4496,6 +4945,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4506,6 +4956,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4516,6 +4967,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4526,6 +4978,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4536,6 +4989,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4546,8 +5000,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -4556,8 +5011,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -4566,6 +5022,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4576,6 +5033,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4586,6 +5044,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4596,6 +5055,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4606,6 +5066,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4616,6 +5077,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4626,6 +5088,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4636,6 +5099,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4646,6 +5110,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4656,6 +5121,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4666,6 +5132,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4676,6 +5143,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4686,6 +5154,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4696,6 +5165,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4706,6 +5176,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4716,6 +5187,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4726,6 +5198,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4736,6 +5209,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4746,6 +5220,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4756,6 +5231,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4766,6 +5242,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4776,6 +5253,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4786,8 +5264,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -4796,8 +5275,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -4806,6 +5286,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4816,6 +5297,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4826,6 +5308,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4836,6 +5319,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4846,6 +5330,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4856,6 +5341,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4866,6 +5352,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4876,6 +5363,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4886,6 +5374,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4896,6 +5385,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4906,6 +5396,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4916,6 +5407,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4926,6 +5418,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4936,6 +5429,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4946,6 +5440,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4956,6 +5451,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4966,6 +5462,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4976,6 +5473,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4986,6 +5484,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -4996,6 +5495,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5006,6 +5506,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5016,6 +5517,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5026,8 +5528,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -5036,8 +5539,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -5046,6 +5550,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5056,6 +5561,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5066,6 +5572,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5076,6 +5583,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5086,6 +5594,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5096,6 +5605,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5106,6 +5616,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5116,6 +5627,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5126,6 +5638,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5136,6 +5649,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5146,6 +5660,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5156,6 +5671,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5166,6 +5682,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5176,6 +5693,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5186,6 +5704,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5196,6 +5715,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5206,6 +5726,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5216,6 +5737,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5226,6 +5748,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5236,6 +5759,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5246,6 +5770,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5256,6 +5781,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5266,8 +5792,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -5276,8 +5803,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -5286,6 +5814,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5296,6 +5825,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5306,6 +5836,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5316,6 +5847,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5326,6 +5858,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5336,6 +5869,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5346,6 +5880,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5356,6 +5891,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5366,6 +5902,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5376,6 +5913,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5386,6 +5924,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5396,6 +5935,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5406,6 +5946,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5416,6 +5957,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5426,6 +5968,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5436,6 +5979,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5446,6 +5990,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5456,6 +6001,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5466,6 +6012,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5476,6 +6023,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5486,6 +6034,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5496,6 +6045,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5506,8 +6056,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -5516,8 +6067,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -5526,6 +6078,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5536,6 +6089,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5546,6 +6100,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5556,6 +6111,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5566,6 +6122,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5576,6 +6133,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5586,6 +6144,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5596,6 +6155,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5606,6 +6166,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5616,6 +6177,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5626,6 +6188,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5636,6 +6199,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5646,6 +6210,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5656,6 +6221,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5666,6 +6232,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5676,6 +6243,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5686,6 +6254,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5696,6 +6265,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5706,6 +6276,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5716,6 +6287,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5726,6 +6298,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5736,6 +6309,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5746,8 +6320,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -5756,8 +6331,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -5766,6 +6342,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5776,6 +6353,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5786,6 +6364,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5796,6 +6375,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5806,6 +6386,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5816,6 +6397,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5826,6 +6408,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5836,6 +6419,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5846,6 +6430,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5856,6 +6441,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5866,6 +6452,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5876,6 +6463,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5886,6 +6474,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5896,6 +6485,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5906,6 +6496,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5916,6 +6507,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5926,6 +6518,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5936,6 +6529,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5946,6 +6540,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5956,6 +6551,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5966,6 +6562,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5976,6 +6573,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -5986,8 +6584,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -5996,8 +6595,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -6006,6 +6606,7 @@
     "hora_num": 8.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6016,6 +6617,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6026,6 +6628,7 @@
     "hora_num": 9.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6036,6 +6639,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6046,6 +6650,7 @@
     "hora_num": 10.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6056,6 +6661,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6066,6 +6672,7 @@
     "hora_num": 11.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6076,6 +6683,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6086,6 +6694,7 @@
     "hora_num": 12.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6096,6 +6705,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6106,6 +6716,7 @@
     "hora_num": 13.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6116,6 +6727,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6126,6 +6738,7 @@
     "hora_num": 14.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6136,6 +6749,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6146,6 +6760,7 @@
     "hora_num": 15.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6156,6 +6771,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6166,6 +6782,7 @@
     "hora_num": 16.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6176,6 +6793,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6186,6 +6804,7 @@
     "hora_num": 17.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6196,6 +6815,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6206,6 +6826,7 @@
     "hora_num": 18.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6216,6 +6837,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6226,8 +6848,9 @@
     "hora_num": 19.0,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": true
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -6236,17 +6859,19 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
     "loteria": "Lotoanimalito",
     "hora": "08:00 AM",
     "hora_num": 8.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "31",
+    "animal": "31 LAPA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/31.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6256,6 +6881,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6264,9 +6890,10 @@
     "loteria": "Lotoanimalito",
     "hora": "09:00 AM",
     "hora_num": 9.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "09",
+    "animal": "09 AGUILA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/09.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6276,6 +6903,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6284,9 +6912,10 @@
     "loteria": "Lotoanimalito",
     "hora": "10:00 AM",
     "hora_num": 10.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "28",
+    "animal": "28 ZAMURO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/28.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6296,6 +6925,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6304,9 +6934,10 @@
     "loteria": "Lotoanimalito",
     "hora": "11:00 AM",
     "hora_num": 11.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "17",
+    "animal": "17 PAVO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/17.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6316,6 +6947,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6324,9 +6956,10 @@
     "loteria": "Lotoanimalito",
     "hora": "12:00 PM",
     "hora_num": 12.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "02",
+    "animal": "02 TORO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/02.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6336,6 +6969,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6344,9 +6978,10 @@
     "loteria": "Lotoanimalito",
     "hora": "01:00 PM",
     "hora_num": 13.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "25",
+    "animal": "25 GALLINA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/25.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6356,6 +6991,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6364,9 +7000,10 @@
     "loteria": "Lotoanimalito",
     "hora": "02:00 PM",
     "hora_num": 14.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "15",
+    "animal": "15 ZORRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/15.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6376,6 +7013,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6384,9 +7022,10 @@
     "loteria": "Lotoanimalito",
     "hora": "03:00 PM",
     "hora_num": 15.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "27",
+    "animal": "27 PERRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/27.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6396,6 +7035,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6404,9 +7044,10 @@
     "loteria": "Lotoanimalito",
     "hora": "04:00 PM",
     "hora_num": 16.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "00",
+    "animal": "0 DELFIN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/0.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6416,6 +7057,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6424,9 +7066,10 @@
     "loteria": "Lotoanimalito",
     "hora": "05:00 PM",
     "hora_num": 17.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "09",
+    "animal": "09 AGUILA",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/09.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6436,6 +7079,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6444,9 +7088,10 @@
     "loteria": "Lotoanimalito",
     "hora": "06:00 PM",
     "hora_num": 18.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "30",
+    "animal": "30 CAIMAN",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/30.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6456,6 +7101,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6464,10 +7110,11 @@
     "loteria": "Lotoanimalito",
     "hora": "07:00 PM",
     "hora_num": 19.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "numero": "21",
+    "animal": "21 GALLO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/lotoanimalitos/animals_png_180/21.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -6476,8 +7123,9 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   },
   {
     "fecha": "2026-09-23",
@@ -6485,8 +7133,9 @@
     "hora": "08:00 AM",
     "hora_num": 8.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "734 SETECIENTOS TREINTA Y CUATRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/734.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6496,6 +7145,7 @@
     "hora_num": 8.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6505,8 +7155,9 @@
     "hora": "09:00 AM",
     "hora_num": 9.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "832 OCHOCIENTOS TREINTA Y DOS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/832.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6516,6 +7167,7 @@
     "hora_num": 9.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6525,8 +7177,9 @@
     "hora": "10:00 AM",
     "hora_num": 10.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "474 CUATROCIENTOS SETENTA Y CUATRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/474.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6536,6 +7189,7 @@
     "hora_num": 10.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6544,9 +7198,10 @@
     "loteria": "Triple Pantera",
     "hora": "11:00 AM",
     "hora_num": 11.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "02",
+    "animal": "002 DOS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/002.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6556,6 +7211,7 @@
     "hora_num": 11.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6565,8 +7221,9 @@
     "hora": "12:00 PM",
     "hora_num": 12.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "341 TRESCIENTOS CUARENTA Y UNO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/341.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6576,6 +7233,7 @@
     "hora_num": 12.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6585,8 +7243,9 @@
     "hora": "01:00 PM",
     "hora_num": 13.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "493 CUATROCIENTOS NOVENTA Y TRES",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/493.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6596,6 +7255,7 @@
     "hora_num": 13.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6605,8 +7265,9 @@
     "hora": "02:00 PM",
     "hora_num": 14.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "903 NOVECIENTOS TRES",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/903.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6616,6 +7277,7 @@
     "hora_num": 14.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6625,8 +7287,9 @@
     "hora": "03:00 PM",
     "hora_num": 15.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "274 DOSCIENTOS SETENTA Y CUATRO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/274.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6636,6 +7299,7 @@
     "hora_num": 15.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6645,8 +7309,9 @@
     "hora": "04:00 PM",
     "hora_num": 16.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "616 SEISCIENTOS DIECISéIS",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/616.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6656,6 +7321,7 @@
     "hora_num": 16.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6665,8 +7331,9 @@
     "hora": "05:00 PM",
     "hora_num": 17.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "719 SETECIENTOS DIECINUEVE",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/719.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6676,6 +7343,7 @@
     "hora_num": 17.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6685,8 +7353,9 @@
     "hora": "06:00 PM",
     "hora_num": 18.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "animal": "698 SEISCIENTOS NOVENTA Y OCHO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/698.png",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -6696,6 +7365,7 @@
     "hora_num": 18.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
     "es_ultimo_en_vivo": false
   },
@@ -6705,9 +7375,10 @@
     "hora": "07:00 PM",
     "hora_num": 19.0,
     "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
-    "es_ultimo_en_vivo": true
+    "animal": "861 OCHOCIENTOS SESENTA Y UNO",
+    "imagen": "//sisvenprol.parley.la/assets/img/products/animals/triple-pantera/animals_png_180/861.png",
+    "realizado": true,
+    "es_ultimo_en_vivo": false
   },
   {
     "fecha": "2026-09-23",
@@ -6716,7 +7387,8 @@
     "hora_num": 19.5,
     "numero": "--",
     "animal": "Por salir",
+    "imagen": "",
     "realizado": false,
-    "es_ultimo_en_vivo": false
+    "es_ultimo_en_vivo": true
   }
 ]
