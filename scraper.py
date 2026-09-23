@@ -48,34 +48,26 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_animalito_parley(contenedor):
-    for img in contenedor.find_all("img"):
-        src = img.get("src", "").lower()
-        alt = img.get("alt", "").lower()
-        title = img.get("title", "").lower()
-        comb = f"{src} {alt} {title}"
-
-        for num_code, anim_nombre in nombres_animales.items():
-            if anim_nombre.lower() in comb:
-                return num_code.zfill(2)
-
-        match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-        if match_img:
-            num_cand = match_img.group(1).zfill(2)
+def extraer_de_texto_o_json(cadena):
+    # Procesa cualquier respuesta JSON o texto crudo enviado desde la base de datos
+    resultados_encontrados = {}
+    for hora_std, _ in HORARIOS:
+        hora_num = hora_std[:2]
+        hora_alt = str(int(hora_num))
+        
+        # Patrón para identificar la hora vinculada al número/animal dentro de la base de datos
+        patron = re.compile(rf'(?:{hora_num}:00|{hora_alt}:00).*?\b(\d{{1,2}})\b', re.IGNORECASE)
+        match = patron.search(cadena)
+        if match:
+            num_cand = match.group(1).zfill(2)
             if num_cand in nombres_animales:
-                return num_cand
+                resultados_encontrados[hora_std] = num_cand
+                
+    return resultados_encontrados
 
-    txt = contenedor.get_text(" ", strip=True)
-    for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt.lower():
-            return num_code.zfill(2)
-
-    return None
-
-def escanear_tanda_parley(browser, lote_loterias, fecha_str):
+def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
     datos_lote = {}
     
-    # Crear un contexto nuevo (pestaña/sesión limpia) por cada grupo de 3
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
     )
@@ -86,13 +78,36 @@ def escanear_tanda_parley(browser, lote_loterias, fecha_str):
         if fecha_str:
             url += f"/{fecha_str}"
 
+        respuestas_api = []
+
+        # Interceptador de tráfico de red (escucha la base de datos de parley)
+        def capturar_respuesta(response):
+            try:
+                if "api" in response.url or "json" in response.url or "resultado" in response.url:
+                    texto = response.text()
+                    respuestas_api.append(texto)
+            except Exception:
+                pass
+
+        page.on("response", capturar_respuesta)
+
         try:
             page.goto(url, timeout=25000)
-            page.wait_for_timeout(2500)
+            page.wait_for_timeout(2000)
+            
+            # 1. Intentar extraer primero de las respuestas interceptadas de la API
+            for resp_txt in respuestas_api:
+                extraidos_api = extraer_de_texto_o_json(resp_txt)
+                for h, n in extraidos_api.items():
+                    clave = f"{loteria_nombre}-{h}"
+                    if clave not in datos_lote:
+                        datos_lote[clave] = n
+
+            # 2. Respaldo por HTML directo
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
-
             elementos = soup.find_all(["tr", "div", "li", "article"])
+            
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
                 for hora_std, _ in HORARIOS:
@@ -104,15 +119,16 @@ def escanear_tanda_parley(browser, lote_loterias, fecha_str):
                     hora_alt = str(int(hora_num))
                     
                     if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        res = extraer_animalito_parley(el)
-                        if res:
-                            datos_lote[clave] = res
+                        for num_code, anim_nombre in nombres_animales.items():
+                            if anim_nombre.lower() in txt_el.lower():
+                                datos_lote[clave] = num_code.zfill(2)
+                                break
 
         except Exception as e:
-            print(f"Error procesando {loteria_nombre} en Parley: {e}")
+            print(f"Error interceptando base de datos de {loteria_nombre}: {e}")
             continue
 
-        time.sleep(1)  # Pausa breve entre páginas del mismo lote
+        time.sleep(0.8)
 
     context.close()
     return datos_lote
@@ -135,8 +151,6 @@ def ejecutar_proceso_parley():
             historial = {}
 
     items_loterias = list(LOTERIAS_PARLEY.items())
-    
-    # Dividir las 18 loterías en tandas estrictas de 3 en 3
     tandas = [items_loterias[i:i + 3] for i in range(0, len(items_loterias), 3)]
 
     with sync_playwright() as p:
@@ -148,11 +162,10 @@ def ejecutar_proceso_parley():
             
             mapa_extraido_dia = {}
 
-            # Ejecutar escaneo por cada tanda de 3 loterías
             for tanda in tandas:
-                datos_tanda = escanear_tanda_parley(browser, tanda, fecha_param)
+                datos_tanda = escanear_base_datos_parley(browser, tanda, fecha_param)
                 mapa_extraido_dia.update(datos_tanda)
-                time.sleep(2)  # Pausa de seguridad entre tandas
+                time.sleep(1.2)
 
             resultados_fecha = []
 
@@ -199,4 +212,4 @@ def ejecutar_proceso_parley():
 
 if __name__ == "__main__":
     ejecutar_proceso_parley()
-    print("Sincronización exclusiva de parley.la por tandas de 3 completada.")
+    print("Interceptación en tiempo real de la base de datos completada.")
