@@ -21,18 +21,19 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_PARLEY = {
+# Slugs exactos de la ruta /resultados/resultados-[slug] en m.parley.la
+LOTERIAS_PARLEY_RUTAS = {
     "Lotto Activo": "lotto-activo",
     "La Granjita": "la-granjita",
     "Ruleta Activa": "ruleta-activa",
     "Lotto Rey": "lotto-rey",
     "Lotto Activo RD": "lotto-activo-rd",
-    "Granjita Plus": "la-granjita-plus",
+    "La Granjita Plus": "la-granjita-plus",
     "Ruleta Royal": "ruleta-royal",
-    "Guácharo Activo": "el-guacharo-activo",
+    "El Guácharo Activo": "el-guacharo-activo",
     "Selva Plus": "selva-plus",
     "Chance Animal": "chance-animal",
-    "Tropi Gana": "tropigana",
+    "Tropigana": "tropigana",
     "Lotto Zoo": "lotto-zoo",
     "Tropicana Animal": "tropicana-animal",
     "Gana Animalito": "gana-animalito",
@@ -48,8 +49,14 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_animalito_estricto(contenedor):
-    # 1. Búsqueda por imagen en el contenedor específico
+def extraer_animalito_parley_directo(contenedor):
+    # 1. Búsqueda por texto directo primero (para capturar al instante)
+    txt = contenedor.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
+
+    # 2. Búsqueda por imágenes (src, alt, title)
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -66,15 +73,9 @@ def extraer_animalito_estricto(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
-    # 2. Búsqueda por texto dentro del contenedor exclusivo de la hora
-    txt = contenedor.get_text(" ", strip=True)
-    for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt.lower():
-            return num_code.zfill(2)
-
     return None
 
-def escanear_parley_aislado(browser, lote_loterias, fecha_str):
+def escanear_rutas_parley(browser, lote_loterias, fecha_str):
     datos_lote = {}
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
@@ -82,6 +83,7 @@ def escanear_parley_aislado(browser, lote_loterias, fecha_str):
     page = context.new_page()
 
     for loteria_nombre, slug in lote_loterias:
+        # Construcción directa de la URL de parley.la
         url = f"https://m.parley.la/resultados/resultados-{slug}"
         if fecha_str:
             url += f"/{fecha_str}"
@@ -92,12 +94,11 @@ def escanear_parley_aislado(browser, lote_loterias, fecha_str):
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            # Buscar filas o tarjetas específicas dentro del cuerpo
+            # Buscar filas y bloques descartando menús pesados
             elementos = soup.find_all(["tr", "div", "li", "article"])
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
                 
-                # Ignorar encabezados o menús generales
                 if len(txt_el) > 300:
                     continue
 
@@ -110,12 +111,12 @@ def escanear_parley_aislado(browser, lote_loterias, fecha_str):
                     hora_alt = str(int(hora_num))
                     
                     if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        res = extraer_animalito_estricto(el)
+                        res = extraer_animalito_parley_directo(el)
                         if res:
                             datos_lote[clave] = res
 
         except Exception as e:
-            print(f"Error procesando {loteria_nombre} en parley.la: {e}")
+            print(f"Error cargando ruta {url}: {e}")
             continue
 
         time.sleep(0.8)
@@ -123,7 +124,7 @@ def escanear_parley_aislado(browser, lote_loterias, fecha_str):
     context.close()
     return datos_lote
 
-def ejecutar_proceso_exclusivo_parley():
+def ejecutar_proceso_parley_directo():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
@@ -145,7 +146,7 @@ def ejecutar_proceso_exclusivo_parley():
         except Exception:
             historial = {}
 
-    items_loterias = list(LOTERIAS_PARLEY.items())
+    items_loterias = list(LOTERIAS_PARLEY_RUTAS.items())
     tandas = [items_loterias[i:i + 3] for i in range(0, len(items_loterias), 3)]
 
     with sync_playwright() as p:
@@ -158,7 +159,7 @@ def ejecutar_proceso_exclusivo_parley():
             mapa_extraido_dia = {}
 
             for tanda in tandas:
-                datos_tanda = escanear_parley_aislado(browser, tanda, fecha_param)
+                datos_tanda = escanear_rutas_parley(browser, tanda, fecha_param)
                 mapa_extraido_dia.update(datos_tanda)
                 time.sleep(1.2)
 
@@ -207,5 +208,5 @@ def ejecutar_proceso_exclusivo_parley():
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    ejecutar_proceso_exclusivo_parley()
-    print("Sincronización estricta por contenedor completada.")
+    ejecutar_proceso_parley_directo()
+    print("Sincronización por rutas directas de resultados completada.")
