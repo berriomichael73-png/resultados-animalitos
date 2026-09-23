@@ -21,12 +21,26 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LISTA_LOTERIAS = [
-    "Lotto Activo", "La Granjita", "Ruleta Activa", "Lotto Rey", "Lotto Activo RD",
-    "Granjita Plus", "Ruleta Royal", "Guácharo Activo", "Selva Plus", "Chance Animal",
-    "Tropi Gana", "Lotto Zoo", "Tropicana Animal", "Gana Animalito",
-    "Súper Gana", "Sorteo VIP", "Animalitos Millonarios", "Lotto Venezuela"
-]
+LOTERIAS_CONFIG = {
+    "Lotto Activo": "lotto-activo",
+    "La Granjita": "la-granjita",
+    "Ruleta Activa": "ruleta-activa",
+    "Lotto Rey": "lotto-rey",
+    "Lotto Activo RD": "lotto-activo-rd",
+    "Granjita Plus": "la-granjita-plus",
+    "Ruleta Royal": "ruleta-royal",
+    "Guácharo Activo": "el-guacharo-activo",
+    "Selva Plus": "selva-plus",
+    "Chance Animal": "chance-animal",
+    "Tropi Gana": "tropigana",
+    "Lotto Zoo": "lotto-zoo",
+    "Tropicana Animal": "tropicana-animal",
+    "Gana Animalito": "gana-animalito",
+    "Súper Gana": "super-gana",
+    "Sorteo VIP": "sorteo-vip",
+    "Animalitos Millonarios": "animalitos-millonarios",
+    "Lotto Venezuela": "lotto-venezuela"
+}
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -34,134 +48,75 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def procesar_fila_especifica(fila_html):
-    imgs = fila_html.find_all("img")
-    for img in imgs:
+def obtener_urls_por_fecha(slug, fecha_str):
+    return [
+        f"https://m.parley.la/resultados/resultados-{slug}/{fecha_str}",
+        f"https://m.parley.la/resultados/resultados-{slug}?fecha={fecha_str}",
+        f"https://tuazar.com/loteria/animalitos/{slug}/resultados/{fecha_str}/",
+        f"https://agendadeportiva.com.ve/resultados-{slug}/?fecha={fecha_str}"
+    ]
+
+def extraer_animalito_de_contenedor(contenedor):
+    # 1. Análisis de Imágenes (src, alt, title)
+    for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
         title = img.get("title", "").lower()
-        
+        comb = f"{src} {alt} {title}"
+
         for num_code, anim_nombre in nombres_animales.items():
-            nombre_clean = anim_nombre.lower()
-            if nombre_clean in alt or nombre_clean in title or nombre_clean in src:
+            if anim_nombre.lower() in comb:
                 return num_code.zfill(2)
-        
-        match_src = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-        if match_src:
-            num_cand = match_src.group(1).zfill(2)
+
+        match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+        if match_img:
+            num_cand = match_img.group(1).zfill(2)
             if num_cand in nombres_animales:
                 return num_cand
 
-    txt_fila = fila_html.get_text(" ", strip=True)
+    # 2. Análisis de Texto Plano en el contenedor
+    txt = contenedor.get_text(" ", strip=True)
     for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt_fila.lower():
+        if anim_nombre.lower() in txt.lower():
             return num_code.zfill(2)
 
     return None
 
-def extraer_con_playwright():
+def extraer_fecha_pagina(page, urls):
     mapa_resultados = {}
-    
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        )
-        page = context.new_page()
-        
+    for url in urls:
         try:
-            page.goto("https://loteriadehoy.com/animalitos/resultados/", timeout=40000)
-            page.wait_for_timeout(5000)
-            
+            page.goto(url, timeout=25000)
+            page.wait_for_timeout(3000)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            tarjetas = soup.find_all(["div", "section", "article", "table"], class_=re.compile(r'card|block|tabla|resultado|loteria', re.I))
-            if not tarjetas:
-                tarjetas = [soup]
+            elementos = soup.find_all(["tr", "div", "li", "article"])
+            for el in elementos:
+                txt_el = el.get_text(" ", strip=True)
+                for hora_std, _ in HORARIOS:
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    
+                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
+                        res = extraer_animalito_de_contenedor(el)
+                        if res:
+                            mapa_resultados[hora_std] = res
 
-            for tarjeta in tarjetas:
-                txt_tarjeta = tarjeta.get_text(" ", strip=True)
-                
-                loteria_detectada = None
-                for lot in LISTA_LOTERIAS:
-                    if lot.lower() in txt_tarjeta[:120].lower():
-                        loteria_detectada = lot
-                        break
-                
-                if loteria_detectada:
-                    filas = tarjeta.find_all(["tr", "li", "div"], class_=re.compile(r'item|row|fila|sorteo|hora', re.I))
-                    if not filas:
-                        filas = tarjeta.find_all(["tr", "li"])
-
-                    for f in filas:
-                        txt_f = f.get_text(" ", strip=True)
-                        for hora_std, _ in HORARIOS:
-                            clave = f"{loteria_detectada}-{hora_std}"
-                            if clave in mapa_resultados:
-                                continue
-                            
-                            hora_num = hora_std[:2]
-                            hora_alt = str(int(hora_num))
-                            
-                            if f"{hora_num}:00" in txt_f or f"{hora_alt}:00" in txt_f:
-                                res_num = procesar_fila_especifica(f)
-                                if res_num:
-                                    mapa_resultados[clave] = res_num
-
-        except Exception as e:
-            print(f"Error procesando extracción: {e}")
-        finally:
-            browser.close()
+            if len(mapa_resultados) >= 4:
+                break
+        except Exception:
+            continue
             
     return mapa_resultados
 
-def actualizar_historial_y_diario():
+def ejecutar_proceso_completo():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
-    hoy_str = hoy_dt.strftime("%Y-%m-%d")
-    hora_actual_ve = hoy_dt.hour
-
-    datos_reales = extraer_con_playwright()
-    resultados_hoy = []
-
-    for loteria in LISTA_LOTERIAS:
-        hora_objetivo_str = "08:00 AM"
-        for hora_texto, hora_num in HORARIOS:
-            if hora_num <= hora_actual_ve:
-                hora_objetivo_str = hora_texto
-            else:
-                break
-
-        for hora_texto, hora_num in HORARIOS:
-            es_pasado_o_actual = hora_num <= hora_actual_ve
-            clave = f"{loteria}-{hora_texto}"
-
-            if clave in datos_reales and es_pasado_o_actual:
-                num_str = datos_reales[clave]
-                nombre_animal = nombres_animales.get(num_str, "Animal")
-                realizado = True
-            else:
-                num_str = "--"
-                nombre_animal = "Por salir"
-                realizado = False
-
-            resultados_hoy.append({
-                "fecha": hoy_str,
-                "loteria": loteria,
-                "hora": hora_texto,
-                "hora_num": hora_num,
-                "numero": num_str,
-                "animal": nombre_animal,
-                "realizado": realizado,
-                "es_ultimo_en_vivo": (hora_texto == hora_objetivo_str)
-            })
-
-    # Guardar resultados del día
-    with open("resultados.json", "w", encoding="utf-8") as f:
-        json.dump(resultados_hoy, f, ensure_ascii=False, indent=2)
-
-    # Cargar y actualizar historial acumulativo
+    
+    # Días a procesar: Hoy y los últimos 3 días anteriores
+    fechas_a_procesar = [(hoy_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(4)]
+    
     historial = {}
     if os.path.exists("historial_resultados.json"):
         try:
@@ -170,12 +125,55 @@ def actualizar_historial_y_diario():
         except Exception:
             historial = {}
 
-    # Agregar o reemplazar la fecha de hoy en el historial
-    historial[hoy_str] = resultados_hoy
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+        )
+        page = context.new_page()
 
+        for fecha_str in fechas_a_procesar:
+            resultados_fecha = []
+            
+            for loteria, slug in LOTERIAS_CONFIG.items():
+                urls = obtener_urls_por_fecha(slug, fecha_str)
+                datos_extraidos = extraer_fecha_pagina(page, urls)
+
+                for hora_texto, hora_num in HORARIOS:
+                    clave_hora = hora_texto
+                    
+                    if clave_hora in datos_extraidos:
+                        num_str = datos_extraidos[clave_hora]
+                        nombre_animal = nombres_animales.get(num_str, "Animal")
+                        realizado = True
+                    else:
+                        num_str = "--"
+                        nombre_animal = "Por salir"
+                        realizado = False
+
+                    resultados_fecha.append({
+                        "fecha": fecha_str,
+                        "loteria": loteria,
+                        "hora": hora_texto,
+                        "hora_num": hora_num,
+                        "numero": num_str,
+                        "animal": nombre_animal,
+                        "realizado": realizado
+                    })
+
+            historial[fecha_str] = resultados_fecha
+            
+            # Guardar el día actual directamente en resultados.json
+            if fecha_str == fechas_a_procesar[0]:
+                with open("resultados.json", "w", encoding="utf-8") as f:
+                    json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
+
+        browser.close()
+
+    # Guardar historial consolidado
     with open("historial_resultados.json", "w", encoding="utf-8") as f:
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    actualizar_historial_y_diario()
-    print("Sincronización diaria e historial acumulativo guardados correctamente.")
+    ejecutar_proceso_completo()
+    print("Extracción multicanal con historial completada.")
