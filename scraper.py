@@ -49,13 +49,11 @@ HORARIOS = [
 ]
 
 def extraer_de_texto_o_json(cadena):
-    # Procesa cualquier respuesta JSON o texto crudo enviado desde la base de datos
     resultados_encontrados = {}
     for hora_std, _ in HORARIOS:
         hora_num = hora_std[:2]
         hora_alt = str(int(hora_num))
         
-        # Patrón para identificar la hora vinculada al número/animal dentro de la base de datos
         patron = re.compile(rf'(?:{hora_num}:00|{hora_alt}:00).*?\b(\d{{1,2}})\b', re.IGNORECASE)
         match = patron.search(cadena)
         if match:
@@ -80,7 +78,6 @@ def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
 
         respuestas_api = []
 
-        # Interceptador de tráfico de red (escucha la base de datos de parley)
         def capturar_respuesta(response):
             try:
                 if "api" in response.url or "json" in response.url or "resultado" in response.url:
@@ -95,7 +92,6 @@ def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
             page.goto(url, timeout=25000)
             page.wait_for_timeout(2000)
             
-            # 1. Intentar extraer primero de las respuestas interceptadas de la API
             for resp_txt in respuestas_api:
                 extraidos_api = extraer_de_texto_o_json(resp_txt)
                 for h, n in extraidos_api.items():
@@ -103,7 +99,6 @@ def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
                     if clave not in datos_lote:
                         datos_lote[clave] = n
 
-            # 2. Respaldo por HTML directo
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
             elementos = soup.find_all(["tr", "div", "li", "article"])
@@ -125,7 +120,7 @@ def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
                                 break
 
         except Exception as e:
-            print(f"Error interceptando base de datos de {loteria_nombre}: {e}")
+            print(f"Error procesando {loteria_nombre}: {e}")
             continue
 
         time.sleep(0.8)
@@ -139,6 +134,12 @@ def ejecutar_proceso_parley():
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
     minuto_actual_ve = hoy_dt.minute
+
+    # Determinar dinámicamente cuál es el último horario de sorteo que ya ocurrió o está en juego
+    hora_ultimo_sorteo = "08:00 AM"
+    for h_txt, h_num in HORARIOS:
+        if h_num <= hora_actual_ve:
+            hora_ultimo_sorteo = h_txt
 
     fechas_a_procesar = [(hoy_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(4)]
     
@@ -196,7 +197,8 @@ def ejecutar_proceso_parley():
                         "hora_num": hora_num,
                         "numero": num_str,
                         "animal": nombre_animal,
-                        "realizado": realizado
+                        "realizado": realizado,
+                        "es_ultimo_en_vivo": (es_hoy and hora_texto == hora_ultimo_sorteo)
                     })
 
             historial[fecha_str] = resultados_fecha
@@ -212,4 +214,4 @@ def ejecutar_proceso_parley():
 
 if __name__ == "__main__":
     ejecutar_proceso_parley()
-    print("Interceptación en tiempo real de la base de datos completada.")
+    print("Corrección de horas dinámicas completada con éxito.")
