@@ -39,32 +39,30 @@ LOTERIAS_LOTOVEN = {
     "Loto Chaima": "loto-chaima"
 }
 
-# Horarios incluyendo horas exactas y medias horas
-HORARIOS = [
-    ("08:00 AM", 8.0), ("08:30 AM", 8.5),
-    ("09:00 AM", 9.0), ("09:30 AM", 9.5),
-    ("10:00 AM", 10.0), ("10:30 AM", 10.5),
-    ("11:00 AM", 11.0), ("11:30 AM", 11.5),
-    ("12:00 PM", 12.0), ("12:30 PM", 12.5),
-    ("01:00 PM", 13.0), ("01:30 PM", 13.5),
-    ("02:00 PM", 14.0), ("02:30 PM", 14.5),
-    ("03:00 PM", 15.0), ("03:30 PM", 15.5),
-    ("04:00 PM", 16.0), ("04:30 PM", 16.5),
-    ("05:00 PM", 17.0), ("05:30 PM", 17.5),
-    ("06:00 PM", 18.0), ("06:30 PM", 18.5),
-    ("07:00 PM", 19.0), ("07:30 PM", 19.5)
+# SEPARACIÓN DE HORARIOS EN DOS GRUPOS PARA EVITAR CONFUSIONES
+
+HORARIOS_EN_PUNTO = [
+    ("08:00 AM", 8.0), ("09:00 AM", 9.0), ("10:00 AM", 10.0), ("11:00 AM", 11.0),
+    ("12:00 PM", 12.0), ("01:00 PM", 13.0), ("02:00 PM", 14.0), ("03:00 PM", 15.0),
+    ("04:00 PM", 16.0), ("05:00 PM", 17.0), ("06:00 PM", 18.0), ("07:00 PM", 19.0)
 ]
+
+HORARIOS_MEDIAS_HORAS = [
+    ("08:30 AM", 8.5), ("09:30 AM", 9.5), ("10:30 AM", 10.5), ("11:30 AM", 11.5),
+    ("12:30 PM", 12.5), ("01:30 PM", 13.5), ("02:30 PM", 14.5), ("03:30 PM", 15.5),
+    ("04:30 PM", 16.5), ("05:30 PM", 17.5), ("06:30 PM", 18.5), ("07:30 PM", 19.5)
+]
+
+# Todos los horarios ordenados para construir el archivo final
+TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
 def extraer_animalito(contenedor):
     txt = contenedor.get_text(" ", strip=True)
     
-    # Búsqueda por número y nombre directo
     for num_code, anim_nombre in nombres_animales.items():
-        patron_txt = rf'\b{num_code}\b.*?\b{anim_nombre}\b|\b{anim_nombre}\b'
-        if re.search(patron_txt, txt, re.IGNORECASE):
+        if anim_nombre.lower() in txt.lower():
             return num_code.zfill(2)
 
-    # Búsqueda por imágenes en el bloque
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -107,16 +105,28 @@ def escanear_lotoven(browser, fecha_str):
                 if len(txt_el) > 250:
                     continue
 
-                for hora_std, _ in HORARIOS:
+                # Búsqueda 1: Escanear grupo de Horas En Punto
+                for hora_std, _ in HORARIOS_EN_PUNTO:
                     clave = f"{loteria_nombre}-{hora_std}"
                     if clave in datos_extraidos:
                         continue
 
-                    # Coincidencia flexible de hora (10:30, 10:30 AM, 10:30AM)
-                    hora_limpia = hora_std.replace(" ", "").lower()
-                    hora_base = hora_std.split()[0]
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
+                        res = extraer_animalito(el)
+                        if res:
+                            datos_extraidos[clave] = res
 
-                    if hora_base in txt_el or hora_std.lower() in txt_el.lower() or hora_limpia in txt_el.lower():
+                # Búsqueda 2: Escanear grupo de Medias Horas
+                for hora_std, _ in HORARIOS_MEDIAS_HORAS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_extraidos:
+                        continue
+
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    if f"{hora_num}:30" in txt_el or f"{hora_alt}:30" in txt_el:
                         res = extraer_animalito(el)
                         if res:
                             datos_extraidos[clave] = res
@@ -137,7 +147,7 @@ def ejecutar_proceso():
     hora_actual_ve = hoy_dt.hour + (hoy_dt.minute / 60.0)
 
     hora_ultimo_sorteo = "08:00 AM"
-    for h_txt, h_val in HORARIOS:
+    for h_txt, h_val in TODOS_LOS_HORARIOS:
         if h_val <= hora_actual_ve:
             hora_ultimo_sorteo = h_txt
 
@@ -162,7 +172,7 @@ def ejecutar_proceso():
             resultados_fecha = []
 
             for loteria_nombre in LOTERIAS_LOTOVEN.keys():
-                for hora_texto, hora_val in HORARIOS:
+                for hora_texto, hora_val in TODOS_LOS_HORARIOS:
                     ha_ocurrido = True
                     if es_hoy:
                         if hora_val > hora_actual_ve:
@@ -203,4 +213,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización con lotoven.com e integración de medias horas completada.")
+    print("Separación estricta de horarios (en punto vs medias horas) completada.")
