@@ -7,7 +7,8 @@
       "hora_num": 8,
       "numero": "16",
       "animal": "Oso",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -16,7 +17,8 @@
       "hora_num": 9,
       "numero": "03",
       "animal": "Ciempiés",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -25,7 +27,8 @@
       "hora_num": 10,
       "numero": "36",
       "animal": "Culebra",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -34,7 +37,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -43,7 +47,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -52,7 +57,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -61,7 +67,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -70,7 +77,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -79,7 +87,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -88,7 +97,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -97,7 +107,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -106,7 +117,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -115,7 +127,8 @@
       "hora_num": 8,
       "numero": "03",
       "animal": "Ciempiés",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -124,7 +137,8 @@
       "hora_num": 9,
       "numero": "36",
       "animal": "Culebra",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -133,7 +147,8 @@
       "hora_num": 10,
       "numero": "24",
       "animal": "Iguana",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -142,7 +157,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -151,7 +167,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -160,7 +177,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -169,7 +187,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -178,7 +197,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -187,7 +207,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -196,7 +217,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -205,7 +227,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -214,7 +237,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -223,7 +247,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -232,7 +257,8 @@
       "hora_num": 9,
       "numero": "19",
       "animal": "Chivo",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -241,7 +267,8 @@
       "hora_num": 10,
       "numero": "00",
       "animal": "Delfín",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -250,7 +277,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -259,7 +287,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -268,7 +297,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -277,7 +307,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -286,7 +317,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -295,7 +327,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -304,7 +337,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -313,7 +347,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -322,7 +357,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -331,7 +367,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -340,7 +377,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -349,7 +387,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -358,7 +397,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -367,7 +407,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -376,7 +417,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -385,7 +427,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -394,7 +437,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -403,7 +447,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -412,7 +457,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -421,7 +467,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -430,7 +477,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -439,7 +487,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -448,7 +497,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -457,7 +507,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -466,7 +517,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -475,7 +527,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -484,7 +537,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -493,7 +547,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -502,7 +557,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -511,7 +567,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -520,7 +577,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -529,7 +587,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -538,7 +597,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -547,7 +607,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -556,7 +617,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -565,7 +627,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -574,7 +637,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -583,7 +647,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -592,7 +657,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -601,7 +667,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -610,7 +677,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -619,7 +687,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -628,7 +697,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -637,7 +707,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -646,7 +717,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -655,7 +727,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -664,7 +737,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -673,7 +747,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -682,7 +757,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -691,7 +767,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -700,7 +777,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -709,7 +787,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -718,7 +797,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -727,7 +807,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -736,7 +817,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -745,7 +827,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -754,7 +837,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -763,7 +847,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -772,7 +857,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -781,7 +867,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -790,7 +877,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -799,7 +887,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -808,7 +897,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -817,7 +907,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -826,7 +917,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -835,7 +927,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -844,7 +937,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -853,7 +947,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -862,7 +957,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -871,7 +967,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -880,7 +977,8 @@
       "hora_num": 9,
       "numero": "07",
       "animal": "Perico",
-      "realizado": true
+      "realizado": true,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -889,7 +987,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -898,7 +997,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -907,7 +1007,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -916,7 +1017,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -925,7 +1027,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -934,7 +1037,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -943,7 +1047,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -952,7 +1057,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -961,7 +1067,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -970,7 +1077,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -979,7 +1087,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -988,7 +1097,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -997,7 +1107,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1006,7 +1117,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1015,7 +1127,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1024,7 +1137,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1033,7 +1147,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1042,7 +1157,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1051,7 +1167,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1060,7 +1177,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1069,7 +1187,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1078,7 +1197,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1087,7 +1207,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1096,7 +1217,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1105,7 +1227,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1114,7 +1237,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1123,7 +1247,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1132,7 +1257,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1141,7 +1267,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1150,7 +1277,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1159,7 +1287,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1168,7 +1297,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1177,7 +1307,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1186,7 +1317,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1195,7 +1327,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1204,7 +1337,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1213,7 +1347,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1222,7 +1357,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1231,7 +1367,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1240,7 +1377,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1249,7 +1387,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1258,7 +1397,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1267,7 +1407,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1276,7 +1417,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1285,7 +1427,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1294,7 +1437,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1303,7 +1447,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1312,7 +1457,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1321,7 +1467,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1330,7 +1477,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1339,7 +1487,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1348,7 +1497,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1357,7 +1507,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1366,7 +1517,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1375,7 +1527,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1384,7 +1537,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1393,7 +1547,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1402,7 +1557,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1411,7 +1567,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1420,7 +1577,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1429,7 +1587,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1438,7 +1597,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1447,7 +1607,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1456,7 +1617,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1465,7 +1627,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1474,7 +1637,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1483,7 +1647,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1492,7 +1657,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1501,7 +1667,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1510,7 +1677,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1519,7 +1687,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1528,7 +1697,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1537,7 +1707,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1546,7 +1717,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1555,7 +1727,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1564,7 +1737,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1573,7 +1747,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1582,7 +1757,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1591,7 +1767,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1600,7 +1777,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1609,7 +1787,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1618,7 +1797,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1627,7 +1807,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1636,7 +1817,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1645,7 +1827,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1654,7 +1837,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1663,7 +1847,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1672,7 +1857,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1681,7 +1867,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1690,7 +1877,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1699,7 +1887,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1708,7 +1897,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1717,7 +1907,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1726,7 +1917,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1735,7 +1927,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1744,7 +1937,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1753,7 +1947,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1762,7 +1957,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1771,7 +1967,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1780,7 +1977,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1789,7 +1987,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1798,7 +1997,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1807,7 +2007,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1816,7 +2017,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1825,7 +2027,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1834,7 +2037,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1843,7 +2047,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1852,7 +2057,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1861,7 +2067,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": true
     },
     {
       "fecha": "2026-09-23",
@@ -1870,7 +2077,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1879,7 +2087,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1888,7 +2097,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1897,7 +2107,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1906,7 +2117,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1915,7 +2127,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1924,7 +2137,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1933,7 +2147,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-23",
@@ -1942,7 +2157,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     }
   ],
   "2026-09-22": [
@@ -1953,7 +2169,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -1962,7 +2179,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -1971,7 +2189,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -1980,7 +2199,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -1989,7 +2209,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -1998,7 +2219,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2007,7 +2229,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2016,7 +2239,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2025,7 +2249,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2034,7 +2259,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2043,7 +2269,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2052,7 +2279,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2061,7 +2289,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2070,7 +2299,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2079,7 +2309,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2088,7 +2319,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2097,7 +2329,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2106,7 +2339,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2115,7 +2349,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2124,7 +2359,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2133,7 +2369,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2142,7 +2379,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2151,7 +2389,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2160,7 +2399,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2169,7 +2409,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2178,7 +2419,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2187,7 +2429,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2196,7 +2439,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2205,7 +2449,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2214,7 +2459,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2223,7 +2469,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2232,7 +2479,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2241,7 +2489,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2250,7 +2499,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2259,7 +2509,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2268,7 +2519,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2277,7 +2529,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2286,7 +2539,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2295,7 +2549,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2304,7 +2559,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2313,7 +2569,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2322,7 +2579,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2331,7 +2589,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2340,7 +2599,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2349,7 +2609,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2358,7 +2619,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2367,7 +2629,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2376,7 +2639,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2385,7 +2649,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2394,7 +2659,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2403,7 +2669,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2412,7 +2679,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2421,7 +2689,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2430,7 +2699,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2439,7 +2709,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2448,7 +2719,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2457,7 +2729,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2466,7 +2739,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2475,7 +2749,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2484,7 +2759,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2493,7 +2769,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2502,7 +2779,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2511,7 +2789,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2520,7 +2799,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2529,7 +2809,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2538,7 +2819,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2547,7 +2829,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2556,7 +2839,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2565,7 +2849,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2574,7 +2859,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2583,7 +2869,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2592,7 +2879,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2601,7 +2889,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2610,7 +2899,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2619,7 +2909,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2628,7 +2919,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2637,7 +2929,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2646,7 +2939,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2655,7 +2949,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2664,7 +2959,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2673,7 +2969,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2682,7 +2979,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2691,7 +2989,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2700,7 +2999,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2709,7 +3009,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2718,7 +3019,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2727,7 +3029,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2736,7 +3039,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2745,7 +3049,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2754,7 +3059,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2763,7 +3069,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2772,7 +3079,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2781,7 +3089,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2790,7 +3099,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2799,7 +3109,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2808,7 +3119,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2817,7 +3129,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2826,7 +3139,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2835,7 +3149,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2844,7 +3159,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2853,7 +3169,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2862,7 +3179,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2871,7 +3189,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2880,7 +3199,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2889,7 +3209,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2898,7 +3219,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2907,7 +3229,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2916,7 +3239,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2925,7 +3249,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2934,7 +3259,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2943,7 +3269,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2952,7 +3279,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2961,7 +3289,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2970,7 +3299,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2979,7 +3309,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2988,7 +3319,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -2997,7 +3329,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3006,7 +3339,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3015,7 +3349,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3024,7 +3359,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3033,7 +3369,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3042,7 +3379,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3051,7 +3389,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3060,7 +3399,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3069,7 +3409,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3078,7 +3419,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3087,7 +3429,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3096,7 +3439,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3105,7 +3449,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3114,7 +3459,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3123,7 +3469,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3132,7 +3479,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3141,7 +3489,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3150,7 +3499,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3159,7 +3509,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3168,7 +3519,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3177,7 +3529,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3186,7 +3539,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3195,7 +3549,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3204,7 +3559,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3213,7 +3569,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3222,7 +3579,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3231,7 +3589,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3240,7 +3599,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3249,7 +3609,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3258,7 +3619,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3267,7 +3629,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3276,7 +3639,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3285,7 +3649,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3294,7 +3659,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3303,7 +3669,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3312,7 +3679,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3321,7 +3689,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3330,7 +3699,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3339,7 +3709,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3348,7 +3719,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3357,7 +3729,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3366,7 +3739,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3375,7 +3749,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3384,7 +3759,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3393,7 +3769,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3402,7 +3779,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3411,7 +3789,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3420,7 +3799,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3429,7 +3809,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3438,7 +3819,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3447,7 +3829,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3456,7 +3839,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3465,7 +3849,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3474,7 +3859,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3483,7 +3869,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3492,7 +3879,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3501,7 +3889,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3510,7 +3899,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3519,7 +3909,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3528,7 +3919,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3537,7 +3929,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3546,7 +3939,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3555,7 +3949,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3564,7 +3959,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3573,7 +3969,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3582,7 +3979,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3591,7 +3989,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3600,7 +3999,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3609,7 +4009,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3618,7 +4019,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3627,7 +4029,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3636,7 +4039,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3645,7 +4049,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3654,7 +4059,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3663,7 +4069,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3672,7 +4079,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3681,7 +4089,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3690,7 +4099,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3699,7 +4109,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3708,7 +4119,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3717,7 +4129,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3726,7 +4139,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3735,7 +4149,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3744,7 +4159,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3753,7 +4169,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3762,7 +4179,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3771,7 +4189,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3780,7 +4199,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3789,7 +4209,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3798,7 +4219,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3807,7 +4229,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3816,7 +4239,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3825,7 +4249,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3834,7 +4259,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3843,7 +4269,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3852,7 +4279,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3861,7 +4289,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3870,7 +4299,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3879,7 +4309,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-22",
@@ -3888,7 +4319,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     }
   ],
   "2026-09-21": [
@@ -3899,7 +4331,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3908,7 +4341,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3917,7 +4351,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3926,7 +4361,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3935,7 +4371,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3944,7 +4381,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3953,7 +4391,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3962,7 +4401,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3971,7 +4411,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3980,7 +4421,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3989,7 +4431,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -3998,7 +4441,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4007,7 +4451,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4016,7 +4461,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4025,7 +4471,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4034,7 +4481,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4043,7 +4491,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4052,7 +4501,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4061,7 +4511,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4070,7 +4521,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4079,7 +4531,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4088,7 +4541,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4097,7 +4551,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4106,7 +4561,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4115,7 +4571,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4124,7 +4581,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4133,7 +4591,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4142,7 +4601,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4151,7 +4611,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4160,7 +4621,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4169,7 +4631,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4178,7 +4641,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4187,7 +4651,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4196,7 +4661,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4205,7 +4671,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4214,7 +4681,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4223,7 +4691,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4232,7 +4701,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4241,7 +4711,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4250,7 +4721,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4259,7 +4731,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4268,7 +4741,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4277,7 +4751,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4286,7 +4761,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4295,7 +4771,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4304,7 +4781,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4313,7 +4791,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4322,7 +4801,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4331,7 +4811,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4340,7 +4821,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4349,7 +4831,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4358,7 +4841,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4367,7 +4851,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4376,7 +4861,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4385,7 +4871,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4394,7 +4881,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4403,7 +4891,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4412,7 +4901,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4421,7 +4911,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4430,7 +4921,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4439,7 +4931,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4448,7 +4941,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4457,7 +4951,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4466,7 +4961,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4475,7 +4971,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4484,7 +4981,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4493,7 +4991,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4502,7 +5001,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4511,7 +5011,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4520,7 +5021,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4529,7 +5031,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4538,7 +5041,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4547,7 +5051,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4556,7 +5061,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4565,7 +5071,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4574,7 +5081,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4583,7 +5091,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4592,7 +5101,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4601,7 +5111,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4610,7 +5121,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4619,7 +5131,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4628,7 +5141,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4637,7 +5151,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4646,7 +5161,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4655,7 +5171,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4664,7 +5181,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4673,7 +5191,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4682,7 +5201,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4691,7 +5211,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4700,7 +5221,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4709,7 +5231,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4718,7 +5241,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4727,7 +5251,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4736,7 +5261,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4745,7 +5271,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4754,7 +5281,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4763,7 +5291,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4772,7 +5301,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4781,7 +5311,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4790,7 +5321,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4799,7 +5331,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4808,7 +5341,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4817,7 +5351,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4826,7 +5361,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4835,7 +5371,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4844,7 +5381,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4853,7 +5391,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4862,7 +5401,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4871,7 +5411,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4880,7 +5421,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4889,7 +5431,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4898,7 +5441,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4907,7 +5451,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4916,7 +5461,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4925,7 +5471,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4934,7 +5481,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4943,7 +5491,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4952,7 +5501,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4961,7 +5511,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4970,7 +5521,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4979,7 +5531,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4988,7 +5541,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -4997,7 +5551,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5006,7 +5561,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5015,7 +5571,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5024,7 +5581,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5033,7 +5591,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5042,7 +5601,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5051,7 +5611,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5060,7 +5621,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5069,7 +5631,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5078,7 +5641,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5087,7 +5651,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5096,7 +5661,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5105,7 +5671,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5114,7 +5681,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5123,7 +5691,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5132,7 +5701,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5141,7 +5711,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5150,7 +5721,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5159,7 +5731,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5168,7 +5741,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5177,7 +5751,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5186,7 +5761,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5195,7 +5771,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5204,7 +5781,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5213,7 +5791,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5222,7 +5801,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5231,7 +5811,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5240,7 +5821,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5249,7 +5831,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5258,7 +5841,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5267,7 +5851,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5276,7 +5861,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5285,7 +5871,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5294,7 +5881,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5303,7 +5891,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5312,7 +5901,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5321,7 +5911,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5330,7 +5921,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5339,7 +5931,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5348,7 +5941,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5357,7 +5951,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5366,7 +5961,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5375,7 +5971,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5384,7 +5981,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5393,7 +5991,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5402,7 +6001,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5411,7 +6011,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5420,7 +6021,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5429,7 +6031,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5438,7 +6041,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5447,7 +6051,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5456,7 +6061,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5465,7 +6071,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5474,7 +6081,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5483,7 +6091,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5492,7 +6101,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5501,7 +6111,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5510,7 +6121,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5519,7 +6131,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5528,7 +6141,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5537,7 +6151,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5546,7 +6161,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5555,7 +6171,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5564,7 +6181,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5573,7 +6191,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5582,7 +6201,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5591,7 +6211,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5600,7 +6221,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5609,7 +6231,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5618,7 +6241,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5627,7 +6251,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5636,7 +6261,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5645,7 +6271,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5654,7 +6281,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5663,7 +6291,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5672,7 +6301,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5681,7 +6311,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5690,7 +6321,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5699,7 +6331,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5708,7 +6341,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5717,7 +6351,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5726,7 +6361,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5735,7 +6371,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5744,7 +6381,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5753,7 +6391,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5762,7 +6401,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5771,7 +6411,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5780,7 +6421,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5789,7 +6431,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5798,7 +6441,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5807,7 +6451,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5816,7 +6461,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5825,7 +6471,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-21",
@@ -5834,7 +6481,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     }
   ],
   "2026-09-20": [
@@ -5845,7 +6493,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5854,7 +6503,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5863,7 +6513,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5872,7 +6523,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5881,7 +6533,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5890,7 +6543,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5899,7 +6553,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5908,7 +6563,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5917,7 +6573,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5926,7 +6583,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5935,7 +6593,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5944,7 +6603,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5953,7 +6613,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5962,7 +6623,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5971,7 +6633,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5980,7 +6643,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5989,7 +6653,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -5998,7 +6663,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6007,7 +6673,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6016,7 +6683,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6025,7 +6693,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6034,7 +6703,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6043,7 +6713,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6052,7 +6723,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6061,7 +6733,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6070,7 +6743,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6079,7 +6753,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6088,7 +6763,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6097,7 +6773,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6106,7 +6783,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6115,7 +6793,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6124,7 +6803,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6133,7 +6813,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6142,7 +6823,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6151,7 +6833,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6160,7 +6843,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6169,7 +6853,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6178,7 +6863,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6187,7 +6873,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6196,7 +6883,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6205,7 +6893,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6214,7 +6903,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6223,7 +6913,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6232,7 +6923,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6241,7 +6933,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6250,7 +6943,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6259,7 +6953,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6268,7 +6963,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6277,7 +6973,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6286,7 +6983,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6295,7 +6993,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6304,7 +7003,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6313,7 +7013,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6322,7 +7023,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6331,7 +7033,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6340,7 +7043,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6349,7 +7053,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6358,7 +7063,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6367,7 +7073,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6376,7 +7083,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6385,7 +7093,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6394,7 +7103,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6403,7 +7113,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6412,7 +7123,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6421,7 +7133,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6430,7 +7143,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6439,7 +7153,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6448,7 +7163,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6457,7 +7173,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6466,7 +7183,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6475,7 +7193,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6484,7 +7203,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6493,7 +7213,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6502,7 +7223,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6511,7 +7233,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6520,7 +7243,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6529,7 +7253,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6538,7 +7263,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6547,7 +7273,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6556,7 +7283,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6565,7 +7293,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6574,7 +7303,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6583,7 +7313,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6592,7 +7323,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6601,7 +7333,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6610,7 +7343,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6619,7 +7353,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6628,7 +7363,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6637,7 +7373,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6646,7 +7383,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6655,7 +7393,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6664,7 +7403,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6673,7 +7413,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6682,7 +7423,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6691,7 +7433,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6700,7 +7443,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6709,7 +7453,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6718,7 +7463,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6727,7 +7473,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6736,7 +7483,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6745,7 +7493,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6754,7 +7503,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6763,7 +7513,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6772,7 +7523,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6781,7 +7533,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6790,7 +7543,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6799,7 +7553,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6808,7 +7563,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6817,7 +7573,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6826,7 +7583,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6835,7 +7593,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6844,7 +7603,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6853,7 +7613,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6862,7 +7623,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6871,7 +7633,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6880,7 +7643,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6889,7 +7653,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6898,7 +7663,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6907,7 +7673,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6916,7 +7683,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6925,7 +7693,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6934,7 +7703,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6943,7 +7713,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6952,7 +7723,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6961,7 +7733,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6970,7 +7743,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6979,7 +7753,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6988,7 +7763,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -6997,7 +7773,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7006,7 +7783,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7015,7 +7793,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7024,7 +7803,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7033,7 +7813,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7042,7 +7823,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7051,7 +7833,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7060,7 +7843,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7069,7 +7853,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7078,7 +7863,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7087,7 +7873,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7096,7 +7883,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7105,7 +7893,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7114,7 +7903,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7123,7 +7913,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7132,7 +7923,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7141,7 +7933,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7150,7 +7943,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7159,7 +7953,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7168,7 +7963,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7177,7 +7973,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7186,7 +7983,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7195,7 +7993,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7204,7 +8003,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7213,7 +8013,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7222,7 +8023,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7231,7 +8033,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7240,7 +8043,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7249,7 +8053,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7258,7 +8063,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7267,7 +8073,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7276,7 +8083,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7285,7 +8093,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7294,7 +8103,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7303,7 +8113,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7312,7 +8123,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7321,7 +8133,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7330,7 +8143,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7339,7 +8153,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7348,7 +8163,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7357,7 +8173,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7366,7 +8183,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7375,7 +8193,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7384,7 +8203,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7393,7 +8213,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7402,7 +8223,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7411,7 +8233,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7420,7 +8243,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7429,7 +8253,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7438,7 +8263,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7447,7 +8273,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7456,7 +8283,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7465,7 +8293,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7474,7 +8303,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7483,7 +8313,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7492,7 +8323,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7501,7 +8333,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7510,7 +8343,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7519,7 +8353,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7528,7 +8363,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7537,7 +8373,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7546,7 +8383,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7555,7 +8393,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7564,7 +8403,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7573,7 +8413,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7582,7 +8423,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7591,7 +8433,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7600,7 +8443,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7609,7 +8453,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7618,7 +8463,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7627,7 +8473,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7636,7 +8483,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7645,7 +8493,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7654,7 +8503,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7663,7 +8513,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7672,7 +8523,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7681,7 +8533,8 @@
       "hora_num": 8,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7690,7 +8543,8 @@
       "hora_num": 9,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7699,7 +8553,8 @@
       "hora_num": 10,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7708,7 +8563,8 @@
       "hora_num": 11,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7717,7 +8573,8 @@
       "hora_num": 12,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7726,7 +8583,8 @@
       "hora_num": 13,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7735,7 +8593,8 @@
       "hora_num": 14,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7744,7 +8603,8 @@
       "hora_num": 15,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7753,7 +8613,8 @@
       "hora_num": 16,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7762,7 +8623,8 @@
       "hora_num": 17,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7771,7 +8633,8 @@
       "hora_num": 18,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     },
     {
       "fecha": "2026-09-20",
@@ -7780,7 +8643,8 @@
       "hora_num": 19,
       "numero": "--",
       "animal": "Por salir",
-      "realizado": false
+      "realizado": false,
+      "es_ultimo_en_vivo": false
     }
   ]
 }
