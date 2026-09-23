@@ -6,6 +6,7 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+# Mapa extendido de animalitos (hasta 99 para loterías con más de 60 opciones)
 nombres_animales = {
     "00": "Delfín", "0": "Delfín", "1": "Carnero", "01": "Carnero", "2": "Toro", "02": "Toro",
     "3": "Ciempiés", "03": "Ciempiés", "4": "Escorpión", "04": "Escorpión", "5": "León", "05": "León",
@@ -18,25 +19,46 @@ nombres_animales = {
     "38": "Erizo", "39": "Flamenco", "40": "Foca", "41": "Canguro", "42": "Perezoso", "43": "Zorrillo",
     "44": "Nutria", "45": "Tejón", "46": "Mamut", "47": "Dodo", "48": "Pavo Real", "49": "Búho",
     "50": "Murciélago", "51": "Medusa", "52": "Pulpo", "53": "Langosta", "54": "Cangrejo", "55": "Ostra",
-    "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
+    "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña", "61": "Gato",
+    "62": "Perro", "63": "Caballo", "64": "Toro", "65": "León", "66": "Tigre", "67": "Gallo",
+    "68": "Pescado", "69": "Caimán", "70": "Elefante", "71": "Zamuro", "72": "Lapa", "73": "Ardilla",
+    "74": "Venado", "75": "Jirafa", "76": "Culebra", "77": "Abeja", "78": "Erizo", "79": "Flamenco",
+    "80": "Foca", "81": "Canguro", "82": "Perezoso", "83": "Zorrillo", "84": "Nutria", "85": "Tejón",
+    "86": "Mamut", "87": "Dodo", "88": "Pavo Real", "89": "Búho", "90": "Murciélago", "91": "Medusa",
+    "92": "Pulpo", "93": "Langosta", "94": "Cangrejo", "95": "Ostra", "96": "Mariposa", "97": "Hormiga",
+    "98": "Mariquita", "99": "Grillo"
 }
 
-LOTERIAS_LOTOVEN = {
+# Loterías exactas de m.parley.la
+LOTERIAS_MAPA = {
     "Lotto Activo": "lotto-activo",
-    "La Granjita": "la-granjita",
-    "Lotto Activo 2 (Monje Millonario)": "lotto-activo-2",
-    "Guacharo Activo": "guacharo-activo",
-    "El Guacharito Millonario": "el-guacharito-millonario",
-    "Selva Plus": "selva-plus",
-    "Centena Plus": "centena-plus",
-    "Mega Animal 40": "mega-animal-40",
-    "Cazaloton": "cazaloton",
-    "Lotto Activo RD Int": "lotto-activo-rd-int",
-    "Centena Animalitos": "centena-animalitos",
     "Ruleta Activa": "ruleta-activa",
-    "Chance Con Animalitos": "chance-con-animalitos",
-    "La-Ricachona": "la-ricachona",
-    "Loto Chaima": "loto-chaima"
+    "La Ruca": "la-ruca",
+    "Lotto Activo Internacional": "lotto-activo-internacional",
+    "TrioActivo": "trioactivo",
+    "Guacharo Activo": "el-guacharo-activo",
+    "Selva Plus": "selva-plus",
+    "El Ruco": "el-ruco",
+    "Chance Animalitos": "chance-animal",
+    "Lotto Rey": "lotto-rey",
+    "Ruleta Royal": "ruleta-royal",
+    "Loto Chaima": "loto-chaima",
+    "Cazaloton": "cazaloton",
+    "Panda Plus": "panda-plus",
+    "Mega Animal40": "mega-animal40",
+    "Lotto Gato": "lotto-gato",
+    "Gatazo": "gatazo",
+    "Tigre Millonario": "tigre-millonario",
+    "Guacharito Millonario": "guacharito-millonario",
+    "Centena Animalitos": "centena-animalitos",
+    "Centena Plus": "centena-plus",
+    "Triple Centena": "triple-centena",
+    "Lotto Max": "lotto-max",
+    "Granja Millonaria Animalitos": "granja-millonaria-animalitos",
+    "Granja Millonaria Granjazo": "granja-millonaria-granjazo",
+    "Lotto Pantera": "lotto-pantera",
+    "Lotoanimalito": "lotoanimalito",
+    "Triple Pantera": "triple-pantera"
 }
 
 HORARIOS_EN_PUNTO = [
@@ -54,12 +76,7 @@ HORARIOS_MEDIAS_HORAS = [
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
 def extraer_animalito(contenedor):
-    txt = contenedor.get_text(" ", strip=True)
-    
-    for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt.lower():
-            return num_code.zfill(2)
-
+    # 1. Búsqueda por imagen en el contenedor de la hora
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -76,69 +93,57 @@ def extraer_animalito(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
+    # 2. Búsqueda por texto directo
+    txt = contenedor.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
+
     return None
 
-def escanear_lotoven_playwright(browser, fecha_str):
+def escanear_ruta_directa(browser, fecha_str):
     datos_extraidos = {}
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
         viewport={"width": 412, "height": 915},
         device_scale_factor=2.5,
-        is_mobile=True,
-        has_touch=True
+        is_mobile=True
     )
     page = context.new_page()
 
-    for loteria_nombre, slug in LOTERIAS_LOTOVEN.items():
-        url = f"https://lotoven.com/resultados/{slug}/"
+    for loteria_nombre, slug in LOTERIAS_MAPA.items():
+        url = f"https://m.parley.la/resultados/resultados-{slug}"
         if fecha_str:
-            url += f"?fecha={fecha_str}"
+            url += f"/{fecha_str}"
 
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=30000)
-            page.wait_for_timeout(3500)
-            
-            # Forzar scroll para disparar carga perezosa de imágenes/datos
-            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            page.wait_for_timeout(1000)
-
+            page.goto(url, wait_until="networkidle", timeout=25000)
+            page.wait_for_timeout(1500)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            elementos = soup.find_all(["div", "tr", "li", "article", "section"])
-
+            elementos = soup.find_all(["tr", "div", "li", "article"])
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
                 if len(txt_el) > 300:
                     continue
 
-                for hora_std, _ in HORARIOS_EN_PUNTO:
+                for hora_std, _ in TODOS_LOS_HORARIOS:
                     clave = f"{loteria_nombre}-{hora_std}"
                     if clave in datos_extraidos:
                         continue
-                    hora_num = hora_std[:2]
-                    hora_alt = str(int(hora_num))
-                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        res = extraer_animalito(el)
-                        if res:
-                            datos_extraidos[clave] = res
 
-                for hora_std, _ in HORARIOS_MEDIAS_HORAS:
-                    clave = f"{loteria_nombre}-{hora_std}"
-                    if clave in datos_extraidos:
-                        continue
-                    hora_num = hora_std[:2]
-                    hora_alt = str(int(hora_num))
-                    if f"{hora_num}:30" in txt_el or f"{hora_alt}:30" in txt_el:
+                    hora_base = hora_std.split()[0]
+                    if hora_base in txt_el or hora_std.lower() in txt_el.lower():
                         res = extraer_animalito(el)
                         if res:
                             datos_extraidos[clave] = res
 
         except Exception as e:
-            print(f"Error escaneando {loteria_nombre} en {url}: {e}")
+            print(f"Error cargando {loteria_nombre} en {url}: {e}")
             continue
 
-        time.sleep(0.5)
+        time.sleep(0.4)
 
     context.close()
     return datos_extraidos
@@ -167,17 +172,17 @@ def ejecutar_proceso():
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"]
+            args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
         for fecha_str in fechas_a_procesar:
             es_hoy = (fecha_str == hoy_str)
             fecha_param = "" if es_hoy else fecha_str
 
-            mapa_extraido_dia = escanear_lotoven_playwright(browser, fecha_param)
+            mapa_extraido_dia = escanear_ruta_directa(browser, fecha_param)
             resultados_fecha = []
 
-            for loteria_nombre in LOTERIAS_LOTOVEN.keys():
+            for loteria_nombre in LOTERIAS_MAPA.keys():
                 for hora_texto, hora_val in TODOS_LOS_HORARIOS:
                     ha_ocurrido = True
                     if es_hoy:
@@ -219,4 +224,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización completa con renderizado móvil completada.")
+    print("Sincronización por URL individual con parley.la completada.")
