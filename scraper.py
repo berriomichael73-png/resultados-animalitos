@@ -2,9 +2,9 @@ import json
 import os
 import re
 import time
-import urllib.request
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright
 
 nombres_animales = {
     "00": "Delfín", "0": "Delfín", "1": "Carnero", "01": "Carnero", "2": "Toro", "02": "Toro",
@@ -53,21 +53,6 @@ HORARIOS_MEDIAS_HORAS = [
 
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
-def obtener_html_peticion_directa(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'es-ES,es;q=0.9',
-        'Cache-Control': 'no-cache'
-    }
-    try:
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=12) as response:
-            return response.read().decode('utf-8', errors='ignore')
-    except Exception as e:
-        print(f"Error consultando URL direct HTTP {url}: {e}")
-        return ""
-
 def extraer_animalito(contenedor):
     txt = contenedor.get_text(" ", strip=True)
     
@@ -93,50 +78,69 @@ def extraer_animalito(contenedor):
 
     return None
 
-def escanear_peticion_http(fecha_str):
+def escanear_lotoven_playwright(browser, fecha_str):
     datos_extraidos = {}
+    context = browser.new_context(
+        user_agent="Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
+        viewport={"width": 412, "height": 915},
+        device_scale_factor=2.5,
+        is_mobile=True,
+        has_touch=True
+    )
+    page = context.new_page()
 
     for loteria_nombre, slug in LOTERIAS_LOTOVEN.items():
         url = f"https://lotoven.com/resultados/{slug}/"
         if fecha_str:
             url += f"?fecha={fecha_str}"
 
-        html = obtener_html_peticion_directa(url)
-        if not html:
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_timeout(3500)
+            
+            # Forzar scroll para disparar carga perezosa de imágenes/datos
+            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            page.wait_for_timeout(1000)
+
+            html = page.content()
+            soup = BeautifulSoup(html, "html.parser")
+
+            elementos = soup.find_all(["div", "tr", "li", "article", "section"])
+
+            for el in elementos:
+                txt_el = el.get_text(" ", strip=True)
+                if len(txt_el) > 300:
+                    continue
+
+                for hora_std, _ in HORARIOS_EN_PUNTO:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_extraidos:
+                        continue
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
+                        res = extraer_animalito(el)
+                        if res:
+                            datos_extraidos[clave] = res
+
+                for hora_std, _ in HORARIOS_MEDIAS_HORAS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_extraidos:
+                        continue
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    if f"{hora_num}:30" in txt_el or f"{hora_alt}:30" in txt_el:
+                        res = extraer_animalito(el)
+                        if res:
+                            datos_extraidos[clave] = res
+
+        except Exception as e:
+            print(f"Error escaneando {loteria_nombre} en {url}: {e}")
             continue
 
-        soup = BeautifulSoup(html, "html.parser")
-        elementos = soup.find_all(["div", "tr", "li", "article"])
+        time.sleep(0.5)
 
-        for el in elementos:
-            txt_el = el.get_text(" ", strip=True)
-            if len(txt_el) > 250:
-                continue
-
-            for hora_std, _ in HORARIOS_EN_PUNTO:
-                clave = f"{loteria_nombre}-{hora_std}"
-                if clave in datos_extraidos:
-                    continue
-                hora_num = hora_std[:2]
-                hora_alt = str(int(hora_num))
-                if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                    res = extraer_animalito(el)
-                    if res:
-                        datos_extraidos[clave] = res
-
-            for hora_std, _ in HORARIOS_MEDIAS_HORAS:
-                clave = f"{loteria_nombre}-{hora_std}"
-                if clave in datos_extraidos:
-                    continue
-                hora_num = hora_std[:2]
-                hora_alt = str(int(hora_num))
-                if f"{hora_num}:30" in txt_el or f"{hora_alt}:30" in txt_el:
-                    res = extraer_animalito(el)
-                    if res:
-                        datos_extraidos[clave] = res
-
-        time.sleep(0.3)
-
+    context.close()
     return datos_extraidos
 
 def ejecutar_proceso():
@@ -160,51 +164,59 @@ def ejecutar_proceso():
         except Exception:
             historial = {}
 
-    for fecha_str in fechas_a_procesar:
-        es_hoy = (fecha_str == hoy_str)
-        fecha_param = "" if es_hoy else fecha_str
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"]
+        )
 
-        mapa_extraido_dia = escanear_peticion_http(fecha_param)
-        resultados_fecha = []
+        for fecha_str in fechas_a_procesar:
+            es_hoy = (fecha_str == hoy_str)
+            fecha_param = "" if es_hoy else fecha_str
 
-        for loteria_nombre in LOTERIAS_LOTOVEN.keys():
-            for hora_texto, hora_val in TODOS_LOS_HORARIOS:
-                ha_ocurrido = True
-                if es_hoy:
-                    if hora_val > hora_actual_ve:
-                        ha_ocurrido = False
+            mapa_extraido_dia = escanear_lotoven_playwright(browser, fecha_param)
+            resultados_fecha = []
 
-                clave = f"{loteria_nombre}-{hora_texto}"
+            for loteria_nombre in LOTERIAS_LOTOVEN.keys():
+                for hora_texto, hora_val in TODOS_LOS_HORARIOS:
+                    ha_ocurrido = True
+                    if es_hoy:
+                        if hora_val > hora_actual_ve:
+                            ha_ocurrido = False
 
-                if ha_ocurrido and clave in mapa_extraido_dia:
-                    num_str = mapa_extraido_dia[clave]
-                    nombre_animal = nombres_animales.get(num_str, "Animal")
-                    realizado = True
-                else:
-                    num_str = "--"
-                    nombre_animal = "Por salir"
-                    realizado = False
+                    clave = f"{loteria_nombre}-{hora_texto}"
 
-                resultados_fecha.append({
-                    "fecha": fecha_str,
-                    "loteria": loteria_nombre,
-                    "hora": hora_texto,
-                    "hora_num": hora_val,
-                    "numero": num_str,
-                    "animal": nombre_animal,
-                    "realizado": realizado,
-                    "es_ultimo_en_vivo": (es_hoy and hora_texto == hora_ultimo_sorteo)
-                })
+                    if ha_ocurrido and clave in mapa_extraido_dia:
+                        num_str = mapa_extraido_dia[clave]
+                        nombre_animal = nombres_animales.get(num_str, "Animal")
+                        realizado = True
+                    else:
+                        num_str = "--"
+                        nombre_animal = "Por salir"
+                        realizado = False
 
-        historial[fecha_str] = resultados_fecha
+                    resultados_fecha.append({
+                        "fecha": fecha_str,
+                        "loteria": loteria_nombre,
+                        "hora": hora_texto,
+                        "hora_num": hora_val,
+                        "numero": num_str,
+                        "animal": nombre_animal,
+                        "realizado": realizado,
+                        "es_ultimo_en_vivo": (es_hoy and hora_texto == hora_ultimo_sorteo)
+                    })
 
-        if es_hoy:
-            with open("resultados.json", "w", encoding="utf-8") as f:
-                json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
+            historial[fecha_str] = resultados_fecha
+
+            if es_hoy:
+                with open("resultados.json", "w", encoding="utf-8") as f:
+                    json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
+
+        browser.close()
 
     with open("historial_resultados.json", "w", encoding="utf-8") as f:
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización directa vía HTTP sin bloqueo completada.")
+    print("Sincronización completa con renderizado móvil completada.")
