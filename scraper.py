@@ -57,7 +57,6 @@ def obtener_urls_por_fecha(slug, fecha_str):
     ]
 
 def extraer_animalito_de_contenedor(contenedor):
-    # 1. Análisis de Imágenes (src, alt, title)
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -74,7 +73,6 @@ def extraer_animalito_de_contenedor(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
-    # 2. Análisis de Texto Plano en el contenedor
     txt = contenedor.get_text(" ", strip=True)
     for num_code, anim_nombre in nombres_animales.items():
         if anim_nombre.lower() in txt.lower():
@@ -86,8 +84,8 @@ def extraer_fecha_pagina(page, urls):
     mapa_resultados = {}
     for url in urls:
         try:
-            page.goto(url, timeout=25000)
-            page.wait_for_timeout(3000)
+            page.goto(url, timeout=20000)
+            page.wait_for_timeout(2500)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
@@ -103,7 +101,7 @@ def extraer_fecha_pagina(page, urls):
                         if res:
                             mapa_resultados[hora_std] = res
 
-            if len(mapa_resultados) >= 4:
+            if len(mapa_resultados) >= 3:
                 break
         except Exception:
             continue
@@ -113,8 +111,10 @@ def extraer_fecha_pagina(page, urls):
 def ejecutar_proceso_completo():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
-    
-    # Días a procesar: Hoy y los últimos 3 días anteriores
+    hoy_str = hoy_dt.strftime("%Y-%m-%d")
+    hora_actual_ve = hoy_dt.hour
+    minuto_actual_ve = hoy_dt.minute
+
     fechas_a_procesar = [(hoy_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(4)]
     
     historial = {}
@@ -134,16 +134,23 @@ def ejecutar_proceso_completo():
 
         for fecha_str in fechas_a_procesar:
             resultados_fecha = []
+            es_hoy = (fecha_str == hoy_str)
             
             for loteria, slug in LOTERIAS_CONFIG.items():
                 urls = obtener_urls_por_fecha(slug, fecha_str)
                 datos_extraidos = extraer_fecha_pagina(page, urls)
 
                 for hora_texto, hora_num in HORARIOS:
-                    clave_hora = hora_texto
-                    
-                    if clave_hora in datos_extraidos:
-                        num_str = datos_extraidos[clave_hora]
+                    # Regla estricta: Si es hoy y el sorteo no ha ocurrido aún, debe mostrar "Por salir"
+                    ha_ocurrido = True
+                    if es_hoy:
+                        if hora_num > hora_actual_ve:
+                            ha_ocurrido = False
+                        elif hora_num == hora_actual_ve and minuto_actual_ve < 2:
+                            ha_ocurrido = False  # Dar 2 minutos de margen para que publique la lotería
+
+                    if ha_ocurrido and hora_texto in datos_extraidos:
+                        num_str = datos_extraidos[hora_texto]
                         nombre_animal = nombres_animales.get(num_str, "Animal")
                         realizado = True
                     else:
@@ -163,17 +170,15 @@ def ejecutar_proceso_completo():
 
             historial[fecha_str] = resultados_fecha
             
-            # Guardar el día actual directamente en resultados.json
-            if fecha_str == fechas_a_procesar[0]:
+            if es_hoy:
                 with open("resultados.json", "w", encoding="utf-8") as f:
                     json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
 
         browser.close()
 
-    # Guardar historial consolidado
     with open("historial_resultados.json", "w", encoding="utf-8") as f:
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     ejecutar_proceso_completo()
-    print("Extracción multicanal con historial completada.")
+    print("Sincronización con filtro de hora real completada.")
