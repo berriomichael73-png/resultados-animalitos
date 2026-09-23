@@ -48,48 +48,33 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_con_estrategias_multiples(soup, hora_std):
-    hora_num = hora_std[:2]
-    hora_alt = str(int(hora_num))
+def extraer_animalito_estricto(contenedor):
+    # 1. Búsqueda por imagen en el contenedor específico
+    for img in contenedor.find_all("img"):
+        src = img.get("src", "").lower()
+        alt = img.get("alt", "").lower()
+        title = img.get("title", "").lower()
+        comb = f"{src} {alt} {title}"
 
-    # Método 1: Búsqueda dentro de bloques o filas específicas por texto
-    elementos = soup.find_all(["tr", "div", "li", "article"])
-    for el in elementos:
-        txt_el = el.get_text(" ", strip=True)
-        if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-            for num_code, anim_nombre in nombres_animales.items():
-                if anim_nombre.lower() in txt_el.lower():
-                    return num_code.zfill(2)
+        for num_code, anim_nombre in nombres_animales.items():
+            if anim_nombre.lower() in comb:
+                return num_code.zfill(2)
 
-            # Método 2: Análisis de imágenes dentro del bloque coincidente de hora
-            for img in el.find_all("img"):
-                src = img.get("src", "").lower()
-                alt = img.get("alt", "").lower()
-                title = img.get("title", "").lower()
-                comb = f"{src} {alt} {title}"
+        match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+        if match_img:
+            num_cand = match_img.group(1).zfill(2)
+            if num_cand in nombres_animales:
+                return num_cand
 
-                for num_code, anim_nombre in nombres_animales.items():
-                    if anim_nombre.lower() in comb:
-                        return num_code.zfill(2)
-
-                match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                if match_img:
-                    num_cand = match_img.group(1).zfill(2)
-                    if num_cand in nombres_animales:
-                        return num_cand
-
-    # Método 3: Búsqueda por patrón de texto global relajado
-    txt_completo = soup.get_text(" ", strip=True)
-    patron = re.compile(rf'(?:{hora_num}:00|{hora_alt}:00).*?\b(\d{{1,2}})\b', re.IGNORECASE)
-    match_global = patron.search(txt_completo)
-    if match_global:
-        cand = match_global.group(1).zfill(2)
-        if cand in nombres_animales:
-            return cand
+    # 2. Búsqueda por texto dentro del contenedor exclusivo de la hora
+    txt = contenedor.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
 
     return None
 
-def escanear_parley_por_tandas(browser, lote_loterias, fecha_str):
+def escanear_parley_aislado(browser, lote_loterias, fecha_str):
     datos_lote = {}
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
@@ -107,11 +92,27 @@ def escanear_parley_por_tandas(browser, lote_loterias, fecha_str):
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            for hora_std, _ in HORARIOS:
-                clave = f"{loteria_nombre}-{hora_std}"
-                res_encontrado = extraer_con_estrategias_multiples(soup, hora_std)
-                if res_encontrado:
-                    datos_lote[clave] = res_encontrado
+            # Buscar filas o tarjetas específicas dentro del cuerpo
+            elementos = soup.find_all(["tr", "div", "li", "article"])
+            for el in elementos:
+                txt_el = el.get_text(" ", strip=True)
+                
+                # Ignorar encabezados o menús generales
+                if len(txt_el) > 300:
+                    continue
+
+                for hora_std, _ in HORARIOS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_lote:
+                        continue
+
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
+                    
+                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
+                        res = extraer_animalito_estricto(el)
+                        if res:
+                            datos_lote[clave] = res
 
         except Exception as e:
             print(f"Error procesando {loteria_nombre} en parley.la: {e}")
@@ -157,7 +158,7 @@ def ejecutar_proceso_exclusivo_parley():
             mapa_extraido_dia = {}
 
             for tanda in tandas:
-                datos_tanda = escanear_parley_por_tandas(browser, tanda, fecha_param)
+                datos_tanda = escanear_parley_aislado(browser, tanda, fecha_param)
                 mapa_extraido_dia.update(datos_tanda)
                 time.sleep(1.2)
 
@@ -207,4 +208,4 @@ def ejecutar_proceso_exclusivo_parley():
 
 if __name__ == "__main__":
     ejecutar_proceso_exclusivo_parley()
-    print("Sincronización exclusiva de parley.la con estrategias de respaldo completada.")
+    print("Sincronización estricta por contenedor completada.")
