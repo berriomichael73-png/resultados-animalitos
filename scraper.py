@@ -21,16 +21,15 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Loterías exactas de loteriadehoy.com según la captura
 LOTERIAS_HOY = [
     "Lotto Activo",
     "La Granjita",
-    "Lotto Activo 2 (Monje Millonario)",
+    "Lotto Activo 2",
     "Guacharo Activo",
-    "El Guacharito Millonario",
+    "Guacharito Millonario",
     "Selva Plus",
     "Centena Plus",
-    "Lotto Activo Rd Int",
+    "Lotto Activo Rd",
     "Mega Animal 40",
     "Centena Animalitos",
     "Chance Con Animalitos",
@@ -49,12 +48,8 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_animalito(contenedor):
-    txt = contenedor.get_text(" ", strip=True)
-    for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt.lower():
-            return num_code.zfill(2)
-
+def extraer_animalito_estricto(contenedor):
+    # Prioridad 1: Búsqueda exacta por imágenes
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -71,6 +66,12 @@ def extraer_animalito(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
+    # Prioridad 2: Texto dentro del bloque específico
+    txt = contenedor.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
+
     return None
 
 def escanear_loteriadehoy(browser, fecha_str):
@@ -85,21 +86,26 @@ def escanear_loteriadehoy(browser, fecha_str):
         url += f"{fecha_str}/"
 
     try:
-        page.goto(url, timeout=30000)
-        page.wait_for_timeout(3000)
+        page.goto(url, timeout=35000)
+        page.wait_for_timeout(4000)
         html = page.content()
         soup = BeautifulSoup(html, "html.parser")
 
-        tarjetas = soup.find_all(["div", "section", "article", "table"])
+        # Buscar contenedores de lotería
+        tarjetas = soup.find_all(["div", "section", "article", "table"], class_=re.compile(r'card|block|tabla|resultado|loteria', re.I))
         if not tarjetas:
-            tarjetas = [soup]
+            tarjetas = soup.find_all(["div", "section"])
 
         for tarjeta in tarjetas:
             txt_tarjeta = tarjeta.get_text(" ", strip=True)
-            loteria_detectada = None
+            if len(txt_tarjeta) < 20 or len(txt_tarjeta) > 4000:
+                continue
 
+            loteria_detectada = None
             for lot in LOTERIAS_HOY:
-                if lot.lower() in txt_tarjeta[:150].lower():
+                # Coincidencia limpia de nombre
+                palabras_clave = lot.lower().split()
+                if all(p in txt_tarjeta[:120].lower() for p in palabras_clave[:2]):
                     loteria_detectada = lot
                     break
 
@@ -107,7 +113,7 @@ def escanear_loteriadehoy(browser, fecha_str):
                 filas = tarjeta.find_all(["tr", "li", "div"])
                 for f in filas:
                     txt_f = f.get_text(" ", strip=True)
-                    if len(txt_f) > 250:
+                    if len(txt_f) > 200:
                         continue
 
                     for hora_std, _ in HORARIOS:
@@ -118,13 +124,13 @@ def escanear_loteriadehoy(browser, fecha_str):
                         hora_num = hora_std[:2]
                         hora_alt = str(int(hora_num))
 
-                        if f"{hora_num}:00" in txt_f or f"{hora_alt}:00" in txt_f:
-                            res = extraer_animalito(f)
+                        if f"{hora_num}:00" in txt_f or f"{hora_alt}:00" in txt_f or hora_std.lower() in txt_f.lower():
+                            res = extraer_animalito_estricto(f)
                             if res:
                                 datos_extraidos[clave] = res
 
     except Exception as e:
-        print(f"Error cargando loteriadehoy.com: {e}")
+        print(f"Error procesando loteriadehoy.com: {e}")
 
     context.close()
     return datos_extraidos
@@ -205,4 +211,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización con loteriadehoy.com completada.")
+    print("Sincronización optimizada completada.")
