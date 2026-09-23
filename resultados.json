@@ -4,9 +4,9 @@
     "loteria": "Lotto Activo",
     "hora": "08:00 AM",
     "hora_num": 8,
-    "numero": "16",
-    "animal": "Oso",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -14,9 +14,9 @@
     "loteria": "Lotto Activo",
     "hora": "09:00 AM",
     "hora_num": 9,
-    "numero": "36",
-    "animal": "Culebra",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -24,9 +24,9 @@
     "loteria": "Lotto Activo",
     "hora": "10:00 AM",
     "hora_num": 10,
-    "numero": "36",
-    "animal": "Culebra",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -34,9 +34,9 @@
     "loteria": "Lotto Activo",
     "hora": "11:00 AM",
     "hora_num": 11,
-    "numero": "28",
-    "animal": "Zamuro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -44,9 +44,9 @@
     "loteria": "Lotto Activo",
     "hora": "12:00 PM",
     "hora_num": 12,
-    "numero": "34",
-    "animal": "Venado",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": false
   },
   {
@@ -54,9 +54,9 @@
     "loteria": "Lotto Activo",
     "hora": "01:00 PM",
     "hora_num": 13,
-    "numero": "28",
-    "animal": "Zamuro",
-    "realizado": true,
+    "numero": "--",
+    "animal": "Por salir",
+    "realizado": false,
     "es_ultimo_en_vivo": true
   },
   {
@@ -241,7 +241,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "08:00 AM",
     "hora_num": 8,
     "numero": "--",
@@ -251,7 +251,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "09:00 AM",
     "hora_num": 9,
     "numero": "--",
@@ -261,7 +261,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "10:00 AM",
     "hora_num": 10,
     "numero": "--",
@@ -271,7 +271,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "11:00 AM",
     "hora_num": 11,
     "numero": "--",
@@ -281,7 +281,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "12:00 PM",
     "hora_num": 12,
     "numero": "--",
@@ -291,7 +291,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "01:00 PM",
     "hora_num": 13,
     "numero": "--",
@@ -301,7 +301,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "02:00 PM",
     "hora_num": 14,
     "numero": "--",
@@ -311,7 +311,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "03:00 PM",
     "hora_num": 15,
     "numero": "--",
@@ -321,7 +321,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "04:00 PM",
     "hora_num": 16,
     "numero": "--",
@@ -331,7 +331,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "05:00 PM",
     "hora_num": 17,
     "numero": "--",
@@ -341,7 +341,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -351,7 +351,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo 2 (Monje Millonario)",
+    "loteria": "Lotto Activo 2",
     "hora": "07:00 PM",
     "hora_num": 19,
     "numero": "--",
@@ -481,7 +481,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "08:00 AM",
     "hora_num": 8,
     "numero": "--",
@@ -491,7 +491,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "09:00 AM",
     "hora_num": 9,
     "numero": "--",
@@ -501,7 +501,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "10:00 AM",
     "hora_num": 10,
     "numero": "--",
@@ -511,7 +511,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "11:00 AM",
     "hora_num": 11,
     "numero": "--",
@@ -521,7 +521,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "12:00 PM",
     "hora_num": 12,
     "numero": "--",
@@ -531,7 +531,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "01:00 PM",
     "hora_num": 13,
     "numero": "--",
@@ -541,7 +541,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "02:00 PM",
     "hora_num": 14,
     "numero": "--",
@@ -551,7 +551,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "03:00 PM",
     "hora_num": 15,
     "numero": "--",
@@ -561,7 +561,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "04:00 PM",
     "hora_num": 16,
     "numero": "--",
@@ -571,7 +571,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "05:00 PM",
     "hora_num": 17,
     "numero": "--",
@@ -581,7 +581,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -591,7 +591,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "El Guacharito Millonario",
+    "loteria": "Guacharito Millonario",
     "hora": "07:00 PM",
     "hora_num": 19,
     "numero": "--",
@@ -841,7 +841,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "08:00 AM",
     "hora_num": 8,
     "numero": "--",
@@ -851,7 +851,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "09:00 AM",
     "hora_num": 9,
     "numero": "--",
@@ -861,7 +861,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "10:00 AM",
     "hora_num": 10,
     "numero": "--",
@@ -871,7 +871,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "11:00 AM",
     "hora_num": 11,
     "numero": "--",
@@ -881,7 +881,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "12:00 PM",
     "hora_num": 12,
     "numero": "--",
@@ -891,7 +891,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "01:00 PM",
     "hora_num": 13,
     "numero": "--",
@@ -901,7 +901,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "02:00 PM",
     "hora_num": 14,
     "numero": "--",
@@ -911,7 +911,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "03:00 PM",
     "hora_num": 15,
     "numero": "--",
@@ -921,7 +921,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "04:00 PM",
     "hora_num": 16,
     "numero": "--",
@@ -931,7 +931,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "05:00 PM",
     "hora_num": 17,
     "numero": "--",
@@ -941,7 +941,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "06:00 PM",
     "hora_num": 18,
     "numero": "--",
@@ -951,7 +951,7 @@
   },
   {
     "fecha": "2026-09-23",
-    "loteria": "Lotto Activo Rd Int",
+    "loteria": "Lotto Activo Rd",
     "hora": "07:00 PM",
     "hora_num": 19,
     "numero": "--",
