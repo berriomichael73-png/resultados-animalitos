@@ -224,9 +224,9 @@
     "loteria": "Lotto Activo",
     "hora": "07:00 PM",
     "hora_num": 19.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "27",
+    "animal": "Perro",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
@@ -5744,9 +5744,9 @@
     "loteria": "Granja Millonaria Animalitos",
     "hora": "07:00 PM",
     "hora_num": 19.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "realizado": false,
+    "numero": "36",
+    "animal": "Culebra",
+    "realizado": true,
     "es_ultimo_en_vivo": true
   },
   {
