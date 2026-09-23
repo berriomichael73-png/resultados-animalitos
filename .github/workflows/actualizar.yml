@@ -30,10 +30,10 @@ jobs:
     - name: Ejecutar Extractor con Navegador Real
       run: python scraper.py
 
-    - name: Guardar y Publicar Resultados
+    - name: Guardar y Publicar Resultados e Historial
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add resultados.json
-        git diff-index --quiet HEAD || git commit -m "Actualización automática de resultados"
+        git add resultados.json historial_resultados.json
+        git diff-index --quiet HEAD || git commit -m "Actualización automática de resultados e historial"
         git push
