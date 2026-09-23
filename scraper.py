@@ -6,7 +6,6 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-# Mapa extendido de animalitos (hasta 99 para loterías con más de 60 opciones)
 nombres_animales = {
     "00": "Delfín", "0": "Delfín", "1": "Carnero", "01": "Carnero", "2": "Toro", "02": "Toro",
     "3": "Ciempiés", "03": "Ciempiés", "4": "Escorpión", "04": "Escorpión", "5": "León", "05": "León",
@@ -29,7 +28,6 @@ nombres_animales = {
     "98": "Mariquita", "99": "Grillo"
 }
 
-# Loterías exactas de m.parley.la
 LOTERIAS_MAPA = {
     "Lotto Activo": "lotto-activo",
     "Ruleta Activa": "ruleta-activa",
@@ -76,7 +74,6 @@ HORARIOS_MEDIAS_HORAS = [
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
 def extraer_animalito(contenedor):
-    # 1. Búsqueda por imagen en el contenedor de la hora
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -93,7 +90,6 @@ def extraer_animalito(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
-    # 2. Búsqueda por texto directo
     txt = contenedor.get_text(" ", strip=True)
     for num_code, anim_nombre in nombres_animales.items():
         if anim_nombre.lower() in txt.lower():
@@ -101,15 +97,8 @@ def extraer_animalito(contenedor):
 
     return None
 
-def escanear_ruta_directa(browser, fecha_str):
+def escanear_rapido(page, fecha_str):
     datos_extraidos = {}
-    context = browser.new_context(
-        user_agent="Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
-        viewport={"width": 412, "height": 915},
-        device_scale_factor=2.5,
-        is_mobile=True
-    )
-    page = context.new_page()
 
     for loteria_nombre, slug in LOTERIAS_MAPA.items():
         url = f"https://m.parley.la/resultados/resultados-{slug}"
@@ -117,8 +106,7 @@ def escanear_ruta_directa(browser, fecha_str):
             url += f"/{fecha_str}"
 
         try:
-            page.goto(url, wait_until="networkidle", timeout=25000)
-            page.wait_for_timeout(1500)
+            page.goto(url, wait_until="domcontentloaded", timeout=10000)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
@@ -140,12 +128,9 @@ def escanear_ruta_directa(browser, fecha_str):
                             datos_extraidos[clave] = res
 
         except Exception as e:
-            print(f"Error cargando {loteria_nombre} en {url}: {e}")
+            print(f"Error rápido en {loteria_nombre}: {e}")
             continue
 
-        time.sleep(0.4)
-
-    context.close()
     return datos_extraidos
 
 def ejecutar_proceso():
@@ -159,8 +144,6 @@ def ejecutar_proceso():
         if h_val <= hora_actual_ve:
             hora_ultimo_sorteo = h_txt
 
-    fechas_a_procesar = [(hoy_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(4)]
-
     historial = {}
     if os.path.exists("historial_resultados.json"):
         try:
@@ -170,52 +153,45 @@ def ejecutar_proceso():
             historial = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-setuid-sandbox"]
-        )
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36")
+        
+        # Bloquear imágenes, fuentes y CSS para acelerar la carga x5 veces
+        page = context.new_page()
+        page.route("**/*.{png,jpg,jpeg,webp,svg,css,woff,woff2}", lambda route: route.abort())
 
-        for fecha_str in fechas_a_procesar:
-            es_hoy = (fecha_str == hoy_str)
-            fecha_param = "" if es_hoy else fecha_str
+        mapa_extraido_dia = escanear_rapido(page, "")
+        resultados_fecha = []
 
-            mapa_extraido_dia = escanear_ruta_directa(browser, fecha_param)
-            resultados_fecha = []
+        for loteria_nombre in LOTERIAS_MAPA.keys():
+            for hora_texto, hora_val in TODOS_LOS_HORARIOS:
+                ha_ocurrido = (hora_val <= hora_actual_ve)
+                clave = f"{loteria_nombre}-{hora_texto}"
 
-            for loteria_nombre in LOTERIAS_MAPA.keys():
-                for hora_texto, hora_val in TODOS_LOS_HORARIOS:
-                    ha_ocurrido = True
-                    if es_hoy:
-                        if hora_val > hora_actual_ve:
-                            ha_ocurrido = False
+                if ha_ocurrido and clave in mapa_extraido_dia:
+                    num_str = mapa_extraido_dia[clave]
+                    nombre_animal = nombres_animales.get(num_str, "Animal")
+                    realizado = True
+                else:
+                    num_str = "--"
+                    nombre_animal = "Por salir"
+                    realizado = False
 
-                    clave = f"{loteria_nombre}-{hora_texto}"
+                resultados_fecha.append({
+                    "fecha": hoy_str,
+                    "loteria": loteria_nombre,
+                    "hora": hora_texto,
+                    "hora_num": hora_val,
+                    "numero": num_str,
+                    "animal": nombre_animal,
+                    "realizado": realizado,
+                    "es_ultimo_en_vivo": (hora_texto == hora_ultimo_sorteo)
+                })
 
-                    if ha_ocurrido and clave in mapa_extraido_dia:
-                        num_str = mapa_extraido_dia[clave]
-                        nombre_animal = nombres_animales.get(num_str, "Animal")
-                        realizado = True
-                    else:
-                        num_str = "--"
-                        nombre_animal = "Por salir"
-                        realizado = False
+        historial[hoy_str] = resultados_fecha
 
-                    resultados_fecha.append({
-                        "fecha": fecha_str,
-                        "loteria": loteria_nombre,
-                        "hora": hora_texto,
-                        "hora_num": hora_val,
-                        "numero": num_str,
-                        "animal": nombre_animal,
-                        "realizado": realizado,
-                        "es_ultimo_en_vivo": (es_hoy and hora_texto == hora_ultimo_sorteo)
-                    })
-
-            historial[fecha_str] = resultados_fecha
-
-            if es_hoy:
-                with open("resultados.json", "w", encoding="utf-8") as f:
-                    json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
+        with open("resultados.json", "w", encoding="utf-8") as f:
+            json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
 
         browser.close()
 
@@ -224,4 +200,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización por URL individual con parley.la completada.")
+    print("Sincronización ultra rápida completada.")
