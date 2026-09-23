@@ -21,26 +21,27 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_HOY = [
-    "Lotto Activo",
-    "La Granjita",
-    "Lotto Activo 2",
-    "Guacharo Activo",
-    "Guacharito Millonario",
-    "Selva Plus",
-    "Centena Plus",
-    "Lotto Activo Rd",
-    "Mega Animal 40",
-    "Centena Animalitos",
-    "Chance Con Animalitos",
-    "Cazaloton",
-    "Ruleta Activa",
-    "Granja Millonaria",
-    "La-Ricachona",
-    "Jungla Millonaria",
-    "Loto Chaima",
-    "Lotto Activo RDominicana"
-]
+# Diccionario con los slugs directos de loteriadehoy.com
+LOTERIAS_MAPA = {
+    "Lotto Activo": "lotto-activo",
+    "La Granjita": "la-granjita",
+    "Lotto Activo 2 (Monje Millonario)": "lotto-activo-2",
+    "Guacharo Activo": "guacharo-activo",
+    "El Guacharito Millonario": "el-guacharito-millonario",
+    "Selva Plus": "selva-plus",
+    "Centena Plus": "centena-plus",
+    "Lotto Activo Rd Int": "lotto-activo-rd-int",
+    "Mega Animal 40": "mega-animal-40",
+    "Centena Animalitos": "centena-animalitos",
+    "Chance Con Animalitos": "chance-con-animalitos",
+    "Cazaloton": "cazaloton",
+    "Ruleta Activa": "ruleta-activa",
+    "Granja Millonaria": "granja-millonaria",
+    "La-Ricachona": "la-ricachona",
+    "Jungla Millonaria": "jungla-millonaria",
+    "Loto Chaima": "loto-chaima",
+    "Lotto Activo RDominicana": "lotto-activo-rdominicana"
+}
 
 HORARIOS = [
     ("08:00 AM", 8), ("09:00 AM", 9), ("10:00 AM", 10), ("11:00 AM", 11),
@@ -48,8 +49,12 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_animalito_estricto(contenedor):
-    # Prioridad 1: Búsqueda exacta por imágenes
+def extraer_animalito_de_bloque(contenedor):
+    txt = contenedor.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
+
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -66,71 +71,50 @@ def extraer_animalito_estricto(contenedor):
             if num_cand in nombres_animales:
                 return num_cand
 
-    # Prioridad 2: Texto dentro del bloque específico
-    txt = contenedor.get_text(" ", strip=True)
-    for num_code, anim_nombre in nombres_animales.items():
-        if anim_nombre.lower() in txt.lower():
-            return num_code.zfill(2)
-
     return None
 
-def escanear_loteriadehoy(browser, fecha_str):
+def escanear_loteriadehoy_directo(browser, fecha_str):
     datos_extraidos = {}
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
     )
     page = context.new_page()
 
-    url = "https://loteriadehoy.com/animalitos/resultados/"
-    if fecha_str:
-        url += f"{fecha_str}/"
+    for loteria_nombre, slug in LOTERIAS_MAPA.items():
+        url = f"https://loteriadehoy.com/animalitos/{slug}/"
+        if fecha_str:
+            url += f"resultados/{fecha_str}/"
 
-    try:
-        page.goto(url, timeout=35000)
-        page.wait_for_timeout(4000)
-        html = page.content()
-        soup = BeautifulSoup(html, "html.parser")
+        try:
+            page.goto(url, wait_until="networkidle", timeout=25000)
+            page.wait_for_timeout(1500)
+            html = page.content()
+            soup = BeautifulSoup(html, "html.parser")
 
-        # Buscar contenedores de lotería
-        tarjetas = soup.find_all(["div", "section", "article", "table"], class_=re.compile(r'card|block|tabla|resultado|loteria', re.I))
-        if not tarjetas:
-            tarjetas = soup.find_all(["div", "section"])
+            elementos = soup.find_all(["tr", "li", "div", "article"])
+            for el in elementos:
+                txt_el = el.get_text(" ", strip=True)
+                if len(txt_el) > 250:
+                    continue
 
-        for tarjeta in tarjetas:
-            txt_tarjeta = tarjeta.get_text(" ", strip=True)
-            if len(txt_tarjeta) < 20 or len(txt_tarjeta) > 4000:
-                continue
-
-            loteria_detectada = None
-            for lot in LOTERIAS_HOY:
-                # Coincidencia limpia de nombre
-                palabras_clave = lot.lower().split()
-                if all(p in txt_tarjeta[:120].lower() for p in palabras_clave[:2]):
-                    loteria_detectada = lot
-                    break
-
-            if loteria_detectada:
-                filas = tarjeta.find_all(["tr", "li", "div"])
-                for f in filas:
-                    txt_f = f.get_text(" ", strip=True)
-                    if len(txt_f) > 200:
+                for hora_std, _ in HORARIOS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_extraidos:
                         continue
 
-                    for hora_std, _ in HORARIOS:
-                        clave = f"{loteria_detectada}-{hora_std}"
-                        if clave in datos_extraidos:
-                            continue
+                    hora_num = hora_std[:2]
+                    hora_alt = str(int(hora_num))
 
-                        hora_num = hora_std[:2]
-                        hora_alt = str(int(hora_num))
+                    if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el or hora_std.lower() in txt_el.lower():
+                        res = extraer_animalito_de_bloque(el)
+                        if res:
+                            datos_extraidos[clave] = res
 
-                        if f"{hora_num}:00" in txt_f or f"{hora_alt}:00" in txt_f or hora_std.lower() in txt_f.lower():
-                            res = extraer_animalito_estricto(f)
-                            if res:
-                                datos_extraidos[clave] = res
+        except Exception as e:
+            print(f"Error cargando {loteria_nombre} en {url}: {e}")
+            continue
 
-    except Exception as e:
-        print(f"Error procesando loteriadehoy.com: {e}")
+        time.sleep(0.5)
 
     context.close()
     return datos_extraidos
@@ -164,10 +148,10 @@ def ejecutar_proceso():
             es_hoy = (fecha_str == hoy_str)
             fecha_param = "" if es_hoy else fecha_str
 
-            mapa_extraido_dia = escanear_loteriadehoy(browser, fecha_param)
+            mapa_extraido_dia = escanear_loteriadehoy_directo(browser, fecha_param)
             resultados_fecha = []
 
-            for loteria_nombre in LOTERIAS_HOY:
+            for loteria_nombre in LOTERIAS_MAPA.keys():
                 for hora_texto, hora_num in HORARIOS:
                     ha_ocurrido = True
                     if es_hoy:
@@ -211,4 +195,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización optimizada completada.")
+    print("Sincronización por rutas directas completada.")
