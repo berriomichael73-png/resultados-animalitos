@@ -21,10 +21,15 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_PARLEY = {
+# Loterías principales intocables (vía parley.la)
+LOTERIAS_PARLEY_INTACTAS = {
     "Lotto Activo": "lotto-activo",
     "La Granjita": "la-granjita",
-    "Ruleta Activa": "ruleta-activa",
+    "Ruleta Activa": "ruleta-activa"
+}
+
+# Resto de loterías con multicanal de respaldo
+LOTERIAS_MULTIFUENTE = {
     "Lotto Rey": "lotto-rey",
     "Lotto Activo RD": "lotto-activo-rd",
     "Granjita Plus": "la-granjita-plus",
@@ -48,94 +53,114 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_de_texto_o_json(cadena):
-    resultados_encontrados = {}
-    for hora_std, _ in HORARIOS:
-        hora_num = hora_std[:2]
-        hora_alt = str(int(hora_num))
-        
-        patron = re.compile(rf'(?:{hora_num}:00|{hora_alt}:00).*?\b(\d{{1,2}})\b', re.IGNORECASE)
-        match = patron.search(cadena)
-        if match:
-            num_cand = match.group(1).zfill(2)
-            if num_cand in nombres_animales:
-                resultados_encontrados[hora_std] = num_cand
-                
-    return resultados_encontrados
-
-def escanear_base_datos_parley(browser, lote_loterias, fecha_str):
-    datos_lote = {}
+def extraer_numero_de_bloque(html_block):
+    soup = BeautifulSoup(html_block, "html.parser")
     
-    context = browser.new_context(
-        user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
-    )
-    page = context.new_page()
+    # 1. Búsqueda por texto directo
+    txt = soup.get_text(" ", strip=True)
+    for num_code, anim_nombre in nombres_animales.items():
+        if anim_nombre.lower() in txt.lower():
+            return num_code.zfill(2)
 
-    for loteria_nombre, slug in lote_loterias:
+    # 2. Búsqueda por imágenes (src, alt, title)
+    for img in soup.find_all("img"):
+        src = img.get("src", "").lower()
+        alt = img.get("alt", "").lower()
+        title = img.get("title", "").lower()
+        comb = f"{src} {alt} {title}"
+
+        for num_code, anim_nombre in nombres_animales.items():
+            if anim_nombre.lower() in comb:
+                return num_code.zfill(2)
+
+        match_img = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+        if match_img:
+            num_cand = match_img.group(1).zfill(2)
+            if num_cand in nombres_animales:
+                return num_cand
+
+    return None
+
+def escanear_parley_intactas(page, fecha_str):
+    resultados = {}
+    for loteria_nombre, slug in LOTERIAS_PARLEY_INTACTAS.items():
         url = f"https://m.parley.la/resultados/resultados-{slug}"
         if fecha_str:
             url += f"/{fecha_str}"
 
-        respuestas_api = []
-
-        def capturar_respuesta(response):
-            try:
-                if "api" in response.url or "json" in response.url or "resultado" in response.url:
-                    texto = response.text()
-                    respuestas_api.append(texto)
-            except Exception:
-                pass
-
-        page.on("response", capturar_respuesta)
-
         try:
-            page.goto(url, timeout=25000)
+            page.goto(url, timeout=20000)
             page.wait_for_timeout(2000)
-            
-            for resp_txt in respuestas_api:
-                extraidos_api = extraer_de_texto_o_json(resp_txt)
-                for h, n in extraidos_api.items():
-                    clave = f"{loteria_nombre}-{h}"
-                    if clave not in datos_lote:
-                        datos_lote[clave] = n
-
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
+
             elementos = soup.find_all(["tr", "div", "li", "article"])
-            
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
                 for hora_std, _ in HORARIOS:
                     clave = f"{loteria_nombre}-{hora_std}"
-                    if clave in datos_lote:
+                    if clave in resultados:
                         continue
 
                     hora_num = hora_std[:2]
                     hora_alt = str(int(hora_num))
                     
                     if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        for num_code, anim_nombre in nombres_animales.items():
-                            if anim_nombre.lower() in txt_el.lower():
-                                datos_lote[clave] = num_code.zfill(2)
-                                break
-
+                        res = extraer_numero_de_bloque(str(el))
+                        if res:
+                            resultados[clave] = res
         except Exception as e:
-            print(f"Error procesando {loteria_nombre}: {e}")
-            continue
+            print(f"Error procesando {loteria_nombre} en parley: {e}")
 
-        time.sleep(0.8)
+    return resultados
 
-    context.close()
-    return datos_lote
+def escanear_multifuente_resto(page, fecha_str):
+    resultados = {}
+    for loteria_nombre, slug in LOTERIAS_MULTIFUENTE.items():
+        urls = [
+            f"https://tuazar.com/loteria/animalitos/{slug}/resultados/" if not fecha_str else f"https://tuazar.com/loteria/animalitos/{slug}/resultados/{fecha_str}/",
+            f"https://agendadeportiva.com.ve/resultados-{slug}/" if not fecha_str else f"https://agendadeportiva.com.ve/resultados-{slug}/?fecha={fecha_str}",
+            f"https://m.parley.la/resultados/resultados-{slug}" if not fecha_str else f"https://m.parley.la/resultados/resultados-{slug}/{fecha_str}"
+        ]
 
-def ejecutar_proceso_parley():
+        for url in urls:
+            try:
+                page.goto(url, timeout=18000)
+                page.wait_for_timeout(1800)
+                html = page.content()
+                soup = BeautifulSoup(html, "html.parser")
+
+                elementos = soup.find_all(["tr", "div", "li", "article"])
+                for el in elementos:
+                    txt_el = el.get_text(" ", strip=True)
+                    for hora_std, _ in HORARIOS:
+                        clave = f"{loteria_nombre}-{hora_std}"
+                        if clave in resultados:
+                            continue
+
+                        hora_num = hora_std[:2]
+                        hora_alt = str(int(hora_num))
+
+                        if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
+                            res = extraer_numero_de_bloque(str(el))
+                            if res:
+                                resultados[clave] = res
+
+                # Si ya encontró resultados para esta lotería, pasa a la siguiente
+                if any(k.startswith(loteria_nombre) for k in resultados):
+                    break
+            except Exception:
+                continue
+
+    return resultados
+
+def ejecutar_proceso_hibrido():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
     hora_actual_ve = hoy_dt.hour
     minuto_actual_ve = hoy_dt.minute
 
-    # Determinar dinámicamente cuál es el último horario de sorteo que ya ocurrió o está en juego
     hora_ultimo_sorteo = "08:00 AM"
     for h_txt, h_num in HORARIOS:
         if h_num <= hora_actual_ve:
@@ -151,26 +176,29 @@ def ejecutar_proceso_parley():
         except Exception:
             historial = {}
 
-    items_loterias = list(LOTERIAS_PARLEY.items())
-    tandas = [items_loterias[i:i + 3] for i in range(0, len(items_loterias), 3)]
+    todas_loterias = list(LOTERIAS_PARLEY_INTACTAS.keys()) + list(LOTERIAS_MULTIFUENTE.keys())
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+        )
+        page = context.new_page()
 
         for fecha_str in fechas_a_procesar:
             es_hoy = (fecha_str == hoy_str)
             fecha_param = "" if es_hoy else fecha_str
             
-            mapa_extraido_dia = {}
-
-            for tanda in tandas:
-                datos_tanda = escanear_base_datos_parley(browser, tanda, fecha_param)
-                mapa_extraido_dia.update(datos_tanda)
-                time.sleep(1.2)
+            # 1. Escanear Lotto Activo, La Granjita y Ruleta Activa desde parley.la
+            mapa_extraido = escanear_parley_intactas(page, fecha_param)
+            
+            # 2. Escanear el resto de loterías con multicanal de respaldo
+            mapa_resto = escanear_multifuente_resto(page, fecha_param)
+            mapa_extraido.update(mapa_resto)
 
             resultados_fecha = []
 
-            for loteria_nombre, _ in items_loterias:
+            for loteria_nombre in todas_loterias:
                 for hora_texto, hora_num in HORARIOS:
                     ha_ocurrido = True
                     if es_hoy:
@@ -181,8 +209,8 @@ def ejecutar_proceso_parley():
 
                     clave = f"{loteria_nombre}-{hora_texto}"
 
-                    if ha_ocurrido and clave in mapa_extraido_dia:
-                        num_str = mapa_extraido_dia[clave]
+                    if ha_ocurrido and clave in mapa_extraido:
+                        num_str = mapa_extraido[clave]
                         nombre_animal = nombres_animales.get(num_str, "Animal")
                         realizado = True
                     else:
@@ -213,5 +241,5 @@ def ejecutar_proceso_parley():
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    ejecutar_proceso_parley()
-    print("Corrección de horas dinámicas completada con éxito.")
+    ejecutar_proceso_hibrido()
+    print("Sincronización híbrida por lotería completada.")
