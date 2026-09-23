@@ -21,7 +21,7 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-LOTERIAS_CONFIG = {
+LOTERIAS_PARLEY = {
     "Lotto Activo": "lotto-activo",
     "La Granjita": "la-granjita",
     "Ruleta Activa": "ruleta-activa",
@@ -48,15 +48,7 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def obtener_urls_por_fecha(slug, fecha_str):
-    return [
-        f"https://m.parley.la/resultados/resultados-{slug}/{fecha_str}",
-        f"https://m.parley.la/resultados/resultados-{slug}?fecha={fecha_str}",
-        f"https://tuazar.com/loteria/animalitos/{slug}/resultados/{fecha_str}/",
-        f"https://agendadeportiva.com.ve/resultados-{slug}/?fecha={fecha_str}"
-    ]
-
-def extraer_animalito_de_contenedor(contenedor):
+def extraer_animalito_parley(contenedor):
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -80,11 +72,22 @@ def extraer_animalito_de_contenedor(contenedor):
 
     return None
 
-def extraer_fecha_pagina(page, urls):
-    mapa_resultados = {}
-    for url in urls:
+def escanear_tanda_parley(browser, lote_loterias, fecha_str):
+    datos_lote = {}
+    
+    # Crear un contexto nuevo (pestaña/sesión limpia) por cada grupo de 3
+    context = browser.new_context(
+        user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
+    )
+    page = context.new_page()
+
+    for loteria_nombre, slug in lote_loterias:
+        url = f"https://m.parley.la/resultados/resultados-{slug}"
+        if fecha_str:
+            url += f"/{fecha_str}"
+
         try:
-            page.goto(url, timeout=20000)
+            page.goto(url, timeout=25000)
             page.wait_for_timeout(2500)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
@@ -93,22 +96,28 @@ def extraer_fecha_pagina(page, urls):
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
                 for hora_std, _ in HORARIOS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_lote:
+                        continue
+
                     hora_num = hora_std[:2]
                     hora_alt = str(int(hora_num))
                     
                     if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        res = extraer_animalito_de_contenedor(el)
+                        res = extraer_animalito_parley(el)
                         if res:
-                            mapa_resultados[hora_std] = res
+                            datos_lote[clave] = res
 
-            if len(mapa_resultados) >= 3:
-                break
-        except Exception:
+        except Exception as e:
+            print(f"Error procesando {loteria_nombre} en Parley: {e}")
             continue
-            
-    return mapa_resultados
 
-def ejecutar_proceso_completo():
+        time.sleep(1)  # Pausa breve entre páginas del mismo lote
+
+    context.close()
+    return datos_lote
+
+def ejecutar_proceso_parley():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
@@ -125,32 +134,41 @@ def ejecutar_proceso_completo():
         except Exception:
             historial = {}
 
+    items_loterias = list(LOTERIAS_PARLEY.items())
+    
+    # Dividir las 18 loterías en tandas estrictas de 3 en 3
+    tandas = [items_loterias[i:i + 3] for i in range(0, len(items_loterias), 3)]
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
-        )
-        page = context.new_page()
 
         for fecha_str in fechas_a_procesar:
-            resultados_fecha = []
             es_hoy = (fecha_str == hoy_str)
+            fecha_param = "" if es_hoy else fecha_str
             
-            for loteria, slug in LOTERIAS_CONFIG.items():
-                urls = obtener_urls_por_fecha(slug, fecha_str)
-                datos_extraidos = extraer_fecha_pagina(page, urls)
+            mapa_extraido_dia = {}
 
+            # Ejecutar escaneo por cada tanda de 3 loterías
+            for tanda in tandas:
+                datos_tanda = escanear_tanda_parley(browser, tanda, fecha_param)
+                mapa_extraido_dia.update(datos_tanda)
+                time.sleep(2)  # Pausa de seguridad entre tandas
+
+            resultados_fecha = []
+
+            for loteria_nombre, _ in items_loterias:
                 for hora_texto, hora_num in HORARIOS:
-                    # Regla estricta: Si es hoy y el sorteo no ha ocurrido aún, debe mostrar "Por salir"
                     ha_ocurrido = True
                     if es_hoy:
                         if hora_num > hora_actual_ve:
                             ha_ocurrido = False
                         elif hora_num == hora_actual_ve and minuto_actual_ve < 2:
-                            ha_ocurrido = False  # Dar 2 minutos de margen para que publique la lotería
+                            ha_ocurrido = False
 
-                    if ha_ocurrido and hora_texto in datos_extraidos:
-                        num_str = datos_extraidos[hora_texto]
+                    clave = f"{loteria_nombre}-{hora_texto}"
+
+                    if ha_ocurrido and clave in mapa_extraido_dia:
+                        num_str = mapa_extraido_dia[clave]
                         nombre_animal = nombres_animales.get(num_str, "Animal")
                         realizado = True
                     else:
@@ -160,7 +178,7 @@ def ejecutar_proceso_completo():
 
                     resultados_fecha.append({
                         "fecha": fecha_str,
-                        "loteria": loteria,
+                        "loteria": loteria_nombre,
                         "hora": hora_texto,
                         "hora_num": hora_num,
                         "numero": num_str,
@@ -180,5 +198,5 @@ def ejecutar_proceso_completo():
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    ejecutar_proceso_completo()
-    print("Sincronización con filtro de hora real completada.")
+    ejecutar_proceso_parley()
+    print("Sincronización exclusiva de parley.la por tandas de 3 completada.")
