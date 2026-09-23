@@ -21,26 +21,36 @@ nombres_animales = {
     "56": "Mariposa", "57": "Hormiga", "58": "Mariquita", "59": "Grillo", "60": "Araña"
 }
 
-# Slugs exactos de la ruta /resultados/resultados-[slug] en m.parley.la
-LOTERIAS_PARLEY_RUTAS = {
+# Loterías extraídas de m.parley.la
+LOTERIAS_PARLEY_REALES = {
     "Lotto Activo": "lotto-activo",
-    "La Granjita": "la-granjita",
     "Ruleta Activa": "ruleta-activa",
-    "Lotto Rey": "lotto-rey",
-    "Lotto Activo RD": "lotto-activo-rd",
-    "La Granjita Plus": "la-granjita-plus",
-    "Ruleta Royal": "ruleta-royal",
-    "El Guácharo Activo": "el-guacharo-activo",
+    "La Ruca": "la-ruca",
+    "Lotto Activo Internacional": "lotto-activo-internacional",
+    "TrioActivo": "trioactivo",
+    "Guacharo Activo": "el-guacharo-activo",
     "Selva Plus": "selva-plus",
-    "Chance Animal": "chance-animal",
-    "Tropigana": "tropigana",
-    "Lotto Zoo": "lotto-zoo",
-    "Tropicana Animal": "tropicana-animal",
-    "Gana Animalito": "gana-animalito",
-    "Súper Gana": "super-gana",
-    "Sorteo VIP": "sorteo-vip",
-    "Animalitos Millonarios": "animalitos-millonarios",
-    "Lotto Venezuela": "lotto-venezuela"
+    "El Ruco": "el-ruco",
+    "Chance Animalitos": "chance-animal",
+    "Lotto Rey": "lotto-rey",
+    "Ruleta Royal": "ruleta-royal",
+    "Loto Chaima": "loto-chaima",
+    "Cazaloton": "cazaloton",
+    "Panda Plus": "panda-plus",
+    "Mega Animal40": "mega-animal40",
+    "Lotto Gato": "lotto-gato",
+    "Gatazo": "gatazo",
+    "Tigre Millonario": "tigre-millonario",
+    "Guacharito Millonario": "guacharito-millonario",
+    "Centena Animalitos": "centena-animalitos",
+    "Centena Plus": "centena-plus",
+    "Triple Centena": "triple-centena",
+    "Lotto Max": "lotto-max",
+    "Granja Millonaria Animalitos": "granja-millonaria-animalitos",
+    "Granja Millonaria Granjazo": "granja-millonaria-granjazo",
+    "Lotto Pantera": "lotto-pantera",
+    "Lotoanimalito": "lotoanimalito",
+    "Triple Pantera": "triple-pantera"
 }
 
 HORARIOS = [
@@ -49,14 +59,12 @@ HORARIOS = [
     ("04:00 PM", 16), ("05:00 PM", 17), ("06:00 PM", 18), ("07:00 PM", 19)
 ]
 
-def extraer_animalito_parley_directo(contenedor):
-    # 1. Búsqueda por texto directo primero (para capturar al instante)
+def extraer_animalito(contenedor):
     txt = contenedor.get_text(" ", strip=True)
     for num_code, anim_nombre in nombres_animales.items():
         if anim_nombre.lower() in txt.lower():
             return num_code.zfill(2)
 
-    # 2. Búsqueda por imágenes (src, alt, title)
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
         alt = img.get("alt", "").lower()
@@ -75,7 +83,7 @@ def extraer_animalito_parley_directo(contenedor):
 
     return None
 
-def escanear_rutas_parley(browser, lote_loterias, fecha_str):
+def escanear_tanda(browser, lote_loterias, fecha_str):
     datos_lote = {}
     context = browser.new_context(
         user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36"
@@ -83,7 +91,6 @@ def escanear_rutas_parley(browser, lote_loterias, fecha_str):
     page = context.new_page()
 
     for loteria_nombre, slug in lote_loterias:
-        # Construcción directa de la URL de parley.la
         url = f"https://m.parley.la/resultados/resultados-{slug}"
         if fecha_str:
             url += f"/{fecha_str}"
@@ -94,11 +101,9 @@ def escanear_rutas_parley(browser, lote_loterias, fecha_str):
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
-            # Buscar filas y bloques descartando menús pesados
             elementos = soup.find_all(["tr", "div", "li", "article"])
             for el in elementos:
                 txt_el = el.get_text(" ", strip=True)
-                
                 if len(txt_el) > 300:
                     continue
 
@@ -111,12 +116,12 @@ def escanear_rutas_parley(browser, lote_loterias, fecha_str):
                     hora_alt = str(int(hora_num))
                     
                     if f"{hora_num}:00" in txt_el or f"{hora_alt}:00" in txt_el:
-                        res = extraer_animalito_parley_directo(el)
+                        res = extraer_animalito(el)
                         if res:
                             datos_lote[clave] = res
 
         except Exception as e:
-            print(f"Error cargando ruta {url}: {e}")
+            print(f"Error cargando {url}: {e}")
             continue
 
         time.sleep(0.8)
@@ -124,7 +129,7 @@ def escanear_rutas_parley(browser, lote_loterias, fecha_str):
     context.close()
     return datos_lote
 
-def ejecutar_proceso_parley_directo():
+def ejecutar_proceso():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
@@ -146,7 +151,7 @@ def ejecutar_proceso_parley_directo():
         except Exception:
             historial = {}
 
-    items_loterias = list(LOTERIAS_PARLEY_RUTAS.items())
+    items_loterias = list(LOTERIAS_PARLEY_REALES.items())
     tandas = [items_loterias[i:i + 3] for i in range(0, len(items_loterias), 3)]
 
     with sync_playwright() as p:
@@ -159,7 +164,7 @@ def ejecutar_proceso_parley_directo():
             mapa_extraido_dia = {}
 
             for tanda in tandas:
-                datos_tanda = escanear_rutas_parley(browser, tanda, fecha_param)
+                datos_tanda = escanear_tanda(browser, tanda, fecha_param)
                 mapa_extraido_dia.update(datos_tanda)
                 time.sleep(1.2)
 
@@ -208,5 +213,5 @@ def ejecutar_proceso_parley_directo():
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
-    ejecutar_proceso_parley_directo()
-    print("Sincronización por rutas directas de resultados completada.")
+    ejecutar_proceso()
+    print("Sincronización exacta con las 28 loterías de m.parley.la completada.")
