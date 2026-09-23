@@ -2,6 +2,7 @@ import json
 import os
 import re
 import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
@@ -73,6 +74,23 @@ HORARIOS_MEDIAS_HORAS = [
 
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
+# CONFIGURACIÓN DE PROXY OPCIONAL (Si posees un proxy residencial como ScraperAPI/BrightData)
+PROXY_URL = os.getenv("PROXY_URL", "")
+
+def intentar_obtencion_api_directa(slug):
+    url_api = f"https://m.parley.la/api/resultados/{slug}"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
+        'Accept': 'application/json, text/plain, */*'
+    }
+    try:
+        req = urllib.request.Request(url_api, headers=headers)
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            return data
+    except Exception:
+        return None
+
 def extraer_animalito(contenedor):
     for img in contenedor.find_all("img"):
         src = img.get("src", "").lower()
@@ -97,16 +115,37 @@ def extraer_animalito(contenedor):
 
     return None
 
-def escanear_rapido(page, fecha_str):
+def escanear_hibrido(browser):
     datos_extraidos = {}
 
-    for loteria_nombre, slug in LOTERIAS_MAPA.items():
-        url = f"https://m.parley.la/resultados/resultados-{slug}"
-        if fecha_str:
-            url += f"/{fecha_str}"
+    context_args = {
+        "user_agent": "Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36",
+        "viewport": {"width": 412, "height": 915},
+        "is_mobile": True
+    }
 
+    if PROXY_URL:
+        context_args["proxy"] = {"server": PROXY_URL}
+
+    context = browser.new_context(**context_args)
+    page = context.new_page()
+
+    for loteria_nombre, slug in LOTERIAS_MAPA.items():
+        # PASO 1: Intentar API Directa
+        datos_api = intentar_obtencion_api_directa(slug)
+        if datos_api and isinstance(datos_api, list):
+            for item in datos_api:
+                hora_item = item.get("hora")
+                num_item = str(item.get("numero", "")).zfill(2)
+                if hora_item and num_item in nombres_animales:
+                    datos_extraidos[f"{loteria_nombre}-{hora_item}"] = num_item
+            continue
+
+        # PASO 2: Fallback a Scraper con Playwright (+ Proxy si está disponible)
+        url = f"https://m.parley.la/resultados/resultados-{slug}"
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=10000)
+            page.goto(url, wait_until="domcontentloaded", timeout=12000)
+            page.wait_for_timeout(1000)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
 
@@ -128,9 +167,10 @@ def escanear_rapido(page, fecha_str):
                             datos_extraidos[clave] = res
 
         except Exception as e:
-            print(f"Error rápido en {loteria_nombre}: {e}")
+            print(f"Error en respaldo Scraper para {loteria_nombre}: {e}")
             continue
 
+    context.close()
     return datos_extraidos
 
 def ejecutar_proceso():
@@ -153,14 +193,12 @@ def ejecutar_proceso():
             historial = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(user_agent="Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36")
-        
-        # Bloquear imágenes, fuentes y CSS para acelerar la carga x5 veces
-        page = context.new_page()
-        page.route("**/*.{png,jpg,jpeg,webp,svg,css,woff,woff2}", lambda route: route.abort())
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox"]
+        )
 
-        mapa_extraido_dia = escanear_rapido(page, "")
+        mapa_extraido_dia = escanear_hibrido(browser)
         resultados_fecha = []
 
         for loteria_nombre in LOTERIAS_MAPA.keys():
@@ -200,4 +238,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización ultra rápida completada.")
+    print("Sincronización combinada (API + Scraper con Proxy) completada.")
