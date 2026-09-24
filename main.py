@@ -32,6 +32,12 @@ LOTERIAS_CONFIG = {
     "La Ricachona": {"slugs": ["la-ricachona"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"}
 }
 
+HORARIOS_ESTANDAR = [
+    "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
+    "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
+    "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
+]
+
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
@@ -95,7 +101,7 @@ def obtener_resultados():
 
             for url_target in urls_prueba:
                 try:
-                    response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=6)
+                    response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=5)
                     if response.status_code == 200:
                         soup = BeautifulSoup(response.text, 'html.parser')
                         bloques = soup.find_all(['tr', 'div', 'li', 'article', 'td'])
@@ -133,16 +139,23 @@ def obtener_resultados():
                                     "realizado": True,
                                     "fecha": hoy
                                 }
-
-                    if len(sorteos_obtenidos) >= 2:
-                        break
                 except Exception:
                     continue
 
-            if len(sorteos_obtenidos) >= 2:
-                break
+        # Completar horarios faltantes con estado 'Por salir'
+        for h_estandar in HORARIOS_ESTANDAR:
+            if h_estandar not in sorteos_obtenidos:
+                sorteos_obtenidos[h_estandar] = {
+                    "loteria": loteria_nombre,
+                    "logo_loteria": logo,
+                    "hora": h_estandar,
+                    "numero": "--",
+                    "animal": "Por salir",
+                    "realizado": False,
+                    "fecha": hoy
+                }
 
-        # Ordenar cronológicamente según los horarios capturados
+        # Ordenar los sorteos de la loteria de forma cronológica
         sorteos_ordenados = sorted(
             sorteos_obtenidos.values(), 
             key=lambda x: convertir_hora_a_minutos(x["hora"])
