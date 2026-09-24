@@ -6,10 +6,21 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+# Importación de nuevos módulos
+try:
+    from modulo_telegram import obtener_resultados_telegram
+except ImportError:
+    obtener_resultados_telegram = None
+
+try:
+    from modulo_live_stream import analizar_frame_transmision
+except ImportError:
+    analizar_frame_transmision = None
+
 LOTERIAS_OFICIALES = {
     "Lotto Activo": {"slugs": ["lotto-activo"], "tuazar": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
     "La Granjita": {"slugs": ["la-granjita"], "tuazar": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje Millonario)": {"slugs": ["monje-millonario", "lotto-activo-2"], "tuazar": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slugs": ["monje-millonario"], "tuazar": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
     "Guacharo Activo": {"slugs": ["guacharo-activo"], "tuazar": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
     "El Guacharito Millonario": {"slugs": ["el-guacharito-millonario"], "tuazar": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
     "Selva Plus": {"slugs": ["selva-plus"], "tuazar": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
@@ -39,55 +50,22 @@ def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
-# NIVEL 1: API DIRECTA
-def intentar_obtencion_api_directa(slugs):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
-        'Accept': 'application/json, text/plain, */*'
-    }
-    for slug in slugs:
-        urls_api = [
-            f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
-            f"https://m.parley.la/api/resultados/resultados-{slug}",
-            f"https://lotoven.com/api/v1/resultados/{slug}"
-        ]
-        for url in urls_api:
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=3) as response:
-                    data = json.loads(response.read().decode('utf-8'))
-                    if data and isinstance(data, list):
-                        return data
-            except Exception:
-                continue
-    return None
-
-def extraer_hora_de_texto(texto):
-    match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
-    if match:
-        hora_str = match.group(1).strip().upper()
-        if "AM" not in hora_str and "PM" not in hora_str:
-            h_num = int(hora_str.split(":")[0])
-            hora_str += " PM" if h_num in [12, 1, 2, 3, 4, 5, 6, 7] else " AM"
-        return hora_str
-    return None
-
-# NIVEL 2 Y 3: SCRAPER MULTIFUENTE CON CONMUTACIÓN POR ERROR
-def escanear_hibrido_failover(browser):
+def escanear_sistema_completo(browser):
     resultados_totales = []
+
+    # 1. Intentar extracción por Redes Sociales / Telegram (Opción 3)
+    datos_telegram = obtener_resultados_telegram() if obtener_resultados_telegram else []
 
     context_args = {
         "user_agent": "Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36",
         "viewport": {"width": 412, "height": 915},
         "is_mobile": True
     }
-
     if PROXY_URL:
         context_args["proxy"] = {"server": PROXY_URL}
 
     context = browser.new_context(**context_args)
     page = context.new_page()
-
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
     for loteria_nombre, info in LOTERIAS_OFICIALES.items():
@@ -95,34 +73,24 @@ def escanear_hibrido_failover(browser):
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
-        # 1. Intentar Nivel 1: API Directa
-        datos_api = intentar_obtencion_api_directa(slugs)
-        if datos_api:
-            for item in datos_api:
-                hora_item = item.get("hora", "08:00 AM")
-                num_item = str(item.get("numero", "--")).zfill(2)
-                img_item = item.get("imagen", "")
-                nom_item = item.get("animal", "Animalito")
-                
-                if img_item and not img_item.startswith("http"):
-                    img_item = "https://loteriadehoy.com" + (img_item if img_item.startswith("/") else "/" + img_item)
-
-                sorteos_obtenidos[hora_item] = {
+        # Mapear datos de Telegram si existen para esta lotería
+        for dt in datos_telegram:
+            if dt.get("loteria") == loteria_nombre:
+                sorteos_obtenidos[dt["hora"]] = {
                     "loteria": loteria_nombre,
                     "logo_loteria": logo_loteria,
-                    "hora": hora_item,
-                    "numero": num_item,
-                    "animal": nom_item,
-                    "imagen": img_item,
-                    "realizado": True if num_item != "--" else False
+                    "hora": dt["hora"],
+                    "numero": dt["numero"],
+                    "animal": dt["animal"],
+                    "imagen": "",
+                    "realizado": True
                 }
 
-        # 2. Intentar Nivel 2 (TuAzar) y Nivel 3 (Parley/LoteriaDeHoy)
+        # 2. Si faltan datos, realizar Scraping con Failover (Opción 4)
         if not sorteos_obtenidos:
             for slug in slugs:
                 urls_prueba = [
                     f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/",
-                    f"https://m.parley.la/resultados/resultados-{slug}",
                     f"https://loteriadehoy.com/animalitos/{slug}"
                 ]
 
@@ -139,8 +107,12 @@ def escanear_hibrido_failover(browser):
                             if len(txt_bloque) > 300:
                                 continue
 
-                            hora_detectada = extraer_hora_de_texto(txt_bloque)
-                            if not hora_detectada or hora_detectada in sorteos_obtenidos:
+                            match_hora = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', txt_bloque)
+                            if not match_hora:
+                                continue
+                            
+                            hora_det = match_hora.group(1).upper()
+                            if hora_det in sorteos_obtenidos:
                                 continue
 
                             img_tag = bloque.find("img")
@@ -149,16 +121,16 @@ def escanear_hibrido_failover(browser):
                                 if src and not ("logo" in src.lower() or "icon" in src.lower()):
                                     if not src.startswith("http"):
                                         src = "https://www.tuazar.com" if "tuazar" in url_target else "https://loteriadehoy.com"
-                                        src = src + (img_tag.get("src") if img_tag.get("src").startswith("/") else "/" + img_tag.get("src"))
+                                        src = src + (src_img if (src_img := img_tag.get("src")).startswith("/") else "/" + src_img)
 
                                     match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
                                     numero = match_num.group(1).zfill(2) if match_num else "--"
                                     animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
 
-                                    sorteos_obtenidos[hora_detectada] = {
+                                    sorteos_obtenidos[hora_det] = {
                                         "loteria": loteria_nombre,
                                         "logo_loteria": logo_loteria,
-                                        "hora": hora_detectada,
+                                        "hora": hora_det,
                                         "numero": numero,
                                         "animal": animal.strip(),
                                         "imagen": src,
@@ -173,7 +145,7 @@ def escanear_hibrido_failover(browser):
                 if sorteos_obtenidos:
                     break
 
-        # Rellenar y ordenar horarios de 08:00 AM a 07:00 PM
+        # Rellenar casillas de horarios faltantes
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -205,12 +177,8 @@ def ejecutar_proceso():
             historial = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            args=["--no-sandbox", "--disable-setuid-sandbox"]
-        )
-
-        lista_resultados_dia = escanear_hibrido_failover(browser)
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-setuid-sandbox"])
+        lista_resultados_dia = escanear_sistema_completo(browser)
 
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
@@ -226,4 +194,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización con conmutación tripartita completada.")
+    print("Sincronización multi-fuente total (Opciones 1, 3 y 4) completada.")
