@@ -15735,9 +15735,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "01:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "34 VENADO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/la-granjita/animals_png_180/34-venado.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -17054,10 +17054,10 @@
       "loteria": "Ruleta Activa",
       "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "numero": "13",
+      "animal": "13 MONO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/13.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
