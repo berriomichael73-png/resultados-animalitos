@@ -6,35 +6,26 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+# Mapeo exacto de las loterías visibles en loteriadehoy.com
 LOTERIAS_MAPA = {
     "Lotto Activo": "lotto-activo",
-    "Ruleta Activa": "ruleta-activa",
-    "La Ruca": "la-ruca",
-    "Lotto Activo Internacional": "lotto-activo-internacional",
-    "TrioActivo": "trioactivo",
-    "Guacharo Activo": "el-guacharo-activo",
+    "La Granjita": "la-granjita",
+    "Lotto Activo 2 (Monje Millonario)": "monje-millonario",
+    "Guacharo Activo": "guacharo-activo",
+    "El Guacharito Millonario": "el-guacharito-millonario",
     "Selva Plus": "selva-plus",
-    "El Ruco": "el-ruco",
-    "Chance Animalitos": "chance-animal",
-    "Lotto Rey": "lotto-rey",
-    "Ruleta Royal": "ruleta-royal",
-    "Loto Chaima": "loto-chaima",
-    "Cazaloton": "cazaloton",
-    "Panda Plus": "panda-plus",
-    "Mega Animal40": "mega-animal40",
-    "Lotto Gato": "lotto-gato",
-    "Gatazo": "gatazo",
-    "Tigre Millonario": "tigre-millonario",
-    "Guacharito Millonario": "guacharito-millonario",
-    "Centena Animalitos": "centena-animalitos",
     "Centena Plus": "centena-plus",
-    "Triple Centena": "triple-centena",
-    "Lotto Max": "lotto-max",
-    "Granja Millonaria Animalitos": "granja-millonaria-animalitos",
-    "Granja Millonaria Granjazo": "granja-millonaria-granjazo",
-    "Lotto Pantera": "lotto-pantera",
-    "Lotoanimalito": "lotoanimalito",
-    "Triple Pantera": "triple-pantera"
+    "Lotto Activo Rd Int": "lotto-activo-rd-int",
+    "Mega Animal 40": "mega-animal-40",
+    "Centena Animalitos": "centena-animalitos",
+    "Chance Con Animalitos": "chance-con-animalitos",
+    "Cazaloton": "cazaloton",
+    "Ruleta Activa": "ruleta-activa",
+    "Granja Millonaria": "granja-millonaria",
+    "La-Ricachona": "la-ricachona",
+    "Jungla Millonaria": "jungla-millonaria",
+    "Loto Chaima": "loto-chaima",
+    "Lotto Activo RDominicana": "lotto-activo-rdominicana"
 }
 
 HORARIOS_EN_PUNTO = [
@@ -51,12 +42,14 @@ HORARIOS_MEDIAS_HORAS = [
 
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
+# SOLUCIÓN DEFINITIVA 2: PROXY RESIDENCIAL
 PROXY_URL = os.getenv("PROXY_URL", "")
 
+# SOLUCIÓN DEFINITIVA 1: API DIRECTA
 def intentar_obtencion_api_directa(slug):
     urls_api = [
-        f"https://m.parley.la/api/resultados/{slug}",
-        f"https://lotoven.com/api/v1/resultados/{slug}"
+        f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
+        f"https://m.parley.la/api/resultados/{slug}"
     ]
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
@@ -75,15 +68,14 @@ def intentar_obtencion_api_directa(slug):
     return None
 
 def extraer_datos_directos(contenedor):
-    # Captura directa de la URL de la imagen del animalito
     for img in contenedor.find_all("img"):
         src = img.get("src", "")
         if src:
-            # Extraer número si está presente en la ruta de la imagen
+            if not src.startswith("http"):
+                src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
+
             match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
             numero = match_num.group(1).zfill(2) if match_num else "--"
-            
-            # Nombre obtenido del alt/title de la imagen
             nombre = img.get("alt") or img.get("title") or "Resultado"
             return {"numero": numero, "animal": nombre.strip(), "imagen": src}
 
@@ -107,7 +99,7 @@ def escanear_hibrido(browser):
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
     for loteria_nombre, slug in LOTERIAS_MAPA.items():
-        # CAPA 1: API Directa
+        # CAPA 1: Intento por API Directa
         datos_api = intentar_obtencion_api_directa(slug)
         if datos_api:
             for item in datos_api:
@@ -124,8 +116,8 @@ def escanear_hibrido(browser):
                     }
             continue
 
-        # CAPA 2: Scraper Híbrido con Proxy Residencial
-        url = f"https://m.parley.la/resultados/resultados-{slug}"
+        # CAPA 2: Scraper Híbrido con Proxy Residencial en loteriadehoy.com
+        url = f"https://loteriadehoy.com/animalitos/{slug}"
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=12000)
             page.wait_for_timeout(1000)
@@ -225,4 +217,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización por captura directa de imágenes completada.")
+    print("Sincronización desde loteriadehoy.com completada con éxito.")
