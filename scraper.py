@@ -41,10 +41,8 @@ HORARIOS_MEDIAS_HORAS = [
 
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
-# SOLUCIÓN DEFINITIVA 2: PROXY RESIDENCIAL
 PROXY_URL = os.getenv("PROXY_URL", "")
 
-# SOLUCIÓN DEFINITIVA 1: API DIRECTA MULTI-ENDPOINT
 def intentar_obtencion_api_directa(slug):
     urls_api = [
         f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
@@ -106,7 +104,6 @@ def escanear_hibrido_resistente(browser):
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
     for loteria_nombre, slug in LOTERIAS_OFICIALES.items():
-        # CAPA 1: API DIRECTA
         datos_api = intentar_obtencion_api_directa(slug)
         if datos_api:
             for item in datos_api:
@@ -123,7 +120,6 @@ def escanear_hibrido_resistente(browser):
                     }
             continue
 
-        # CAPA 2: SCRAPER HÍBRIDO CON MULTI-FUENTE
         urls_a_probar = [
             (f"https://loteriadehoy.com/animalitos/{slug}", "https://loteriadehoy.com"),
             (f"https://m.parley.la/resultados/resultados-{slug}", "https://m.parley.la")
@@ -218,16 +214,17 @@ def ejecutar_proceso():
                     "es_ultimo_en_vivo": (hora_texto == hora_ultimo_sorteo)
                 })
 
-        historial[hoy_str] = resultados_fecha
-
+        # Guardar en JSON actual
         with open("resultados.json", "w", encoding="utf-8") as f:
             json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
 
-        browser.close()
+        # Guardar en Historial Acumulado
+        historial[hoy_str] = resultados_fecha
+        with open("historial_resultados.json", "w", encoding="utf-8") as f:
+            json.dump(historial, f, ensure_ascii=False, indent=2)
 
-    with open("historial_resultados.json", "w", encoding="utf-8") as f:
-        json.dump(historial, f, ensure_ascii=False, indent=2)
+        browser.close()
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización multi-fuente optimizada completada.")
+    print("Sincronización de historial completada.")
