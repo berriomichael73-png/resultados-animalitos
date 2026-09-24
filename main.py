@@ -15,22 +15,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mapeo directo y centralizado en loteriadehoy.com
-LOTERIAS_CONFIG = {
-    "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje)": {"slug": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"slug": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito": {"slug": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"slug": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"slug": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo RD": {"slug": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"slug": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"slug": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Animalitos": {"slug": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Ruleta Activa": {"slug": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"slug": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La Ricachona": {"slug": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"}
+LOTERIAS_MAPPING = {
+    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Lotto Activo RD Int": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "La-Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png"}
 }
 
 HORARIOS_ESTANDAR = [
@@ -42,26 +40,6 @@ HORARIOS_ESTANDAR = [
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
-
-def extraer_hora(texto):
-    match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
-    if match:
-        h = match.group(1).strip().upper()
-        if "AM" not in h and "PM" not in h:
-            num = int(h.split(":")[0])
-            h += " PM" if num in [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] else " AM"
-        return h
-    return None
-
-def extraer_animal_de_texto(texto):
-    match = re.search(r'\b(\d{1,2})\b\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', texto)
-    if match:
-        num = match.group(1).zfill(2)
-        animal = match.group(2).strip()
-        palabras_ignorar = ["AM", "PM", "POR", "SALIR", "RESULTADO", "RESULTADOS", "LOTERIA", "SORTEO"]
-        if animal.upper() not in palabras_ignorar:
-            return num, animal.capitalize()
-    return None, None
 
 def convertir_hora_a_minutos(hora_str):
     try:
@@ -81,7 +59,7 @@ def convertir_hora_a_minutos(hora_str):
 @app.get("/resultados")
 def obtener_resultados():
     session = requests.Session()
-    headers_base = {
+    headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     }
@@ -89,75 +67,73 @@ def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     resultados_totales = []
 
-    for loteria_nombre, info in LOTERIAS_CONFIG.items():
-        slug = info["slug"]
-        logo = info["logo"]
-        sorteos_obtenidos = {}
+    try:
+        # Peticion directa al agregador limpio LotoVen
+        response = session.get("https://lotoven.com/animalitos/", headers=headers, timeout=10)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+            texto_completo = soup.get_text()
 
-        url_target = f"https://loteriadehoy.com/animalitos/{slug}"
+            # Estructura del portal: "* Resultados [Nombre Loteria]" seguido de "[Numero] [Animal] [Hora]"
+            secciones = texto_completo.split("* Resultados")
 
-        try:
-            response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=3)
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.text, 'html.parser')
-                bloques = soup.find_all(['tr', 'td', 'div', 'li'])
+            for sec in secciones[1:]:
+                lineas = [l.strip() for l in sec.split("\n") if l.strip()]
+                if not lineas:
+                    continue
 
-                for b in bloques:
-                    txt = b.get_text(" ", strip=True)
-                    if len(txt) > 200:
-                        continue
+                nombre_loteria_raw = lineas[0].replace(".", "").strip()
+                
+                # Normalizar nombre de loteria
+                loteria_oficial = None
+                for k in LOTERIAS_MAPPING.keys():
+                    if k.lower() in nombre_loteria_raw.lower():
+                        loteria_oficial = k
+                        break
 
-                    h = extraer_hora(txt)
-                    if not h or h in sorteos_obtenidos:
-                        continue
+                if not loteria_oficial:
+                    loteria_oficial = nombre_loteria_raw
 
-                    num, animal = None, None
-                    img = b.find('img')
+                logo = LOTERIAS_MAPPING.get(loteria_oficial, {}).get("logo", "https://loteriadehoy.com/images/lotto-activo.png")
+                sorteos_obtenidos = {}
 
-                    if img and img.get('src'):
-                        src = img.get('src').lower()
-                        alt_txt = img.get('alt', '') or img.get('title', '')
-                        m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                        if m:
-                            num = m.group(1).zfill(2)
-                            animal = alt_txt if len(alt_txt) > 2 else None
+                # Extraer entradas del tipo "28 Zamuro 08:00 AM"
+                patron = re.compile(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ\s]+?)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', re.IGNORECASE)
+                matches = patron.findall(sec)
 
-                    if not num or not animal:
-                        num_txt, animal_txt = extraer_animal_de_texto(txt)
-                        num = num or num_txt
-                        animal = animal or animal_txt
+                for num, animal, hora in matches:
+                    hora_clean = hora.strip().upper()
+                    sorteos_obtenidos[hora_clean] = {
+                        "loteria": loteria_oficial,
+                        "logo_loteria": logo,
+                        "hora": hora_clean,
+                        "numero": num.zfill(2),
+                        "animal": animal.strip().capitalize(),
+                        "realizado": True,
+                        "fecha": hoy
+                    }
 
-                    if num and animal:
-                        sorteos_obtenidos[h] = {
-                            "loteria": loteria_nombre,
+                # Rellenar con 'Por salir' los horarios estándar sin sorteo realizado
+                for h_estandar in HORARIOS_ESTANDAR:
+                    if h_estandar not in sorteos_obtenidos:
+                        sorteos_obtenidos[h_estandar] = {
+                            "loteria": loteria_oficial,
                             "logo_loteria": logo,
-                            "hora": h,
-                            "numero": num,
-                            "animal": animal.strip().capitalize(),
-                            "realizado": True,
+                            "hora": h_estandar,
+                            "numero": "--",
+                            "animal": "Por salir",
+                            "realizado": False,
                             "fecha": hoy
                         }
-        except Exception:
-            pass
 
-        # Completar los horarios que falten como 'Por salir'
-        for h_estandar in HORARIOS_ESTANDAR:
-            if h_estandar not in sorteos_obtenidos:
-                sorteos_obtenidos[h_estandar] = {
-                    "loteria": loteria_nombre,
-                    "logo_loteria": logo,
-                    "hora": h_estandar,
-                    "numero": "--",
-                    "animal": "Por salir",
-                    "realizado": False,
-                    "fecha": hoy
-                }
+                sorteos_ordenados = sorted(
+                    sorteos_obtenidos.values(),
+                    key=lambda x: convertir_hora_a_minutos(x["hora"])
+                )
 
-        sorteos_ordenados = sorted(
-            sorteos_obtenidos.values(), 
-            key=lambda x: convertir_hora_a_minutos(x["hora"])
-        )
+                resultados_totales.extend(sorteos_ordenados)
 
-        resultados_totales.extend(sorteos_ordenados)
+    except Exception as e:
+        print(f"Error extrayendo datos: {e}")
 
     return resultados_totales
