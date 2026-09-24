@@ -6,17 +6,6 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-# Importación de nuevos módulos
-try:
-    from modulo_telegram import obtener_resultados_telegram
-except ImportError:
-    obtener_resultados_telegram = None
-
-try:
-    from modulo_live_stream import analizar_frame_transmision
-except ImportError:
-    analizar_frame_transmision = None
-
 LOTERIAS_OFICIALES = {
     "Lotto Activo": {"slugs": ["lotto-activo"], "tuazar": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
     "La Granjita": {"slugs": ["la-granjita"], "tuazar": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
@@ -50,11 +39,40 @@ def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
-def escanear_sistema_completo(browser):
-    resultados_totales = []
+def intentar_obtencion_api_directa(slugs):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
+        'Accept': 'application/json, text/plain, */*'
+    }
+    for slug in slugs:
+        urls_api = [
+            f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
+            f"https://m.parley.la/api/resultados/resultados-{slug}",
+            f"https://lotoven.com/api/v1/resultados/{slug}"
+        ]
+        for url in urls_api:
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=3) as response:
+                    data = json.loads(response.read().decode('utf-8'))
+                    if data and isinstance(data, list):
+                        return data
+            except Exception:
+                continue
+    return None
 
-    # 1. Intentar extracción por Redes Sociales / Telegram (Opción 3)
-    datos_telegram = obtener_resultados_telegram() if obtener_resultados_telegram else []
+def extraer_hora_de_texto(texto):
+    match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
+    if match:
+        hora_str = match.group(1).strip().upper()
+        if "AM" not in hora_str and "PM" not in hora_str:
+            h_num = int(hora_str.split(":")[0])
+            hora_str += " PM" if h_num in [12, 1, 2, 3, 4, 5, 6, 7] else " AM"
+        return hora_str
+    return None
+
+def escanear_hibrido_resistente(browser):
+    resultados_totales = []
 
     context_args = {
         "user_agent": "Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36",
@@ -73,20 +91,32 @@ def escanear_sistema_completo(browser):
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
-        # Mapear datos de Telegram si existen para esta lotería
-        for dt in datos_telegram:
-            if dt.get("loteria") == loteria_nombre:
-                sorteos_obtenidos[dt["hora"]] = {
-                    "loteria": loteria_nombre,
-                    "logo_loteria": logo_loteria,
-                    "hora": dt["hora"],
-                    "numero": dt["numero"],
-                    "animal": dt["animal"],
-                    "imagen": "",
-                    "realizado": True
-                }
+        # CAPA 1: API Directa
+        try:
+            datos_api = intentar_obtencion_api_directa(slugs)
+            if datos_api:
+                for item in datos_api:
+                    hora_item = item.get("hora", "08:00 AM")
+                    num_item = str(item.get("numero", "--")).zfill(2)
+                    img_item = item.get("imagen", "")
+                    nom_item = item.get("animal", "Animalito")
+                    
+                    if img_item and not img_item.startswith("http"):
+                        img_item = "https://loteriadehoy.com" + (img_item if img_item.startswith("/") else "/" + img_item)
 
-        # 2. Si faltan datos, realizar Scraping con Failover (Opción 4)
+                    sorteos_obtenidos[hora_item] = {
+                        "loteria": loteria_nombre,
+                        "logo_loteria": logo_loteria,
+                        "hora": hora_item,
+                        "numero": num_item,
+                        "animal": nom_item,
+                        "imagen": img_item,
+                        "realizado": True if num_item != "--" else False
+                    }
+        except Exception as e:
+            print(f"Error en API para {loteria_nombre}: {e}")
+
+        # CAPA 2: Scraper Playwright en TuAzar y LoteriaDeHoy
         if not sorteos_obtenidos:
             for slug in slugs:
                 urls_prueba = [
@@ -107,12 +137,8 @@ def escanear_sistema_completo(browser):
                             if len(txt_bloque) > 300:
                                 continue
 
-                            match_hora = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', txt_bloque)
-                            if not match_hora:
-                                continue
-                            
-                            hora_det = match_hora.group(1).upper()
-                            if hora_det in sorteos_obtenidos:
+                            hora_detectada = extraer_hora_de_texto(txt_bloque)
+                            if not hora_detectada or hora_detectada in sorteos_obtenidos:
                                 continue
 
                             img_tag = bloque.find("img")
@@ -121,16 +147,16 @@ def escanear_sistema_completo(browser):
                                 if src and not ("logo" in src.lower() or "icon" in src.lower()):
                                     if not src.startswith("http"):
                                         src = "https://www.tuazar.com" if "tuazar" in url_target else "https://loteriadehoy.com"
-                                        src = src + (src_img if (src_img := img_tag.get("src")).startswith("/") else "/" + src_img)
+                                        src = src + (src if src.startswith("/") else "/" + src)
 
                                     match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
                                     numero = match_num.group(1).zfill(2) if match_num else "--"
                                     animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
 
-                                    sorteos_obtenidos[hora_det] = {
+                                    sorteos_obtenidos[hora_detectada] = {
                                         "loteria": loteria_nombre,
                                         "logo_loteria": logo_loteria,
-                                        "hora": hora_det,
+                                        "hora": hora_detectada,
                                         "numero": numero,
                                         "animal": animal.strip(),
                                         "imagen": src,
@@ -139,13 +165,14 @@ def escanear_sistema_completo(browser):
 
                         if sorteos_obtenidos:
                             break
-                    except Exception:
+                    except Exception as e:
+                        print(f"Error procesando {url_target}: {e}")
                         continue
 
                 if sorteos_obtenidos:
                     break
 
-        # Rellenar casillas de horarios faltantes
+        # CAPA 3: Rellenar estructura base de horarios
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -178,7 +205,7 @@ def ejecutar_proceso():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-setuid-sandbox"])
-        lista_resultados_dia = escanear_sistema_completo(browser)
+        lista_resultados_dia = escanear_hibrido_resistente(browser)
 
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
@@ -194,4 +221,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización multi-fuente total (Opciones 1, 3 y 4) completada.")
+    print("Sincronización robusta completada con éxito.")
