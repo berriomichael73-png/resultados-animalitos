@@ -53,11 +53,13 @@ def extraer_hora(texto):
     return None
 
 def extraer_animal_de_texto(texto):
-    match = re.search(r'\b(\d{1,2})\b\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]+)', texto)
+    # Detecta formatos como: "01 CARNERO", "01-CARNERO", "01 - CARNERO", "01 : CARNERO"
+    match = re.search(r'\b(\d{1,2})\b\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', texto)
     if match:
         num = match.group(1).zfill(2)
         animal = match.group(2).strip()
-        if len(animal) > 2 and animal.upper() not in ["AM", "PM", "POR", "SALIR", "RESULTADO"]:
+        palabras_ignorar = ["AM", "PM", "POR", "SALIR", "RESULTADO", "RESULTADOS", "LOTERIA", "SORTEO"]
+        if animal.upper() not in palabras_ignorar:
             return num, animal.capitalize()
     return None, None
 
@@ -80,8 +82,9 @@ def convertir_hora_a_minutos(hora_str):
 def obtener_resultados():
     session = requests.Session()
     headers_base = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'es-ES,es;q=0.9'
     }
 
     hoy = obtener_fecha_venezuela()
@@ -96,7 +99,8 @@ def obtener_resultados():
             urls_prueba = [
                 f"https://loteriadehoy.com/animalitos/{slug}",
                 f"https://m.parley.la/resultados/resultados-{slug}",
-                f"https://parley.la/resultados/{slug}"
+                f"https://parley.la/resultados/{slug}",
+                f"https://loteriadehoy.com/{slug}"
             ]
 
             for url_target in urls_prueba:
@@ -104,11 +108,13 @@ def obtener_resultados():
                     response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=5)
                     if response.status_code == 200:
                         soup = BeautifulSoup(response.text, 'html.parser')
-                        bloques = soup.find_all(['tr', 'div', 'li', 'article', 'td'])
+                        
+                        # Extraer desde celdas, filas o contenedores pequeños de resultados
+                        bloques = soup.find_all(['tr', 'td', 'div', 'li', 'article'])
 
                         for b in bloques:
                             txt = b.get_text(" ", strip=True)
-                            if len(txt) > 250:
+                            if len(txt) > 200:
                                 continue
 
                             h = extraer_hora(txt)
@@ -120,11 +126,16 @@ def obtener_resultados():
 
                             if img and img.get('src'):
                                 src = img.get('src').lower()
-                                if not ("logo" in src or "icon" in src or "banner" in src):
-                                    m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                                    if m:
-                                        num = m.group(1).zfill(2)
-                                        animal = img.get('alt') or img.get('title') or "Animalito"
+                                alt_txt = img.get('alt', '') or img.get('title', '')
+                                
+                                # Buscar número de animalito en el nombre de la imagen (ej: 01.png, /15.jpg)
+                                m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+                                if m:
+                                    num = m.group(1).zfill(2)
+                                    if alt_txt and len(alt_txt) > 2:
+                                        animal = alt_txt
+                                    else:
+                                        _, animal = extraer_animal_de_texto(txt)
 
                             if not num:
                                 num, animal = extraer_animal_de_texto(txt)
@@ -142,7 +153,7 @@ def obtener_resultados():
                 except Exception:
                     continue
 
-        # Completar horarios faltantes con estado 'Por salir'
+        # Rellenar horas faltantes del horario estándar si el sorteo aún no se realiza
         for h_estandar in HORARIOS_ESTANDAR:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -155,7 +166,7 @@ def obtener_resultados():
                     "fecha": hoy
                 }
 
-        # Ordenar los sorteos de la loteria de forma cronológica
+        # Ordenar cronológicamente
         sorteos_ordenados = sorted(
             sorteos_obtenidos.values(), 
             key=lambda x: convertir_hora_a_minutos(x["hora"])
