@@ -15,6 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mapeo directo y centralizado en loteriadehoy.com
 LOTERIAS_CONFIG = {
     "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
     "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
@@ -96,7 +97,7 @@ def obtener_resultados():
         url_target = f"https://loteriadehoy.com/animalitos/{slug}"
 
         try:
-            response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=4)
+            response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=3)
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')
                 bloques = soup.find_all(['tr', 'td', 'div', 'li'])
@@ -139,6 +140,7 @@ def obtener_resultados():
         except Exception:
             pass
 
+        # Completar los horarios que falten como 'Por salir'
         for h_estandar in HORARIOS_ESTANDAR:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
