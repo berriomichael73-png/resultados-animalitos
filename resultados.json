@@ -203,9 +203,9 @@
     "hora": "05:00 PM",
     "hora_num": 17.0,
     "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "animal": "Resultado",
+    "imagen": "https://admin.lottoactivo.com/dist/animals_img/Arana_7.webp",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -247,9 +247,9 @@
     "hora": "07:00 PM",
     "hora_num": 19.0,
     "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "animal": "Resultado",
+    "imagen": "https://admin.lottoactivo.com/dist/files_img/Terminal_Trio.webp",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -840,10 +840,10 @@
     "loteria": "Guacharo Activo",
     "hora": "10:00 AM",
     "hora_num": 10.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "numero": "53",
+    "animal": "Resultado",
+    "imagen": "https://guacharoactivo.com/resultados/images/animalitos/53.jpg",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -862,10 +862,10 @@
     "loteria": "Guacharo Activo",
     "hora": "11:00 AM",
     "hora_num": 11.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "numero": "53",
+    "animal": "Resultado",
+    "imagen": "https://guacharoactivo.com/resultados/images/animalitos/53.jpg",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
@@ -884,10 +884,10 @@
     "loteria": "Guacharo Activo",
     "hora": "12:00 PM",
     "hora_num": 12.0,
-    "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "numero": "53",
+    "animal": "Resultado",
+    "imagen": "https://guacharoactivo.com/resultados/images/animalitos/53.jpg",
+    "realizado": true,
     "es_ultimo_en_vivo": false
   },
   {
