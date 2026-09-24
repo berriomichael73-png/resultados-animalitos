@@ -6,86 +6,31 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-# Mapeo optimizado con slugs primarios y de respaldo para las 18 loterías
 LOTERIAS_OFICIALES = {
-    "Lotto Activo": {
-        "slugs": ["lotto-activo"],
-        "logo": "https://loteriadehoy.com/images/lotto-activo.png"
-    },
-    "La Granjita": {
-        "slugs": ["la-granjita"],
-        "logo": "https://loteriadehoy.com/images/la-granjita.png"
-    },
-    "Lotto Activo 2 (Monje Millonario)": {
-        "slugs": ["monje-millonario", "lotto-activo-2"],
-        "logo": "https://loteriadehoy.com/images/monje-millonario.png"
-    },
-    "Guacharo Activo": {
-        "slugs": ["guacharo-activo", "el-guacharo-activo"],
-        "logo": "https://loteriadehoy.com/images/guacharo-activo.png"
-    },
-    "El Guacharito Millonario": {
-        "slugs": ["el-guacharito-millonario", "guacharito-millonario"],
-        "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"
-    },
-    "Selva Plus": {
-        "slugs": ["selva-plus"],
-        "logo": "https://loteriadehoy.com/images/selva-plus.png"
-    },
-    "Centena Plus": {
-        "slugs": ["centena-plus"],
-        "logo": "https://loteriadehoy.com/images/centena-plus.png"
-    },
-    "Lotto Activo Rd Int": {
-        "slugs": ["lotto-activo-rd-int", "lotto-activo-internacional"],
-        "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"
-    },
-    "Mega Animal 40": {
-        "slugs": ["mega-animal-40", "mega-animal40"],
-        "logo": "https://loteriadehoy.com/images/mega-animal-40.png"
-    },
-    "Centena Animalitos": {
-        "slugs": ["centena-animalitos"],
-        "logo": "https://loteriadehoy.com/images/centena-animalitos.png"
-    },
-    "Chance Con Animalitos": {
-        "slugs": ["chance-con-animalitos", "chance-animal"],
-        "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"
-    },
-    "Cazaloton": {
-        "slugs": ["cazaloton"],
-        "logo": "https://loteriadehoy.com/images/cazaloton.png"
-    },
-    "Ruleta Activa": {
-        "slugs": ["ruleta-activa"],
-        "logo": "https://loteriadehoy.com/images/ruleta-activa.png"
-    },
-    "Granja Millonaria": {
-        "slugs": ["granja-millonaria", "granja-millonaria-animalitos"],
-        "logo": "https://loteriadehoy.com/images/granja-millonaria.png"
-    },
-    "La-Ricachona": {
-        "slugs": ["la-ricachona", "la-ruca"],
-        "logo": "https://loteriadehoy.com/images/la-ricachona.png"
-    },
-    "Jungla Millonaria": {
-        "slugs": ["jungla-millonaria"],
-        "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"
-    },
-    "Loto Chaima": {
-        "slugs": ["loto-chaima"],
-        "logo": "https://loteriadehoy.com/images/loto-chaima.png"
-    },
-    "Lotto Activo RDominicana": {
-        "slugs": ["lotto-activo-rdominicana", "lotto-activo-rd"],
-        "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"
-    }
+    "Lotto Activo": {"slugs": ["lotto-activo"], "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slugs": ["la-granjita"], "logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slugs": ["monje-millonario", "lotto-activo-2"], "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slugs": ["guacharo-activo", "el-guacharo-activo"], "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"slugs": ["el-guacharito-millonario", "guacharito-millonario"], "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slugs": ["selva-plus"], "logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slugs": ["centena-plus"], "logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo Rd Int": {"slugs": ["lotto-activo-rd-int", "lotto-activo-internacional"], "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slugs": ["mega-animal-40", "mega-animal40"], "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slugs": ["centena-animalitos"], "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Con Animalitos": {"slugs": ["chance-con-animalitos", "chance-animal"], "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Cazaloton": {"slugs": ["cazaloton"], "logo": "https://loteriadehoy.com/images/cazaloton.png"},
+    "Ruleta Activa": {"slugs": ["ruleta-activa"], "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slugs": ["granja-millonaria", "granja-millonaria-animalitos"], "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La-Ricachona": {"slugs": ["la-ricachona", "la-ruca"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
+    "Jungla Millonaria": {"slugs": ["jungla-millonaria"], "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
+    "Loto Chaima": {"slugs": ["loto-chaima"], "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
+    "Lotto Activo RDominicana": {"slugs": ["lotto-activo-rdominicana", "lotto-activo-rd"], "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
-HORARIOS_ESTANDAR = [
-    "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
-    "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
-    "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
+HORARIOS_ORDENADOS = [
+    ("08:00 AM", 8.0), ("09:00 AM", 9.0), ("10:00 AM", 10.0), ("11:00 AM", 11.0),
+    ("12:00 PM", 12.0), ("01:00 PM", 13.0), ("02:00 PM", 14.0), ("03:00 PM", 15.0),
+    ("04:00 PM", 16.0), ("05:00 PM", 17.0), ("06:00 PM", 18.0), ("07:00 PM", 19.0)
 ]
 
 PROXY_URL = os.getenv("PROXY_URL", "")
@@ -94,13 +39,11 @@ def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
-# CAPA 1: API DIRECTA CON SLUGS MULTIPLES
 def intentar_obtencion_api_directa(slugs):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
         'Accept': 'application/json, text/plain, */*'
     }
-    
     for slug in slugs:
         urls_api = [
             f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
@@ -150,7 +93,6 @@ def escanear_hibrido_resistente(browser):
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
-        # 1. Intentar Capa 1: API Directa
         datos_api = intentar_obtencion_api_directa(slugs)
         if datos_api:
             for item in datos_api:
@@ -172,7 +114,6 @@ def escanear_hibrido_resistente(browser):
                     "realizado": True if num_item != "--" else False
                 }
 
-        # 2. Intentar Capa 2: Scraper Playwright + Proxy si no hubo datos de API
         if not sorteos_obtenidos:
             for slug in slugs:
                 urls_prueba = [
@@ -226,8 +167,8 @@ def escanear_hibrido_resistente(browser):
                 if sorteos_obtenidos:
                     break
 
-        # 3. Rellenar estructura base para asegurar que la lotería NUNCA aparezca vacía
-        for h_estandar in HORARIOS_ESTANDAR:
+        # Rellenar y Ordenar estrictamente por orden cronológico
+        for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
                     "loteria": loteria_nombre,
@@ -239,9 +180,9 @@ def escanear_hibrido_resistente(browser):
                     "realizado": False
                 }
 
-        # Agregar todos los sorteos ordenados de esta lotería
-        for key in sorted(sorteos_obtenidos.keys()):
-            resultados_totales.append(sorteos_obtenidos[key])
+        for h_estandar, _ in HORARIOS_ORDENADOS:
+            if h_estandar in sorteos_obtenidos:
+                resultados_totales.append(sorteos_obtenidos[h_estandar])
 
     context.close()
     return resultados_totales
@@ -279,4 +220,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización completa con soporte garantizado para las 18 loterías.")
+    print("Sincronización cronológica completada.")
