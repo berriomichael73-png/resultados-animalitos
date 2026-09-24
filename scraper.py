@@ -39,28 +39,6 @@ def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
-def intentar_obtencion_api_directa(slugs):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
-        'Accept': 'application/json, text/plain, */*'
-    }
-    for slug in slugs:
-        urls_api = [
-            f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
-            f"https://m.parley.la/api/resultados/resultados-{slug}",
-            f"https://lotoven.com/api/v1/resultados/{slug}"
-        ]
-        for url in urls_api:
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=3) as response:
-                    data = json.loads(response.read().decode('utf-8'))
-                    if data and isinstance(data, list):
-                        return data
-            except Exception:
-                continue
-    return None
-
 def extraer_hora_de_texto(texto):
     match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
     if match:
@@ -71,108 +49,94 @@ def extraer_hora_de_texto(texto):
         return hora_str
     return None
 
-def escanear_hibrido_resistente(browser):
+def extraer_resultado_de_texto(texto):
+    # Detecta patrones como "28 ZAMURO", "18 BURRO", "03 CIERVO"
+    match = re.search(r'\b(\d{1,2})\b\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]+)', texto)
+    if match:
+        num = match.group(1).zfill(2)
+        animal = match.group(2).strip()
+        if len(animal) > 2 and animal.upper() not in ["AM", "PM", "POR", "SALIR"]:
+            return num, animal.capitalize()
+    return None, None
+
+def escanear_con_extraccion_directa(browser):
     resultados_totales = []
 
     context_args = {
-        "user_agent": "Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36",
-        "viewport": {"width": 412, "height": 915},
-        "is_mobile": True
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "viewport": {"width": 1280, "height": 800}
     }
     if PROXY_URL:
         context_args["proxy"] = {"server": PROXY_URL}
 
     context = browser.new_context(**context_args)
     page = context.new_page()
-    page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
     for loteria_nombre, info in LOTERIAS_OFICIALES.items():
         slugs = info["slugs"]
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
-        # CAPA 1: API Directa
-        try:
-            datos_api = intentar_obtencion_api_directa(slugs)
-            if datos_api:
-                for item in datos_api:
-                    hora_item = item.get("hora", "08:00 AM")
-                    num_item = str(item.get("numero", "--")).zfill(2)
-                    img_item = item.get("imagen", "")
-                    nom_item = item.get("animal", "Animalito")
-                    
-                    if img_item and not img_item.startswith("http"):
-                        img_item = "https://loteriadehoy.com" + (img_item if img_item.startswith("/") else "/" + img_item)
+        for slug in slugs:
+            urls_prueba = [
+                f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/",
+                f"https://loteriadehoy.com/animalitos/{slug}"
+            ]
 
-                    sorteos_obtenidos[hora_item] = {
-                        "loteria": loteria_nombre,
-                        "logo_loteria": logo_loteria,
-                        "hora": hora_item,
-                        "numero": num_item,
-                        "animal": nom_item,
-                        "imagen": img_item,
-                        "realizado": True if num_item != "--" else False
-                    }
-        except Exception as e:
-            print(f"Error en API para {loteria_nombre}: {e}")
+            for url_target in urls_prueba:
+                try:
+                    page.goto(url_target, wait_until="domcontentloaded", timeout=12000)
+                    page.wait_for_timeout(1500)
+                    html = page.content()
+                    soup = BeautifulSoup(html, "html.parser")
 
-        # CAPA 2: Scraper Playwright en TuAzar y LoteriaDeHoy
-        if not sorteos_obtenidos:
-            for slug in slugs:
-                urls_prueba = [
-                    f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/",
-                    f"https://loteriadehoy.com/animalitos/{slug}"
-                ]
+                    filas = soup.find_all(["tr", "div", "li", "article", "td"])
+                    for fila in filas:
+                        txt_fila = fila.get_text(" ", strip=True)
+                        if len(txt_fila) > 250:
+                            continue
 
-                for url_target in urls_prueba:
-                    try:
-                        page.goto(url_target, wait_until="domcontentloaded", timeout=10000)
-                        page.wait_for_timeout(1000)
-                        html = page.content()
-                        soup = BeautifulSoup(html, "html.parser")
+                        hora_det = extraer_hora_de_texto(txt_fila)
+                        if not hora_det or hora_det in sorteos_obtenidos:
+                            continue
 
-                        bloques = soup.find_all(["tr", "div", "li", "article", "td"])
-                        for bloque in bloques:
-                            txt_bloque = bloque.get_text(" ", strip=True)
-                            if len(txt_bloque) > 300:
-                                continue
+                        # Intento 1: Buscar en imagen
+                        img_tag = fila.find("img")
+                        num, animal = None, None
 
-                            hora_detectada = extraer_hora_de_texto(txt_bloque)
-                            if not hora_detectada or hora_detectada in sorteos_obtenidos:
-                                continue
-
-                            img_tag = bloque.find("img")
-                            if img_tag:
-                                src = img_tag.get("src", "")
-                                if src and not ("logo" in src.lower() or "icon" in src.lower()):
-                                    if not src.startswith("http"):
-                                        src = "https://www.tuazar.com" if "tuazar" in url_target else "https://loteriadehoy.com"
-                                        src = src + (src if src.startswith("/") else "/" + src)
-
-                                    match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
-                                    numero = match_num.group(1).zfill(2) if match_num else "--"
+                        if img_tag:
+                            src = img_tag.get("src", "")
+                            if src and not ("logo" in src.lower() or "icon" in src.lower()):
+                                match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
+                                if match_num:
+                                    num = match_num.group(1).zfill(2)
                                     animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
 
-                                    sorteos_obtenidos[hora_detectada] = {
-                                        "loteria": loteria_nombre,
-                                        "logo_loteria": logo_loteria,
-                                        "hora": hora_detectada,
-                                        "numero": numero,
-                                        "animal": animal.strip(),
-                                        "imagen": src,
-                                        "realizado": True
-                                    }
+                        # Intento 2: Buscar en el texto directo si no hubo imagen
+                        if not num:
+                            num, animal = extraer_resultado_de_texto(txt_fila)
 
-                        if sorteos_obtenidos:
-                            break
-                    except Exception as e:
-                        print(f"Error procesando {url_target}: {e}")
-                        continue
+                        if num and animal:
+                            sorteos_obtenidos[hora_det] = {
+                                "loteria": loteria_nombre,
+                                "logo_loteria": logo_loteria,
+                                "hora": hora_det,
+                                "numero": num,
+                                "animal": animal,
+                                "imagen": "",
+                                "realizado": True
+                            }
 
-                if sorteos_obtenidos:
-                    break
+                    if sorteos_obtenidos:
+                        break
+                except Exception as e:
+                    print(f"Error procesando {url_target}: {e}")
+                    continue
 
-        # CAPA 3: Rellenar estructura base de horarios
+            if sorteos_obtenidos:
+                break
+
+        # Rellenar casillas no jugadas
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -205,7 +169,7 @@ def ejecutar_proceso():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-setuid-sandbox"])
-        lista_resultados_dia = escanear_hibrido_resistente(browser)
+        lista_resultados_dia = escanear_con_extraccion_directa(browser)
 
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
@@ -221,4 +185,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización robusta completada con éxito.")
+    print("Sincronización con extracción de texto directo completada.")
