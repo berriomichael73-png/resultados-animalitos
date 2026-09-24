@@ -32,12 +32,6 @@ LOTERIAS_CONFIG = {
     "La Ricachona": {"slugs": ["la-ricachona"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"}
 }
 
-HORARIOS_ORDENADOS = [
-    ("08:00 AM", 8.0), ("09:00 AM", 9.0), ("10:00 AM", 10.0), ("11:00 AM", 11.0),
-    ("12:00 PM", 12.0), ("01:00 PM", 13.0), ("02:00 PM", 14.0), ("03:00 PM", 15.0),
-    ("04:00 PM", 16.0), ("05:00 PM", 17.0), ("06:00 PM", 18.0), ("07:00 PM", 19.0)
-]
-
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
@@ -48,7 +42,7 @@ def extraer_hora(texto):
         h = match.group(1).strip().upper()
         if "AM" not in h and "PM" not in h:
             num = int(h.split(":")[0])
-            h += " PM" if num in [12, 1, 2, 3, 4, 5, 6, 7] else " AM"
+            h += " PM" if num in [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] else " AM"
         return h
     return None
 
@@ -60,6 +54,21 @@ def extraer_animal_de_texto(texto):
         if len(animal) > 2 and animal.upper() not in ["AM", "PM", "POR", "SALIR", "RESULTADO"]:
             return num, animal.capitalize()
     return None, None
+
+def convertir_hora_a_minutos(hora_str):
+    try:
+        parts = hora_str.replace(" ", "").upper()
+        es_pm = "PM" in parts
+        es_am = "AM" in parts
+        clean_time = parts.replace("AM", "").replace("PM", "")
+        h, m = map(int, clean_time.split(":"))
+        if es_pm and h < 12:
+            h += 12
+        if es_am and h == 12:
+            h = 0
+        return h * 60 + m
+    except Exception:
+        return 9999
 
 @app.get("/resultados")
 def obtener_resultados():
@@ -125,28 +134,20 @@ def obtener_resultados():
                                     "fecha": hoy
                                 }
 
-                    if len(sorteos_obtenidos) >= 4:
+                    if len(sorteos_obtenidos) >= 2:
                         break
                 except Exception:
                     continue
 
-            if len(sorteos_obtenidos) >= 4:
+            if len(sorteos_obtenidos) >= 2:
                 break
 
-        for h_estandar, _ in HORARIOS_ORDENADOS:
-            if h_estandar not in sorteos_obtenidos:
-                sorteos_obtenidos[h_estandar] = {
-                    "loteria": loteria_nombre,
-                    "logo_loteria": logo,
-                    "hora": h_estandar,
-                    "numero": "--",
-                    "animal": "Por salir",
-                    "realizado": False,
-                    "fecha": hoy
-                }
+        # Ordenar cronológicamente según los horarios capturados
+        sorteos_ordenados = sorted(
+            sorteos_obtenidos.values(), 
+            key=lambda x: convertir_hora_a_minutos(x["hora"])
+        )
 
-        for h_estandar, _ in HORARIOS_ORDENADOS:
-            if h_estandar in sorteos_obtenidos:
-                resultados_totales.append(sorteos_obtenidos[h_estandar])
+        resultados_totales.extend(sorteos_ordenados)
 
     return resultados_totales
