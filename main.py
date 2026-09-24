@@ -15,21 +15,64 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Configuración con dominios directos y oficiales de cada ruleta
 LOTERIAS_CONFIG = {
-    "Lotto Activo": {"slugs": ["lotto-activo"], "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"slugs": ["la-granjita"], "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje)": {"slugs": ["monje-millonario", "lotto-activo-2"], "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"slugs": ["guacharo-activo"], "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito": {"slugs": ["el-guacharito-millonario", "guacharito"], "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"slugs": ["selva-plus"], "logo": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"slugs": ["centena-plus"], "logo": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo RD": {"slugs": ["lotto-activo-rd-int", "lotto-activo-rdominicana"], "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"slugs": ["mega-animal-40", "mega-animal"], "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"slugs": ["centena-animalitos"], "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Animalitos": {"slugs": ["chance-con-animalitos", "chance-animalitos"], "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Ruleta Activa": {"slugs": ["ruleta-activa"], "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"slugs": ["granja-millonaria"], "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La Ricachona": {"slugs": ["la-ricachona"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"}
+    "Lotto Activo": {
+        "urls": ["https://www.lottoactivo.com", "https://loteriadehoy.com/animalitos/lotto-activo"],
+        "logo": "https://loteriadehoy.com/images/lotto-activo.png"
+    },
+    "La Granjita": {
+        "urls": ["https://lagranjita.com.ve", "https://loteriadehoy.com/animalitos/la-granjita"],
+        "logo": "https://loteriadehoy.com/images/la-granjita.png"
+    },
+    "Lotto Activo 2 (Monje)": {
+        "urls": ["https://lottoactivo2.com", "https://loteriadehoy.com/animalitos/monje-millonario"],
+        "logo": "https://loteriadehoy.com/images/monje-millonario.png"
+    },
+    "Guacharo Activo": {
+        "urls": ["https://guacharoactivo.com", "https://loteriadehoy.com/animalitos/guacharo-activo"],
+        "logo": "https://loteriadehoy.com/images/guacharo-activo.png"
+    },
+    "El Guacharito": {
+        "urls": ["https://elguacharito.com", "https://loteriadehoy.com/animalitos/el-guacharito-millonario"],
+        "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"
+    },
+    "Selva Plus": {
+        "urls": ["https://selvaplus.com", "https://loteriadehoy.com/animalitos/selva-plus"],
+        "logo": "https://loteriadehoy.com/images/selva-plus.png"
+    },
+    "Centena Plus": {
+        "urls": ["https://centenaplus.com", "https://loteriadehoy.com/animalitos/centena-plus"],
+        "logo": "https://loteriadehoy.com/images/centena-plus.png"
+    },
+    "Lotto Activo RD": {
+        "urls": ["https://lottoactivord.com", "https://loteriadehoy.com/animalitos/lotto-activo-rd-int"],
+        "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"
+    },
+    "Mega Animal 40": {
+        "urls": ["https://megaanimal40.com", "https://loteriadehoy.com/animalitos/mega-animal-40"],
+        "logo": "https://loteriadehoy.com/images/mega-animal-40.png"
+    },
+    "Centena Animalitos": {
+        "urls": ["https://centenaanimalitos.com", "https://loteriadehoy.com/animalitos/centena-animalitos"],
+        "logo": "https://loteriadehoy.com/images/centena-animalitos.png"
+    },
+    "Chance Animalitos": {
+        "urls": ["https://chanceanimalitos.com", "https://loteriadehoy.com/animalitos/chance-con-animalitos"],
+        "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"
+    },
+    "Ruleta Activa": {
+        "urls": ["https://ruletaactiva.com", "https://loteriadehoy.com/animalitos/ruleta-activa"],
+        "logo": "https://loteriadehoy.com/images/ruleta-activa.png"
+    },
+    "Granja Millonaria": {
+        "urls": ["https://granjamillonaria.com", "https://loteriadehoy.com/animalitos/granja-millonaria"],
+        "logo": "https://loteriadehoy.com/images/granja-millonaria.png"
+    },
+    "La Ricachona": {
+        "urls": ["https://laricachona.com", "https://loteriadehoy.com/animalitos/la-ricachona"],
+        "logo": "https://loteriadehoy.com/images/la-ricachona.png"
+    }
 }
 
 HORARIOS_ESTANDAR = [
@@ -53,7 +96,6 @@ def extraer_hora(texto):
     return None
 
 def extraer_animal_de_texto(texto):
-    # Detecta formatos como: "01 CARNERO", "01-CARNERO", "01 - CARNERO", "01 : CARNERO"
     match = re.search(r'\b(\d{1,2})\b\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', texto)
     if match:
         num = match.group(1).zfill(2)
@@ -91,69 +133,55 @@ def obtener_resultados():
     resultados_totales = []
 
     for loteria_nombre, info in LOTERIAS_CONFIG.items():
-        slugs = info["slugs"]
+        urls = info["urls"]
         logo = info["logo"]
         sorteos_obtenidos = {}
 
-        for slug in slugs:
-            urls_prueba = [
-                f"https://loteriadehoy.com/animalitos/{slug}",
-                f"https://m.parley.la/resultados/resultados-{slug}",
-                f"https://parley.la/resultados/{slug}",
-                f"https://loteriadehoy.com/{slug}"
-            ]
+        for url_target in urls:
+            try:
+                response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=5)
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    bloques = soup.find_all(['tr', 'td', 'div', 'li', 'article'])
 
-            for url_target in urls_prueba:
-                try:
-                    response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=5)
-                    if response.status_code == 200:
-                        soup = BeautifulSoup(response.text, 'html.parser')
-                        
-                        # Extraer desde celdas, filas o contenedores pequeños de resultados
-                        bloques = soup.find_all(['tr', 'td', 'div', 'li', 'article'])
+                    for b in bloques:
+                        txt = b.get_text(" ", strip=True)
+                        if len(txt) > 200:
+                            continue
 
-                        for b in bloques:
-                            txt = b.get_text(" ", strip=True)
-                            if len(txt) > 200:
-                                continue
+                        h = extraer_hora(txt)
+                        if not h or h in sorteos_obtenidos:
+                            continue
 
-                            h = extraer_hora(txt)
-                            if not h or h in sorteos_obtenidos:
-                                continue
+                        num, animal = None, None
+                        img = b.find('img')
 
-                            num, animal = None, None
-                            img = b.find('img')
+                        if img and img.get('src'):
+                            src = img.get('src').lower()
+                            alt_txt = img.get('alt', '') or img.get('title', '')
+                            m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+                            if m:
+                                num = m.group(1).zfill(2)
+                                animal = alt_txt if len(alt_txt) > 2 else extraer_animal_de_texto(txt)[1]
 
-                            if img and img.get('src'):
-                                src = img.get('src').lower()
-                                alt_txt = img.get('alt', '') or img.get('title', '')
-                                
-                                # Buscar número de animalito en el nombre de la imagen (ej: 01.png, /15.jpg)
-                                m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                                if m:
-                                    num = m.group(1).zfill(2)
-                                    if alt_txt and len(alt_txt) > 2:
-                                        animal = alt_txt
-                                    else:
-                                        _, animal = extraer_animal_de_texto(txt)
+                        if not num:
+                            num, animal = extraer_animal_de_texto(txt)
 
-                            if not num:
-                                num, animal = extraer_animal_de_texto(txt)
+                        if num and animal:
+                            sorteos_obtenidos[h] = {
+                                "loteria": loteria_nombre,
+                                "logo_loteria": logo,
+                                "hora": h,
+                                "numero": num,
+                                "animal": animal.strip().capitalize(),
+                                "realizado": True,
+                                "fecha": hoy
+                            }
+                if len(sorteos_obtenidos) >= 2:
+                    break
+            except Exception:
+                continue
 
-                            if num and animal:
-                                sorteos_obtenidos[h] = {
-                                    "loteria": loteria_nombre,
-                                    "logo_loteria": logo,
-                                    "hora": h,
-                                    "numero": num,
-                                    "animal": animal.strip().capitalize(),
-                                    "realizado": True,
-                                    "fecha": hoy
-                                }
-                except Exception:
-                    continue
-
-        # Rellenar horas faltantes del horario estándar si el sorteo aún no se realiza
         for h_estandar in HORARIOS_ESTANDAR:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -166,7 +194,6 @@ def obtener_resultados():
                     "fecha": hoy
                 }
 
-        # Ordenar cronológicamente
         sorteos_ordenados = sorted(
             sorteos_obtenidos.values(), 
             key=lambda x: convertir_hora_a_minutos(x["hora"])
