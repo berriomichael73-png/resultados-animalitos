@@ -7,24 +7,24 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 LOTERIAS_OFICIALES = {
-    "Lotto Activo": "lotto-activo",
-    "La Granjita": "la-granjita",
-    "Lotto Activo 2 (Monje Millonario)": "monje-millonario",
-    "Guacharo Activo": "guacharo-activo",
-    "El Guacharito Millonario": "el-guacharito-millonario",
-    "Selva Plus": "selva-plus",
-    "Centena Plus": "centena-plus",
-    "Lotto Activo Rd Int": "lotto-activo-rd-int",
-    "Mega Animal 40": "mega-animal-40",
-    "Centena Animalitos": "centena-animalitos",
-    "Chance Con Animalitos": "chance-con-animalitos",
-    "Cazaloton": "cazaloton",
-    "Ruleta Activa": "ruleta-activa",
-    "Granja Millonaria": "granja-millonaria",
-    "La-Ricachona": "la-ricachona",
-    "Jungla Millonaria": "jungla-millonaria",
-    "Loto Chaima": "loto-chaima",
-    "Lotto Activo RDominicana": "lotto-activo-rdominicana"
+    "Lotto Activo": {"slug": "lotto-activo", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slug": "la-granjita", "logo_fallback": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "logo_fallback": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slug": "guacharo-activo", "logo_fallback": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "logo_fallback": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slug": "selva-plus", "logo_fallback": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slug": "centena-plus", "logo_fallback": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slug": "mega-animal-40", "logo_fallback": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slug": "centena-animalitos", "logo_fallback": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "logo_fallback": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Cazaloton": {"slug": "cazaloton", "logo_fallback": "https://loteriadehoy.com/images/cazaloton.png"},
+    "Ruleta Activa": {"slug": "ruleta-activa", "logo_fallback": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slug": "granja-millonaria", "logo_fallback": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La-Ricachona": {"slug": "la-ricachona", "logo_fallback": "https://loteriadehoy.com/images/la-ricachona.png"},
+    "Jungla Millonaria": {"slug": "jungla-millonaria", "logo_fallback": "https://loteriadehoy.com/images/jungla-millonaria.png"},
+    "Loto Chaima": {"slug": "loto-chaima", "logo_fallback": "https://loteriadehoy.com/images/loto-chaima.png"},
+    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
 HORARIOS_EN_PUNTO = [
@@ -103,7 +103,8 @@ def escanear_hibrido_resistente(browser):
 
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
-    for loteria_nombre, slug in LOTERIAS_OFICIALES.items():
+    for loteria_nombre, info in LOTERIAS_OFICIALES.items():
+        slug = info["slug"]
         datos_api = intentar_obtencion_api_directa(slug)
         if datos_api:
             for item in datos_api:
@@ -185,16 +186,17 @@ def ejecutar_proceso():
         mapa_extraido_dia = escanear_hibrido_resistente(browser)
         resultados_fecha = []
 
-        for loteria_nombre in LOTERIAS_OFICIALES.keys():
+        for loteria_nombre, info in LOTERIAS_OFICIALES.items():
+            logo_url = info["logo_fallback"]
             for hora_texto, hora_val in TODOS_LOS_HORARIOS:
                 ha_ocurrido = (hora_val <= hora_actual_ve)
                 clave = f"{loteria_nombre}-{hora_texto}"
 
                 if ha_ocurrido and clave in mapa_extraido_dia:
-                    info = mapa_extraido_dia[clave]
-                    num_str = info["numero"]
-                    nombre_animal = info["animal"]
-                    imagen_url = info["imagen"]
+                    item_d = mapa_extraido_dia[clave]
+                    num_str = item_d["numero"]
+                    nombre_animal = item_d["animal"]
+                    imagen_url = item_d["imagen"]
                     realizado = True
                 else:
                     num_str = "--"
@@ -205,6 +207,7 @@ def ejecutar_proceso():
                 resultados_fecha.append({
                     "fecha": hoy_str,
                     "loteria": loteria_nombre,
+                    "logo_loteria": logo_url,
                     "hora": hora_texto,
                     "hora_num": hora_val,
                     "numero": num_str,
@@ -214,11 +217,9 @@ def ejecutar_proceso():
                     "es_ultimo_en_vivo": (hora_texto == hora_ultimo_sorteo)
                 })
 
-        # Guardar en JSON actual
         with open("resultados.json", "w", encoding="utf-8") as f:
             json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
 
-        # Guardar en Historial Acumulado
         historial[hoy_str] = resultados_fecha
         with open("historial_resultados.json", "w", encoding="utf-8") as f:
             json.dump(historial, f, ensure_ascii=False, indent=2)
@@ -227,4 +228,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización de historial completada.")
+    print("Sincronización con logos de lotería completada.")
