@@ -1363,10 +1363,10 @@
     "loteria": "Cazaloton",
     "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
     "hora": "12:00 PM",
-    "numero": "--",
-    "animal": "Por salir",
-    "imagen": "",
-    "realizado": false,
+    "numero": "03",
+    "animal": "3 CIEMPIES",
+    "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/cazaloton/animals_png_180/03.png",
+    "realizado": true,
     "fecha": "2026-09-24"
   },
   {
