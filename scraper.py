@@ -6,7 +6,6 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-# Mapeo oficial de las 18 loterías
 LOTERIAS_OFICIALES = {
     "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
     "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
@@ -28,8 +27,11 @@ LOTERIAS_OFICIALES = {
     "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
-# PROXY RESIDENCIAL DE RESPALDO
 PROXY_URL = os.getenv("PROXY_URL", "")
+
+def obtener_fecha_venezuela():
+    tz_ve = timezone(timedelta(hours=-4))
+    return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
 def intentar_obtencion_api_directa(slug):
     urls_api = [
@@ -54,12 +56,10 @@ def intentar_obtencion_api_directa(slug):
     return None
 
 def extraer_hora_de_texto(texto):
-    # Detecta cualquier patrón de hora tipo 08:00 AM, 8:00am, 12:30 PM, etc.
     match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
     if match:
         hora_str = match.group(1).strip().upper()
         if "AM" not in hora_str and "PM" not in hora_str:
-            # Asignar AM/PM aproximado según la hora numérica si no viene explícito
             h_num = int(hora_str.split(":")[0])
             hora_str += " PM" if h_num in [12, 1, 2, 3, 4, 5, 6, 7] else " AM"
         return hora_str
@@ -109,63 +109,66 @@ def escanear_hibrido_dinamico(browser):
                 })
             continue
 
-        # CAPA 2: SCRAPER HÍBRIDO ADAPTABLE
-        url_target = f"https://loteriadehoy.com/animalitos/{slug}"
-        try:
-            page.goto(url_target, wait_until="domcontentloaded", timeout=12000)
-            page.wait_for_timeout(1000)
-            html = page.content()
-            soup = BeautifulSoup(html, "html.parser")
+        # CAPA 2: SCRAPER HÍBRIDO CON PROXY RESIDENCIAL Y TIEMPO DE ESPERA AJUSTADO
+        urls_prueba = [
+            f"https://loteriadehoy.com/animalitos/{slug}",
+            f"https://m.parley.la/resultados/resultados-{slug}"
+        ]
 
-            # Escanear todos los contenedores de sorteo en la página sin asumir estructuras fijas
-            bloques = soup.find_all(["tr", "div", "li", "article"])
-            sorteos_encontrados = {}
+        for url_target in urls_prueba:
+            try:
+                page.goto(url_target, wait_until="networkidle", timeout=15000)
+                page.wait_for_timeout(1500)
+                html = page.content()
+                soup = BeautifulSoup(html, "html.parser")
 
-            for bloque in bloques:
-                txt_bloque = bloque.get_text(" ", strip=True)
-                if len(txt_bloque) > 250:
-                    continue
+                bloques = soup.find_all(["tr", "div", "li", "article"])
+                sorteos_encontrados = {}
 
-                hora_detectada = extraer_hora_de_texto(txt_bloque)
-                if not hora_detectada or hora_detectada in sorteos_encontrados:
-                    continue
+                for bloque in bloques:
+                    txt_bloque = bloque.get_text(" ", strip=True)
+                    if len(txt_bloque) > 250:
+                        continue
 
-                # Buscar imagen del animalito
-                img_tag = bloque.find("img")
-                if img_tag:
-                    src = img_tag.get("src", "")
-                    if src and not ("logo" in src.lower() or "icon" in src.lower()):
-                        if not src.startswith("http"):
-                            src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
+                    hora_detectada = extraer_hora_de_texto(txt_bloque)
+                    if not hora_detectada or hora_detectada in sorteos_encontrados:
+                        continue
 
-                        match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
-                        numero = match_num.group(1).zfill(2) if match_num else "--"
-                        animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
+                    img_tag = bloque.find("img")
+                    if img_tag:
+                        src = img_tag.get("src", "")
+                        if src and not ("logo" in src.lower() or "icon" in src.lower()):
+                            if not src.startswith("http"):
+                                src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
 
-                        sorteos_encontrados[hora_detectada] = {
-                            "loteria": loteria_nombre,
-                            "logo_loteria": logo_loteria,
-                            "hora": hora_detectada,
-                            "numero": numero,
-                            "animal": animal.strip(),
-                            "imagen": src,
-                            "realizado": True
-                        }
+                            match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
+                            numero = match_num.group(1).zfill(2) if match_num else "--"
+                            animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
 
-            for item_sorteo in sorteos_encontrados.values():
-                resultados_totales.append(item_sorteo)
+                            sorteos_encontrados[hora_detectada] = {
+                                "loteria": loteria_nombre,
+                                "logo_loteria": logo_loteria,
+                                "hora": hora_detectada,
+                                "numero": numero,
+                                "animal": animal.strip(),
+                                "imagen": src,
+                                "realizado": True
+                            }
 
-        except Exception as e:
-            print(f"Error procesando {loteria_nombre}: {e}")
-            continue
+                if sorteos_encontrados:
+                    for item_sorteo in sorteos_encontrados.values():
+                        resultados_totales.append(item_sorteo)
+                    break
+
+            except Exception as e:
+                print(f"Error cargando {loteria_nombre} en {url_target}: {e}")
+                continue
 
     context.close()
     return resultados_totales
 
 def ejecutar_proceso():
-    tz_ve = timezone(timedelta(hours=-4))
-    hoy_dt = datetime.now(tz_ve)
-    hoy_str = hoy_dt.strftime("%Y-%m-%d")
+    hoy_str = obtener_fecha_venezuela()
 
     historial = {}
     if os.path.exists("historial_resultados.json"):
@@ -183,15 +186,12 @@ def ejecutar_proceso():
 
         lista_resultados_dia = escanear_hibrido_dinamico(browser)
 
-        # Agregar timestamp a cada item
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
 
-        # Guardar archivo actual
         with open("resultados.json", "w", encoding="utf-8") as f:
             json.dump(lista_resultados_dia, f, ensure_ascii=False, indent=2)
 
-        # Guardar en historial acumulado
         historial[hoy_str] = lista_resultados_dia
         with open("historial_resultados.json", "w", encoding="utf-8") as f:
             json.dump(historial, f, ensure_ascii=False, indent=2)
@@ -200,4 +200,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización dinámica de horarios y resultados completada.")
+    print("Sincronización con fecha sincronizada completada.")
