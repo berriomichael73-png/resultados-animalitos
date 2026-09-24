@@ -6,26 +6,98 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
-# Mapeo exacto de las loterías visibles en loteriadehoy.com
-LOTERIAS_MAPA = {
-    "Lotto Activo": "lotto-activo",
-    "La Granjita": "la-granjita",
-    "Lotto Activo 2 (Monje Millonario)": "monje-millonario",
-    "Guacharo Activo": "guacharo-activo",
-    "El Guacharito Millonario": "el-guacharito-millonario",
-    "Selva Plus": "selva-plus",
-    "Centena Plus": "centena-plus",
-    "Lotto Activo Rd Int": "lotto-activo-rd-int",
-    "Mega Animal 40": "mega-animal-40",
-    "Centena Animalitos": "centena-animalitos",
-    "Chance Con Animalitos": "chance-con-animalitos",
-    "Cazaloton": "cazaloton",
-    "Ruleta Activa": "ruleta-activa",
-    "Granja Millonaria": "granja-millonaria",
-    "La-Ricachona": "la-ricachona",
-    "Jungla Millonaria": "jungla-millonaria",
-    "Loto Chaima": "loto-chaima",
-    "Lotto Activo RDominicana": "lotto-activo-rdominicana"
+# Mapeo de loterías con sus fuentes y slugs oficiales prioritarios
+LOTERIAS_OFICIALES = {
+    "Lotto Activo": {
+        "slug": "lotto-activo",
+        "url_oficial": "https://lottoactivo.com/resultados/",
+        "api_oficial": "https://api.lottoactivo.com/v1/resultados"
+    },
+    "La Granjita": {
+        "slug": "la-granjita",
+        "url_oficial": "https://lagranjitaonline.com/resultados/",
+        "api_oficial": "https://api.lagranjitaonline.com/v1/resultados"
+    },
+    "Lotto Activo 2 (Monje Millonario)": {
+        "slug": "monje-millonario",
+        "url_oficial": "https://loteriadehoy.com/animalitos/monje-millonario",
+        "api_oficial": None
+    },
+    "Guacharo Activo": {
+        "slug": "guacharo-activo",
+        "url_oficial": "https://guacharoactivo.com/resultados/",
+        "api_oficial": None
+    },
+    "El Guacharito Millonario": {
+        "slug": "el-guacharito-millonario",
+        "url_oficial": "https://loteriadehoy.com/animalitos/el-guacharito-millonario",
+        "api_oficial": None
+    },
+    "Selva Plus": {
+        "slug": "selva-plus",
+        "url_oficial": "https://selvaplus.com/resultados/",
+        "api_oficial": None
+    },
+    "Centena Plus": {
+        "slug": "centena-plus",
+        "url_oficial": "https://loteriadehoy.com/animalitos/centena-plus",
+        "api_oficial": None
+    },
+    "Lotto Activo Rd Int": {
+        "slug": "lotto-activo-rd-int",
+        "url_oficial": "https://loteriadehoy.com/animalitos/lotto-activo-rd-int",
+        "api_oficial": None
+    },
+    "Mega Animal 40": {
+        "slug": "mega-animal-40",
+        "url_oficial": "https://loteriadehoy.com/animalitos/mega-animal-40",
+        "api_oficial": None
+    },
+    "Centena Animalitos": {
+        "slug": "centena-animalitos",
+        "url_oficial": "https://loteriadehoy.com/animalitos/centena-animalitos",
+        "api_oficial": None
+    },
+    "Chance Con Animalitos": {
+        "slug": "chance-con-animalitos",
+        "url_oficial": "https://loteriadehoy.com/animalitos/chance-con-animalitos",
+        "api_oficial": None
+    },
+    "Cazaloton": {
+        "slug": "cazaloton",
+        "url_oficial": "https://cazaloton.com/resultados/",
+        "api_oficial": None
+    },
+    "Ruleta Activa": {
+        "slug": "ruleta-activa",
+        "url_oficial": "https://ruletaactiva.com/resultados/",
+        "api_oficial": None
+    },
+    "Granja Millonaria": {
+        "slug": "granja-millonaria",
+        "url_oficial": "https://loteriadehoy.com/animalitos/granja-millonaria",
+        "api_oficial": None
+    },
+    "La-Ricachona": {
+        "slug": "la-ricachona",
+        "url_oficial": "https://loteriadehoy.com/animalitos/la-ricachona",
+        "api_oficial": None
+    },
+    "Jungla Millonaria": {
+        "slug": "jungla-millonaria",
+        "url_oficial": "https://loteriadehoy.com/animalitos/jungla-millonaria",
+        "api_oficial": None
+    },
+    "Loto Chaima": {
+        "slug": "loto-chaima",
+        "url_oficial": "https://loteriadehoy.com/animalitos/loto-chaima",
+        "api_oficial": None
+    },
+    "Lotto Activo RDominicana": {
+        "slug": "lotto-activo-rdominicana",
+        "url_oficial": "https://loteriadehoy.com/animalitos/lotto-activo-rdominicana",
+        "api_oficial": None
+    }
 }
 
 HORARIOS_EN_PUNTO = [
@@ -45,12 +117,19 @@ TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambd
 # SOLUCIÓN DEFINITIVA 2: PROXY RESIDENCIAL
 PROXY_URL = os.getenv("PROXY_URL", "")
 
-# SOLUCIÓN DEFINITIVA 1: API DIRECTA
-def intentar_obtencion_api_directa(slug):
-    urls_api = [
+# SOLUCIÓN DEFINITIVA 1: API DIRECTA MULTI-FUENTE
+def intentar_obtencion_api_directa(info_loteria):
+    urls_api = []
+    if info_loteria.get("api_oficial"):
+        urls_api.append(info_loteria["api_oficial"])
+    
+    slug = info_loteria["slug"]
+    urls_api.extend([
         f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
-        f"https://m.parley.la/api/resultados/{slug}"
-    ]
+        f"https://m.parley.la/api/resultados/{slug}",
+        f"https://lotoven.com/api/v1/resultados/{slug}"
+    ])
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
         'Accept': 'application/json, text/plain, */*'
@@ -67,12 +146,12 @@ def intentar_obtencion_api_directa(slug):
             continue
     return None
 
-def extraer_datos_directos(contenedor):
+def extraer_datos_directos(contenedor, url_base):
     for img in contenedor.find_all("img"):
         src = img.get("src", "")
         if src:
             if not src.startswith("http"):
-                src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
+                src = url_base.rstrip("/") + ("/" if not src.startswith("/") else "") + src
 
             match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
             numero = match_num.group(1).zfill(2) if match_num else "--"
@@ -81,7 +160,7 @@ def extraer_datos_directos(contenedor):
 
     return None
 
-def escanear_hibrido(browser):
+def escanear_hibrido_multi_sitio(browser):
     datos_extraidos = {}
 
     context_args = {
@@ -98,9 +177,9 @@ def escanear_hibrido(browser):
 
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
-    for loteria_nombre, slug in LOTERIAS_MAPA.items():
-        # CAPA 1: Intento por API Directa
-        datos_api = intentar_obtencion_api_directa(slug)
+    for loteria_nombre, info in LOTERIAS_OFICIALES.items():
+        # CAPA 1: API Directa
+        datos_api = intentar_obtencion_api_directa(info)
         if datos_api:
             for item in datos_api:
                 hora_item = item.get("hora")
@@ -116,10 +195,10 @@ def escanear_hibrido(browser):
                     }
             continue
 
-        # CAPA 2: Scraper Híbrido con Proxy Residencial en loteriadehoy.com
-        url = f"https://loteriadehoy.com/animalitos/{slug}"
+        # CAPA 2: Scraper Híbrido con Proxy Residencial directo al sitio oficial
+        url_destino = info["url_oficial"]
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=12000)
+            page.goto(url_destino, wait_until="domcontentloaded", timeout=12000)
             page.wait_for_timeout(1000)
             html = page.content()
             soup = BeautifulSoup(html, "html.parser")
@@ -137,12 +216,12 @@ def escanear_hibrido(browser):
 
                     hora_base = hora_std.split()[0]
                     if hora_base in txt_el or hora_std.lower() in txt_el.lower():
-                        res = extraer_datos_directos(el)
+                        res = extraer_datos_directos(el, url_destino)
                         if res:
                             datos_extraidos[clave] = res
 
         except Exception as e:
-            print(f"Error procesando {loteria_nombre}: {e}")
+            print(f"Error procesando {loteria_nombre} en sitio oficial: {e}")
             continue
 
     context.close()
@@ -173,10 +252,10 @@ def ejecutar_proceso():
             args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
-        mapa_extraido_dia = escanear_hibrido(browser)
+        mapa_extraido_dia = escanear_hibrido_multi_sitio(browser)
         resultados_fecha = []
 
-        for loteria_nombre in LOTERIAS_MAPA.keys():
+        for loteria_nombre in LOTERIAS_OFICIALES.keys():
             for hora_texto, hora_val in TODOS_LOS_HORARIOS:
                 ha_ocurrido = (hora_val <= hora_actual_ve)
                 clave = f"{loteria_nombre}-{hora_texto}"
@@ -217,4 +296,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización desde loteriadehoy.com completada con éxito.")
+    print("Sincronización multi-fuente desde páginas oficiales completada con éxito.")
