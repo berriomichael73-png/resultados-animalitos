@@ -7,24 +7,24 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 LOTERIAS_OFICIALES = {
-    "Lotto Activo": {"slugs": ["lotto-activo"], "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"slugs": ["la-granjita"], "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje Millonario)": {"slugs": ["monje-millonario", "lotto-activo-2"], "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"slugs": ["guacharo-activo", "el-guacharo-activo"], "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito Millonario": {"slugs": ["el-guacharito-millonario", "guacharito-millonario"], "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"slugs": ["selva-plus"], "logo": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"slugs": ["centena-plus"], "logo": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo Rd Int": {"slugs": ["lotto-activo-rd-int", "lotto-activo-internacional"], "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"slugs": ["mega-animal-40", "mega-animal40"], "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"slugs": ["centena-animalitos"], "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Con Animalitos": {"slugs": ["chance-con-animalitos", "chance-animal"], "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Cazaloton": {"slugs": ["cazaloton"], "logo": "https://loteriadehoy.com/images/cazaloton.png"},
-    "Ruleta Activa": {"slugs": ["ruleta-activa"], "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"slugs": ["granja-millonaria", "granja-millonaria-animalitos"], "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La-Ricachona": {"slugs": ["la-ricachona", "la-ruca"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
-    "Jungla Millonaria": {"slugs": ["jungla-millonaria"], "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
-    "Loto Chaima": {"slugs": ["loto-chaima"], "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
-    "Lotto Activo RDominicana": {"slugs": ["lotto-activo-rdominicana", "lotto-activo-rd"], "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
+    "Lotto Activo": {"slugs": ["lotto-activo"], "tuazar": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slugs": ["la-granjita"], "tuazar": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slugs": ["monje-millonario", "lotto-activo-2"], "tuazar": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slugs": ["guacharo-activo"], "tuazar": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"slugs": ["el-guacharito-millonario"], "tuazar": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slugs": ["selva-plus"], "tuazar": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slugs": ["centena-plus"], "tuazar": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo Rd Int": {"slugs": ["lotto-activo-rd-int"], "tuazar": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slugs": ["mega-animal-40"], "tuazar": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slugs": ["centena-animalitos"], "tuazar": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Con Animalitos": {"slugs": ["chance-con-animalitos"], "tuazar": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Cazaloton": {"slugs": ["cazaloton"], "tuazar": "cazaloton", "logo": "https://loteriadehoy.com/images/cazaloton.png"},
+    "Ruleta Activa": {"slugs": ["ruleta-activa"], "tuazar": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slugs": ["granja-millonaria"], "tuazar": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La-Ricachona": {"slugs": ["la-ricachona"], "tuazar": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
+    "Jungla Millonaria": {"slugs": ["jungla-millonaria"], "tuazar": "jungla-millonaria", "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
+    "Loto Chaima": {"slugs": ["loto-chaima"], "tuazar": "loto-chaima", "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
+    "Lotto Activo RDominicana": {"slugs": ["lotto-activo-rdominicana"], "tuazar": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
 HORARIOS_ORDENADOS = [
@@ -71,7 +71,7 @@ def extraer_hora_de_texto(texto):
         return hora_str
     return None
 
-def escanear_hibrido_resistente(browser):
+def escanear_hibrido_multi_fuente(browser):
     resultados_totales = []
 
     context_args = {
@@ -93,6 +93,7 @@ def escanear_hibrido_resistente(browser):
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
+        # 1. Capa API
         datos_api = intentar_obtencion_api_directa(slugs)
         if datos_api:
             for item in datos_api:
@@ -114,11 +115,13 @@ def escanear_hibrido_resistente(browser):
                     "realizado": True if num_item != "--" else False
                 }
 
+        # 2. Capa Playwright (loteriadehoy.com / tuazar.com)
         if not sorteos_obtenidos:
             for slug in slugs:
                 urls_prueba = [
                     f"https://loteriadehoy.com/animalitos/{slug}",
-                    f"https://m.parley.la/resultados/resultados-{slug}"
+                    f"https://m.parley.la/resultados/resultados-{slug}",
+                    f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/"
                 ]
 
                 for url_target in urls_prueba:
@@ -128,10 +131,10 @@ def escanear_hibrido_resistente(browser):
                         html = page.content()
                         soup = BeautifulSoup(html, "html.parser")
 
-                        bloques = soup.find_all(["tr", "div", "li", "article"])
+                        bloques = soup.find_all(["tr", "div", "li", "article", "td"])
                         for bloque in bloques:
                             txt_bloque = bloque.get_text(" ", strip=True)
-                            if len(txt_bloque) > 250:
+                            if len(txt_bloque) > 300:
                                 continue
 
                             hora_detectada = extraer_hora_de_texto(txt_bloque)
@@ -167,7 +170,7 @@ def escanear_hibrido_resistente(browser):
                 if sorteos_obtenidos:
                     break
 
-        # Rellenar y Ordenar estrictamente por orden cronológico
+        # 3. Rellenar estructura de horarios
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -204,7 +207,7 @@ def ejecutar_proceso():
             args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
-        lista_resultados_dia = escanear_hibrido_resistente(browser)
+        lista_resultados_dia = escanear_hibrido_multi_fuente(browser)
 
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
@@ -220,4 +223,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización cronológica completada.")
+    print("Sincronización robusta multifuente completada.")
