@@ -39,6 +39,7 @@ def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
 
+# NIVEL 1: API DIRECTA
 def intentar_obtencion_api_directa(slugs):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36',
@@ -71,7 +72,8 @@ def extraer_hora_de_texto(texto):
         return hora_str
     return None
 
-def escanear_hibrido_multi_fuente(browser):
+# NIVEL 2 Y 3: SCRAPER MULTIFUENTE CON CONMUTACIÓN POR ERROR
+def escanear_hibrido_failover(browser):
     resultados_totales = []
 
     context_args = {
@@ -93,7 +95,7 @@ def escanear_hibrido_multi_fuente(browser):
         logo_loteria = info["logo"]
         sorteos_obtenidos = {}
 
-        # 1. Capa API
+        # 1. Intentar Nivel 1: API Directa
         datos_api = intentar_obtencion_api_directa(slugs)
         if datos_api:
             for item in datos_api:
@@ -115,18 +117,18 @@ def escanear_hibrido_multi_fuente(browser):
                     "realizado": True if num_item != "--" else False
                 }
 
-        # 2. Capa Playwright (loteriadehoy.com / tuazar.com)
+        # 2. Intentar Nivel 2 (TuAzar) y Nivel 3 (Parley/LoteriaDeHoy)
         if not sorteos_obtenidos:
             for slug in slugs:
                 urls_prueba = [
-                    f"https://loteriadehoy.com/animalitos/{slug}",
+                    f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/",
                     f"https://m.parley.la/resultados/resultados-{slug}",
-                    f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/"
+                    f"https://loteriadehoy.com/animalitos/{slug}"
                 ]
 
                 for url_target in urls_prueba:
                     try:
-                        page.goto(url_target, wait_until="networkidle", timeout=12000)
+                        page.goto(url_target, wait_until="domcontentloaded", timeout=10000)
                         page.wait_for_timeout(1000)
                         html = page.content()
                         soup = BeautifulSoup(html, "html.parser")
@@ -146,7 +148,8 @@ def escanear_hibrido_multi_fuente(browser):
                                 src = img_tag.get("src", "")
                                 if src and not ("logo" in src.lower() or "icon" in src.lower()):
                                     if not src.startswith("http"):
-                                        src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
+                                        src = "https://www.tuazar.com" if "tuazar" in url_target else "https://loteriadehoy.com"
+                                        src = src + (img_tag.get("src") if img_tag.get("src").startswith("/") else "/" + img_tag.get("src"))
 
                                     match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
                                     numero = match_num.group(1).zfill(2) if match_num else "--"
@@ -170,7 +173,7 @@ def escanear_hibrido_multi_fuente(browser):
                 if sorteos_obtenidos:
                     break
 
-        # 3. Rellenar estructura de horarios
+        # Rellenar y ordenar horarios de 08:00 AM a 07:00 PM
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
@@ -207,7 +210,7 @@ def ejecutar_proceso():
             args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
-        lista_resultados_dia = escanear_hibrido_multi_fuente(browser)
+        lista_resultados_dia = escanear_hibrido_failover(browser)
 
         for item in lista_resultados_dia:
             item["fecha"] = hoy_str
@@ -223,4 +226,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización robusta multifuente completada.")
+    print("Sincronización con conmutación tripartita completada.")
