@@ -7,7 +7,6 @@ from curl_cffi import requests
 
 app = FastAPI()
 
-# Permite que tu frontend consulte la API sin bloqueos de origen (CORS)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
