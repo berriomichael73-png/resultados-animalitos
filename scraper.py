@@ -7,24 +7,24 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
 LOTERIAS_OFICIALES = {
-    "Lotto Activo": {"slug": "lotto-activo", "url": "https://loteriadehoy.com/animalitos/lotto-activo"},
-    "La Granjita": {"slug": "la-granjita", "url": "https://loteriadehoy.com/animalitos/la-granjita"},
-    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "url": "https://loteriadehoy.com/animalitos/monje-millonario"},
-    "Guacharo Activo": {"slug": "guacharo-activo", "url": "https://loteriadehoy.com/animalitos/guacharo-activo"},
-    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "url": "https://loteriadehoy.com/animalitos/el-guacharito-millonario"},
-    "Selva Plus": {"slug": "selva-plus", "url": "https://loteriadehoy.com/animalitos/selva-plus"},
-    "Centena Plus": {"slug": "centena-plus", "url": "https://loteriadehoy.com/animalitos/centena-plus"},
-    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "url": "https://loteriadehoy.com/animalitos/lotto-activo-rd-int"},
-    "Mega Animal 40": {"slug": "mega-animal-40", "url": "https://loteriadehoy.com/animalitos/mega-animal-40"},
-    "Centena Animalitos": {"slug": "centena-animalitos", "url": "https://loteriadehoy.com/animalitos/centena-animalitos"},
-    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "url": "https://loteriadehoy.com/animalitos/chance-con-animalitos"},
-    "Cazaloton": {"slug": "cazaloton", "url": "https://loteriadehoy.com/animalitos/cazaloton"},
-    "Ruleta Activa": {"slug": "ruleta-activa", "url": "https://loteriadehoy.com/animalitos/ruleta-activa"},
-    "Granja Millonaria": {"slug": "granja-millonaria", "url": "https://loteriadehoy.com/animalitos/granja-millonaria"},
-    "La-Ricachona": {"slug": "la-ricachona", "url": "https://loteriadehoy.com/animalitos/la-ricachona"},
-    "Jungla Millonaria": {"slug": "jungla-millonaria", "url": "https://loteriadehoy.com/animalitos/jungla-millonaria"},
-    "Loto Chaima": {"slug": "loto-chaima", "url": "https://loteriadehoy.com/animalitos/loto-chaima"},
-    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "url": "https://loteriadehoy.com/animalitos/lotto-activo-rdominicana"}
+    "Lotto Activo": "lotto-activo",
+    "La Granjita": "la-granjita",
+    "Lotto Activo 2 (Monje Millonario)": "monje-millonario",
+    "Guacharo Activo": "guacharo-activo",
+    "El Guacharito Millonario": "el-guacharito-millonario",
+    "Selva Plus": "selva-plus",
+    "Centena Plus": "centena-plus",
+    "Lotto Activo Rd Int": "lotto-activo-rd-int",
+    "Mega Animal 40": "mega-animal-40",
+    "Centena Animalitos": "centena-animalitos",
+    "Chance Con Animalitos": "chance-con-animalitos",
+    "Cazaloton": "cazaloton",
+    "Ruleta Activa": "ruleta-activa",
+    "Granja Millonaria": "granja-millonaria",
+    "La-Ricachona": "la-ricachona",
+    "Jungla Millonaria": "jungla-millonaria",
+    "Loto Chaima": "loto-chaima",
+    "Lotto Activo RDominicana": "lotto-activo-rdominicana"
 }
 
 HORARIOS_EN_PUNTO = [
@@ -41,14 +41,14 @@ HORARIOS_MEDIAS_HORAS = [
 
 TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
 
-# CAPA 2: PROXY RESIDENCIAL (CONFIGURABLE EN GITHUB SECRETS)
+# SOLUCIÓN DEFINITIVA 2: PROXY RESIDENCIAL
 PROXY_URL = os.getenv("PROXY_URL", "")
 
-# CAPA 1: API DIRECTA (SOPORTE MULTI-ENDPOINT)
+# SOLUCIÓN DEFINITIVA 1: API DIRECTA MULTI-ENDPOINT
 def intentar_obtencion_api_directa(slug):
     urls_api = [
         f"https://loteriadehoy.com/api/v1/animalitos/{slug}",
-        f"https://m.parley.la/api/resultados/{slug}",
+        f"https://m.parley.la/api/resultados/resultados-{slug}",
         f"https://lotoven.com/api/v1/resultados/{slug}"
     ]
     headers = {
@@ -74,11 +74,9 @@ def extraer_imagen_y_numero(contenedor_padre, url_base):
             if not src.startswith("http"):
                 src = url_base.rstrip("/") + ("/" if not src.startswith("/") else "") + src
 
-            # Extraer número si está en el enlace de la imagen
             match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
             numero = match_num.group(1).zfill(2) if match_num else "--"
             
-            # Nombre desde alt/title o fallback por texto general
             nombre = img.get("alt") or img.get("title") or "Animalito"
             if nombre == "Animalito":
                 txt = contenedor_padre.get_text(" ", strip=True)
@@ -90,7 +88,7 @@ def extraer_imagen_y_numero(contenedor_padre, url_base):
 
     return None
 
-def escanear_hibrido_avanzado(browser):
+def escanear_hibrido_resistente(browser):
     datos_extraidos = {}
 
     context_args = {
@@ -105,12 +103,9 @@ def escanear_hibrido_avanzado(browser):
     context = browser.new_context(**context_args)
     page = context.new_page()
 
-    # Desactivar estilos pesados pero mantener imágenes para permitir que el DOM renderice el resultado
     page.route("**/*.{css,woff,woff2}", lambda route: route.abort())
 
-    for loteria_nombre, info in LOTERIAS_OFICIALES.items():
-        slug = info["slug"]
-
+    for loteria_nombre, slug in LOTERIAS_OFICIALES.items():
         # CAPA 1: API DIRECTA
         datos_api = intentar_obtencion_api_directa(slug)
         if datos_api:
@@ -128,41 +123,40 @@ def escanear_hibrido_avanzado(browser):
                     }
             continue
 
-        # CAPA 2: SCRAPER HÍBRIDO (LOTERIADEHOY.COM)
-        url_target = info["url"]
-        try:
-            page.goto(url_target, wait_until="networkidle", timeout=15000)
-            page.wait_for_timeout(1200)
-            html = page.content()
-            soup = BeautifulSoup(html, "html.parser")
+        # CAPA 2: SCRAPER HÍBRIDO CON MULTI-FUENTE
+        urls_a_probar = [
+            (f"https://loteriadehoy.com/animalitos/{slug}", "https://loteriadehoy.com"),
+            (f"https://m.parley.la/resultados/resultados-{slug}", "https://m.parley.la")
+        ]
 
-            # Buscar cualquier elemento que contenga texto de horario
-            for hora_std, _ in TODOS_LOS_HORARIOS:
-                clave = f"{loteria_nombre}-{hora_std}"
-                if clave in datos_extraidos:
-                    continue
+        for url_target, url_base in urls_a_probar:
+            try:
+                page.goto(url_target, wait_until="domcontentloaded", timeout=12000)
+                page.wait_for_timeout(1000)
+                html = page.content()
+                soup = BeautifulSoup(html, "html.parser")
 
-                hora_limpia = hora_std.replace(" ", "").lower()
-                hora_corta = hora_std.split()[0]  # "08:00"
+                for hora_std, _ in TODOS_LOS_HORARIOS:
+                    clave = f"{loteria_nombre}-{hora_std}"
+                    if clave in datos_extraidos:
+                        continue
 
-                # Buscar nodos de texto
-                elementos_coincidentes = soup.find_all(text=re.compile(rf'{hora_corta}|{hora_limpia}', re.IGNORECASE))
+                    hora_corta = hora_std.split()[0]
+                    elementos_coincidentes = soup.find_all(text=re.compile(rf'{hora_corta}', re.IGNORECASE))
 
-                for nodo in elementos_coincidentes:
-                    # Subir al contenedor padre (tr, div, li, article)
-                    padre = nodo.parent
-                    for _ in range(3):
-                        if padre and padre.name in ["tr", "div", "li", "article", "td"]:
-                            res = extraer_imagen_y_numero(padre, "https://loteriadehoy.com")
-                            if res:
-                                datos_extraidos[clave] = res
-                                break
-                        if padre:
-                            padre = padre.parent
+                    for nodo in elementos_coincidentes:
+                        padre = nodo.parent
+                        for _ in range(3):
+                            if padre and padre.name in ["tr", "div", "li", "article", "td"]:
+                                res = extraer_imagen_y_numero(padre, url_base)
+                                if res:
+                                    datos_extraidos[clave] = res
+                                    break
+                            if padre:
+                                padre = padre.parent
 
-        except Exception as e:
-            print(f"Error procesando {loteria_nombre} en loteriadehoy.com: {e}")
-            continue
+            except Exception:
+                continue
 
     context.close()
     return datos_extraidos
@@ -192,7 +186,7 @@ def ejecutar_proceso():
             args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
-        mapa_extraido_dia = escanear_hibrido_avanzado(browser)
+        mapa_extraido_dia = escanear_hibrido_resistente(browser)
         resultados_fecha = []
 
         for loteria_nombre in LOTERIAS_OFICIALES.keys():
@@ -236,4 +230,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Proceso de escaneo profundo y captura por contenedores completado.")
+    print("Sincronización multi-fuente optimizada completada.")
