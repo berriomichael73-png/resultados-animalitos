@@ -16,24 +16,20 @@ app.add_middleware(
 )
 
 LOTERIAS_CONFIG = {
-    "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"slug": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"slug": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"slug": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"slug": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"slug": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Cazaloton": {"slug": "cazaloton", "logo": "https://loteriadehoy.com/images/cazaloton.png"},
-    "Ruleta Activa": {"slug": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"slug": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La-Ricachona": {"slug": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
-    "Jungla Millonaria": {"slug": "jungla-millonaria", "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
-    "Loto Chaima": {"slug": "loto-chaima", "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
-    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
+    "Lotto Activo": {"slugs": ["lotto-activo"], "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slugs": ["la-granjita"], "logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje)": {"slugs": ["monje-millonario", "lotto-activo-2"], "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slugs": ["guacharo-activo"], "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito": {"slugs": ["el-guacharito-millonario", "guacharito"], "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slugs": ["selva-plus"], "logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slugs": ["centena-plus"], "logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo RD": {"slugs": ["lotto-activo-rd-int", "lotto-activo-rdominicana"], "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slugs": ["mega-animal-40", "mega-animal"], "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slugs": ["centena-animalitos"], "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Animalitos": {"slugs": ["chance-con-animalitos", "chance-animalitos"], "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Ruleta Activa": {"slugs": ["ruleta-activa"], "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slugs": ["granja-millonaria"], "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La Ricachona": {"slugs": ["la-ricachona"], "logo": "https://loteriadehoy.com/images/la-ricachona.png"}
 }
 
 HORARIOS_ORDENADOS = [
@@ -61,7 +57,7 @@ def extraer_animal_de_texto(texto):
     if match:
         num = match.group(1).zfill(2)
         animal = match.group(2).strip()
-        if len(animal) > 2 and animal.upper() not in ["AM", "PM", "POR", "SALIR"]:
+        if len(animal) > 2 and animal.upper() not in ["AM", "PM", "POR", "SALIR", "RESULTADO"]:
             return num, animal.capitalize()
     return None, None
 
@@ -77,62 +73,65 @@ def obtener_resultados():
     resultados_totales = []
 
     for loteria_nombre, info in LOTERIAS_CONFIG.items():
-        slug = info["slug"]
+        slugs = info["slugs"]
         logo = info["logo"]
         sorteos_obtenidos = {}
 
-        urls_prueba = [
-            f"https://loteriadehoy.com/animalitos/{slug}",
-            f"https://m.parley.la/resultados/resultados-{slug}",
-            f"https://parley.la/resultados/{slug}"
-        ]
+        for slug in slugs:
+            urls_prueba = [
+                f"https://loteriadehoy.com/animalitos/{slug}",
+                f"https://m.parley.la/resultados/resultados-{slug}",
+                f"https://parley.la/resultados/{slug}"
+            ]
 
-        for url_target in urls_prueba:
-            try:
-                response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=8)
-                if response.status_code == 200:
-                    soup = BeautifulSoup(response.text, 'html.parser')
-                    bloques = soup.find_all(['tr', 'div', 'li', 'article', 'td'])
+            for url_target in urls_prueba:
+                try:
+                    response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=6)
+                    if response.status_code == 200:
+                        soup = BeautifulSoup(response.text, 'html.parser')
+                        bloques = soup.find_all(['tr', 'div', 'li', 'article', 'td'])
 
-                    for b in bloques:
-                        txt = b.get_text(" ", strip=True)
-                        if len(txt) > 250:
-                            continue
+                        for b in bloques:
+                            txt = b.get_text(" ", strip=True)
+                            if len(txt) > 250:
+                                continue
 
-                        h = extraer_hora(txt)
-                        if not h or h in sorteos_obtenidos:
-                            continue
+                            h = extraer_hora(txt)
+                            if not h or h in sorteos_obtenidos:
+                                continue
 
-                        num, animal = None, None
-                        img = b.find('img')
+                            num, animal = None, None
+                            img = b.find('img')
 
-                        if img and img.get('src'):
-                            src = img.get('src').lower()
-                            if not ("logo" in src or "icon" in src or "banner" in src):
-                                m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                                if m:
-                                    num = m.group(1).zfill(2)
-                                    animal = img.get('alt') or img.get('title') or "Animalito"
+                            if img and img.get('src'):
+                                src = img.get('src').lower()
+                                if not ("logo" in src or "icon" in src or "banner" in src):
+                                    m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+                                    if m:
+                                        num = m.group(1).zfill(2)
+                                        animal = img.get('alt') or img.get('title') or "Animalito"
 
-                        if not num:
-                            num, animal = extraer_animal_de_texto(txt)
+                            if not num:
+                                num, animal = extraer_animal_de_texto(txt)
 
-                        if num and animal:
-                            sorteos_obtenidos[h] = {
-                                "loteria": loteria_nombre,
-                                "logo_loteria": logo,
-                                "hora": h,
-                                "numero": num,
-                                "animal": animal.strip().capitalize(),
-                                "imagen": "",
-                                "realizado": True,
-                                "fecha": hoy
-                            }
+                            if num and animal:
+                                sorteos_obtenidos[h] = {
+                                    "loteria": loteria_nombre,
+                                    "logo_loteria": logo,
+                                    "hora": h,
+                                    "numero": num,
+                                    "animal": animal.strip().capitalize(),
+                                    "realizado": True,
+                                    "fecha": hoy
+                                }
 
-                if sorteos_obtenidos:
-                    break
-            except Exception:
-                continue
+                    if len(sorteos_obtenidos) >= 4:
+                        break
+                except Exception:
+                    continue
+
+            if len(sorteos_obtenidos) >= 4:
+                break
 
         for h_estandar, _ in HORARIOS_ORDENADOS:
             if h_estandar not in sorteos_obtenidos:
@@ -142,7 +141,6 @@ def obtener_resultados():
                     "hora": h_estandar,
                     "numero": "--",
                     "animal": "Por salir",
-                    "imagen": "",
                     "realizado": False,
                     "fecha": hoy
                 }
