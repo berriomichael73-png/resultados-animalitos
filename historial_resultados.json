@@ -15563,76 +15563,6 @@
     {
       "loteria": "Lotto Activo",
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "02:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "03:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "04:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "05:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "06:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
-      "hora": "07:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "08:00 AM",
       "numero": "--",
       "animal": "28 ZAMURO",
@@ -15665,9 +15595,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "11:00 AM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "07 PERICO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/7-perico.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -15675,14 +15605,14 @@
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "12:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "10 TIGRE",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/10-tigre.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15691,8 +15621,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15701,8 +15631,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15711,8 +15641,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15721,8 +15651,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15731,8 +15661,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15741,8 +15671,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La Granjita",
-      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
+      "loteria": "Lotto Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15785,9 +15715,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "11:00 AM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "35 JIRAFA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/la-granjita/animals_png_180/35-jirafa.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -15795,14 +15725,14 @@
       "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "12:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "23 CEBRA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/la-granjita/animals_png_180/23-cebra.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15811,8 +15741,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15821,8 +15751,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15831,8 +15761,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15841,8 +15771,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15851,8 +15781,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15861,8 +15791,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Lotto Activo 2 (Monje Millonario)",
-      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
+      "loteria": "La Granjita",
+      "logo_loteria": "https://loteriadehoy.com/images/la-granjita.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15921,8 +15851,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15931,8 +15861,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15941,8 +15871,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15951,8 +15881,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15961,8 +15891,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15971,8 +15901,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -15981,8 +15911,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Guacharo Activo",
-      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "loteria": "Lotto Activo 2 (Monje Millonario)",
+      "logo_loteria": "https://loteriadehoy.com/images/monje-millonario.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16024,6 +15954,26 @@
       "loteria": "Guacharo Activo",
       "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
       "hora": "11:00 AM",
+      "numero": "06",
+      "animal": "06 RANA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/guacharo-activo/animals_png_180/6.jpg",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "12:00 PM",
+      "numero": "26",
+      "animal": "26 VACA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/guacharo-activo/animals_png_180/26.jpg",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
       "imagen": "",
@@ -16033,6 +15983,106 @@
     {
       "loteria": "Guacharo Activo",
       "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "02:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "03:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "04:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "05:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "06:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Guacharo Activo",
+      "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
+      "hora": "07:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "El Guacharito Millonario",
+      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "hora": "08:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "El Guacharito Millonario",
+      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "hora": "09:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "El Guacharito Millonario",
+      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "hora": "10:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "El Guacharito Millonario",
+      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "hora": "11:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "El Guacharito Millonario",
+      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16111,8 +16161,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "loteria": "Selva Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
       "hora": "08:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16121,18 +16171,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
-      "hora": "08:30 AM",
-      "numero": "13",
-      "animal": "13 MONO",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/el-guacharito-millonario/animals_png_180/13.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "loteria": "Selva Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
       "hora": "09:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16141,18 +16181,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
-      "hora": "09:30 AM",
-      "numero": "88",
-      "animal": "88 ERIZO DE MAR",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/el-guacharito-millonario/animals_png_180/88.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "loteria": "Selva Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
       "hora": "10:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16161,8 +16191,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "loteria": "Selva Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
       "hora": "11:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16171,8 +16201,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "El Guacharito Millonario",
-      "logo_loteria": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+      "loteria": "Selva Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16251,8 +16281,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Selva Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
+      "loteria": "Centena Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
       "hora": "08:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16261,8 +16291,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Selva Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
+      "loteria": "Centena Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
       "hora": "09:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16271,8 +16301,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Selva Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
+      "loteria": "Centena Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
       "hora": "10:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16281,8 +16311,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Selva Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
+      "loteria": "Centena Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
       "hora": "11:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16291,8 +16321,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Selva Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/selva-plus.png",
+      "loteria": "Centena Plus",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16371,8 +16401,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
+      "loteria": "Lotto Activo Rd Int",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
       "hora": "08:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16381,18 +16411,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
-      "hora": "08:15 AM",
-      "numero": "72",
-      "animal": "72 GORILA",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-plus/animals_png_180/72.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
+      "loteria": "Lotto Activo Rd Int",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
       "hora": "09:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16401,18 +16421,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
-      "hora": "09:15 AM",
-      "numero": "89",
-      "animal": "89 ERIZO DE MAR",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-plus/animals_png_180/89.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
+      "loteria": "Lotto Activo Rd Int",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
       "hora": "10:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16421,18 +16431,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
-      "hora": "10:15 AM",
-      "numero": "06",
-      "animal": "06 RANA",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-plus/animals_png_180/06.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
+      "loteria": "Lotto Activo Rd Int",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
       "hora": "11:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -16441,8 +16441,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Plus",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-plus.png",
+      "loteria": "Lotto Activo Rd Int",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16513,146 +16513,6 @@
     {
       "loteria": "Lotto Activo Rd Int",
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "07:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "08:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "08:30 AM",
-      "numero": "--",
-      "animal": "21 GALLO",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/21-gallo.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "09:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "09:30 AM",
-      "numero": "--",
-      "animal": "07 PERICO",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/lotto-activo-rd/animals_png_180/7-perico.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "10:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "11:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo Rd Int",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
-      "hora": "12:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "02:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "03:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "04:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "05:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "06:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Mega Animal 40",
-      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16694,6 +16554,26 @@
       "loteria": "Mega Animal 40",
       "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "11:00 AM",
+      "numero": "33",
+      "animal": "33 PESCADO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/mega-animal40/animals_png_180/33.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
+      "hora": "12:00 PM",
+      "numero": "26",
+      "animal": "26 VACA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/mega-animal40/animals_png_180/26.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
+      "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
       "imagen": "",
@@ -16703,26 +16583,6 @@
     {
       "loteria": "Mega Animal 40",
       "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
-      "hora": "12:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
-      "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16731,8 +16591,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16741,8 +16601,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16751,8 +16611,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16761,8 +16621,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16771,8 +16631,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Centena Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
+      "loteria": "Mega Animal 40",
+      "logo_loteria": "https://loteriadehoy.com/images/mega-animal-40.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16815,9 +16675,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "11:00 AM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "22 CAMELLO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-animalitos/animals_png_180/22-camello.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -16825,14 +16685,14 @@
       "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "12:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "09 AGUILA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-animalitos/animals_png_180/09-aguila.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16841,8 +16701,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16851,8 +16711,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16861,8 +16721,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16871,8 +16731,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16881,8 +16741,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16891,8 +16751,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Chance Con Animalitos",
-      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+      "loteria": "Centena Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16951,8 +16811,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16961,8 +16821,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16971,8 +16831,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16981,8 +16841,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -16991,8 +16851,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17001,8 +16861,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17011,8 +16871,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Cazaloton",
-      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
+      "loteria": "Chance Con Animalitos",
+      "logo_loteria": "https://loteriadehoy.com/images/chance-con-animalitos.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17054,10 +16914,10 @@
       "loteria": "Cazaloton",
       "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "11:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "numero": "00",
+      "animal": "00 BALLENA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/cazaloton/animals_png_180/00.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -17071,8 +16931,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17081,8 +16941,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17091,8 +16951,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17101,8 +16961,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17111,8 +16971,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17121,8 +16981,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17131,8 +16991,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Ruleta Activa",
-      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "loteria": "Cazaloton",
+      "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17174,6 +17034,26 @@
       "loteria": "Ruleta Activa",
       "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "11:00 AM",
+      "numero": "00",
+      "animal": "00 BALLENA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/00.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "hora": "12:00 PM",
+      "numero": "06",
+      "animal": "06 RANA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/ruleta-activa/animals_png_180/06.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
+      "hora": "01:00 PM",
       "numero": "--",
       "animal": "Por salir",
       "imagen": "",
@@ -17183,26 +17063,6 @@
     {
       "loteria": "Ruleta Activa",
       "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
-      "hora": "12:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
-      "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
       "hora": "02:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17211,8 +17071,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "03:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17221,8 +17081,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "04:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17231,8 +17091,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "05:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17241,8 +17101,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "06:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17251,8 +17111,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "Granja Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "loteria": "Ruleta Activa",
+      "logo_loteria": "https://loteriadehoy.com/images/ruleta-activa.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17295,6 +17155,26 @@
       "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
       "hora": "11:00 AM",
       "numero": "--",
+      "animal": "21 GALLO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/granja-millonaria-animalitos/animals_png_180/21galloj.jpg",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "12:00 PM",
+      "numero": "--",
+      "animal": "22 CAMELLO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/granja-millonaria-animalitos/animals_png_180/22camelloj.jpg",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "01:00 PM",
+      "numero": "--",
       "animal": "Por salir",
       "imagen": "",
       "realizado": false,
@@ -17303,6 +17183,106 @@
     {
       "loteria": "Granja Millonaria",
       "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "02:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "03:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "04:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "05:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "06:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Granja Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/granja-millonaria.png",
+      "hora": "07:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "La-Ricachona",
+      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "hora": "08:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "La-Ricachona",
+      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "hora": "09:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "La-Ricachona",
+      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "hora": "10:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "La-Ricachona",
+      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "hora": "11:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "La-Ricachona",
+      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17381,8 +17361,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "loteria": "Jungla Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
       "hora": "08:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -17391,8 +17371,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "loteria": "Jungla Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
       "hora": "09:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -17401,18 +17381,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
-      "hora": "09:15 AM",
-      "numero": "16",
-      "animal": "16 DIECISÉIS",
-      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/la-ruca/animals_png_180/16.png",
-      "realizado": true,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "loteria": "Jungla Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
       "hora": "10:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -17421,8 +17391,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "loteria": "Jungla Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
       "hora": "11:00 AM",
       "numero": "--",
       "animal": "Por salir",
@@ -17431,8 +17401,8 @@
       "fecha": "2026-09-24"
     },
     {
-      "loteria": "La-Ricachona",
-      "logo_loteria": "https://loteriadehoy.com/images/la-ricachona.png",
+      "loteria": "Jungla Millonaria",
+      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17503,126 +17473,6 @@
     {
       "loteria": "Jungla Millonaria",
       "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "07:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Jungla Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "08:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Jungla Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "09:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Jungla Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "10:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Jungla Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "11:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Jungla Millonaria",
-      "logo_loteria": "https://loteriadehoy.com/images/jungla-millonaria.png",
-      "hora": "12:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "02:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "03:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "04:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "05:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
-      "hora": "06:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Loto Chaima",
-      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
       "hora": "07:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17665,6 +17515,26 @@
       "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
       "hora": "11:00 AM",
       "numero": "--",
+      "animal": "08 RATóN",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/loto-chaima/animals_png_180/08-RATON.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "12:00 PM",
+      "numero": "--",
+      "animal": "38 BúFALO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/loto-chaima/animals_png_180/38-BUFALO.png",
+      "realizado": true,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "01:00 PM",
+      "numero": "--",
       "animal": "Por salir",
       "imagen": "",
       "realizado": false,
@@ -17673,6 +17543,106 @@
     {
       "loteria": "Loto Chaima",
       "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "02:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "03:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "04:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "05:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "06:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Loto Chaima",
+      "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
+      "hora": "07:00 PM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Lotto Activo RDominicana",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
+      "hora": "08:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Lotto Activo RDominicana",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
+      "hora": "09:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Lotto Activo RDominicana",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
+      "hora": "10:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Lotto Activo RDominicana",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
+      "hora": "11:00 AM",
+      "numero": "--",
+      "animal": "Por salir",
+      "imagen": "",
+      "realizado": false,
+      "fecha": "2026-09-24"
+    },
+    {
+      "loteria": "Lotto Activo RDominicana",
+      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
       "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
@@ -17744,56 +17714,6 @@
       "loteria": "Lotto Activo RDominicana",
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
       "hora": "07:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo RDominicana",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
-      "hora": "08:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo RDominicana",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
-      "hora": "09:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo RDominicana",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
-      "hora": "10:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo RDominicana",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
-      "hora": "11:00 AM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
-      "fecha": "2026-09-24"
-    },
-    {
-      "loteria": "Lotto Activo RDominicana",
-      "logo_loteria": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png",
-      "hora": "12:00 PM",
       "numero": "--",
       "animal": "Por salir",
       "imagen": "",
