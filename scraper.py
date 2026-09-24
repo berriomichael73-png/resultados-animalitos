@@ -5,25 +5,25 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from curl_cffi import requests
 
-LOTERIAS_TUAZAR = {
-    "Lotto Activo": {"tuazar": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"tuazar": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje Millonario)": {"tuazar": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"tuazar": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito Millonario": {"tuazar": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"tuazar": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"tuazar": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo Rd Int": {"tuazar": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"tuazar": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"tuazar": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Con Animalitos": {"tuazar": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Cazaloton": {"tuazar": "cazaloton", "logo": "https://loteriadehoy.com/images/cazaloton.png"},
-    "Ruleta Activa": {"tuazar": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"tuazar": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La-Ricachona": {"tuazar": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
-    "Jungla Millonaria": {"tuazar": "jungla-millonaria", "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
-    "Loto Chaima": {"tuazar": "loto-chaima", "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
-    "Lotto Activo RDominicana": {"tuazar": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
+LOTERIAS_CONFIG = {
+    "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slug": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slug": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slug": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slug": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slug": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Cazaloton": {"slug": "cazaloton", "logo": "https://loteriadehoy.com/images/cazaloton.png"},
+    "Ruleta Activa": {"slug": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slug": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La-Ricachona": {"slug": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
+    "Jungla Millonaria": {"slug": "jungla-millonaria", "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
+    "Loto Chaima": {"slug": "loto-chaima", "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
+    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
 HORARIOS_ORDENADOS = [
@@ -55,83 +55,97 @@ def extraer_animal_de_texto(texto):
             return num, animal.capitalize()
     return None, None
 
-def extraer_tuazar_anti_bloqueo():
-    # Inicialización del cliente con impersonación TLS de Chrome
+def extraer_duo_dinamico():
     session = requests.Session()
-    
     headers_base = {
-        'User-Agent': 'Mozilla/5.0 (Linux; Android 13; Redmi Note 12) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.105 Mobile Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        'Accept-Language': 'es-ES,es;q=0.9',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-        'Sec-Fetch-User': '?1',
-        'Upgrade-Insecure-Requests': '1'
+        'User-Agent': 'Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     }
+
+    # Rescatar datos previos en caso de falla de conexion
+    datos_previos = {}
+    if os.path.exists("resultados.json"):
+        try:
+            with open("resultados.json", "r", encoding="utf-8") as f:
+                lista_p = json.load(f)
+                for item in lista_p:
+                    clave = f"{item['loteria']}_{item['hora']}"
+                    if item.get("realizado"):
+                        datos_previos[clave] = item
+        except Exception:
+            datos_previos = {}
 
     resultados_totales = []
 
-    for loteria_nombre, info in LOTERIAS_TUAZAR.items():
+    for loteria_nombre, info in LOTERIAS_CONFIG.items():
+        slug = info["slug"]
+        logo = info["logo"]
         sorteos_obtenidos = {}
-        url_target = f"https://www.tuazar.com/triples/animalitos/{info['tuazar']}/"
 
-        try:
-            # Impersonación dinámica de huella TLS
-            response = session.get(
-                url_target,
-                headers=headers_base,
-                impersonate="chrome120",
-                timeout=12
-            )
+        # Múltiples URLs de respaldo alternando LoteríaDeHoy y Parley.la
+        urls_prueba = [
+            f"https://loteriadehoy.com/animalitos/{slug}",
+            f"https://m.parley.la/resultados/resultados-{slug}",
+            f"https://parley.la/resultados/{slug}"
+        ]
 
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.text, 'html.parser')
-                bloques = soup.find_all(['tr', 'div', 'li', 'td', 'article'])
+        for url_target in urls_prueba:
+            try:
+                response = session.get(url_target, headers=headers_base, impersonate="chrome120", timeout=8)
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    bloques = soup.find_all(['tr', 'div', 'li', 'article', 'td'])
 
-                for b in bloques:
-                    txt = b.get_text(" ", strip=True)
-                    if len(txt) > 250:
-                        continue
+                    for b in bloques:
+                        txt = b.get_text(" ", strip=True)
+                        if len(txt) > 250:
+                            continue
 
-                    h = extraer_hora(txt)
-                    if not h or h in sorteos_obtenidos:
-                        continue
+                        h = extraer_hora(txt)
+                        if not h or h in sorteos_obtenidos:
+                            continue
 
-                    num, animal = None, None
-                    img = b.find('img')
+                        num, animal = None, None
+                        img = b.find('img')
 
-                    if img and img.get('src'):
-                        src = img.get('src').lower()
-                        if not ("logo" in src or "icon" in src or "banner" in src):
-                            m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
-                            if m:
-                                num = m.group(1).zfill(2)
-                                animal = img.get('alt') or img.get('title') or "Animalito"
+                        if img and img.get('src'):
+                            src = img.get('src').lower()
+                            if not ("logo" in src or "icon" in src or "banner" in src):
+                                m = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src)
+                                if m:
+                                    num = m.group(1).zfill(2)
+                                    animal = img.get('alt') or img.get('title') or "Animalito"
 
-                    if not num:
-                        num, animal = extraer_animal_de_texto(txt)
+                        if not num:
+                            num, animal = extraer_animal_de_texto(txt)
 
-                    if num and animal:
-                        sorteos_obtenidos[h] = {
-                            "loteria": loteria_nombre,
-                            "logo_loteria": info["logo"],
-                            "hora": h,
-                            "numero": num,
-                            "animal": animal.strip().capitalize(),
-                            "imagen": "",
-                            "realizado": True
-                        }
+                        if num and animal:
+                            sorteos_obtenidos[h] = {
+                                "loteria": loteria_nombre,
+                                "logo_loteria": logo,
+                                "hora": h,
+                                "numero": num,
+                                "animal": animal.strip().capitalize(),
+                                "imagen": "",
+                                "realizado": True
+                            }
 
-        except Exception as e:
-            print(f"Error accediendo a {url_target}: {e}")
+                if sorteos_obtenidos:
+                    break
+            except Exception as e:
+                print(f"Error consultando {url_target}: {e}")
+                continue
 
-        # Normalización de los 12 horarios estándar
+        # Preservar o rellenar horarios
         for h_estandar, _ in HORARIOS_ORDENADOS:
+            clave = f"{loteria_nombre}_{h_estandar}"
+            if h_estandar not in sorteos_obtenidos and clave in datos_previos:
+                sorteos_obtenidos[h_estandar] = datos_previos[clave]
+
             if h_estandar not in sorteos_obtenidos:
                 sorteos_obtenidos[h_estandar] = {
                     "loteria": loteria_nombre,
-                    "logo_loteria": info["logo"],
+                    "logo_loteria": logo,
                     "hora": h_estandar,
                     "numero": "--",
                     "animal": "Por salir",
@@ -156,7 +170,7 @@ def ejecutar():
         except Exception:
             historial = {}
 
-    resultados_dia = extraer_tuazar_anti_bloqueo()
+    resultados_dia = extraer_duo_dinamico()
 
     for r in resultados_dia:
         r["fecha"] = hoy
@@ -168,7 +182,7 @@ def ejecutar():
     with open("historial_resultados.json", "w", encoding="utf-8") as f:
         json.dump(historial, f, ensure_ascii=False, indent=2)
 
-    print("Proceso finalizado. Datos de TuAzar extraídos y guardados correctamente.")
+    print("Sincronización unificada de Parley.la + LoteríaDeHoy finalizada con éxito.")
 
 if __name__ == "__main__":
     ejecutar()
