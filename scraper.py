@@ -6,41 +6,29 @@ from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
 
+# Mapeo oficial de las 18 loterías
 LOTERIAS_OFICIALES = {
-    "Lotto Activo": {"slug": "lotto-activo", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo.png"},
-    "La Granjita": {"slug": "la-granjita", "logo_fallback": "https://loteriadehoy.com/images/la-granjita.png"},
-    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "logo_fallback": "https://loteriadehoy.com/images/monje-millonario.png"},
-    "Guacharo Activo": {"slug": "guacharo-activo", "logo_fallback": "https://loteriadehoy.com/images/guacharo-activo.png"},
-    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "logo_fallback": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
-    "Selva Plus": {"slug": "selva-plus", "logo_fallback": "https://loteriadehoy.com/images/selva-plus.png"},
-    "Centena Plus": {"slug": "centena-plus", "logo_fallback": "https://loteriadehoy.com/images/centena-plus.png"},
-    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
-    "Mega Animal 40": {"slug": "mega-animal-40", "logo_fallback": "https://loteriadehoy.com/images/mega-animal-40.png"},
-    "Centena Animalitos": {"slug": "centena-animalitos", "logo_fallback": "https://loteriadehoy.com/images/centena-animalitos.png"},
-    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "logo_fallback": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
-    "Cazaloton": {"slug": "cazaloton", "logo_fallback": "https://loteriadehoy.com/images/cazaloton.png"},
-    "Ruleta Activa": {"slug": "ruleta-activa", "logo_fallback": "https://loteriadehoy.com/images/ruleta-activa.png"},
-    "Granja Millonaria": {"slug": "granja-millonaria", "logo_fallback": "https://loteriadehoy.com/images/granja-millonaria.png"},
-    "La-Ricachona": {"slug": "la-ricachona", "logo_fallback": "https://loteriadehoy.com/images/la-ricachona.png"},
-    "Jungla Millonaria": {"slug": "jungla-millonaria", "logo_fallback": "https://loteriadehoy.com/images/jungla-millonaria.png"},
-    "Loto Chaima": {"slug": "loto-chaima", "logo_fallback": "https://loteriadehoy.com/images/loto-chaima.png"},
-    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo_fallback": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
+    "Lotto Activo": {"slug": "lotto-activo", "logo": "https://loteriadehoy.com/images/lotto-activo.png"},
+    "La Granjita": {"slug": "la-granjita", "logo": "https://loteriadehoy.com/images/la-granjita.png"},
+    "Lotto Activo 2 (Monje Millonario)": {"slug": "monje-millonario", "logo": "https://loteriadehoy.com/images/monje-millonario.png"},
+    "Guacharo Activo": {"slug": "guacharo-activo", "logo": "https://loteriadehoy.com/images/guacharo-activo.png"},
+    "El Guacharito Millonario": {"slug": "el-guacharito-millonario", "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png"},
+    "Selva Plus": {"slug": "selva-plus", "logo": "https://loteriadehoy.com/images/selva-plus.png"},
+    "Centena Plus": {"slug": "centena-plus", "logo": "https://loteriadehoy.com/images/centena-plus.png"},
+    "Lotto Activo Rd Int": {"slug": "lotto-activo-rd-int", "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png"},
+    "Mega Animal 40": {"slug": "mega-animal-40", "logo": "https://loteriadehoy.com/images/mega-animal-40.png"},
+    "Centena Animalitos": {"slug": "centena-animalitos", "logo": "https://loteriadehoy.com/images/centena-animalitos.png"},
+    "Chance Con Animalitos": {"slug": "chance-con-animalitos", "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png"},
+    "Cazaloton": {"slug": "cazaloton", "logo": "https://loteriadehoy.com/images/cazaloton.png"},
+    "Ruleta Activa": {"slug": "ruleta-activa", "logo": "https://loteriadehoy.com/images/ruleta-activa.png"},
+    "Granja Millonaria": {"slug": "granja-millonaria", "logo": "https://loteriadehoy.com/images/granja-millonaria.png"},
+    "La-Ricachona": {"slug": "la-ricachona", "logo": "https://loteriadehoy.com/images/la-ricachona.png"},
+    "Jungla Millonaria": {"slug": "jungla-millonaria", "logo": "https://loteriadehoy.com/images/jungla-millonaria.png"},
+    "Loto Chaima": {"slug": "loto-chaima", "logo": "https://loteriadehoy.com/images/loto-chaima.png"},
+    "Lotto Activo RDominicana": {"slug": "lotto-activo-rdominicana", "logo": "https://loteriadehoy.com/images/lotto-activo-rdominicana.png"}
 }
 
-HORARIOS_EN_PUNTO = [
-    ("08:00 AM", 8.0), ("09:00 AM", 9.0), ("10:00 AM", 10.0), ("11:00 AM", 11.0),
-    ("12:00 PM", 12.0), ("01:00 PM", 13.0), ("02:00 PM", 14.0), ("03:00 PM", 15.0),
-    ("04:00 PM", 16.0), ("05:00 PM", 17.0), ("06:00 PM", 18.0), ("07:00 PM", 19.0)
-]
-
-HORARIOS_MEDIAS_HORAS = [
-    ("08:30 AM", 8.5), ("09:30 AM", 9.5), ("10:30 AM", 10.5), ("11:30 AM", 11.5),
-    ("12:30 PM", 12.5), ("01:30 PM", 13.5), ("02:30 PM", 14.5), ("03:30 PM", 15.5),
-    ("04:30 PM", 16.5), ("05:30 PM", 17.5), ("06:30 PM", 18.5), ("07:30 PM", 19.5)
-]
-
-TODOS_LOS_HORARIOS = sorted(HORARIOS_EN_PUNTO + HORARIOS_MEDIAS_HORAS, key=lambda x: x[1])
-
+# PROXY RESIDENCIAL DE RESPALDO
 PROXY_URL = os.getenv("PROXY_URL", "")
 
 def intentar_obtencion_api_directa(slug):
@@ -65,29 +53,20 @@ def intentar_obtencion_api_directa(slug):
             continue
     return None
 
-def extraer_imagen_y_numero(contenedor_padre, url_base):
-    for img in contenedor_padre.find_all("img"):
-        src = img.get("src", "")
-        if src and not ("logo" in src.lower() or "icon" in src.lower()):
-            if not src.startswith("http"):
-                src = url_base.rstrip("/") + ("/" if not src.startswith("/") else "") + src
-
-            match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
-            numero = match_num.group(1).zfill(2) if match_num else "--"
-            
-            nombre = img.get("alt") or img.get("title") or "Animalito"
-            if nombre == "Animalito":
-                txt = contenedor_padre.get_text(" ", strip=True)
-                match_txt = re.search(r'([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,15})', txt)
-                if match_txt:
-                    nombre = match_txt.group(1)
-
-            return {"numero": numero, "animal": nombre.strip(), "imagen": src}
-
+def extraer_hora_de_texto(texto):
+    # Detecta cualquier patrón de hora tipo 08:00 AM, 8:00am, 12:30 PM, etc.
+    match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
+    if match:
+        hora_str = match.group(1).strip().upper()
+        if "AM" not in hora_str and "PM" not in hora_str:
+            # Asignar AM/PM aproximado según la hora numérica si no viene explícito
+            h_num = int(hora_str.split(":")[0])
+            hora_str += " PM" if h_num in [12, 1, 2, 3, 4, 5, 6, 7] else " AM"
+        return hora_str
     return None
 
-def escanear_hibrido_resistente(browser):
-    datos_extraidos = {}
+def escanear_hibrido_dinamico(browser):
+    resultados_totales = []
 
     context_args = {
         "user_agent": "Mozilla/5.0 (Linux; Android 10; Redmi Note 9 Pro) AppleWebKit/537.36",
@@ -105,69 +84,88 @@ def escanear_hibrido_resistente(browser):
 
     for loteria_nombre, info in LOTERIAS_OFICIALES.items():
         slug = info["slug"]
+        logo_loteria = info["logo"]
+
+        # CAPA 1: API DIRECTA
         datos_api = intentar_obtencion_api_directa(slug)
         if datos_api:
             for item in datos_api:
-                hora_item = item.get("hora")
-                num_item = str(item.get("numero", "")).zfill(2)
+                hora_item = item.get("hora", "08:00 AM")
+                num_item = str(item.get("numero", "--")).zfill(2)
                 img_item = item.get("imagen", "")
-                nom_item = item.get("animal", "Resultado")
+                nom_item = item.get("animal", "Animalito")
                 
-                if hora_item:
-                    datos_extraidos[f"{loteria_nombre}-{hora_item}"] = {
-                        "numero": num_item,
-                        "animal": nom_item,
-                        "imagen": img_item
-                    }
+                if img_item and not img_item.startswith("http"):
+                    img_item = "https://loteriadehoy.com" + (img_item if img_item.startswith("/") else "/" + img_item)
+
+                resultados_totales.append({
+                    "loteria": loteria_nombre,
+                    "logo_loteria": logo_loteria,
+                    "hora": hora_item,
+                    "numero": num_item,
+                    "animal": nom_item,
+                    "imagen": img_item,
+                    "realizado": True if num_item != "--" else False
+                })
             continue
 
-        urls_a_probar = [
-            (f"https://loteriadehoy.com/animalitos/{slug}", "https://loteriadehoy.com"),
-            (f"https://m.parley.la/resultados/resultados-{slug}", "https://m.parley.la")
-        ]
+        # CAPA 2: SCRAPER HÍBRIDO ADAPTABLE
+        url_target = f"https://loteriadehoy.com/animalitos/{slug}"
+        try:
+            page.goto(url_target, wait_until="domcontentloaded", timeout=12000)
+            page.wait_for_timeout(1000)
+            html = page.content()
+            soup = BeautifulSoup(html, "html.parser")
 
-        for url_target, url_base in urls_a_probar:
-            try:
-                page.goto(url_target, wait_until="domcontentloaded", timeout=12000)
-                page.wait_for_timeout(1000)
-                html = page.content()
-                soup = BeautifulSoup(html, "html.parser")
+            # Escanear todos los contenedores de sorteo en la página sin asumir estructuras fijas
+            bloques = soup.find_all(["tr", "div", "li", "article"])
+            sorteos_encontrados = {}
 
-                for hora_std, _ in TODOS_LOS_HORARIOS:
-                    clave = f"{loteria_nombre}-{hora_std}"
-                    if clave in datos_extraidos:
-                        continue
+            for bloque in bloques:
+                txt_bloque = bloque.get_text(" ", strip=True)
+                if len(txt_bloque) > 250:
+                    continue
 
-                    hora_corta = hora_std.split()[0]
-                    elementos_coincidentes = soup.find_all(text=re.compile(rf'{hora_corta}', re.IGNORECASE))
+                hora_detectada = extraer_hora_de_texto(txt_bloque)
+                if not hora_detectada or hora_detectada in sorteos_encontrados:
+                    continue
 
-                    for nodo in elementos_coincidentes:
-                        padre = nodo.parent
-                        for _ in range(3):
-                            if padre and padre.name in ["tr", "div", "li", "article", "td"]:
-                                res = extraer_imagen_y_numero(padre, url_base)
-                                if res:
-                                    datos_extraidos[clave] = res
-                                    break
-                            if padre:
-                                padre = padre.parent
+                # Buscar imagen del animalito
+                img_tag = bloque.find("img")
+                if img_tag:
+                    src = img_tag.get("src", "")
+                    if src and not ("logo" in src.lower() or "icon" in src.lower()):
+                        if not src.startswith("http"):
+                            src = "https://loteriadehoy.com" + (src if src.startswith("/") else "/" + src)
 
-            except Exception:
-                continue
+                        match_num = re.search(r'/(?:0?(\d{1,2}))\.(?:png|jpg|jpeg|webp)', src.lower())
+                        numero = match_num.group(1).zfill(2) if match_num else "--"
+                        animal = img_tag.get("alt") or img_tag.get("title") or "Animalito"
+
+                        sorteos_encontrados[hora_detectada] = {
+                            "loteria": loteria_nombre,
+                            "logo_loteria": logo_loteria,
+                            "hora": hora_detectada,
+                            "numero": numero,
+                            "animal": animal.strip(),
+                            "imagen": src,
+                            "realizado": True
+                        }
+
+            for item_sorteo in sorteos_encontrados.values():
+                resultados_totales.append(item_sorteo)
+
+        except Exception as e:
+            print(f"Error procesando {loteria_nombre}: {e}")
+            continue
 
     context.close()
-    return datos_extraidos
+    return resultados_totales
 
 def ejecutar_proceso():
     tz_ve = timezone(timedelta(hours=-4))
     hoy_dt = datetime.now(tz_ve)
     hoy_str = hoy_dt.strftime("%Y-%m-%d")
-    hora_actual_ve = hoy_dt.hour + (hoy_dt.minute / 60.0)
-
-    hora_ultimo_sorteo = "08:00 AM"
-    for h_txt, h_val in TODOS_LOS_HORARIOS:
-        if h_val <= hora_actual_ve:
-            hora_ultimo_sorteo = h_txt
 
     historial = {}
     if os.path.exists("historial_resultados.json"):
@@ -183,44 +181,18 @@ def ejecutar_proceso():
             args=["--no-sandbox", "--disable-setuid-sandbox"]
         )
 
-        mapa_extraido_dia = escanear_hibrido_resistente(browser)
-        resultados_fecha = []
+        lista_resultados_dia = escanear_hibrido_dinamico(browser)
 
-        for loteria_nombre, info in LOTERIAS_OFICIALES.items():
-            logo_url = info["logo_fallback"]
-            for hora_texto, hora_val in TODOS_LOS_HORARIOS:
-                ha_ocurrido = (hora_val <= hora_actual_ve)
-                clave = f"{loteria_nombre}-{hora_texto}"
+        # Agregar timestamp a cada item
+        for item in lista_resultados_dia:
+            item["fecha"] = hoy_str
 
-                if ha_ocurrido and clave in mapa_extraido_dia:
-                    item_d = mapa_extraido_dia[clave]
-                    num_str = item_d["numero"]
-                    nombre_animal = item_d["animal"]
-                    imagen_url = item_d["imagen"]
-                    realizado = True
-                else:
-                    num_str = "--"
-                    nombre_animal = "Por salir"
-                    imagen_url = ""
-                    realizado = False
-
-                resultados_fecha.append({
-                    "fecha": hoy_str,
-                    "loteria": loteria_nombre,
-                    "logo_loteria": logo_url,
-                    "hora": hora_texto,
-                    "hora_num": hora_val,
-                    "numero": num_str,
-                    "animal": nombre_animal,
-                    "imagen": imagen_url,
-                    "realizado": realizado,
-                    "es_ultimo_en_vivo": (hora_texto == hora_ultimo_sorteo)
-                })
-
+        # Guardar archivo actual
         with open("resultados.json", "w", encoding="utf-8") as f:
-            json.dump(resultados_fecha, f, ensure_ascii=False, indent=2)
+            json.dump(lista_resultados_dia, f, ensure_ascii=False, indent=2)
 
-        historial[hoy_str] = resultados_fecha
+        # Guardar en historial acumulado
+        historial[hoy_str] = lista_resultados_dia
         with open("historial_resultados.json", "w", encoding="utf-8") as f:
             json.dump(historial, f, ensure_ascii=False, indent=2)
 
@@ -228,4 +200,4 @@ def ejecutar_proceso():
 
 if __name__ == "__main__":
     ejecutar_proceso()
-    print("Sincronización con logos de lotería completada.")
+    print("Sincronización dinámica de horarios y resultados completada.")
