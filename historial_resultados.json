@@ -15615,9 +15615,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/lotto-activo.png",
       "hora": "01:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "12 CABALLO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/lotto-activo/animals_png_180/12-caballo.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -15974,10 +15974,10 @@
       "loteria": "Guacharo Activo",
       "logo_loteria": "https://loteriadehoy.com/images/guacharo-activo.png",
       "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "numero": "70",
+      "animal": "70 BISONTE",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/guacharo-activo/animals_png_180/70.jpg",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -16695,9 +16695,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/centena-animalitos.png",
       "hora": "01:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "12 CABALLO",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/centena-animalitos/animals_png_180/12-caballo.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -16934,10 +16934,10 @@
       "loteria": "Cazaloton",
       "logo_loteria": "https://loteriadehoy.com/images/cazaloton.png",
       "hora": "01:00 PM",
-      "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "numero": "09",
+      "animal": "9 AGUILA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/cazaloton/animals_png_180/09.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
@@ -17535,9 +17535,9 @@
       "logo_loteria": "https://loteriadehoy.com/images/loto-chaima.png",
       "hora": "01:00 PM",
       "numero": "--",
-      "animal": "Por salir",
-      "imagen": "",
-      "realizado": false,
+      "animal": "37 TORTUGA",
+      "imagen": "https://loteriadehoy.com//sisvenprol.parley.la/assets/img/products/animals/loto-chaima/animals_png_180/37-TORTUGA.png",
+      "realizado": true,
       "fecha": "2026-09-24"
     },
     {
