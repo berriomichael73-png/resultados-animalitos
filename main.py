@@ -41,27 +41,74 @@ def init_db():
 
 init_db()
 
+# Configuración de loterías con sus horarios oficiales exactos
 LOTERIAS_MAPPING = {
-    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png", "patron": ["lotto activo"]},
-    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png", "patron": ["la granjita"]},
-    "Monje Millonario": {"logo": "https://loteriadehoy.com/images/monje-millonario.png", "patron": ["monje", "lotto activo 2"]},
-    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png", "patron": ["guacharo activo"]},
-    "El Guacharito": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png", "patron": ["el guacharito", "guacharito"]},
-    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png", "patron": ["selva plus"]},
-    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png", "patron": ["centena plus"]},
-    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png", "patron": ["mega animal"]},
-    "Lotto Activo RD": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png", "patron": ["lotto activo rd", "rd"]},
-    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png", "patron": ["centena animalitos"]},
-    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png", "patron": ["ruleta activa"]},
-    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png", "patron": ["chance"]},
-    "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["ricachona"]}
+    "Lotto Activo": {
+        "logo": "https://loteriadehoy.com/images/lotto-activo.png",
+        "patron": ["lotto activo"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "La Granjita": {
+        "logo": "https://loteriadehoy.com/images/la-granjita.png",
+        "patron": ["la granjita"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "Monje Millonario": {
+        "logo": "https://loteriadehoy.com/images/monje-millonario.png",
+        "patron": ["monje", "lotto activo 2"],
+        "horarios": ["08:05 AM", "09:05 AM", "10:05 AM", "11:05 AM", "12:05 PM", "01:05 PM", "02:05 PM", "03:05 PM", "04:05 PM", "05:05 PM", "06:05 PM", "07:05 PM"]
+    },
+    "Guacharo Activo": {
+        "logo": "https://loteriadehoy.com/images/guacharo-activo.png",
+        "patron": ["guacharo activo"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "El Guacharito": {
+        "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+        "patron": ["el guacharito", "guacharito"],
+        "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
+    },
+    "Selva Plus": {
+        "logo": "https://loteriadehoy.com/images/selva-plus.png",
+        "patron": ["selva plus"],
+        "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
+    },
+    "Centena Plus": {
+        "logo": "https://loteriadehoy.com/images/centena-plus.png",
+        "patron": ["centena plus"],
+        "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
+    },
+    "Mega Animal 40": {
+        "logo": "https://loteriadehoy.com/images/mega-animal-40.png",
+        "patron": ["mega animal"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "Lotto Activo RD": {
+        "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
+        "patron": ["lotto activo rd"],
+        "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
+    },
+    "Centena Animalitos": {
+        "logo": "https://loteriadehoy.com/images/centena-animalitos.png",
+        "patron": ["centena animalitos"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "Ruleta Activa": {
+        "logo": "https://loteriadehoy.com/images/ruleta-activa.png",
+        "patron": ["ruleta activa"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "Chance Con Animalitos": {
+        "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+        "patron": ["chance"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "La Ricachona": {
+        "logo": "https://loteriadehoy.com/images/la-ricachona.png",
+        "patron": ["ricachona"],
+        "horarios": ["08:10 AM", "09:10 AM", "10:10 AM", "11:10 AM", "12:10 PM", "01:10 PM", "02:10 PM", "03:10 PM", "04:10 PM", "05:10 PM", "06:10 PM", "07:10 PM"]
+    }
 }
-
-HORARIOS_BASE = [
-    "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
-    "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
-    "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
-]
 
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
@@ -95,64 +142,53 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def sincronizar_resultados_en_vivo():
+def raspar_y_guardar_dinamico():
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     hoy = obtener_fecha_venezuela()
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'es-ES,es;q=0.9'
-    }
 
-    urls_fuente = [
-        "https://loteriadehoy.com/",
-        "https://lotoven.com/animalitos/"
-    ]
+    try:
+        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.text, 'html.parser')
+            texto = soup.get_text()
+            secciones = texto.split("*")
 
-    for url in urls_fuente:
-        try:
-            res = requests.get(url, headers=headers, timeout=6)
-            if res.status_code == 200:
-                soup = BeautifulSoup(res.text, 'html.parser')
-                bloques = soup.find_all(['div', 'section', 'article', 'table'])
+            for sec in secciones[1:]:
+                lineas = [l.strip() for l in sec.split("\n") if l.strip()]
+                if not lineas:
+                    continue
+                
+                header = lineas[0].lower()
 
-                for b in bloques:
-                    txt = b.get_text(" ", strip=True)
-                    if len(txt) > 3000:
-                        continue
-
-                    loteria_encontrada = None
-                    for nombre, conf in LOTERIAS_MAPPING.items():
-                        for p in conf["patron"]:
-                            if p in txt.lower():
-                                loteria_encontrada = nombre
-                                break
-                        if loteria_encontrada:
+                loteria_encontrada = None
+                for nombre, conf in LOTERIAS_MAPPING.items():
+                    for p in conf["patron"]:
+                        if p in header:
+                            loteria_encontrada = nombre
                             break
-
                     if loteria_encontrada:
-                        matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', txt, re.IGNORECASE)
-                        if not matches:
-                            matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
-                            for num, animal, hora in matches_inv:
-                                matches.append((hora, num, animal))
+                        break
 
-                        for hora, num, animal in matches:
-                            h_clean = hora.strip().upper()
-                            num_clean = num.zfill(2)
-                            animal_clean = animal.strip().capitalize()
-                            
-                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                                guardar_en_bd(loteria_encontrada, h_clean, num_clean, animal_clean, hoy)
-
-        except Exception as e:
-            print(f"Error procesando {url}: {e}")
+                if loteria_encontrada:
+                    # Captura la tripleta exacta: Número, Animal y Hora oficial
+                    for linea in lineas:
+                        m = re.search(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
+                        if m:
+                            num = m.group(1).zfill(2)
+                            animal = m.group(2).strip().capitalize()
+                            hora = m.group(3).strip().upper()
+                            guardar_en_bd(loteria_encontrada, hora, num, animal, hoy)
+    except Exception as e:
+        print(f"Error raspando LotoVen: {e}")
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    sincronizar_resultados_en_vivo()
+    # 1. Escanear LotoVen
+    raspar_y_guardar_dinamico()
 
+    # 2. Consultar base de datos
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
@@ -175,21 +211,19 @@ def obtener_resultados():
 
     lista_final = []
 
+    # 3. Ensamblar tarjetas respetando la lista de horas de CADA lotería
     for loteria, config in LOTERIAS_MAPPING.items():
         logo = config["logo"]
-        sorteos_loteria = datos_obtenidos[loteria]
+        horarios_loteria = config["horarios"]
+        sorteos_guardados = datos_obtenidos[loteria]
 
-        horas_procesadas = set()
-        for h_real, item in sorteos_loteria.items():
-            lista_final.append(item)
-            horas_procesadas.add(h_real)
-
-        for h_base in HORARIOS_BASE:
-            hora_ya_existe = any(convertir_hora_a_minutos(h_base) == convertir_hora_a_minutos(hp) for hp in horas_procesadas)
-            if not hora_ya_existe:
+        for h_oficial in horarios_loteria:
+            if h_oficial in sorteos_guardados:
+                lista_final.append(sorteos_guardados[h_oficial])
+            else:
                 lista_final.append({
                     "loteria": loteria,
-                    "hora": h_base,
+                    "hora": h_oficial,
                     "numero": "--",
                     "animal": "Por salir",
                     "fecha": hoy,
