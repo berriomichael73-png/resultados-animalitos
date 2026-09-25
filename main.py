@@ -41,7 +41,6 @@ def init_db():
 
 init_db()
 
-# Configuración de loterías con sus horarios oficiales exactos
 LOTERIAS_MAPPING = {
     "Lotto Activo": {
         "logo": "https://loteriadehoy.com/images/lotto-activo.png",
@@ -142,53 +141,61 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def raspar_y_guardar_dinamico():
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+def raspar_loteriadehoy():
     hoy = obtener_fecha_venezuela()
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    }
 
     try:
-        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
+        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=6)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
-            texto = soup.get_text()
-            secciones = texto.split("*")
+            
+            # Recorrer contenedores principales de loteriadehoy.com
+            bloques = soup.find_all(['div', 'section', 'article', 'tr'])
 
-            for sec in secciones[1:]:
-                lineas = [l.strip() for l in sec.split("\n") if l.strip()]
-                if not lineas:
+            for b in bloques:
+                txt = b.get_text(" ", strip=True)
+                if len(txt) > 2500:
                     continue
-                
-                header = lineas[0].lower()
 
                 loteria_encontrada = None
                 for nombre, conf in LOTERIAS_MAPPING.items():
                     for p in conf["patron"]:
-                        if p in header:
+                        if p in txt.lower():
                             loteria_encontrada = nombre
                             break
                     if loteria_encontrada:
                         break
 
                 if loteria_encontrada:
-                    # Captura la tripleta exacta: Número, Animal y Hora oficial
-                    for linea in lineas:
-                        m = re.search(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
-                        if m:
-                            num = m.group(1).zfill(2)
-                            animal = m.group(2).strip().capitalize()
-                            hora = m.group(3).strip().upper()
-                            guardar_en_bd(loteria_encontrada, hora, num, animal, hoy)
+                    # Coincidencia para patrones de loteriadehoy.com: "09:00 AM - 01 CARNERO" o "01 CARNERO 09:00 AM"
+                    matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', txt, re.IGNORECASE)
+                    if not matches:
+                        matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
+                        for num, animal, hora in matches_inv:
+                            matches.append((hora, num, animal))
+
+                    for hora, num, animal in matches:
+                        h_clean = hora.strip().upper()
+                        num_clean = num.zfill(2)
+                        animal_clean = animal.strip().capitalize()
+                        
+                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                            guardar_en_bd(loteria_encontrada, h_clean, num_clean, animal_clean, hoy)
+
     except Exception as e:
-        print(f"Error raspando LotoVen: {e}")
+        print(f"Error raspando loteriadehoy.com: {e}")
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # 1. Escanear LotoVen
-    raspar_y_guardar_dinamico()
+    # Sincronización en vivo desde loteriadehoy.com
+    raspar_loteriadehoy()
 
-    # 2. Consultar base de datos
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
@@ -211,7 +218,6 @@ def obtener_resultados():
 
     lista_final = []
 
-    # 3. Ensamblar tarjetas respetando la lista de horas de CADA lotería
     for loteria, config in LOTERIAS_MAPPING.items():
         logo = config["logo"]
         horarios_loteria = config["horarios"]
