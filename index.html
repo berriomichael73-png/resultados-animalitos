@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loterías y Animalitos en Vivo</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animalitos VE - En Vivo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="main-header">
+        <h1>🟢 ANIMALITOS VE</h1>
+        <p>Resultados en tiempo real</p>
+    </header>
 
-  <header class="navbar">
-    <div class="logo-container">
-      <span class="pulse-dot"></span>
-      <h1>ANIMALITOS<span>VE</span></h1>
-    </div>
-    <p class="subtitle">Resultados en tiempo real</p>
-  </header>
+    <main class="container">
+        <!-- Filtros de loterías -->
+        <div id="contenedor-filtros" class="filtros-container">
+            <button class="btn-filtro active" onclick="filtrarPorLoteria('Todas', window.todosLosDatos || [], this)">🔥 Todas</button>
+        </div>
 
-  <main class="container">
-    <!-- Barra de Filtros de Loterías -->
-    <div class="filtros-wrapper">
-      <div id="filtros-loterias" class="filtros-container">
-        <button class="btn-filtro active" data-loteria="TODAS">🔥 Todas</button>
-      </div>
-    </div>
+        <!-- Cuadrícula de tarjetas -->
+        <div id="contenedor-resultados" class="grid-resultados">
+            <p style="text-align: center; color: #aaa; grid-column: 1 / -1;">Conectando con el servidor en vivo...</p>
+        </div>
+    </main>
 
-    <!-- Indicador de Carga -->
-    <div id="estado" class="estado-card">
-      <div class="spinner"></div>
-      <p id="estado-texto">Conectando con el servidor en vivo...</p>
-    </div>
-
-    <!-- Grid de Tarjetas de Resultados -->
-    <div id="grid-resultados" class="grid-animalitos"></div>
-  </main>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
