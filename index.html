@@ -5,22 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animalitos VE - En Vivo</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome para iconos modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <h1>🟢 ANIMALITOS VE</h1>
-        <p>Resultados en tiempo real</p>
+    <!-- Barra Superior -->
+    <header class="app-header">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="logo-title">
+            <i class="fa-solid fa-paw live-dot"></i>
+            <h1>ANIMALITOS VE</h1>
+        </div>
+        <button class="refresh-btn" onclick="obtenerResultados()">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
     </header>
 
-    <main class="container">
-        <!-- Filtros de loterías -->
-        <div id="contenedor-filtros" class="filtros-container">
-            <button class="btn-filtro active" onclick="filtrarPorLoteria('Todas', window.todosLosDatos || [], this)">🔥 Todas</button>
+    <!-- Menú Lateral / Barra Lateral (Drawer) -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fa-solid fa-filter"></i> Loterías</h3>
+            <button class="close-sidebar" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="contenedor-filtros" class="sidebar-menu">
+            <!-- Los botones de loterías se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Contenido Principal -->
+    <main class="main-container">
+        <div class="status-bar-info">
+            <span id="filtro-activo-label"><i class="fa-solid fa-fire"></i> Mostrando: Todas las Loterías</span>
         </div>
 
-        <!-- Cuadrícula de tarjetas -->
         <div id="contenedor-resultados" class="grid-resultados">
-            <p style="text-align: center; color: #aaa; grid-column: 1 / -1;">Conectando con el servidor en vivo...</p>
+            <div class="loading-state">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <p>Conectando con el servidor en vivo...</p>
+            </div>
         </div>
     </main>
 
