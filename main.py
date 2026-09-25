@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 import re
 import sqlite3
 import random
@@ -8,16 +9,6 @@ from collections import Counter
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 import requests
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 DB_FILE = "animalitos_historico.db"
 
@@ -143,18 +134,16 @@ def guardar_en_bd(loteria, hora, numero, animal, imagen, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def escanear_loteriadehoy():
+def escanear_loteriadehoy_sync():
     hoy = obtener_fecha_venezuela()
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
 
     try:
-        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=5)
+        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=3)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
-            
-            # Busca todos los contenedores o filas de sorteos
             bloques = soup.find_all(['div', 'tr', 'article', 'section'])
 
             for b in bloques:
@@ -172,14 +161,12 @@ def escanear_loteriadehoy():
                         break
 
                 if loteria_encontrada:
-                    # Extrae la imagen del animalito si está presente en la etiqueta <img>
                     img_tag = b.find('img')
                     imagen_url = ""
                     if img_tag and img_tag.get('src'):
                         src = img_tag['src']
                         imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
 
-                    # Extrae número, animal y hora
                     matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', b.get_text(" ", strip=True), re.IGNORECASE)
                     if not matches:
                         matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', b.get_text(" ", strip=True), re.IGNORECASE)
@@ -197,32 +184,35 @@ def escanear_loteriadehoy():
                             
                             guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
     except Exception as e:
-        print(f"Error en escanear_loteriadehoy: {e}")
+        print(f"Error en escaneo: {e}")
 
 async def tarea_segundo_plano():
     while True:
         try:
-            escanear_loteriadehoy()
+            await asyncio.to_thread(escanear_loteriadehoy_sync)
         except Exception as e:
-            print(f"Error en tarea automatica: {e}")
+            print(f"Error en background: {e}")
         await asyncio.sleep(60)
 
-@app.on_event("startup")
-async def inicio_automatico():
-    asyncio.create_task(tarea_segundo_plano())
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    task = asyncio.create_task(tarea_segundo_plano())
+    yield
+    task.cancel()
+
+app = FastAPI(lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
-
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) FROM resultados WHERE fecha = ?", (hoy,))
-    total_hoy = cursor.fetchone()[0]
-    conn.close()
-
-    if total_hoy == 0:
-        escanear_loteriadehoy()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
