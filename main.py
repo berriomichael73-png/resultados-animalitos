@@ -95,50 +95,61 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def raspar_y_guardar_dinamico():
+def raspar_parley_la():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     hoy = obtener_fecha_venezuela()
 
     try:
-        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
+        res = requests.get("https://parley.la/animalitos/", headers=headers, timeout=6)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
-            texto = soup.get_text()
-            secciones = texto.split("*")
+            
+            # Buscar todas las secciones o contenedores en parley.la
+            bloques = soup.find_all(['table', 'div', 'article', 'section'])
 
-            for sec in secciones[1:]:
-                lineas = [l.strip() for l in sec.split("\n") if l.strip()]
-                if not lineas:
+            for b in bloques:
+                txt = b.get_text(" ", strip=True)
+                if len(txt) > 2000:
                     continue
-                header = lineas[0].lower()
 
+                # Identificar la lotería del bloque
                 loteria_encontrada = None
                 for nombre, conf in LOTERIAS_MAPPING.items():
                     for p in conf["patron"]:
-                        if p in header:
+                        if p in txt.lower():
                             loteria_encontrada = nombre
                             break
                     if loteria_encontrada:
                         break
 
                 if loteria_encontrada:
-                    for linea in lineas:
-                        # Analiza cada línea individualmente para extraer número, animal y hora
-                        m = re.search(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
-                        if m:
-                            num = m.group(1).zfill(2)
-                            animal = m.group(2).strip().capitalize()
-                            hora = m.group(3).strip().upper()
-                            guardar_en_bd(loteria_encontrada, hora, num, animal, hoy)
+                    # Capturar patrones del tipo: "08:00 AM 12 CABALLO" o "12 CABALLO 08:00 AM"
+                    matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', txt, re.IGNORECASE)
+                    if not matches:
+                        matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
+                        for num, animal, hora in matches_inv:
+                            matches.append((hora, num, animal))
+
+                    for hora, num, animal in matches:
+                        h_clean = hora.strip().upper()
+                        num_clean = num.zfill(2)
+                        animal_clean = animal.strip().capitalize()
+                        
+                        # Evitar guardar palabras del sistema como si fueran animalitos
+                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                            guardar_en_bd(loteria_encontrada, h_clean, num_clean, animal_clean, hoy)
+
     except Exception as e:
-        print(f"Error raspando: {e}")
+        print(f"Error raspando parley.la: {e}")
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    raspar_y_guardar_dinamico()
+    # 1. Raspar la nueva fuente parley.la
+    raspar_parley_la()
 
+    # 2. Consultar base de datos
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
