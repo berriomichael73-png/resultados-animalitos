@@ -36,42 +36,67 @@ init_db()
 
 LOTERIAS_MAPPING = {
     "Lotto Activo": {
-        "logo": "https://www.animaltronicsresultados.com/images/lotto-activo.png",
+        "logo": "https://loteriadehoy.com/images/lotto-activo.png",
         "patron": ["lotto activo"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "La Granjita": {
-        "logo": "https://www.animaltronicsresultados.com/images/la-granjita.png",
-        "patron": ["granjita"],
+        "logo": "https://loteriadehoy.com/images/la-granjita.png",
+        "patron": ["la granjita"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "Monje Millonario": {
-        "logo": "https://www.animaltronicsresultados.com/images/monje.png",
-        "patron": ["monje"],
+        "logo": "https://loteriadehoy.com/images/monje-millonario.png",
+        "patron": ["monje", "lotto activo 2"],
         "horarios": ["08:05 AM", "09:05 AM", "10:05 AM", "11:05 AM", "12:05 PM", "01:05 PM", "02:05 PM", "03:05 PM", "04:05 PM", "05:05 PM", "06:05 PM", "07:05 PM"]
     },
     "Guacharo Activo": {
-        "logo": "https://www.animaltronicsresultados.com/images/guacharo.png",
+        "logo": "https://loteriadehoy.com/images/guacharo-activo.png",
         "patron": ["guacharo activo"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "El Guacharito": {
-        "logo": "https://www.animaltronicsresultados.com/images/guacharito.png",
-        "patron": ["guacharito"],
+        "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+        "patron": ["el guacharito", "guacharito"],
         "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
     },
     "Selva Plus": {
-        "logo": "https://www.animaltronicsresultados.com/images/selvaplus.png",
+        "logo": "https://loteriadehoy.com/images/selva-plus.png",
         "patron": ["selva plus"],
         "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
     },
+    "Centena Plus": {
+        "logo": "https://loteriadehoy.com/images/centena-plus.png",
+        "patron": ["centena plus"],
+        "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
+    },
+    "Mega Animal 40": {
+        "logo": "https://loteriadehoy.com/images/mega-animal-40.png",
+        "patron": ["mega animal"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
+    "Lotto Activo RD": {
+        "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
+        "patron": ["lotto activo rd"],
+        "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
+    },
+    "Centena Animalitos": {
+        "logo": "https://loteriadehoy.com/images/centena-animalitos.png",
+        "patron": ["centena animalitos"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
     "Ruleta Activa": {
-        "logo": "https://www.animaltronicsresultados.com/images/ruleta.png",
+        "logo": "https://loteriadehoy.com/images/ruleta-activa.png",
         "patron": ["ruleta activa"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
+    "Chance Con Animalitos": {
+        "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+        "patron": ["chance"],
+        "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
+    },
     "La Ricachona": {
-        "logo": "https://www.animaltronicsresultados.com/images/ricachona.png",
+        "logo": "https://loteriadehoy.com/images/la-ricachona.png",
         "patron": ["ricachona"],
         "horarios": ["08:10 AM", "09:10 AM", "10:10 AM", "11:10 AM", "12:10 PM", "01:10 PM", "02:10 PM", "03:10 PM", "04:10 PM", "05:10 PM", "06:10 PM", "07:10 PM"]
     }
@@ -109,16 +134,24 @@ def guardar_en_bd(loteria, hora, numero, animal, imagen, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def escanear_animaltronics_sync():
+def escanear_loteriadehoy_seguro():
     hoy = obtener_fecha_venezuela()
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-    url = "https://www.animaltronicsresultados.com/"
+    # Cabeceras avanzadas de navegador real para evitar bloqueos anti-bot
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'es-ES,es;q=0.9',
+        'Connection': 'keep-alive'
+    }
+
+    url = "https://loteriadehoy.com/"
 
     try:
+        # Timeout de 4 segundos estricto para garantizar que Render jamás se quede congelado
         res = requests.get(url, headers=headers, timeout=4)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
-            elementos = soup.find_all(['div', 'tr', 'li', 'article'])
+            elementos = soup.find_all(['div', 'article', 'li', 'tr'])
 
             for el in elementos:
                 txt = el.get_text(" ", strip=True)
@@ -143,27 +176,40 @@ def escanear_animaltronics_sync():
                         num = "--"
                         animal = "Por salir"
 
-                        if match_num:
+                        # Buscar imagen específica del resultado
+                        img_tag = el.find('img')
+                        imagen_url = ""
+                        if img_tag and img_tag.get('src'):
+                            src = img_tag['src']
+                            if 'por-salir' not in src and 'logo' not in src:
+                                imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
+                                match_num_img = re.search(r'/(\d{1,2})\.png', src)
+                                if match_num_img:
+                                    num = match_num_img.group(1).zfill(2)
+
+                        if num == "--" and match_num:
                             num_val = int(match_num.group(1))
                             if 0 <= num_val <= 36:
                                 num = str(num_val).zfill(2)
 
+                        # Extraer nombre del animal
                         palabras = txt.split()
                         for palabra in palabras:
-                            if len(palabra) > 2 and not any(char.isdigit() for char in palabra) and palabra.upper() not in ["AM", "PM", "RESULTADOS", "SORTEO"]:
+                            if len(palabra) > 2 and not any(char.isdigit() for char in palabra) and palabra.upper() not in ["AM", "PM", "RESULTADOS", "SORTEO", "EN", "DE"]:
                                 animal = palabra.capitalize()
                                 break
 
                         if num != "--":
-                            imagen_url = f"https://loteriadehoy.com/images/animalitos/{num}.png"
+                            if not imagen_url:
+                                imagen_url = f"https://loteriadehoy.com/images/animalitos/{num}.png"
                             guardar_en_bd(loteria_encontrada, hora, num, animal, imagen_url, hoy)
     except Exception as e:
-        print(f"Error escaneando AnimalTronics: {e}")
+        print(f"Aviso de escaneo (operando con caché local): {e}")
 
 async def tarea_segundo_plano():
     while True:
         try:
-            await asyncio.to_thread(escanear_animaltronics_sync)
+            await asyncio.to_thread(escanear_loteriadehoy_seguro)
         except Exception as e:
             print(f"Error en tarea de fondo: {e}")
         await asyncio.sleep(60)
