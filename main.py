@@ -36,67 +36,67 @@ init_db()
 
 LOTERIAS_MAPPING = {
     "Lotto Activo": {
-        "logo": "https://loteriadehoy.com/images/lotto-activo.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/lotto-activo.png",
         "patron": ["lotto activo"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "La Granjita": {
-        "logo": "https://loteriadehoy.com/images/la-granjita.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/la-granjita.png",
         "patron": ["la granjita"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "Monje Millonario": {
-        "logo": "https://loteriadehoy.com/images/monje-millonario.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/monje-millonario.png",
         "patron": ["monje", "lotto activo 2"],
         "horarios": ["08:05 AM", "09:05 AM", "10:05 AM", "11:05 AM", "12:05 PM", "01:05 PM", "02:05 PM", "03:05 PM", "04:05 PM", "05:05 PM", "06:05 PM", "07:05 PM"]
     },
     "Guacharo Activo": {
-        "logo": "https://loteriadehoy.com/images/guacharo-activo.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/guacharo-activo.png",
         "patron": ["guacharo activo"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "El Guacharito": {
-        "logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/el-guacharito.png",
         "patron": ["el guacharito", "guacharito"],
         "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
     },
     "Selva Plus": {
-        "logo": "https://loteriadehoy.com/images/selva-plus.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/selva-plus.png",
         "patron": ["selva plus"],
         "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
     },
     "Centena Plus": {
-        "logo": "https://loteriadehoy.com/images/centena-plus.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/centena-plus.png",
         "patron": ["centena plus"],
         "horarios": ["08:15 AM", "09:15 AM", "10:15 AM", "11:15 AM", "12:15 PM", "01:15 PM", "02:15 PM", "03:15 PM", "04:15 PM", "05:15 PM", "06:15 PM", "07:15 PM"]
     },
     "Mega Animal 40": {
-        "logo": "https://loteriadehoy.com/images/mega-animal-40.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/mega-animal.png",
         "patron": ["mega animal"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "Lotto Activo RD": {
-        "logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/lotto-activo-rd.png",
         "patron": ["lotto activo rd"],
         "horarios": ["08:30 AM", "09:30 AM", "10:30 AM", "11:30 AM", "12:30 PM", "01:30 PM", "02:30 PM", "03:30 PM", "04:30 PM", "05:30 PM", "06:30 PM", "07:30 PM"]
     },
     "Centena Animalitos": {
-        "logo": "https://loteriadehoy.com/images/centena-animalitos.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/centena-animalitos.png",
         "patron": ["centena animalitos"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "Ruleta Activa": {
-        "logo": "https://loteriadehoy.com/images/ruleta-activa.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/ruleta-activa.png",
         "patron": ["ruleta activa"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "Chance Con Animalitos": {
-        "logo": "https://loteriadehoy.com/images/chance-con-animalitos.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/chance.png",
         "patron": ["chance"],
         "horarios": ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]
     },
     "La Ricachona": {
-        "logo": "https://loteriadehoy.com/images/la-ricachona.png",
+        "logo": "https://lotoven.com/wp-content/uploads/2023/04/ricachona.png",
         "patron": ["ricachona"],
         "horarios": ["08:10 AM", "09:10 AM", "10:10 AM", "11:10 AM", "12:10 PM", "01:10 PM", "02:10 PM", "03:10 PM", "04:10 PM", "05:10 PM", "06:10 PM", "07:10 PM"]
     }
@@ -134,82 +134,61 @@ def guardar_en_bd(loteria, hora, numero, animal, imagen, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def escanear_loteriadehoy_sync():
+def escanear_lotoven_sync():
     hoy = obtener_fecha_venezuela()
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    url = "https://lotoven.com/animalitos/"
 
-    urls_escaneo = [
-        "https://loteriadehoy.com/",
-        "https://loteriadehoy.com/lottoactivo/",
-        "https://loteriadehoy.com/lagranjita/"
-    ]
+    try:
+        res = requests.get(url, headers=headers, timeout=6)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.text, 'html.parser')
+            texto_total = soup.get_text("\n", strip=True)
+            lineas = texto_total.split("\n")
 
-    for url in urls_escaneo:
-        try:
-            res = requests.get(url, headers=headers, timeout=5)
-            if res.status_code == 200:
-                soup = BeautifulSoup(res.text, 'html.parser')
-                elementos = soup.find_all(['div', 'li', 'article', 'tr', 'td'])
+            loteria_actual = None
+            for linea in lineas:
+                linea_lower = linea.lower()
+                for nombre, conf in LOTERIAS_MAPPING.items():
+                    for p in conf["patron"]:
+                        if p in linea_lower:
+                            loteria_actual = nombre
+                            break
+                    if loteria_actual and p in linea_lower:
+                        break
 
-                for el in elementos:
-                    texto_completo = el.get_text(" ", strip=True)
-                    if not texto_completo or len(texto_completo) > 300:
-                        continue
+                match_resultado = re.search(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
+                if match_resultado and loteria_actual:
+                    num = match_resultado.group(1).zfill(2)
+                    animal = match_resultado.group(2).capitalize()
+                    hora = match_resultado.group(3).upper()
+                    
+                    imagen_url = f"https://lotoven.com/wp-content/uploads/animalitos/{num}.png"
+                    guardar_en_bd(loteria_actual, hora, num, animal, imagen_url, hoy)
 
-                    loteria_encontrada = None
+            bloques = soup.find_all(['li', 'p', 'div', 'article'])
+            for b in bloques:
+                txt = b.get_text(" ", strip=True)
+                match_alt = re.search(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s*[-–]?\s*([A-Za-z\s]+)?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
+                if match_alt:
+                    num = match_alt.group(1).zfill(2)
+                    animal = match_alt.group(2).capitalize()
+                    hora = match_alt.group(4).upper()
+                    
                     for nombre, conf in LOTERIAS_MAPPING.items():
                         for p in conf["patron"]:
-                            if p in texto_completo.lower():
-                                loteria_encontrada = nombre
+                            if p in txt.lower():
+                                imagen_url = f"https://lotoven.com/wp-content/uploads/animalitos/{num}.png"
+                                guardar_en_bd(nombre, hora, num, animal, imagen_url, hoy)
                                 break
-                        if loteria_encontrada:
-                            break
 
-                    if loteria_encontrada:
-                        match_hora = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))', texto_completo, re.IGNORECASE)
-                        match_num = re.search(r'\b(0?[0-3][0-6]|[1-9])\b', texto_completo)
-                        
-                        if match_hora:
-                            hora_clean = match_hora.group(1).upper()
-                            
-                            img_tag = el.find('img')
-                            imagen_url = ""
-                            num_clean = "--"
-                            animal_clean = "Por salir"
-                            
-                            if img_tag and img_tag.get('src'):
-                                src = img_tag['src']
-                                if 'por-salir' not in src and 'logo' not in src:
-                                    imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
-                                    match_img_num = re.search(r'/(\d{1,2})\.png', src)
-                                    if match_img_num:
-                                        num_clean = match_img_num.group(1).zfill(2)
-
-                            if match_num and num_clean == "--":
-                                num_val = int(match_num.group(1))
-                                if 0 <= num_val <= 36:
-                                    num_clean = str(num_val).zfill(2)
-
-                            palabras = texto_completo.split()
-                            for i, palabra in enumerate(palabras):
-                                if ":" in palabra and ("AM" in palabra.upper() or "PM" in palabra.upper()):
-                                    if i + 2 < len(palabras):
-                                        potencial_animal = palabras[i+2]
-                                        if not re.search(r'\d', potencial_animal) and len(potencial_animal) > 2:
-                                            animal_clean = potencial_animal.capitalize()
-
-                            if num_clean != "--":
-                                if not imagen_url:
-                                    imagen_url = f"https://loteriadehoy.com/images/animalitos/{num_clean}.png"
-                                
-                                guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
-        except Exception as e:
-            print(f"Error en escaneo: {e}")
+    except Exception as e:
+        print(f"Error escaneando LotoVen: {e}")
 
 async def tarea_segundo_plano():
     while True:
         try:
-            await asyncio.to_thread(escanear_loteriadehoy_sync)
+            await asyncio.to_thread(escanear_lotoven_sync)
         except Exception as e:
             print(f"Error en tarea de fondo: {e}")
         await asyncio.sleep(60)
