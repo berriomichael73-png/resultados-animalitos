@@ -136,62 +136,67 @@ def guardar_en_bd(loteria, hora, numero, animal, imagen, fecha):
 
 def escanear_loteriadehoy_sync():
     hoy = obtener_fecha_venezuela()
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
 
-    try:
-        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=3)
-        if res.status_code == 200:
-            soup = BeautifulSoup(res.text, 'html.parser')
-            bloques = soup.find_all(['div', 'tr', 'article', 'section'])
+    urls_escaneo = [
+        "https://loteriadehoy.com/",
+        "https://loteriadehoy.com/lottoactivo/",
+        "https://loteriadehoy.com/lagranjita/"
+    ]
 
-            for b in bloques:
-                txt = b.get_text(" ", strip=True).lower()
-                if not txt or len(txt) > 2000:
-                    continue
+    for url in urls_escaneo:
+        try:
+            res = requests.get(url, headers=headers, timeout=4)
+            if res.status_code == 200:
+                soup = BeautifulSoup(res.text, 'html.parser')
+                bloques = soup.find_all(['div', 'tr', 'article', 'section'])
 
-                loteria_encontrada = None
-                for nombre, conf in LOTERIAS_MAPPING.items():
-                    for p in conf["patron"]:
-                        if p in txt:
-                            loteria_encontrada = nombre
+                for b in bloques:
+                    txt = b.get_text(" ", strip=True).lower()
+                    if not txt or len(txt) > 2000:
+                        continue
+
+                    loteria_encontrada = None
+                    for nombre, conf in LOTERIAS_MAPPING.items():
+                        for p in conf["patron"]:
+                            if p in txt:
+                                loteria_encontrada = nombre
+                                break
+                        if loteria_encontrada:
                             break
+
                     if loteria_encontrada:
-                        break
+                        img_tag = b.find('img')
+                        imagen_url = ""
+                        if img_tag and img_tag.get('src'):
+                            src = img_tag['src']
+                            imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
 
-                if loteria_encontrada:
-                    img_tag = b.find('img')
-                    imagen_url = ""
-                    if img_tag and img_tag.get('src'):
-                        src = img_tag['src']
-                        imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
+                        matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', b.get_text(" ", strip=True), re.IGNORECASE)
+                        if not matches:
+                            matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', b.get_text(" ", strip=True), re.IGNORECASE)
+                            for num, animal, hora in matches_inv:
+                                matches.append((hora, num, animal))
 
-                    matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', b.get_text(" ", strip=True), re.IGNORECASE)
-                    if not matches:
-                        matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', b.get_text(" ", strip=True), re.IGNORECASE)
-                        for num, animal, hora in matches_inv:
-                            matches.append((hora, num, animal))
+                        for hora, num, animal in matches:
+                            num_clean = num.zfill(2)
+                            animal_clean = animal.strip().capitalize()
+                            hora_clean = hora.strip().upper()
 
-                    for hora, num, animal in matches:
-                        num_clean = num.zfill(2)
-                        animal_clean = animal.strip().capitalize()
-                        hora_clean = hora.strip().upper()
-
-                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                            if not imagen_url:
-                                imagen_url = f"https://loteriadehoy.com/images/animalitos/{num_clean}.png"
-                            
-                            guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
-    except Exception as e:
-        print(f"Error en escaneo: {e}")
+                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                                if not imagen_url:
+                                    imagen_url = f"https://loteriadehoy.com/images/animalitos/{num_clean}.png"
+                                
+                                guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
+        except Exception as e:
+            print(f"Error escaneando {url}: {e}")
 
 async def tarea_segundo_plano():
     while True:
         try:
             await asyncio.to_thread(escanear_loteriadehoy_sync)
         except Exception as e:
-            print(f"Error en background: {e}")
+            print(f"Error en tarea de fondo: {e}")
         await asyncio.sleep(60)
 
 @asynccontextmanager
