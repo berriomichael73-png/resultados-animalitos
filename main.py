@@ -42,19 +42,19 @@ def init_db():
 init_db()
 
 LOTERIAS_MAPPING = {
-    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png", "patron": ["Lotto Activo"]},
-    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png", "patron": ["La Granjita"]},
-    "Monje Millonario": {"logo": "https://loteriadehoy.com/images/monje-millonario.png", "patron": ["Monje Millonario", "Lotto Activo 2"]},
-    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png", "patron": ["Guacharo Activo"]},
-    "El Guacharito": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png", "patron": ["El Guacharito"]},
-    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png", "patron": ["Selva Plus"]},
-    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png", "patron": ["Centena Plus"]},
-    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png", "patron": ["Mega Animal 40"]},
-    "Lotto Activo RD": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png", "patron": ["Lotto Activo RD"]},
-    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png", "patron": ["Centena Animalitos"]},
-    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png", "patron": ["Ruleta Activa"]},
-    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png", "patron": ["Chance Con Animalitos"]},
-    "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["La-Ricachona", "La Ricachona"]}
+    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png", "patron": ["lotto activo"]},
+    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png", "patron": ["la granjita"]},
+    "Monje Millonario": {"logo": "https://loteriadehoy.com/images/monje-millonario.png", "patron": ["monje", "lotto activo 2"]},
+    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png", "patron": ["guacharo activo"]},
+    "El Guacharito": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png", "patron": ["el guacharito", "guacharito"]},
+    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png", "patron": ["selva plus"]},
+    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png", "patron": ["centena plus"]},
+    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png", "patron": ["mega animal"]},
+    "Lotto Activo RD": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png", "patron": ["lotto activo rd", "rd"]},
+    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png", "patron": ["centena animalitos"]},
+    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png", "patron": ["ruleta activa"]},
+    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png", "patron": ["chance"]},
+    "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["ricachona"]}
 }
 
 def obtener_fecha_venezuela():
@@ -94,29 +94,29 @@ def raspar_y_guardar_dinamico():
     hoy = obtener_fecha_venezuela()
 
     try:
-        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
+        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=5)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
             texto = soup.get_text()
-            secciones = texto.split("* Resultados")
+            secciones = re.split(r'\*\s*Resultados', texto, flags=re.IGNORECASE)
 
             for sec in secciones[1:]:
                 lineas = [l.strip() for l in sec.split("\n") if l.strip()]
                 if not lineas:
                     continue
-                header = lineas[0]
+                header = lineas[0].lower()
 
                 loteria_encontrada = None
                 for nombre, conf in LOTERIAS_MAPPING.items():
                     for p in conf["patron"]:
-                        if p.lower() in header.lower():
+                        if p in header:
                             loteria_encontrada = nombre
                             break
                     if loteria_encontrada:
                         break
 
                 if loteria_encontrada:
-                    # Captura dinámica: Busca cualquier número, animal y hora real publicada en la página
+                    # Captura flexible para formatos: "01 CARNERO 09:00 AM" o "09:00 AM - 01 CARNERO"
                     matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ\s]+?)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec, re.IGNORECASE)
                     for num, animal, hora in matches:
                         guardar_en_bd(
@@ -133,10 +133,10 @@ def raspar_y_guardar_dinamico():
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # 1. Leer directamente lo que haya publicado la página en este instante
+    # 1. Scraping directo en cada petición
     raspar_y_guardar_dinamico()
 
-    # 2. Consultar todo lo acumulado en la base de datos para hoy
+    # 2. Obtener lo que esté en base de datos
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
@@ -159,7 +159,7 @@ def obtener_resultados():
             "realizado": True
         })
 
-    # 3. Ordenar cronológicamente según la hora real del sorteo
+    # 3. Ordenar cronológicamente
     lista_final.sort(key=lambda x: (x["loteria"], convertir_hora_a_minutos(x["hora"])))
     return lista_final
 
