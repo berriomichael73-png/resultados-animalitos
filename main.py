@@ -57,15 +57,6 @@ LOTERIAS_MAPPING = {
     "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["La-Ricachona", "La Ricachona"]}
 }
 
-HORARIOS_ESTANDAR = [
-    "08:00 AM", "08:15 AM", "08:30 AM", "09:00 AM", "09:15 AM", "09:30 AM",
-    "10:00 AM", "10:15 AM", "10:30 AM", "11:00 AM", "11:15 AM", "11:30 AM",
-    "12:00 PM", "12:15 PM", "12:30 PM", "01:00 PM", "01:15 PM", "01:30 PM",
-    "02:00 PM", "02:15 PM", "02:30 PM", "03:00 PM", "03:15 PM", "03:30 PM",
-    "04:00 PM", "04:15 PM", "04:30 PM", "05:00 PM", "05:15 PM", "05:30 PM",
-    "06:00 PM", "06:15 PM", "06:30 PM", "07:00 PM"
-]
-
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
@@ -98,7 +89,7 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def raspar_y_guardar():
+def raspar_y_guardar_dinamico():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     hoy = obtener_fecha_venezuela()
 
@@ -125,7 +116,7 @@ def raspar_y_guardar():
                         break
 
                 if loteria_encontrada:
-                    # Coincide con horas exactas lanzadas por la fuente (09:00 AM, 09:15 AM, 09:30 AM, etc.)
+                    # Captura dinámica: Busca cualquier número, animal y hora real publicada en la página
                     matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ\s]+?)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec, re.IGNORECASE)
                     for num, animal, hora in matches:
                         guardar_en_bd(
@@ -142,51 +133,33 @@ def raspar_y_guardar():
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # Realiza raspado directo antes de consultar la BD
-    raspar_y_guardar()
+    # 1. Leer directamente lo que haya publicado la página en este instante
+    raspar_y_guardar_dinamico()
 
+    # 2. Consultar todo lo acumulado en la base de datos para hoy
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
     filas = cursor.fetchall()
     conn.close()
 
-    dict_por_loteria = {loteria: {} for loteria in LOTERIAS_MAPPING.keys()}
+    lista_final = []
 
     for f in filas:
         loteria, hora, num, animal, fecha = f[0], f[1], f[2], f[3], f[4]
-        if loteria in dict_por_loteria:
-            dict_por_loteria[loteria][hora] = {
-                "loteria": loteria,
-                "hora": hora,
-                "numero": num,
-                "animal": animal,
-                "fecha": fecha,
-                "logo_loteria": LOTERIAS_MAPPING[loteria]["logo"],
-                "realizado": True
-            }
-
-    lista_final = []
-    for loteria, sorteos in dict_por_loteria.items():
-        logo = LOTERIAS_MAPPING[loteria]["logo"]
+        logo = LOTERIAS_MAPPING.get(loteria, {}).get("logo", "https://loteriadehoy.com/images/lotto-activo.png")
         
-        # Si la lotería ya tiene sorteos realizados, se presentan sus horarios reales capturados
-        if sorteos:
-            for hora_real, datos in sorteos.items():
-                lista_final.append(datos)
-        else:
-            # Si no ha salido ningún sorteo de esa lotería hoy, muestra horarios base
-            for h_base in ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]:
-                lista_final.append({
-                    "loteria": loteria,
-                    "hora": h_base,
-                    "numero": "--",
-                    "animal": "Por salir",
-                    "fecha": hoy,
-                    "logo_loteria": logo,
-                    "realizado": False
-                })
+        lista_final.append({
+            "loteria": loteria,
+            "hora": hora,
+            "numero": num,
+            "animal": animal,
+            "fecha": fecha,
+            "logo_loteria": logo,
+            "realizado": True
+        })
 
+    # 3. Ordenar cronológicamente según la hora real del sorteo
     lista_final.sort(key=lambda x: (x["loteria"], convertir_hora_a_minutos(x["hora"])))
     return lista_final
 
