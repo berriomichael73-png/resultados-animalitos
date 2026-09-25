@@ -1,153 +1,299 @@
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #131b2e;
+    --border-color: #1e293b;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --success: #10b981;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
 }
 
-.main-header {
-    text-align: center;
-    padding: 15px 10px;
-    background: #161b22;
-    border-bottom: 1px solid #30363d;
-}
-
-.main-header h1 {
-    margin: 0;
-    font-size: 1.3rem;
-    color: #58a6ff;
-}
-
-.main-header p {
-    margin: 5px 0 0 0;
-    font-size: 0.8rem;
-    color: #8b949e;
-}
-
-.container {
-    padding: 10px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.filtros-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 8px;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.filtros-container::-webkit-scrollbar {
-    display: none;
-}
-
-.btn-filtro {
-    background: #21262d;
-    color: #c9d1d9;
-    border: 1px solid #30363d;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.btn-filtro.active, .btn-filtro:hover {
-    background: #1f6feb;
-    color: #fff;
-    border-color: #388bfd;
-}
-
-.grid-resultados {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    width: 100%;
-}
-
-@media (min-width: 600px) {
-    .grid-resultados {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.card-sorteo {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 12px;
+/* Cabecera */
+.app-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    background: #111827;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.sorteo-realizado {
-    border-color: #238636;
+.menu-toggle, .refresh-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
 
-.sorteo-pendiente {
-    opacity: 0.7;
+.menu-toggle:active, .refresh-btn:active {
+    background: var(--border-color);
 }
 
-.card-header {
+.logo-title {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1;
-    min-width: 0;
 }
 
-.card-header img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    flex-shrink: 0;
+.logo-title h1 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    background: linear-gradient(45deg, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.card-header span {
+.live-dot {
+    color: var(--success);
+    font-size: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Barra Lateral (Sidebar / Drawer) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: #111827;
+    border-right: 1px solid var(--border-color);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h3 {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.close-sidebar {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-filtro {
+    background: #1f2937;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-filtro.active, .btn-filtro:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: #60a5fa;
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* Overlay para la barra lateral */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: none;
+}
+
+.sidebar-overlay.open {
+    display: block;
+}
+
+/* Contenido Principal */
+.main-container {
+    padding: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.status-bar-info {
+    margin-bottom: 12px;
     font-size: 0.85rem;
-    font-weight: bold;
-    color: #f0f6fc;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Cuadrícula de Tarjetas */
+.grid-resultados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .grid-resultados {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tarjeta Estilizada */
+.card-sorteo {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card-sorteo:active {
+    transform: scale(0.98);
+}
+
+.sorteo-realizado {
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.sorteo-realizado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--success);
+}
+
+.sorteo-pendiente {
+    opacity: 0.75;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.loteria-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 75%;
+}
+
+.loteria-info img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.loteria-info span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    flex-shrink: 0;
-}
-
 .hora-badge {
-    background: #21262d;
-    color: #8b949e;
+    background: #1f2937;
+    color: #cbd5e1;
     padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
 }
 
-.card-body img {
-    width: 45px;
-    height: 45px;
+.card-content {
+    text-align: center;
+    padding: 6px 0;
+}
+
+.card-content img {
+    width: 65px;
+    height: 65px;
     object-fit: contain;
+    margin: 4px auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
-.card-body h3 {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #f0f6fc;
-    text-align: right;
+.card-content h3 {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.loading-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+}
+
+.loading-state i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--accent);
 }
