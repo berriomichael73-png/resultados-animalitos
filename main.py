@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import re
 import sqlite3
 import random
+import asyncio
 from collections import Counter
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
@@ -141,48 +142,12 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def procesar_texto_y_extraer(texto, hoy):
-    bloques = texto.split("\n")
-    loteria_actual = None
-
-    for linea in bloques:
-        linea_l = linea.lower().strip()
-        if not linea_l:
-            continue
-
-        # Identificar la lotería activa en el flujo de texto
-        for nombre, conf in LOTERIAS_MAPPING.items():
-            for p in conf["patron"]:
-                if p in linea_l:
-                    loteria_actual = nombre
-                    break
-
-        if loteria_actual:
-            # Buscar coincidencia tipo: "09:00 AM 01 CARNERO" o "01 CARNERO 09:00 AM"
-            m = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', linea, re.IGNORECASE)
-            if not m:
-                m = re.search(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
-                if m:
-                    num, animal, hora = m.group(1), m.group(2), m.group(3)
-                else:
-                    continue
-            else:
-                hora, num, animal = m.group(1), m.group(2), m.group(3)
-
-            num_clean = num.zfill(2)
-            animal_clean = animal.strip().capitalize()
-            hora_clean = hora.strip().upper()
-
-            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                guardar_en_bd(loteria_actual, hora_clean, num_clean, animal_clean, hoy)
-
-def escaneo_multi_fuente():
+def escanear_fuentes_automatico():
     hoy = obtener_fecha_venezuela()
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
 
-    # Fuentes web y canales públicos de Telegram
     fuentes = [
         "https://loteriadehoy.com/",
         "https://lotoven.com/animalitos/",
@@ -196,17 +161,56 @@ def escaneo_multi_fuente():
             res = requests.get(url, headers=headers, timeout=4)
             if res.status_code == 200:
                 soup = BeautifulSoup(res.text, 'html.parser')
-                texto_limpio = soup.get_text("\n", strip=True)
-                procesar_texto_y_extraer(texto_limpio, hoy)
+                bloques = soup.get_text("\n", strip=True).split("\n")
+
+                loteria_actual = None
+                for linea in bloques:
+                    linea_l = linea.lower().strip()
+                    if not linea_l:
+                        continue
+
+                    for nombre, conf in LOTERIAS_MAPPING.items():
+                        for p in conf["patron"]:
+                            if p in linea_l:
+                                loteria_actual = nombre
+                                break
+
+                    if loteria_actual:
+                        m = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', linea, re.IGNORECASE)
+                        if not m:
+                            m = re.search(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
+                            if m:
+                                num, animal, hora = m.group(1), m.group(2), m.group(3)
+                            else:
+                                continue
+                        else:
+                            hora, num, animal = m.group(1), m.group(2), m.group(3)
+
+                        num_clean = num.zfill(2)
+                        animal_clean = animal.strip().capitalize()
+                        hora_clean = hora.strip().upper()
+
+                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                            guardar_en_bd(loteria_actual, hora_clean, num_clean, animal_clean, hoy)
+        except Exception:
+            pass
+
+# Bucle automático en segundo plano
+async def tarea_segundo_plano():
+    while True:
+        try:
+            escanear_fuentes_automatico()
         except Exception as e:
-            print(f"Fallo al consultar fuente {url}: {e}")
+            print(f"Error en tarea automática: {e}")
+        await asyncio.sleep(120)  # Escanea automáticamente cada 2 minutos
+
+@app.on_event("startup")
+async def inicio_automatico():
+    asyncio.create_task(tarea_segundo_plano())
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
-    
-    # Ejecuta la ráfaga de escaneo multi-fuente en orden
-    escaneo_multi_fuente()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
