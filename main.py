@@ -1,4 +1,4 @@
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import re
 import sqlite3
@@ -58,9 +58,12 @@ LOTERIAS_MAPPING = {
 }
 
 HORARIOS_ESTANDAR = [
-    "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
-    "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
-    "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
+    "08:00 AM", "08:15 AM", "08:30 AM", "09:00 AM", "09:15 AM", "09:30 AM",
+    "10:00 AM", "10:15 AM", "10:30 AM", "11:00 AM", "11:15 AM", "11:30 AM",
+    "12:00 PM", "12:15 PM", "12:30 PM", "01:00 PM", "01:15 PM", "01:30 PM",
+    "02:00 PM", "02:15 PM", "02:30 PM", "03:00 PM", "03:15 PM", "03:30 PM",
+    "04:00 PM", "04:15 PM", "04:30 PM", "05:00 PM", "05:15 PM", "05:30 PM",
+    "06:00 PM", "06:15 PM", "06:30 PM", "07:00 PM"
 ]
 
 def obtener_fecha_venezuela():
@@ -100,7 +103,7 @@ def raspar_y_guardar():
     hoy = obtener_fecha_venezuela()
 
     try:
-        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=3)
+        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
             texto = soup.get_text()
@@ -122,6 +125,7 @@ def raspar_y_guardar():
                         break
 
                 if loteria_encontrada:
+                    # Coincide con horas exactas lanzadas por la fuente (09:00 AM, 09:15 AM, 09:30 AM, etc.)
                     matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ\s]+?)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec, re.IGNORECASE)
                     for num, animal, hora in matches:
                         guardar_en_bd(
@@ -135,10 +139,12 @@ def raspar_y_guardar():
         print(f"Error raspando: {e}")
 
 @app.get("/resultados")
-def obtener_resultados(background_tasks: BackgroundTasks):
+def obtener_resultados():
     hoy = obtener_fecha_venezuela()
-    background_tasks.add_task(raspar_y_guardar)
     
+    # Realiza raspado directo antes de consultar la BD
+    raspar_y_guardar()
+
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
@@ -163,13 +169,17 @@ def obtener_resultados(background_tasks: BackgroundTasks):
     lista_final = []
     for loteria, sorteos in dict_por_loteria.items():
         logo = LOTERIAS_MAPPING[loteria]["logo"]
-        for h_estandar in HORARIOS_ESTANDAR:
-            if h_estandar in sorteos:
-                lista_final.append(sorteos[h_estandar])
-            else:
+        
+        # Si la lotería ya tiene sorteos realizados, se presentan sus horarios reales capturados
+        if sorteos:
+            for hora_real, datos in sorteos.items():
+                lista_final.append(datos)
+        else:
+            # Si no ha salido ningún sorteo de esa lotería hoy, muestra horarios base
+            for h_base in ["08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"]:
                 lista_final.append({
                     "loteria": loteria,
-                    "hora": h_estandar,
+                    "hora": h_base,
                     "numero": "--",
                     "animal": "Por salir",
                     "fecha": hoy,
@@ -181,10 +191,13 @@ def obtener_resultados(background_tasks: BackgroundTasks):
     return lista_final
 
 @app.get("/historico")
-def obtener_historico():
+def obtener_historico(fecha: str = None):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
-    cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados ORDER BY fecha DESC, id DESC LIMIT 300")
+    if fecha:
+        cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ? ORDER BY id DESC", (fecha,))
+    else:
+        cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados ORDER BY fecha DESC, id DESC LIMIT 500")
     filas = cursor.fetchall()
     conn.close()
     return [{"loteria": f[0], "hora": f[1], "numero": f[2], "animal": f[3], "fecha": f[4]} for f in filas]
