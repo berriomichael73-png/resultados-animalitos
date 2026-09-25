@@ -149,11 +149,9 @@ def escanear_fuentes_automatico():
     }
 
     fuentes = [
-        "https://loteriadehoy.com/",
         "https://lotoven.com/animalitos/",
-        "https://parley.la/animalitos/",
-        "https://t.me/s/Resultados_Lotto_Activo_Oficial",
-        "https://t.me/s/ResultadosLaGranjita"
+        "https://loteriadehoy.com/",
+        "https://parley.la/animalitos/"
     ]
 
     for url in fuentes:
@@ -161,48 +159,53 @@ def escanear_fuentes_automatico():
             res = requests.get(url, headers=headers, timeout=4)
             if res.status_code == 200:
                 soup = BeautifulSoup(res.text, 'html.parser')
-                bloques = soup.get_text("\n", strip=True).split("\n")
+                texto_completo = soup.get_text()
+                
+                # Divide el documento usando el delimitador de asterisco *
+                secciones = texto_completo.split("*")
 
-                loteria_actual = None
-                for linea in bloques:
-                    linea_l = linea.lower().strip()
-                    if not linea_l:
+                for sec in secciones:
+                    sec_clean = sec.strip()
+                    if not sec_clean:
                         continue
 
+                    # Identificar la lotería analizando el bloque completo
+                    loteria_encontrada = None
+                    sec_lower = sec_clean.lower()
+                    
                     for nombre, conf in LOTERIAS_MAPPING.items():
                         for p in conf["patron"]:
-                            if p in linea_l:
-                                loteria_actual = nombre
+                            if p in sec_lower:
+                                loteria_encontrada = nombre
                                 break
+                        if loteria_encontrada:
+                            break
 
-                    if loteria_actual:
-                        m = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', linea, re.IGNORECASE)
-                        if not m:
-                            m = re.search(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
-                            if m:
-                                num, animal, hora = m.group(1), m.group(2), m.group(3)
-                            else:
-                                continue
-                        else:
-                            hora, num, animal = m.group(1), m.group(2), m.group(3)
+                    if loteria_encontrada:
+                        # Extrae combinaciones: "17 Pavo 08:00 AM" o "08:00 AM 17 Pavo"
+                        matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec_clean, re.IGNORECASE)
+                        if not matches:
+                            matches_inv = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s+(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)', sec_clean, re.IGNORECASE)
+                            for hora, num, animal in matches_inv:
+                                matches.append((num, animal, hora))
 
-                        num_clean = num.zfill(2)
-                        animal_clean = animal.strip().capitalize()
-                        hora_clean = hora.strip().upper()
+                        for num, animal, hora in matches:
+                            num_clean = num.zfill(2)
+                            animal_clean = animal.strip().capitalize()
+                            hora_clean = hora.strip().upper()
 
-                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                            guardar_en_bd(loteria_actual, hora_clean, num_clean, animal_clean, hoy)
+                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                                guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, hoy)
         except Exception:
             pass
 
-# Bucle automático en segundo plano
 async def tarea_segundo_plano():
     while True:
         try:
             escanear_fuentes_automatico()
         except Exception as e:
-            print(f"Error en tarea automática: {e}")
-        await asyncio.sleep(120)  # Escanea automáticamente cada 2 minutos
+            print(f"Error en tarea automatica: {e}")
+        await asyncio.sleep(60)  # Escanea automáticamente cada 60 segundos
 
 @app.on_event("startup")
 async def inicio_automatico():
@@ -211,6 +214,16 @@ async def inicio_automatico():
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
+
+    # Intento de sincronización inmediata si la BD está vacía hoy
+    conn = sqlite3.connect(DB_FILE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM resultados WHERE fecha = ?", (hoy,))
+    total_hoy = cursor.fetchone()[0]
+    conn.close()
+
+    if total_hoy == 0:
+        escanear_fuentes_automatico()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
