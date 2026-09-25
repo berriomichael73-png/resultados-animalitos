@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loterías y Animalitos en Vivo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo-container">
+      <span class="pulse-dot"></span>
+      <h1>ANIMALITOS<span>VE</span></h1>
+    </div>
+    <p class="subtitle">Resultados en tiempo real</p>
+  </header>
+
+  <main class="container">
+    <!-- Barra de Filtros de Loterías -->
+    <div class="filtros-wrapper">
+      <div id="filtros-loterias" class="filtros-container">
+        <button class="btn-filtro active" data-loteria="TODAS">🔥 Todas</button>
+      </div>
+    </div>
+
+    <!-- Indicador de Carga -->
+    <div id="estado" class="estado-card">
+      <div class="spinner"></div>
+      <p id="estado-texto">Conectando con el servidor en vivo...</p>
+    </div>
+
+    <!-- Grid de Tarjetas de Resultados -->
+    <div id="grid-resultados" class="grid-animalitos"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
