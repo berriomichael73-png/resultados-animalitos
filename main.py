@@ -100,7 +100,7 @@ def raspar_y_guardar():
     hoy = obtener_fecha_venezuela()
 
     try:
-        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=5)
+        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=3)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
             texto = soup.get_text()
@@ -137,22 +137,13 @@ def raspar_y_guardar():
 @app.get("/resultados")
 def obtener_resultados(background_tasks: BackgroundTasks):
     hoy = obtener_fecha_venezuela()
+    background_tasks.add_task(raspar_y_guardar)
     
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
     filas = cursor.fetchall()
     conn.close()
-
-    if not filas:
-        raspar_y_guardar()
-        conn = sqlite3.connect(DB_FILE)
-        cursor = conn.cursor()
-        cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
-        filas = cursor.fetchall()
-        conn.close()
-    else:
-        background_tasks.add_task(raspar_y_guardar)
 
     dict_por_loteria = {loteria: {} for loteria in LOTERIAS_MAPPING.keys()}
 
