@@ -31,6 +31,7 @@ def init_db():
             hora TEXT,
             numero TEXT,
             animal TEXT,
+            imagen TEXT,
             fecha TEXT,
             UNIQUE(loteria, hora, fecha)
         )
@@ -129,83 +130,82 @@ def convertir_hora_a_minutos(hora_str):
     except Exception:
         return 9999
 
-def guardar_en_bd(loteria, hora, numero, animal, fecha):
+def guardar_en_bd(loteria, hora, numero, animal, imagen, fecha):
     try:
         conn = sqlite3.connect(DB_FILE)
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT OR REPLACE INTO resultados (loteria, hora, numero, animal, fecha)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (loteria, hora, numero, animal, fecha))
+            INSERT OR REPLACE INTO resultados (loteria, hora, numero, animal, imagen, fecha)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (loteria, hora, numero, animal, imagen, fecha))
         conn.commit()
         conn.close()
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def escanear_fuentes_automatico():
+def escanear_loteriadehoy():
     hoy = obtener_fecha_venezuela()
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
     }
 
-    fuentes = [
-        "https://lotoven.com/animalitos/",
-        "https://loteriadehoy.com/",
-        "https://parley.la/animalitos/"
-    ]
+    try:
+        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=5)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.text, 'html.parser')
+            
+            # Busca todos los contenedores o filas de sorteos
+            bloques = soup.find_all(['div', 'tr', 'article', 'section'])
 
-    for url in fuentes:
-        try:
-            res = requests.get(url, headers=headers, timeout=4)
-            if res.status_code == 200:
-                soup = BeautifulSoup(res.text, 'html.parser')
-                texto_completo = soup.get_text()
-                
-                # Divide el documento usando el delimitador de asterisco *
-                secciones = texto_completo.split("*")
+            for b in bloques:
+                txt = b.get_text(" ", strip=True).lower()
+                if not txt or len(txt) > 2000:
+                    continue
 
-                for sec in secciones:
-                    sec_clean = sec.strip()
-                    if not sec_clean:
-                        continue
-
-                    # Identificar la lotería analizando el bloque completo
-                    loteria_encontrada = None
-                    sec_lower = sec_clean.lower()
-                    
-                    for nombre, conf in LOTERIAS_MAPPING.items():
-                        for p in conf["patron"]:
-                            if p in sec_lower:
-                                loteria_encontrada = nombre
-                                break
-                        if loteria_encontrada:
+                loteria_encontrada = None
+                for nombre, conf in LOTERIAS_MAPPING.items():
+                    for p in conf["patron"]:
+                        if p in txt:
+                            loteria_encontrada = nombre
                             break
-
                     if loteria_encontrada:
-                        # Extrae combinaciones: "17 Pavo 08:00 AM" o "08:00 AM 17 Pavo"
-                        matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec_clean, re.IGNORECASE)
-                        if not matches:
-                            matches_inv = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s+(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)', sec_clean, re.IGNORECASE)
-                            for hora, num, animal in matches_inv:
-                                matches.append((num, animal, hora))
+                        break
 
-                        for num, animal, hora in matches:
-                            num_clean = num.zfill(2)
-                            animal_clean = animal.strip().capitalize()
-                            hora_clean = hora.strip().upper()
+                if loteria_encontrada:
+                    # Extrae la imagen del animalito si está presente en la etiqueta <img>
+                    img_tag = b.find('img')
+                    imagen_url = ""
+                    if img_tag and img_tag.get('src'):
+                        src = img_tag['src']
+                        imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
 
-                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                                guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, hoy)
-        except Exception:
-            pass
+                    # Extrae número, animal y hora
+                    matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', b.get_text(" ", strip=True), re.IGNORECASE)
+                    if not matches:
+                        matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', b.get_text(" ", strip=True), re.IGNORECASE)
+                        for num, animal, hora in matches_inv:
+                            matches.append((hora, num, animal))
+
+                    for hora, num, animal in matches:
+                        num_clean = num.zfill(2)
+                        animal_clean = animal.strip().capitalize()
+                        hora_clean = hora.strip().upper()
+
+                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                            if not imagen_url:
+                                imagen_url = f"https://loteriadehoy.com/images/animalitos/{num_clean}.png"
+                            
+                            guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
+    except Exception as e:
+        print(f"Error en escanear_loteriadehoy: {e}")
 
 async def tarea_segundo_plano():
     while True:
         try:
-            escanear_fuentes_automatico()
+            escanear_loteriadehoy()
         except Exception as e:
             print(f"Error en tarea automatica: {e}")
-        await asyncio.sleep(60)  # Escanea automáticamente cada 60 segundos
+        await asyncio.sleep(60)
 
 @app.on_event("startup")
 async def inicio_automatico():
@@ -215,7 +215,6 @@ async def inicio_automatico():
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
 
-    # Intento de sincronización inmediata si la BD está vacía hoy
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT COUNT(*) FROM resultados WHERE fecha = ?", (hoy,))
@@ -223,23 +222,24 @@ def obtener_resultados():
     conn.close()
 
     if total_hoy == 0:
-        escanear_fuentes_automatico()
+        escanear_loteriadehoy()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
-    cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
+    cursor.execute("SELECT loteria, hora, numero, animal, imagen, fecha FROM resultados WHERE fecha = ?", (hoy,))
     filas = cursor.fetchall()
     conn.close()
 
     datos_obtenidos = {loteria: {} for loteria in LOTERIAS_MAPPING.keys()}
     for f in filas:
-        loteria, hora, num, animal, fecha = f[0], f[1], f[2], f[3], f[4]
+        loteria, hora, num, animal, img, fecha = f[0], f[1], f[2], f[3], f[4], f[5]
         if loteria in datos_obtenidos:
             datos_obtenidos[loteria][hora] = {
                 "loteria": loteria,
                 "hora": hora,
                 "numero": num,
                 "animal": animal,
+                "imagen_animal": img,
                 "fecha": fecha,
                 "logo_loteria": LOTERIAS_MAPPING[loteria]["logo"],
                 "realizado": True
@@ -261,6 +261,7 @@ def obtener_resultados():
                     "hora": h_oficial,
                     "numero": "--",
                     "animal": "Por salir",
+                    "imagen_animal": "https://loteriadehoy.com/images/por-salir.png",
                     "fecha": hoy,
                     "logo_loteria": logo,
                     "realizado": False
@@ -274,12 +275,12 @@ def obtener_historico(fecha: str = None):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     if fecha:
-        cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ? ORDER BY id DESC", (fecha,))
+        cursor.execute("SELECT loteria, hora, numero, animal, imagen, fecha FROM resultados WHERE fecha = ? ORDER BY id DESC", (fecha,))
     else:
-        cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados ORDER BY fecha DESC, id DESC LIMIT 500")
+        cursor.execute("SELECT loteria, hora, numero, animal, imagen, fecha FROM resultados ORDER BY fecha DESC, id DESC LIMIT 500")
     filas = cursor.fetchall()
     conn.close()
-    return [{"loteria": f[0], "hora": f[1], "numero": f[2], "animal": f[3], "fecha": f[4]} for f in filas]
+    return [{"loteria": f[0], "hora": f[1], "numero": f[2], "animal": f[3], "imagen_animal": f[4], "fecha": f[5]} for f in filas]
 
 @app.get("/estadisticas")
 def obtener_estadisticas_y_prediccion():
