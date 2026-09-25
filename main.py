@@ -6,7 +6,7 @@ import random
 from collections import Counter
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
-from curl_cffi import requests
+import requests
 
 app = FastAPI()
 
@@ -96,12 +96,11 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
         print(f"Error guardando en BD: {e}")
 
 def raspar_y_guardar():
-    session = requests.Session()
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     hoy = obtener_fecha_venezuela()
 
     try:
-        res = session.get("https://lotoven.com/animalitos/", headers=headers, timeout=6)
+        res = requests.get("https://lotoven.com/animalitos/", headers=headers, timeout=5)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
             texto = soup.get_text()
@@ -145,7 +144,6 @@ def obtener_resultados(background_tasks: BackgroundTasks):
     filas = cursor.fetchall()
     conn.close()
 
-    # Si la BD esta vacia para hoy, raspamos directamente en sincronia
     if not filas:
         raspar_y_guardar()
         conn = sqlite3.connect(DB_FILE)
@@ -154,7 +152,6 @@ def obtener_resultados(background_tasks: BackgroundTasks):
         filas = cursor.fetchall()
         conn.close()
     else:
-        # Si ya hay datos, mandamos a actualizar en segundo plano para el proximo request
         background_tasks.add_task(raspar_y_guardar)
 
     dict_por_loteria = {loteria: {} for loteria in LOTERIAS_MAPPING.keys()}
@@ -172,7 +169,6 @@ def obtener_resultados(background_tasks: BackgroundTasks):
                 "realizado": True
             }
 
-    # Completar los horarios que faltan con 'Por salir'
     lista_final = []
     for loteria, sorteos in dict_por_loteria.items():
         logo = LOTERIAS_MAPPING[loteria]["logo"]
@@ -190,9 +186,7 @@ def obtener_resultados(background_tasks: BackgroundTasks):
                     "realizado": False
                 })
 
-    # Ordenar por hora
     lista_final.sort(key=lambda x: (x["loteria"], convertir_hora_a_minutos(x["hora"])))
-
     return lista_final
 
 @app.get("/historico")
@@ -202,7 +196,6 @@ def obtener_historico():
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados ORDER BY fecha DESC, id DESC LIMIT 300")
     filas = cursor.fetchall()
     conn.close()
-
     return [{"loteria": f[0], "hora": f[1], "numero": f[2], "animal": f[3], "fecha": f[4]} for f in filas]
 
 @app.get("/estadisticas")
@@ -220,7 +213,6 @@ def obtener_estadisticas_y_prediccion():
         data_por_loteria[loteria].append((num, animal))
 
     respuesta = {}
-
     for loteria in LOTERIAS_MAPPING.keys():
         registros = data_por_loteria.get(loteria, [])
         if not registros:
