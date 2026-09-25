@@ -141,60 +141,72 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def raspar_loteriadehoy():
+def procesar_texto_y_extraer(texto, hoy):
+    bloques = texto.split("\n")
+    loteria_actual = None
+
+    for linea in bloques:
+        linea_l = linea.lower().strip()
+        if not linea_l:
+            continue
+
+        # Identificar la lotería activa en el flujo de texto
+        for nombre, conf in LOTERIAS_MAPPING.items():
+            for p in conf["patron"]:
+                if p in linea_l:
+                    loteria_actual = nombre
+                    break
+
+        if loteria_actual:
+            # Buscar coincidencia tipo: "09:00 AM 01 CARNERO" o "01 CARNERO 09:00 AM"
+            m = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', linea, re.IGNORECASE)
+            if not m:
+                m = re.search(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', linea, re.IGNORECASE)
+                if m:
+                    num, animal, hora = m.group(1), m.group(2), m.group(3)
+                else:
+                    continue
+            else:
+                hora, num, animal = m.group(1), m.group(2), m.group(3)
+
+            num_clean = num.zfill(2)
+            animal_clean = animal.strip().capitalize()
+            hora_clean = hora.strip().upper()
+
+            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                guardar_en_bd(loteria_actual, hora_clean, num_clean, animal_clean, hoy)
+
+def escaneo_multi_fuente():
     hoy = obtener_fecha_venezuela()
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
     }
 
-    try:
-        res = requests.get("https://loteriadehoy.com/", headers=headers, timeout=6)
-        if res.status_code == 200:
-            soup = BeautifulSoup(res.text, 'html.parser')
-            
-            # Recorrer contenedores principales de loteriadehoy.com
-            bloques = soup.find_all(['div', 'section', 'article', 'tr'])
+    # Fuentes web y canales públicos de Telegram
+    fuentes = [
+        "https://loteriadehoy.com/",
+        "https://lotoven.com/animalitos/",
+        "https://parley.la/animalitos/",
+        "https://t.me/s/Resultados_Lotto_Activo_Oficial",
+        "https://t.me/s/ResultadosLaGranjita"
+    ]
 
-            for b in bloques:
-                txt = b.get_text(" ", strip=True)
-                if len(txt) > 2500:
-                    continue
-
-                loteria_encontrada = None
-                for nombre, conf in LOTERIAS_MAPPING.items():
-                    for p in conf["patron"]:
-                        if p in txt.lower():
-                            loteria_encontrada = nombre
-                            break
-                    if loteria_encontrada:
-                        break
-
-                if loteria_encontrada:
-                    # Coincidencia para patrones de loteriadehoy.com: "09:00 AM - 01 CARNERO" o "01 CARNERO 09:00 AM"
-                    matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', txt, re.IGNORECASE)
-                    if not matches:
-                        matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
-                        for num, animal, hora in matches_inv:
-                            matches.append((hora, num, animal))
-
-                    for hora, num, animal in matches:
-                        h_clean = hora.strip().upper()
-                        num_clean = num.zfill(2)
-                        animal_clean = animal.strip().capitalize()
-                        
-                        if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
-                            guardar_en_bd(loteria_encontrada, h_clean, num_clean, animal_clean, hoy)
-
-    except Exception as e:
-        print(f"Error raspando loteriadehoy.com: {e}")
+    for url in fuentes:
+        try:
+            res = requests.get(url, headers=headers, timeout=4)
+            if res.status_code == 200:
+                soup = BeautifulSoup(res.text, 'html.parser')
+                texto_limpio = soup.get_text("\n", strip=True)
+                procesar_texto_y_extraer(texto_limpio, hoy)
+        except Exception as e:
+            print(f"Fallo al consultar fuente {url}: {e}")
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # Sincronización en vivo desde loteriadehoy.com
-    raspar_loteriadehoy()
+    # Ejecuta la ráfaga de escaneo multi-fuente en orden
+    escaneo_multi_fuente()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
