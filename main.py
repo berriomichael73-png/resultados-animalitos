@@ -5,6 +5,7 @@ import sqlite3
 import random
 from collections import Counter
 from datetime import datetime, timezone, timedelta
+from bs4 import BeautifulSoup
 import requests
 
 app = FastAPI()
@@ -41,19 +42,19 @@ def init_db():
 init_db()
 
 LOTERIAS_MAPPING = {
-    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png", "code": "lotto-activo"},
-    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png", "code": "la-granjita"},
-    "Monje Millonario": {"logo": "https://loteriadehoy.com/images/monje-millonario.png", "code": "monje-millonario"},
-    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png", "code": "guacharo-activo"},
-    "El Guacharito": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png", "code": "el-guacharito"},
-    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png", "code": "selva-plus"},
-    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png", "code": "centena-plus"},
-    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png", "code": "mega-animal-40"},
-    "Lotto Activo RD": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png", "code": "lotto-activo-rd"},
-    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png", "code": "centena-animalitos"},
-    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png", "code": "ruleta-activa"},
-    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png", "code": "chance-con-animalitos"},
-    "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "code": "la-ricachona"}
+    "Lotto Activo": {"logo": "https://loteriadehoy.com/images/lotto-activo.png", "patron": ["lotto activo"]},
+    "La Granjita": {"logo": "https://loteriadehoy.com/images/la-granjita.png", "patron": ["la granjita"]},
+    "Monje Millonario": {"logo": "https://loteriadehoy.com/images/monje-millonario.png", "patron": ["monje", "lotto activo 2"]},
+    "Guacharo Activo": {"logo": "https://loteriadehoy.com/images/guacharo-activo.png", "patron": ["guacharo activo"]},
+    "El Guacharito": {"logo": "https://loteriadehoy.com/images/el-guacharito-millonario.png", "patron": ["el guacharito", "guacharito"]},
+    "Selva Plus": {"logo": "https://loteriadehoy.com/images/selva-plus.png", "patron": ["selva plus"]},
+    "Centena Plus": {"logo": "https://loteriadehoy.com/images/centena-plus.png", "patron": ["centena plus"]},
+    "Mega Animal 40": {"logo": "https://loteriadehoy.com/images/mega-animal-40.png", "patron": ["mega animal"]},
+    "Lotto Activo RD": {"logo": "https://loteriadehoy.com/images/lotto-activo-rd-int.png", "patron": ["lotto activo rd", "rd"]},
+    "Centena Animalitos": {"logo": "https://loteriadehoy.com/images/centena-animalitos.png", "patron": ["centena animalitos"]},
+    "Ruleta Activa": {"logo": "https://loteriadehoy.com/images/ruleta-activa.png", "patron": ["ruleta activa"]},
+    "Chance Con Animalitos": {"logo": "https://loteriadehoy.com/images/chance-con-animalitos.png", "patron": ["chance"]},
+    "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["ricachona"]}
 }
 
 HORARIOS_BASE = [
@@ -94,35 +95,63 @@ def guardar_en_bd(loteria, hora, numero, animal, fecha):
     except Exception as e:
         print(f"Error guardando en BD: {e}")
 
-def sincronizar_api_directa():
+def sincronizar_resultados_en_vivo():
     hoy = obtener_fecha_venezuela()
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'es-ES,es;q=0.9'
+    }
 
-    # Endpoint de respaldo JSON directo de TuAzar / Loterias
-    url_api = f"https://api.tuazar.com/v1/animalitos/resultados/{hoy}"
+    urls_fuente = [
+        "https://loteriadehoy.com/",
+        "https://lotoven.com/animalitos/"
+    ]
 
-    try:
-        res = requests.get(url_api, headers=headers, timeout=5)
-        if res.status_code == 200:
-            datos = res.json()
-            for item in datos.get("resultados", []):
-                nombre_lot = item.get("loteria")
-                hora = item.get("hora")
-                num = str(item.get("numero")).zfill(2)
-                animal = item.get("animal")
+    for url in urls_fuente:
+        try:
+            res = requests.get(url, headers=headers, timeout=6)
+            if res.status_code == 200:
+                soup = BeautifulSoup(res.text, 'html.parser')
+                bloques = soup.find_all(['div', 'section', 'article', 'table'])
 
-                for lot_oficial, conf in LOTERIAS_MAPPING.items():
-                    if conf["code"] in nombre_lot.lower() or lot_oficial.lower() in nombre_lot.lower():
-                        guardar_en_bd(lot_oficial, hora, num, animal, hoy)
-    except Exception as e:
-        print(f"Fallback API: {e}")
+                for b in bloques:
+                    txt = b.get_text(" ", strip=True)
+                    if len(txt) > 3000:
+                        continue
+
+                    loteria_encontrada = None
+                    for nombre, conf in LOTERIAS_MAPPING.items():
+                        for p in conf["patron"]:
+                            if p in txt.lower():
+                                loteria_encontrada = nombre
+                                break
+                        if loteria_encontrada:
+                            break
+
+                    if loteria_encontrada:
+                        matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', txt, re.IGNORECASE)
+                        if not matches:
+                            matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', txt, re.IGNORECASE)
+                            for num, animal, hora in matches_inv:
+                                matches.append((hora, num, animal))
+
+                        for hora, num, animal in matches:
+                            h_clean = hora.strip().upper()
+                            num_clean = num.zfill(2)
+                            animal_clean = animal.strip().capitalize()
+                            
+                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                                guardar_en_bd(loteria_encontrada, h_clean, num_clean, animal_clean, hoy)
+
+        except Exception as e:
+            print(f"Error procesando {url}: {e}")
 
 @app.get("/resultados")
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # Intentar sincronizar por API directa
-    sincronizar_api_directa()
+    sincronizar_resultados_en_vivo()
 
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
