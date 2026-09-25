@@ -57,6 +57,12 @@ LOTERIAS_MAPPING = {
     "La Ricachona": {"logo": "https://loteriadehoy.com/images/la-ricachona.png", "patron": ["ricachona"]}
 }
 
+HORARIOS_BASE = [
+    "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
+    "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM",
+    "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM"
+]
+
 def obtener_fecha_venezuela():
     tz_ve = timezone(timedelta(hours=-4))
     return datetime.now(tz_ve).strftime("%Y-%m-%d")
@@ -116,7 +122,6 @@ def raspar_y_guardar_dinamico():
                         break
 
                 if loteria_encontrada:
-                    # Captura flexible para formatos: "01 CARNERO 09:00 AM" o "09:00 AM - 01 CARNERO"
                     matches = re.findall(r'(\d{1,2})\s+([A-Za-zÁÉÍÓÚáéíóúÑñ\s]+?)\s+(\d{1,2}:\d{2}\s*(?:AM|PM))', sec, re.IGNORECASE)
                     for num, animal, hora in matches:
                         guardar_en_bd(
@@ -133,33 +138,60 @@ def raspar_y_guardar_dinamico():
 def obtener_resultados():
     hoy = obtener_fecha_venezuela()
     
-    # 1. Scraping directo en cada petición
+    # 1. Escanear la fuente en tiempo real
     raspar_y_guardar_dinamico()
 
-    # 2. Obtener lo que esté en base de datos
+    # 2. Consultar la base de datos
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute("SELECT loteria, hora, numero, animal, fecha FROM resultados WHERE fecha = ?", (hoy,))
     filas = cursor.fetchall()
     conn.close()
 
-    lista_final = []
-
+    # Mapear los resultados existentes por lotería y hora
+    datos_obtenidos = {loteria: {} for loteria in LOTERIAS_MAPPING.keys()}
     for f in filas:
         loteria, hora, num, animal, fecha = f[0], f[1], f[2], f[3], f[4]
-        logo = LOTERIAS_MAPPING.get(loteria, {}).get("logo", "https://loteriadehoy.com/images/lotto-activo.png")
-        
-        lista_final.append({
-            "loteria": loteria,
-            "hora": hora,
-            "numero": num,
-            "animal": animal,
-            "fecha": fecha,
-            "logo_loteria": logo,
-            "realizado": True
-        })
+        if loteria in datos_obtenidos:
+            datos_obtenidos[loteria][hora] = {
+                "loteria": loteria,
+                "hora": hora,
+                "numero": num,
+                "animal": animal,
+                "fecha": fecha,
+                "logo_loteria": LOTERIAS_MAPPING[loteria]["logo"],
+                "realizado": True
+            }
 
-    # 3. Ordenar cronológicamente
+    lista_final = []
+
+    # 3. Ensamblar la lista garantizando casilleros para cada lotería
+    for loteria, config in LOTERIAS_MAPPING.items():
+        logo = config["logo"]
+        sorteos_loteria = datos_obtenidos[loteria]
+
+        # Si hay sorteos reales grabados, usarlos
+        horas_procesadas = set()
+        for h_real, item in sorteos_loteria.items():
+            lista_final.append(item)
+            horas_procesadas.add(h_real)
+
+        # Completar los horarios base que aún no han salido
+        for h_base in HORARIOS_BASE:
+            # Buscar si existe una hora equivalente ya procesada
+            hora_ya_existe = any(convertir_hora_a_minutos(h_base) == convertir_hora_a_minutos(hp) for hp in horas_procesadas)
+            if not hora_ya_existe:
+                lista_final.append({
+                    "loteria": loteria,
+                    "hora": h_base,
+                    "numero": "--",
+                    "animal": "Por salir",
+                    "fecha": hoy,
+                    "logo_loteria": logo,
+                    "realizado": False
+                })
+
+    # Ordenar por lotería y horario cronológico
     lista_final.sort(key=lambda x: (x["loteria"], convertir_hora_a_minutos(x["hora"])))
     return lista_final
 
