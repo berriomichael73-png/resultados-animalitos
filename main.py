@@ -146,50 +146,65 @@ def escanear_loteriadehoy_sync():
 
     for url in urls_escaneo:
         try:
-            res = requests.get(url, headers=headers, timeout=4)
+            res = requests.get(url, headers=headers, timeout=5)
             if res.status_code == 200:
                 soup = BeautifulSoup(res.text, 'html.parser')
-                bloques = soup.find_all(['div', 'tr', 'article', 'section'])
+                elementos = soup.find_all(['div', 'li', 'article', 'tr', 'td'])
 
-                for b in bloques:
-                    txt = b.get_text(" ", strip=True).lower()
-                    if not txt or len(txt) > 2000:
+                for el in elementos:
+                    texto_completo = el.get_text(" ", strip=True)
+                    if not texto_completo or len(texto_completo) > 300:
                         continue
 
                     loteria_encontrada = None
                     for nombre, conf in LOTERIAS_MAPPING.items():
                         for p in conf["patron"]:
-                            if p in txt:
+                            if p in texto_completo.lower():
                                 loteria_encontrada = nombre
                                 break
                         if loteria_encontrada:
                             break
 
                     if loteria_encontrada:
-                        img_tag = b.find('img')
-                        imagen_url = ""
-                        if img_tag and img_tag.get('src'):
-                            src = img_tag['src']
-                            imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
+                        match_hora = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))', texto_completo, re.IGNORECASE)
+                        match_num = re.search(r'\b(0?[0-3][0-6]|[1-9])\b', texto_completo)
+                        
+                        if match_hora:
+                            hora_clean = match_hora.group(1).upper()
+                            
+                            img_tag = el.find('img')
+                            imagen_url = ""
+                            num_clean = "--"
+                            animal_clean = "Por salir"
+                            
+                            if img_tag and img_tag.get('src'):
+                                src = img_tag['src']
+                                if 'por-salir' not in src and 'logo' not in src:
+                                    imagen_url = src if src.startswith('http') else f"https://loteriadehoy.com{src}"
+                                    match_img_num = re.search(r'/(\d{1,2})\.png', src)
+                                    if match_img_num:
+                                        num_clean = match_img_num.group(1).zfill(2)
 
-                        matches = re.findall(r'(\d{1,2}:\d{2}\s*(?:AM|PM))\s*[-:\s]?\s*(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})', b.get_text(" ", strip=True), re.IGNORECASE)
-                        if not matches:
-                            matches_inv = re.findall(r'(\d{1,2})\s*[-:\s]?\s*([A-Za-zÁÉÍÓÚáéíóúÑñ]{3,})\s*[-:\s]?\s*(\d{1,2}:\d{2}\s*(?:AM|PM))', b.get_text(" ", strip=True), re.IGNORECASE)
-                            for num, animal, hora in matches_inv:
-                                matches.append((hora, num, animal))
+                            if match_num and num_clean == "--":
+                                num_val = int(match_num.group(1))
+                                if 0 <= num_val <= 36:
+                                    num_clean = str(num_val).zfill(2)
 
-                        for hora, num, animal in matches:
-                            num_clean = num.zfill(2)
-                            animal_clean = animal.strip().capitalize()
-                            hora_clean = hora.strip().upper()
+                            palabras = texto_completo.split()
+                            for i, palabra in enumerate(palabras):
+                                if ":" in palabra and ("AM" in palabra.upper() or "PM" in palabra.upper()):
+                                    if i + 2 < len(palabras):
+                                        potencial_animal = palabras[i+2]
+                                        if not re.search(r'\d', potencial_animal) and len(potencial_animal) > 2:
+                                            animal_clean = potencial_animal.capitalize()
 
-                            if animal_clean.upper() not in ["RESULTADO", "RESULTADOS", "SORTEO", "AM", "PM"]:
+                            if num_clean != "--":
                                 if not imagen_url:
                                     imagen_url = f"https://loteriadehoy.com/images/animalitos/{num_clean}.png"
                                 
                                 guardar_en_bd(loteria_encontrada, hora_clean, num_clean, animal_clean, imagen_url, hoy)
         except Exception as e:
-            print(f"Error escaneando {url}: {e}")
+            print(f"Error en escaneo: {e}")
 
 async def tarea_segundo_plano():
     while True:
